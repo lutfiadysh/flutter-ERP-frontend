@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+@RoutePage()
 class GoogleMaps extends StatefulWidget {
   const GoogleMaps({super.key});
 

@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/proy/databases/users_datasource.dart';
 import 'package:admin_dashboard/proy/providers/users_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+@RoutePage()
 class Datatable extends StatefulWidget {
   const Datatable({super.key});
 

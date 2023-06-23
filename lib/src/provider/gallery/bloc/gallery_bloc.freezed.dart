@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'gallery_bloc.dart';
 
@@ -25,8 +25,8 @@ mixin _$GalleryEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index)? next,
-    TResult Function(int index)? previous,
+    TResult? Function(int index)? next,
+    TResult? Function(int index)? previous,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,8 +44,8 @@ mixin _$GalleryEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Next value)? next,
-    TResult Function(_Previous value)? previous,
+    TResult? Function(_Next value)? next,
+    TResult? Function(_Previous value)? previous,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,28 +65,32 @@ mixin _$GalleryEvent {
 abstract class $GalleryEventCopyWith<$Res> {
   factory $GalleryEventCopyWith(
           GalleryEvent value, $Res Function(GalleryEvent) then) =
-      _$GalleryEventCopyWithImpl<$Res>;
+      _$GalleryEventCopyWithImpl<$Res, GalleryEvent>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class _$GalleryEventCopyWithImpl<$Res> implements $GalleryEventCopyWith<$Res> {
+class _$GalleryEventCopyWithImpl<$Res, $Val extends GalleryEvent>
+    implements $GalleryEventCopyWith<$Res> {
   _$GalleryEventCopyWithImpl(this._value, this._then);
 
-  final GalleryEvent _value;
   // ignore: unused_field
-  final $Res Function(GalleryEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_value.copyWith(
-      index: index == freezed
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -95,24 +99,24 @@ abstract class _$$_NextCopyWith<$Res> implements $GalleryEventCopyWith<$Res> {
   factory _$$_NextCopyWith(_$_Next value, $Res Function(_$_Next) then) =
       __$$_NextCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_NextCopyWithImpl<$Res> extends _$GalleryEventCopyWithImpl<$Res>
+class __$$_NextCopyWithImpl<$Res>
+    extends _$GalleryEventCopyWithImpl<$Res, _$_Next>
     implements _$$_NextCopyWith<$Res> {
   __$$_NextCopyWithImpl(_$_Next _value, $Res Function(_$_Next) _then)
-      : super(_value, (v) => _then(v as _$_Next));
+      : super(_value, _then);
 
-  @override
-  _$_Next get _value => super._value as _$_Next;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_Next(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -138,15 +142,15 @@ class _$_Next implements _Next {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Next &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NextCopyWith<_$_Next> get copyWith =>
       __$$_NextCopyWithImpl<_$_Next>(this, _$identity);
 
@@ -162,8 +166,8 @@ class _$_Next implements _Next {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index)? next,
-    TResult Function(int index)? previous,
+    TResult? Function(int index)? next,
+    TResult? Function(int index)? previous,
   }) {
     return next?.call(index);
   }
@@ -193,8 +197,8 @@ class _$_Next implements _Next {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Next value)? next,
-    TResult Function(_Previous value)? previous,
+    TResult? Function(_Next value)? next,
+    TResult? Function(_Previous value)? previous,
   }) {
     return next?.call(this);
   }
@@ -230,25 +234,25 @@ abstract class _$$_PreviousCopyWith<$Res>
           _$_Previous value, $Res Function(_$_Previous) then) =
       __$$_PreviousCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_PreviousCopyWithImpl<$Res> extends _$GalleryEventCopyWithImpl<$Res>
+class __$$_PreviousCopyWithImpl<$Res>
+    extends _$GalleryEventCopyWithImpl<$Res, _$_Previous>
     implements _$$_PreviousCopyWith<$Res> {
   __$$_PreviousCopyWithImpl(
       _$_Previous _value, $Res Function(_$_Previous) _then)
-      : super(_value, (v) => _then(v as _$_Previous));
+      : super(_value, _then);
 
-  @override
-  _$_Previous get _value => super._value as _$_Previous;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_Previous(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -274,15 +278,15 @@ class _$_Previous implements _Previous {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Previous &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PreviousCopyWith<_$_Previous> get copyWith =>
       __$$_PreviousCopyWithImpl<_$_Previous>(this, _$identity);
 
@@ -298,8 +302,8 @@ class _$_Previous implements _Previous {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index)? next,
-    TResult Function(int index)? previous,
+    TResult? Function(int index)? next,
+    TResult? Function(int index)? previous,
   }) {
     return previous?.call(index);
   }
@@ -329,8 +333,8 @@ class _$_Previous implements _Previous {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Next value)? next,
-    TResult Function(_Previous value)? previous,
+    TResult? Function(_Next value)? next,
+    TResult? Function(_Previous value)? previous,
   }) {
     return previous?.call(this);
   }
@@ -371,9 +375,9 @@ mixin _$GalleryState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -393,9 +397,9 @@ mixin _$GalleryState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -412,16 +416,18 @@ mixin _$GalleryState {
 abstract class $GalleryStateCopyWith<$Res> {
   factory $GalleryStateCopyWith(
           GalleryState value, $Res Function(GalleryState) then) =
-      _$GalleryStateCopyWithImpl<$Res>;
+      _$GalleryStateCopyWithImpl<$Res, GalleryState>;
 }
 
 /// @nodoc
-class _$GalleryStateCopyWithImpl<$Res> implements $GalleryStateCopyWith<$Res> {
+class _$GalleryStateCopyWithImpl<$Res, $Val extends GalleryState>
+    implements $GalleryStateCopyWith<$Res> {
   _$GalleryStateCopyWithImpl(this._value, this._then);
 
-  final GalleryState _value;
   // ignore: unused_field
-  final $Res Function(GalleryState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -432,13 +438,11 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$GalleryStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$GalleryStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -473,9 +477,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
   }) {
     return initial?.call();
   }
@@ -507,9 +511,9 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
   }) {
     return initial?.call(this);
   }
@@ -538,26 +542,25 @@ abstract class _$$_NextSuccessCopyWith<$Res> {
   factory _$$_NextSuccessCopyWith(
           _$_NextSuccess value, $Res Function(_$_NextSuccess) then) =
       __$$_NextSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_NextSuccessCopyWithImpl<$Res>
-    extends _$GalleryStateCopyWithImpl<$Res>
+    extends _$GalleryStateCopyWithImpl<$Res, _$_NextSuccess>
     implements _$$_NextSuccessCopyWith<$Res> {
   __$$_NextSuccessCopyWithImpl(
       _$_NextSuccess _value, $Res Function(_$_NextSuccess) _then)
-      : super(_value, (v) => _then(v as _$_NextSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_NextSuccess get _value => super._value as _$_NextSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_NextSuccess(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -583,15 +586,15 @@ class _$_NextSuccess implements _NextSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NextSuccess &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NextSuccessCopyWith<_$_NextSuccess> get copyWith =>
       __$$_NextSuccessCopyWithImpl<_$_NextSuccess>(this, _$identity);
 
@@ -608,9 +611,9 @@ class _$_NextSuccess implements _NextSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
   }) {
     return nextSuccess?.call(index);
   }
@@ -642,9 +645,9 @@ class _$_NextSuccess implements _NextSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
   }) {
     return nextSuccess?.call(this);
   }
@@ -678,26 +681,25 @@ abstract class _$$_PreviousSuccessCopyWith<$Res> {
   factory _$$_PreviousSuccessCopyWith(
           _$_PreviousSuccess value, $Res Function(_$_PreviousSuccess) then) =
       __$$_PreviousSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_PreviousSuccessCopyWithImpl<$Res>
-    extends _$GalleryStateCopyWithImpl<$Res>
+    extends _$GalleryStateCopyWithImpl<$Res, _$_PreviousSuccess>
     implements _$$_PreviousSuccessCopyWith<$Res> {
   __$$_PreviousSuccessCopyWithImpl(
       _$_PreviousSuccess _value, $Res Function(_$_PreviousSuccess) _then)
-      : super(_value, (v) => _then(v as _$_PreviousSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_PreviousSuccess get _value => super._value as _$_PreviousSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_PreviousSuccess(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -723,15 +725,15 @@ class _$_PreviousSuccess implements _PreviousSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PreviousSuccess &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PreviousSuccessCopyWith<_$_PreviousSuccess> get copyWith =>
       __$$_PreviousSuccessCopyWithImpl<_$_PreviousSuccess>(this, _$identity);
 
@@ -748,9 +750,9 @@ class _$_PreviousSuccess implements _PreviousSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
   }) {
     return previousSuccess?.call(index);
   }
@@ -782,9 +784,9 @@ class _$_PreviousSuccess implements _PreviousSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
   }) {
     return previousSuccess?.call(this);
   }

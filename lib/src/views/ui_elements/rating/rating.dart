@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/utils/responsive.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/flutterx.dart';
 
+@RoutePage()
 class Rating extends StatefulWidget {
   const Rating({Key? key}) : super(key: key);
 

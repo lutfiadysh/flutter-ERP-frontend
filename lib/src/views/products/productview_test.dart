@@ -2,7 +2,6 @@ import 'package:admin_dashboard/proy/providers/products_provider.dart';
 import 'package:admin_dashboard/proy/services/notification_service.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/flutterx.dart';
 import 'package:provider/provider.dart';
 
 import '../../../proy/models/product.dart';
@@ -34,19 +33,17 @@ class _ProductViewTestState extends State<ProductViewTest> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Builder(builder: (context) {
-        if (producto == null) {
-          return Container(
-            alignment: Alignment.center,
-            height: 300,
-            child: const CircularProgressIndicator(),
-          );
-        } else {
-          return ProductViewModal(producto: producto);
-        }
-      }),
-    );
+    return Builder(builder: (context) {
+      if (producto == null) {
+        return Container(
+          alignment: Alignment.center,
+          height: 300,
+          child: const CircularProgressIndicator(),
+        );
+      } else {
+        return ProductViewModal(producto: producto);
+      }
+    });
   }
 }
 
@@ -61,17 +58,15 @@ class ProductViewModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: SizedBox(
-        width: double.infinity,
-        child: Container(
-          child: Column(
-            children: [
-              _AvatarContainerMobile(producto: producto),
-              FxBox.h20,
-              _UserData(producto: producto),
-            ],
-          ),
+      padding: const EdgeInsets.all(16.0),
+      child: SingleChildScrollView(
+        // Agrega esto para solucionar el desbordamiento
+        child: Column(
+          children: [
+            _AvatarContainerMobile(producto: producto),
+            const SizedBox(height: 20),
+            _UserData(producto: producto),
+          ],
         ),
       ),
     );
@@ -88,26 +83,14 @@ class _UserData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? nombre;
-    double? precioPorCaja;
-    double? precioPorUnidad;
-
-    final productsProvider =
-        Provider.of<ProductsProvider>(context, listen: false);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          producto!.nombre,
-          style: const TextStyle(
-            fontSize: 28.0,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+        _buildTituloProducto(),
         const SizedBox(height: 20),
-        TextFormField(
+        _buildTextField(
           initialValue: producto!.nombre,
-          onChanged: (value) => nombre = value,
+          hint: "Ingrese el nombre del producto",
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Ingrese un nombre.';
@@ -119,137 +102,133 @@ class _UserData extends StatelessWidget {
           },
         ),
         const SizedBox(height: 20),
-        TextFormField(
+        _buildTextField(
           initialValue: producto!.precioCaja.toString(),
+          hint: "Ingrese el precio por caja",
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
-          onChanged: (value) {
-            final parsedValue = double.tryParse(value);
-            if (parsedValue != null) {
-              precioPorCaja = parsedValue;
-            }
-          },
         ),
         const SizedBox(height: 20),
-        TextFormField(
+        _buildTextField(
           initialValue: producto!.precioPorUnidad.toString(),
+          hint: "Ingrese el precio por unidad",
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
-          onChanged: (value) {
-            final parsedValue = double.tryParse(value);
-            if (parsedValue != null) {
-              precioPorUnidad = parsedValue;
-            }
-          },
         ),
         const SizedBox(height: 20),
-        Align(
-          alignment: Alignment.centerRight,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 120, maxHeight: 45),
-            child: ElevatedButton(
-                onPressed: () async {
-                  final String updatedNombre = nombre ?? producto!.nombre;
-                  final double? updatedPrecioPorCaja =
-                      precioPorCaja ?? producto!.precioCaja;
-                  final double? updatedPrecioPorUnidad =
-                      precioPorUnidad ?? producto!.precioPorUnidad;
-
-                  final saved = await productsProvider.updateProduct(
-                      producto!.id,
-                      updatedNombre,
-                      updatedPrecioPorCaja,
-                      updatedPrecioPorUnidad);
-                  if (saved) {
-                    Navigator.pop(context);
-                    NotificationsService.showSnackbar('Producto actualizado');
-                  } else {
-                    Navigator.pop(context);
-                    NotificationsService.showSnackbarError(
-                        'No se pudo guardar');
-                  }
-                },
-                child: Row(
-                  children: const [
-                    Icon(Icons.save_outlined, size: 20),
-                    Text(' Guardar ')
-                  ],
-                )),
-          ),
-        )
+        _buildSaveButton(context),
       ],
+    );
+  }
+
+  Widget _buildTextField(
+      {required String initialValue,
+      required String hint,
+      TextInputType? keyboardType,
+      String? Function(String?)? validator}) {
+    return TextFormField(
+      initialValue: initialValue,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(hintText: hint),
+      validator: validator,
+    );
+  }
+
+  Widget _buildTituloProducto() {
+    return Text(
+      producto!.nombre,
+      style: const TextStyle(
+        fontSize: 28.0,
+        fontWeight: FontWeight.w600,
+      ),
+    );
+  }
+
+  Widget _buildSaveButton(BuildContext context) {
+    final productsProvider =
+        Provider.of<ProductsProvider>(context, listen: false);
+
+    return Align(
+      alignment: Alignment.centerRight,
+      child: ElevatedButton.icon(
+        onPressed: () async {
+          final saved = await productsProvider.updateProduct(
+              producto!.id,
+              producto!.nombre,
+              producto!.precioCaja,
+              producto!.precioPorUnidad);
+          if (saved) {
+            Navigator.pop(context);
+            NotificationsService.showSnackbar('Producto actualizado');
+          } else {
+            Navigator.pop(context);
+            NotificationsService.showSnackbarError('No se pudo guardar');
+          }
+        },
+        icon: const Icon(Icons.save_outlined, size: 20),
+        label: const Text('Guardar'),
+      ),
     );
   }
 }
 
-class _AvatarContainerMobile extends StatelessWidget {
+class _AvatarContainerMobile extends StatefulWidget {
   final Producto? producto;
 
   const _AvatarContainerMobile({this.producto});
 
   @override
+  _AvatarContainerMobileState createState() => _AvatarContainerMobileState();
+}
+
+class _AvatarContainerMobileState extends State<_AvatarContainerMobile> {
+  String? _imageURL;
+
+  @override
+  void initState() {
+    super.initState();
+    _imageURL = widget.producto!.img;
+  }
+
+  @override
   Widget build(BuildContext context) {
     final productsProvider = Provider.of<ProductsProvider>(context);
-    final image = (producto!.img == null)
+
+    Widget image = _imageURL == null
         ? const Image(image: AssetImage('assets/no-image.jpg'))
-        : SizedBox(
-            width: 250,
-            height: 250,
-            child: FadeInImage.assetNetwork(
-              placeholder: 'assets/loader.gif',
-              image: producto!.img!,
-              fit: BoxFit.cover, // ajusta la imagen al contenedor
-              width: 250, // establece un ancho máximo
-              height: 250, // establece un alto máximo
-            ),
+        : FadeInImage.assetNetwork(
+            placeholder: 'assets/loader.gif',
+            image: _imageURL!,
+            fit: BoxFit.cover, // ajusta la imagen al contenedor
+            width: 250, // establece un ancho máximo
+            height: 250, // establece un alto máximo
           );
 
-    return SizedBox(
-      width: 250,
-      height: 250,
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20.0),
-              child: image,
-            ),
-          ),
-          Positioned(
-            bottom: 5,
-            right: 5,
-            child: SizedBox(
-              width: 60,
-              height: 60,
-              child: FloatingActionButton(
-                elevation: 0,
-                child: const Icon(
-                  Icons.camera_alt_outlined,
-                  size: 30,
-                ),
-                onPressed: () async {
-                  FilePickerResult? result = await FilePicker.platform
-                      .pickFiles(
-                          withData: true,
-                          type: FileType.custom,
-                          allowedExtensions: ['jpg', 'png', 'jpeg'],
-                          allowMultiple: false);
+    return InkWell(
+      onLongPress: () async {
+        FilePickerResult? result = await FilePicker.platform.pickFiles(
+          withData: true,
+          type: FileType.custom,
+          allowedExtensions: ['jpg', 'png', 'jpeg'],
+          allowMultiple: false,
+        );
 
-                  if (result != null) {
-                    PlatformFile file = result.files.first;
-                    NotificationsService.showBusyIndicator(context);
-                    final resp = await productsProvider.uploadImage(
-                        '/uploads/productos/${producto!.id}', file.bytes!);
-                    print(resp);
-                    Provider.of<ProductsProvider>(context, listen: false)
-                        .refreshProduct(resp);
-                    Navigator.of(context).pop();
-                  } else {
-                    print('no hay imagen');
-                  }
-                },
-              ),
-            ),
-          )
-        ],
+        if (result != null) {
+          PlatformFile file = result.files.first;
+          NotificationsService.showBusyIndicator(context);
+          final resp = await productsProvider.uploadImage(
+              '/uploads/productos/${widget.producto!.id}', file.bytes!);
+
+          setState(() {
+            _imageURL = resp.img; // actualiza el estado de la imagen
+          });
+
+          Navigator.of(context).pop();
+        } else {
+          print('No hay imagen seleccionada');
+        }
+      },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: image,
       ),
     );
   }

@@ -21,6 +21,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterx/flutterx.dart';
 import 'package:provider/provider.dart';
 
+@RoutePage()
 class MenuBar extends StatefulWidget {
   const MenuBar({Key? key}) : super(key: key);
 
@@ -144,102 +145,92 @@ class _MenuBarState extends State<MenuBar> {
   ];
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
+    return AutoTabsRouter(
+      routes: _routes,
+      builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
-        if (tabsRouter.canPopSelfOrChildren) {
-          tabsRouter.pop();
-          return false;
-        }
-        return true;
-      },
-      child: AutoTabsRouter(
-        routes: _routes,
-        builder: (context, child, animation) {
-          final tabsRouter = AutoTabsRouter.of(context);
-          return Scaffold(
-            resizeToAvoidBottomInset: true,
-            key: _scaffoldKey,
-            endDrawer: Drawer(
-              width: 280,
-              child: SafeArea(child: SettingDrawer(scaffoldKey: _scaffoldKey)),
-            ),
-            appBar: _appBar(tabsRouter),
-            body: SafeArea(
-              child: Scaffold(
-                key: _scaffoldDrawerKey,
-                drawerScrimColor: ColorConst.transparent,
-                drawer: _sidebar(tabsRouter),
-                body: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ValueListenableBuilder<bool>(
-                      valueListenable: isOpen,
-                      builder: (context, value, child) {
-                        return Responsive.isWeb(context)
-                            ? _sidebar(tabsRouter)
-                            : const SizedBox.shrink();
+        return Scaffold(
+          resizeToAvoidBottomInset: true,
+          key: _scaffoldKey,
+          endDrawer: Drawer(
+            width: 280,
+            child: SafeArea(child: SettingDrawer(scaffoldKey: _scaffoldKey)),
+          ),
+          appBar: _appBar(tabsRouter),
+          body: SafeArea(
+            child: Scaffold(
+              key: _scaffoldDrawerKey,
+              drawerScrimColor: ColorConst.transparent,
+              drawer: _sidebar(tabsRouter),
+              body: Row(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ValueListenableBuilder<bool>(
+                    valueListenable: isOpen,
+                    builder: (context, value, child) {
+                      return Responsive.isWeb(context)
+                          ? _sidebar(tabsRouter)
+                          : const SizedBox.shrink();
+                    },
+                  ),
+                  Expanded(
+                    child: LayoutBuilder(
+                      builder:
+                          (BuildContext context, BoxConstraints constraints) {
+                        final double contentHeight = constraints.maxHeight;
+
+                        return SelectionArea(
+                          child: SizedBox(
+                            height: contentHeight,
+                            child: CustomScrollView(
+                              controller: _scrollController,
+                              slivers: [
+                                SliverList(
+                                  delegate: SliverChildListDelegate(
+                                    [
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 24.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            FxBox.h20,
+                                            getRouteWidget(
+                                                tabsRouter.activeIndex),
+                                            FxBox.h20,
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SliverFillRemaining(
+                                  hasScrollBody: false,
+                                  fillOverscroll: true,
+                                  child: Column(
+                                    children: <Widget>[
+                                      const Expanded(
+                                        child: SizedBox.shrink(),
+                                      ),
+                                      _footer(),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
                       },
                     ),
-                    Expanded(
-                      child: LayoutBuilder(
-                        builder:
-                            (BuildContext context, BoxConstraints constraints) {
-                          final double contentHeight = constraints.maxHeight;
-
-                          return SelectionArea(
-                            child: SizedBox(
-                              height: contentHeight,
-                              child: CustomScrollView(
-                                controller: _scrollController,
-                                slivers: [
-                                  SliverList(
-                                    delegate: SliverChildListDelegate(
-                                      [
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 24.0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              FxBox.h20,
-                                              getRouteWidget(
-                                                  tabsRouter.activeIndex),
-                                              FxBox.h20,
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SliverFillRemaining(
-                                    hasScrollBody: false,
-                                    fillOverscroll: true,
-                                    child: Column(
-                                      children: <Widget>[
-                                        const Expanded(
-                                          child: SizedBox.shrink(),
-                                        ),
-                                        _footer(),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 

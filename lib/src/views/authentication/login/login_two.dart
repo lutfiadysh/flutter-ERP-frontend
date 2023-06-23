@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutterx/flutterx.dart';
 
+@RoutePage()
 class LoginTwo extends StatefulWidget {
   const LoginTwo({Key? key}) : super(key: key);
 

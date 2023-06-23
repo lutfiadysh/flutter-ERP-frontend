@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/proy/providers/auth_provider.dart';
 import 'package:admin_dashboard/proy/providers/login_form_provider.dart';
 import 'package:admin_dashboard/src/constant/color.dart';
@@ -16,6 +17,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutterx/flutterx.dart';
 import 'package:provider/provider.dart';
 
+@RoutePage()
 class LoginOne extends StatefulWidget {
   const LoginOne({Key? key}) : super(key: key);
 

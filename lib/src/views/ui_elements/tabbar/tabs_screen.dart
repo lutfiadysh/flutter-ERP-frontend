@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/utils/responsive.dart';
 import 'package:admin_dashboard/src/views/categories/table_categories.dart';
 import 'package:admin_dashboard/src/views/ui_elements/tabbar/tab_view.dart';
 import 'package:flutterx/flutterx.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class TabScreen extends StatefulWidget {
   const TabScreen({Key? key}) : super(key: key);
 

@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/provider/table/editabletable/bloc/editable_table_bloc.dart';
 import 'package:admin_dashboard/src/widget/datatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterx/flutterx.dart';
 
+@RoutePage()
 class EditableTable extends StatefulWidget {
   const EditableTable({Key? key}) : super(key: key);
 

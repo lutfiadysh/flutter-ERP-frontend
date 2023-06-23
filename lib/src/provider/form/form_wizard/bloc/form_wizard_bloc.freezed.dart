@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'form_wizard_bloc.dart';
 
@@ -28,12 +28,12 @@ mixin _$FormWizardEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index, int clickCount)? nextClick,
-    TResult Function(int index)? previousClick,
-    TResult Function(bool isFinish)? finishClick,
-    TResult Function(int index)? stepperClick,
-    TResult Function(String value)? dropDown,
-    TResult Function(bool value)? check,
+    TResult? Function(int index, int clickCount)? nextClick,
+    TResult? Function(int index)? previousClick,
+    TResult? Function(bool isFinish)? finishClick,
+    TResult? Function(int index)? stepperClick,
+    TResult? Function(String value)? dropDown,
+    TResult? Function(bool value)? check,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,12 +59,12 @@ mixin _$FormWizardEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NextClick value)? nextClick,
-    TResult Function(_PreviousClick value)? previousClick,
-    TResult Function(_FinishClick value)? finishClick,
-    TResult Function(_StepperClick value)? stepperClick,
-    TResult Function(_DropDown value)? dropDown,
-    TResult Function(_Check value)? check,
+    TResult? Function(_NextClick value)? nextClick,
+    TResult? Function(_PreviousClick value)? previousClick,
+    TResult? Function(_FinishClick value)? finishClick,
+    TResult? Function(_StepperClick value)? stepperClick,
+    TResult? Function(_DropDown value)? dropDown,
+    TResult? Function(_Check value)? check,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,17 +84,18 @@ mixin _$FormWizardEvent {
 abstract class $FormWizardEventCopyWith<$Res> {
   factory $FormWizardEventCopyWith(
           FormWizardEvent value, $Res Function(FormWizardEvent) then) =
-      _$FormWizardEventCopyWithImpl<$Res>;
+      _$FormWizardEventCopyWithImpl<$Res, FormWizardEvent>;
 }
 
 /// @nodoc
-class _$FormWizardEventCopyWithImpl<$Res>
+class _$FormWizardEventCopyWithImpl<$Res, $Val extends FormWizardEvent>
     implements $FormWizardEventCopyWith<$Res> {
   _$FormWizardEventCopyWithImpl(this._value, this._then);
 
-  final FormWizardEvent _value;
   // ignore: unused_field
-  final $Res Function(FormWizardEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -102,31 +103,30 @@ abstract class _$$_NextClickCopyWith<$Res> {
   factory _$$_NextClickCopyWith(
           _$_NextClick value, $Res Function(_$_NextClick) then) =
       __$$_NextClickCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index, int clickCount});
 }
 
 /// @nodoc
 class __$$_NextClickCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$_NextClick>
     implements _$$_NextClickCopyWith<$Res> {
   __$$_NextClickCopyWithImpl(
       _$_NextClick _value, $Res Function(_$_NextClick) _then)
-      : super(_value, (v) => _then(v as _$_NextClick));
+      : super(_value, _then);
 
-  @override
-  _$_NextClick get _value => super._value as _$_NextClick;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
-    Object? clickCount = freezed,
+    Object? index = null,
+    Object? clickCount = null,
   }) {
     return _then(_$_NextClick(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      clickCount == freezed
+      null == clickCount
           ? _value.clickCount
           : clickCount // ignore: cast_nullable_to_non_nullable
               as int,
@@ -154,19 +154,17 @@ class _$_NextClick implements _NextClick {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NextClick &&
-            const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality()
-                .equals(other.clickCount, clickCount));
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.clickCount, clickCount) ||
+                other.clickCount == clickCount));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(clickCount));
+  int get hashCode => Object.hash(runtimeType, index, clickCount);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NextClickCopyWith<_$_NextClick> get copyWith =>
       __$$_NextClickCopyWithImpl<_$_NextClick>(this, _$identity);
 
@@ -186,12 +184,12 @@ class _$_NextClick implements _NextClick {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index, int clickCount)? nextClick,
-    TResult Function(int index)? previousClick,
-    TResult Function(bool isFinish)? finishClick,
-    TResult Function(int index)? stepperClick,
-    TResult Function(String value)? dropDown,
-    TResult Function(bool value)? check,
+    TResult? Function(int index, int clickCount)? nextClick,
+    TResult? Function(int index)? previousClick,
+    TResult? Function(bool isFinish)? finishClick,
+    TResult? Function(int index)? stepperClick,
+    TResult? Function(String value)? dropDown,
+    TResult? Function(bool value)? check,
   }) {
     return nextClick?.call(index, clickCount);
   }
@@ -229,12 +227,12 @@ class _$_NextClick implements _NextClick {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NextClick value)? nextClick,
-    TResult Function(_PreviousClick value)? previousClick,
-    TResult Function(_FinishClick value)? finishClick,
-    TResult Function(_StepperClick value)? stepperClick,
-    TResult Function(_DropDown value)? dropDown,
-    TResult Function(_Check value)? check,
+    TResult? Function(_NextClick value)? nextClick,
+    TResult? Function(_PreviousClick value)? previousClick,
+    TResult? Function(_FinishClick value)? finishClick,
+    TResult? Function(_StepperClick value)? stepperClick,
+    TResult? Function(_DropDown value)? dropDown,
+    TResult? Function(_Check value)? check,
   }) {
     return nextClick?.call(this);
   }
@@ -273,26 +271,25 @@ abstract class _$$_PreviousClickCopyWith<$Res> {
   factory _$$_PreviousClickCopyWith(
           _$_PreviousClick value, $Res Function(_$_PreviousClick) then) =
       __$$_PreviousClickCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_PreviousClickCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$_PreviousClick>
     implements _$$_PreviousClickCopyWith<$Res> {
   __$$_PreviousClickCopyWithImpl(
       _$_PreviousClick _value, $Res Function(_$_PreviousClick) _then)
-      : super(_value, (v) => _then(v as _$_PreviousClick));
+      : super(_value, _then);
 
-  @override
-  _$_PreviousClick get _value => super._value as _$_PreviousClick;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_PreviousClick(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -318,15 +315,15 @@ class _$_PreviousClick implements _PreviousClick {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PreviousClick &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PreviousClickCopyWith<_$_PreviousClick> get copyWith =>
       __$$_PreviousClickCopyWithImpl<_$_PreviousClick>(this, _$identity);
 
@@ -346,12 +343,12 @@ class _$_PreviousClick implements _PreviousClick {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index, int clickCount)? nextClick,
-    TResult Function(int index)? previousClick,
-    TResult Function(bool isFinish)? finishClick,
-    TResult Function(int index)? stepperClick,
-    TResult Function(String value)? dropDown,
-    TResult Function(bool value)? check,
+    TResult? Function(int index, int clickCount)? nextClick,
+    TResult? Function(int index)? previousClick,
+    TResult? Function(bool isFinish)? finishClick,
+    TResult? Function(int index)? stepperClick,
+    TResult? Function(String value)? dropDown,
+    TResult? Function(bool value)? check,
   }) {
     return previousClick?.call(index);
   }
@@ -389,12 +386,12 @@ class _$_PreviousClick implements _PreviousClick {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NextClick value)? nextClick,
-    TResult Function(_PreviousClick value)? previousClick,
-    TResult Function(_FinishClick value)? finishClick,
-    TResult Function(_StepperClick value)? stepperClick,
-    TResult Function(_DropDown value)? dropDown,
-    TResult Function(_Check value)? check,
+    TResult? Function(_NextClick value)? nextClick,
+    TResult? Function(_PreviousClick value)? previousClick,
+    TResult? Function(_FinishClick value)? finishClick,
+    TResult? Function(_StepperClick value)? stepperClick,
+    TResult? Function(_DropDown value)? dropDown,
+    TResult? Function(_Check value)? check,
   }) {
     return previousClick?.call(this);
   }
@@ -431,26 +428,25 @@ abstract class _$$_FinishClickCopyWith<$Res> {
   factory _$$_FinishClickCopyWith(
           _$_FinishClick value, $Res Function(_$_FinishClick) then) =
       __$$_FinishClickCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool isFinish});
 }
 
 /// @nodoc
 class __$$_FinishClickCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$_FinishClick>
     implements _$$_FinishClickCopyWith<$Res> {
   __$$_FinishClickCopyWithImpl(
       _$_FinishClick _value, $Res Function(_$_FinishClick) _then)
-      : super(_value, (v) => _then(v as _$_FinishClick));
+      : super(_value, _then);
 
-  @override
-  _$_FinishClick get _value => super._value as _$_FinishClick;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isFinish = freezed,
+    Object? isFinish = null,
   }) {
     return _then(_$_FinishClick(
-      isFinish == freezed
+      null == isFinish
           ? _value.isFinish
           : isFinish // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -476,15 +472,16 @@ class _$_FinishClick implements _FinishClick {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FinishClick &&
-            const DeepCollectionEquality().equals(other.isFinish, isFinish));
+            (identical(other.isFinish, isFinish) ||
+                other.isFinish == isFinish));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isFinish));
+  int get hashCode => Object.hash(runtimeType, isFinish);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FinishClickCopyWith<_$_FinishClick> get copyWith =>
       __$$_FinishClickCopyWithImpl<_$_FinishClick>(this, _$identity);
 
@@ -504,12 +501,12 @@ class _$_FinishClick implements _FinishClick {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index, int clickCount)? nextClick,
-    TResult Function(int index)? previousClick,
-    TResult Function(bool isFinish)? finishClick,
-    TResult Function(int index)? stepperClick,
-    TResult Function(String value)? dropDown,
-    TResult Function(bool value)? check,
+    TResult? Function(int index, int clickCount)? nextClick,
+    TResult? Function(int index)? previousClick,
+    TResult? Function(bool isFinish)? finishClick,
+    TResult? Function(int index)? stepperClick,
+    TResult? Function(String value)? dropDown,
+    TResult? Function(bool value)? check,
   }) {
     return finishClick?.call(isFinish);
   }
@@ -547,12 +544,12 @@ class _$_FinishClick implements _FinishClick {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NextClick value)? nextClick,
-    TResult Function(_PreviousClick value)? previousClick,
-    TResult Function(_FinishClick value)? finishClick,
-    TResult Function(_StepperClick value)? stepperClick,
-    TResult Function(_DropDown value)? dropDown,
-    TResult Function(_Check value)? check,
+    TResult? Function(_NextClick value)? nextClick,
+    TResult? Function(_PreviousClick value)? previousClick,
+    TResult? Function(_FinishClick value)? finishClick,
+    TResult? Function(_StepperClick value)? stepperClick,
+    TResult? Function(_DropDown value)? dropDown,
+    TResult? Function(_Check value)? check,
   }) {
     return finishClick?.call(this);
   }
@@ -589,26 +586,25 @@ abstract class _$$_StepperClickCopyWith<$Res> {
   factory _$$_StepperClickCopyWith(
           _$_StepperClick value, $Res Function(_$_StepperClick) then) =
       __$$_StepperClickCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_StepperClickCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$_StepperClick>
     implements _$$_StepperClickCopyWith<$Res> {
   __$$_StepperClickCopyWithImpl(
       _$_StepperClick _value, $Res Function(_$_StepperClick) _then)
-      : super(_value, (v) => _then(v as _$_StepperClick));
+      : super(_value, _then);
 
-  @override
-  _$_StepperClick get _value => super._value as _$_StepperClick;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_StepperClick(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -634,15 +630,15 @@ class _$_StepperClick implements _StepperClick {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StepperClick &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StepperClickCopyWith<_$_StepperClick> get copyWith =>
       __$$_StepperClickCopyWithImpl<_$_StepperClick>(this, _$identity);
 
@@ -662,12 +658,12 @@ class _$_StepperClick implements _StepperClick {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index, int clickCount)? nextClick,
-    TResult Function(int index)? previousClick,
-    TResult Function(bool isFinish)? finishClick,
-    TResult Function(int index)? stepperClick,
-    TResult Function(String value)? dropDown,
-    TResult Function(bool value)? check,
+    TResult? Function(int index, int clickCount)? nextClick,
+    TResult? Function(int index)? previousClick,
+    TResult? Function(bool isFinish)? finishClick,
+    TResult? Function(int index)? stepperClick,
+    TResult? Function(String value)? dropDown,
+    TResult? Function(bool value)? check,
   }) {
     return stepperClick?.call(index);
   }
@@ -705,12 +701,12 @@ class _$_StepperClick implements _StepperClick {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NextClick value)? nextClick,
-    TResult Function(_PreviousClick value)? previousClick,
-    TResult Function(_FinishClick value)? finishClick,
-    TResult Function(_StepperClick value)? stepperClick,
-    TResult Function(_DropDown value)? dropDown,
-    TResult Function(_Check value)? check,
+    TResult? Function(_NextClick value)? nextClick,
+    TResult? Function(_PreviousClick value)? previousClick,
+    TResult? Function(_FinishClick value)? finishClick,
+    TResult? Function(_StepperClick value)? stepperClick,
+    TResult? Function(_DropDown value)? dropDown,
+    TResult? Function(_Check value)? check,
   }) {
     return stepperClick?.call(this);
   }
@@ -747,26 +743,25 @@ abstract class _$$_DropDownCopyWith<$Res> {
   factory _$$_DropDownCopyWith(
           _$_DropDown value, $Res Function(_$_DropDown) then) =
       __$$_DropDownCopyWithImpl<$Res>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
 class __$$_DropDownCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$_DropDown>
     implements _$$_DropDownCopyWith<$Res> {
   __$$_DropDownCopyWithImpl(
       _$_DropDown _value, $Res Function(_$_DropDown) _then)
-      : super(_value, (v) => _then(v as _$_DropDown));
+      : super(_value, _then);
 
-  @override
-  _$_DropDown get _value => super._value as _$_DropDown;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_DropDown(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -792,15 +787,15 @@ class _$_DropDown implements _DropDown {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DropDown &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DropDownCopyWith<_$_DropDown> get copyWith =>
       __$$_DropDownCopyWithImpl<_$_DropDown>(this, _$identity);
 
@@ -820,12 +815,12 @@ class _$_DropDown implements _DropDown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index, int clickCount)? nextClick,
-    TResult Function(int index)? previousClick,
-    TResult Function(bool isFinish)? finishClick,
-    TResult Function(int index)? stepperClick,
-    TResult Function(String value)? dropDown,
-    TResult Function(bool value)? check,
+    TResult? Function(int index, int clickCount)? nextClick,
+    TResult? Function(int index)? previousClick,
+    TResult? Function(bool isFinish)? finishClick,
+    TResult? Function(int index)? stepperClick,
+    TResult? Function(String value)? dropDown,
+    TResult? Function(bool value)? check,
   }) {
     return dropDown?.call(value);
   }
@@ -863,12 +858,12 @@ class _$_DropDown implements _DropDown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NextClick value)? nextClick,
-    TResult Function(_PreviousClick value)? previousClick,
-    TResult Function(_FinishClick value)? finishClick,
-    TResult Function(_StepperClick value)? stepperClick,
-    TResult Function(_DropDown value)? dropDown,
-    TResult Function(_Check value)? check,
+    TResult? Function(_NextClick value)? nextClick,
+    TResult? Function(_PreviousClick value)? previousClick,
+    TResult? Function(_FinishClick value)? finishClick,
+    TResult? Function(_StepperClick value)? stepperClick,
+    TResult? Function(_DropDown value)? dropDown,
+    TResult? Function(_Check value)? check,
   }) {
     return dropDown?.call(this);
   }
@@ -904,24 +899,24 @@ abstract class _DropDown implements FormWizardEvent {
 abstract class _$$_CheckCopyWith<$Res> {
   factory _$$_CheckCopyWith(_$_Check value, $Res Function(_$_Check) then) =
       __$$_CheckCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$_CheckCopyWithImpl<$Res> extends _$FormWizardEventCopyWithImpl<$Res>
+class __$$_CheckCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$_Check>
     implements _$$_CheckCopyWith<$Res> {
   __$$_CheckCopyWithImpl(_$_Check _value, $Res Function(_$_Check) _then)
-      : super(_value, (v) => _then(v as _$_Check));
+      : super(_value, _then);
 
-  @override
-  _$_Check get _value => super._value as _$_Check;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_Check(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -947,15 +942,15 @@ class _$_Check implements _Check {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Check &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CheckCopyWith<_$_Check> get copyWith =>
       __$$_CheckCopyWithImpl<_$_Check>(this, _$identity);
 
@@ -975,12 +970,12 @@ class _$_Check implements _Check {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index, int clickCount)? nextClick,
-    TResult Function(int index)? previousClick,
-    TResult Function(bool isFinish)? finishClick,
-    TResult Function(int index)? stepperClick,
-    TResult Function(String value)? dropDown,
-    TResult Function(bool value)? check,
+    TResult? Function(int index, int clickCount)? nextClick,
+    TResult? Function(int index)? previousClick,
+    TResult? Function(bool isFinish)? finishClick,
+    TResult? Function(int index)? stepperClick,
+    TResult? Function(String value)? dropDown,
+    TResult? Function(bool value)? check,
   }) {
     return check?.call(value);
   }
@@ -1018,12 +1013,12 @@ class _$_Check implements _Check {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NextClick value)? nextClick,
-    TResult Function(_PreviousClick value)? previousClick,
-    TResult Function(_FinishClick value)? finishClick,
-    TResult Function(_StepperClick value)? stepperClick,
-    TResult Function(_DropDown value)? dropDown,
-    TResult Function(_Check value)? check,
+    TResult? Function(_NextClick value)? nextClick,
+    TResult? Function(_PreviousClick value)? previousClick,
+    TResult? Function(_FinishClick value)? finishClick,
+    TResult? Function(_StepperClick value)? stepperClick,
+    TResult? Function(_DropDown value)? dropDown,
+    TResult? Function(_Check value)? check,
   }) {
     return check?.call(this);
   }
@@ -1070,13 +1065,13 @@ mixin _$FormWizardState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index, int clickCount)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
-    TResult Function(bool isFinish)? finishSuccess,
-    TResult Function(int index)? stepperSuccess,
-    TResult Function(String value)? dropDownSuccess,
-    TResult Function(bool value)? checkSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index, int clickCount)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
+    TResult? Function(bool isFinish)? finishSuccess,
+    TResult? Function(int index)? stepperSuccess,
+    TResult? Function(String value)? dropDownSuccess,
+    TResult? Function(bool value)? checkSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1104,13 +1099,13 @@ mixin _$FormWizardState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
-    TResult Function(_FinishSuccess value)? finishSuccess,
-    TResult Function(_StepperSuccess value)? stepperSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
-    TResult Function(_CheckSuccess value)? checkSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_FinishSuccess value)? finishSuccess,
+    TResult? Function(_StepperSuccess value)? stepperSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_CheckSuccess value)? checkSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1131,17 +1126,18 @@ mixin _$FormWizardState {
 abstract class $FormWizardStateCopyWith<$Res> {
   factory $FormWizardStateCopyWith(
           FormWizardState value, $Res Function(FormWizardState) then) =
-      _$FormWizardStateCopyWithImpl<$Res>;
+      _$FormWizardStateCopyWithImpl<$Res, FormWizardState>;
 }
 
 /// @nodoc
-class _$FormWizardStateCopyWithImpl<$Res>
+class _$FormWizardStateCopyWithImpl<$Res, $Val extends FormWizardState>
     implements $FormWizardStateCopyWith<$Res> {
   _$FormWizardStateCopyWithImpl(this._value, this._then);
 
-  final FormWizardState _value;
   // ignore: unused_field
-  final $Res Function(FormWizardState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -1152,13 +1148,11 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$FormWizardStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1197,13 +1191,13 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index, int clickCount)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
-    TResult Function(bool isFinish)? finishSuccess,
-    TResult Function(int index)? stepperSuccess,
-    TResult Function(String value)? dropDownSuccess,
-    TResult Function(bool value)? checkSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index, int clickCount)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
+    TResult? Function(bool isFinish)? finishSuccess,
+    TResult? Function(int index)? stepperSuccess,
+    TResult? Function(String value)? dropDownSuccess,
+    TResult? Function(bool value)? checkSuccess,
   }) {
     return initial?.call();
   }
@@ -1243,13 +1237,13 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
-    TResult Function(_FinishSuccess value)? finishSuccess,
-    TResult Function(_StepperSuccess value)? stepperSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
-    TResult Function(_CheckSuccess value)? checkSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_FinishSuccess value)? finishSuccess,
+    TResult? Function(_StepperSuccess value)? stepperSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_CheckSuccess value)? checkSuccess,
   }) {
     return initial?.call(this);
   }
@@ -1282,31 +1276,30 @@ abstract class _$$_NextSuccessCopyWith<$Res> {
   factory _$$_NextSuccessCopyWith(
           _$_NextSuccess value, $Res Function(_$_NextSuccess) then) =
       __$$_NextSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index, int clickCount});
 }
 
 /// @nodoc
 class __$$_NextSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$_NextSuccess>
     implements _$$_NextSuccessCopyWith<$Res> {
   __$$_NextSuccessCopyWithImpl(
       _$_NextSuccess _value, $Res Function(_$_NextSuccess) _then)
-      : super(_value, (v) => _then(v as _$_NextSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_NextSuccess get _value => super._value as _$_NextSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
-    Object? clickCount = freezed,
+    Object? index = null,
+    Object? clickCount = null,
   }) {
     return _then(_$_NextSuccess(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      clickCount == freezed
+      null == clickCount
           ? _value.clickCount
           : clickCount // ignore: cast_nullable_to_non_nullable
               as int,
@@ -1334,19 +1327,17 @@ class _$_NextSuccess implements _NextSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NextSuccess &&
-            const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality()
-                .equals(other.clickCount, clickCount));
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.clickCount, clickCount) ||
+                other.clickCount == clickCount));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(clickCount));
+  int get hashCode => Object.hash(runtimeType, index, clickCount);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NextSuccessCopyWith<_$_NextSuccess> get copyWith =>
       __$$_NextSuccessCopyWithImpl<_$_NextSuccess>(this, _$identity);
 
@@ -1367,13 +1358,13 @@ class _$_NextSuccess implements _NextSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index, int clickCount)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
-    TResult Function(bool isFinish)? finishSuccess,
-    TResult Function(int index)? stepperSuccess,
-    TResult Function(String value)? dropDownSuccess,
-    TResult Function(bool value)? checkSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index, int clickCount)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
+    TResult? Function(bool isFinish)? finishSuccess,
+    TResult? Function(int index)? stepperSuccess,
+    TResult? Function(String value)? dropDownSuccess,
+    TResult? Function(bool value)? checkSuccess,
   }) {
     return nextSuccess?.call(index, clickCount);
   }
@@ -1413,13 +1404,13 @@ class _$_NextSuccess implements _NextSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
-    TResult Function(_FinishSuccess value)? finishSuccess,
-    TResult Function(_StepperSuccess value)? stepperSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
-    TResult Function(_CheckSuccess value)? checkSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_FinishSuccess value)? finishSuccess,
+    TResult? Function(_StepperSuccess value)? stepperSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_CheckSuccess value)? checkSuccess,
   }) {
     return nextSuccess?.call(this);
   }
@@ -1459,26 +1450,25 @@ abstract class _$$_PreviousSuccessCopyWith<$Res> {
   factory _$$_PreviousSuccessCopyWith(
           _$_PreviousSuccess value, $Res Function(_$_PreviousSuccess) then) =
       __$$_PreviousSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_PreviousSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$_PreviousSuccess>
     implements _$$_PreviousSuccessCopyWith<$Res> {
   __$$_PreviousSuccessCopyWithImpl(
       _$_PreviousSuccess _value, $Res Function(_$_PreviousSuccess) _then)
-      : super(_value, (v) => _then(v as _$_PreviousSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_PreviousSuccess get _value => super._value as _$_PreviousSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_PreviousSuccess(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -1504,15 +1494,15 @@ class _$_PreviousSuccess implements _PreviousSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PreviousSuccess &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PreviousSuccessCopyWith<_$_PreviousSuccess> get copyWith =>
       __$$_PreviousSuccessCopyWithImpl<_$_PreviousSuccess>(this, _$identity);
 
@@ -1533,13 +1523,13 @@ class _$_PreviousSuccess implements _PreviousSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index, int clickCount)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
-    TResult Function(bool isFinish)? finishSuccess,
-    TResult Function(int index)? stepperSuccess,
-    TResult Function(String value)? dropDownSuccess,
-    TResult Function(bool value)? checkSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index, int clickCount)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
+    TResult? Function(bool isFinish)? finishSuccess,
+    TResult? Function(int index)? stepperSuccess,
+    TResult? Function(String value)? dropDownSuccess,
+    TResult? Function(bool value)? checkSuccess,
   }) {
     return previousSuccess?.call(index);
   }
@@ -1579,13 +1569,13 @@ class _$_PreviousSuccess implements _PreviousSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
-    TResult Function(_FinishSuccess value)? finishSuccess,
-    TResult Function(_StepperSuccess value)? stepperSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
-    TResult Function(_CheckSuccess value)? checkSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_FinishSuccess value)? finishSuccess,
+    TResult? Function(_StepperSuccess value)? stepperSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_CheckSuccess value)? checkSuccess,
   }) {
     return previousSuccess?.call(this);
   }
@@ -1623,26 +1613,25 @@ abstract class _$$_FinishSuccessCopyWith<$Res> {
   factory _$$_FinishSuccessCopyWith(
           _$_FinishSuccess value, $Res Function(_$_FinishSuccess) then) =
       __$$_FinishSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool isFinish});
 }
 
 /// @nodoc
 class __$$_FinishSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$_FinishSuccess>
     implements _$$_FinishSuccessCopyWith<$Res> {
   __$$_FinishSuccessCopyWithImpl(
       _$_FinishSuccess _value, $Res Function(_$_FinishSuccess) _then)
-      : super(_value, (v) => _then(v as _$_FinishSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_FinishSuccess get _value => super._value as _$_FinishSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isFinish = freezed,
+    Object? isFinish = null,
   }) {
     return _then(_$_FinishSuccess(
-      isFinish == freezed
+      null == isFinish
           ? _value.isFinish
           : isFinish // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -1668,15 +1657,16 @@ class _$_FinishSuccess implements _FinishSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FinishSuccess &&
-            const DeepCollectionEquality().equals(other.isFinish, isFinish));
+            (identical(other.isFinish, isFinish) ||
+                other.isFinish == isFinish));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isFinish));
+  int get hashCode => Object.hash(runtimeType, isFinish);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FinishSuccessCopyWith<_$_FinishSuccess> get copyWith =>
       __$$_FinishSuccessCopyWithImpl<_$_FinishSuccess>(this, _$identity);
 
@@ -1697,13 +1687,13 @@ class _$_FinishSuccess implements _FinishSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index, int clickCount)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
-    TResult Function(bool isFinish)? finishSuccess,
-    TResult Function(int index)? stepperSuccess,
-    TResult Function(String value)? dropDownSuccess,
-    TResult Function(bool value)? checkSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index, int clickCount)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
+    TResult? Function(bool isFinish)? finishSuccess,
+    TResult? Function(int index)? stepperSuccess,
+    TResult? Function(String value)? dropDownSuccess,
+    TResult? Function(bool value)? checkSuccess,
   }) {
     return finishSuccess?.call(isFinish);
   }
@@ -1743,13 +1733,13 @@ class _$_FinishSuccess implements _FinishSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
-    TResult Function(_FinishSuccess value)? finishSuccess,
-    TResult Function(_StepperSuccess value)? stepperSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
-    TResult Function(_CheckSuccess value)? checkSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_FinishSuccess value)? finishSuccess,
+    TResult? Function(_StepperSuccess value)? stepperSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_CheckSuccess value)? checkSuccess,
   }) {
     return finishSuccess?.call(this);
   }
@@ -1787,26 +1777,25 @@ abstract class _$$_StepperSuccessCopyWith<$Res> {
   factory _$$_StepperSuccessCopyWith(
           _$_StepperSuccess value, $Res Function(_$_StepperSuccess) then) =
       __$$_StepperSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_StepperSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$_StepperSuccess>
     implements _$$_StepperSuccessCopyWith<$Res> {
   __$$_StepperSuccessCopyWithImpl(
       _$_StepperSuccess _value, $Res Function(_$_StepperSuccess) _then)
-      : super(_value, (v) => _then(v as _$_StepperSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_StepperSuccess get _value => super._value as _$_StepperSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_StepperSuccess(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -1832,15 +1821,15 @@ class _$_StepperSuccess implements _StepperSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StepperSuccess &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StepperSuccessCopyWith<_$_StepperSuccess> get copyWith =>
       __$$_StepperSuccessCopyWithImpl<_$_StepperSuccess>(this, _$identity);
 
@@ -1861,13 +1850,13 @@ class _$_StepperSuccess implements _StepperSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index, int clickCount)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
-    TResult Function(bool isFinish)? finishSuccess,
-    TResult Function(int index)? stepperSuccess,
-    TResult Function(String value)? dropDownSuccess,
-    TResult Function(bool value)? checkSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index, int clickCount)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
+    TResult? Function(bool isFinish)? finishSuccess,
+    TResult? Function(int index)? stepperSuccess,
+    TResult? Function(String value)? dropDownSuccess,
+    TResult? Function(bool value)? checkSuccess,
   }) {
     return stepperSuccess?.call(index);
   }
@@ -1907,13 +1896,13 @@ class _$_StepperSuccess implements _StepperSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
-    TResult Function(_FinishSuccess value)? finishSuccess,
-    TResult Function(_StepperSuccess value)? stepperSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
-    TResult Function(_CheckSuccess value)? checkSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_FinishSuccess value)? finishSuccess,
+    TResult? Function(_StepperSuccess value)? stepperSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_CheckSuccess value)? checkSuccess,
   }) {
     return stepperSuccess?.call(this);
   }
@@ -1951,26 +1940,25 @@ abstract class _$$_DropDownSuccessCopyWith<$Res> {
   factory _$$_DropDownSuccessCopyWith(
           _$_DropDownSuccess value, $Res Function(_$_DropDownSuccess) then) =
       __$$_DropDownSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
 class __$$_DropDownSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$_DropDownSuccess>
     implements _$$_DropDownSuccessCopyWith<$Res> {
   __$$_DropDownSuccessCopyWithImpl(
       _$_DropDownSuccess _value, $Res Function(_$_DropDownSuccess) _then)
-      : super(_value, (v) => _then(v as _$_DropDownSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_DropDownSuccess get _value => super._value as _$_DropDownSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_DropDownSuccess(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1996,15 +1984,15 @@ class _$_DropDownSuccess implements _DropDownSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DropDownSuccess &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DropDownSuccessCopyWith<_$_DropDownSuccess> get copyWith =>
       __$$_DropDownSuccessCopyWithImpl<_$_DropDownSuccess>(this, _$identity);
 
@@ -2025,13 +2013,13 @@ class _$_DropDownSuccess implements _DropDownSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index, int clickCount)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
-    TResult Function(bool isFinish)? finishSuccess,
-    TResult Function(int index)? stepperSuccess,
-    TResult Function(String value)? dropDownSuccess,
-    TResult Function(bool value)? checkSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index, int clickCount)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
+    TResult? Function(bool isFinish)? finishSuccess,
+    TResult? Function(int index)? stepperSuccess,
+    TResult? Function(String value)? dropDownSuccess,
+    TResult? Function(bool value)? checkSuccess,
   }) {
     return dropDownSuccess?.call(value);
   }
@@ -2071,13 +2059,13 @@ class _$_DropDownSuccess implements _DropDownSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
-    TResult Function(_FinishSuccess value)? finishSuccess,
-    TResult Function(_StepperSuccess value)? stepperSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
-    TResult Function(_CheckSuccess value)? checkSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_FinishSuccess value)? finishSuccess,
+    TResult? Function(_StepperSuccess value)? stepperSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_CheckSuccess value)? checkSuccess,
   }) {
     return dropDownSuccess?.call(this);
   }
@@ -2115,26 +2103,25 @@ abstract class _$$_CheckSuccessCopyWith<$Res> {
   factory _$$_CheckSuccessCopyWith(
           _$_CheckSuccess value, $Res Function(_$_CheckSuccess) then) =
       __$$_CheckSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
 class __$$_CheckSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$_CheckSuccess>
     implements _$$_CheckSuccessCopyWith<$Res> {
   __$$_CheckSuccessCopyWithImpl(
       _$_CheckSuccess _value, $Res Function(_$_CheckSuccess) _then)
-      : super(_value, (v) => _then(v as _$_CheckSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_CheckSuccess get _value => super._value as _$_CheckSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_CheckSuccess(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -2160,15 +2147,15 @@ class _$_CheckSuccess implements _CheckSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CheckSuccess &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CheckSuccessCopyWith<_$_CheckSuccess> get copyWith =>
       __$$_CheckSuccessCopyWithImpl<_$_CheckSuccess>(this, _$identity);
 
@@ -2189,13 +2176,13 @@ class _$_CheckSuccess implements _CheckSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index, int clickCount)? nextSuccess,
-    TResult Function(int index)? previousSuccess,
-    TResult Function(bool isFinish)? finishSuccess,
-    TResult Function(int index)? stepperSuccess,
-    TResult Function(String value)? dropDownSuccess,
-    TResult Function(bool value)? checkSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int index, int clickCount)? nextSuccess,
+    TResult? Function(int index)? previousSuccess,
+    TResult? Function(bool isFinish)? finishSuccess,
+    TResult? Function(int index)? stepperSuccess,
+    TResult? Function(String value)? dropDownSuccess,
+    TResult? Function(bool value)? checkSuccess,
   }) {
     return checkSuccess?.call(value);
   }
@@ -2235,13 +2222,13 @@ class _$_CheckSuccess implements _CheckSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_NextSuccess value)? nextSuccess,
-    TResult Function(_PreviousSuccess value)? previousSuccess,
-    TResult Function(_FinishSuccess value)? finishSuccess,
-    TResult Function(_StepperSuccess value)? stepperSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
-    TResult Function(_CheckSuccess value)? checkSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_NextSuccess value)? nextSuccess,
+    TResult? Function(_PreviousSuccess value)? previousSuccess,
+    TResult? Function(_FinishSuccess value)? finishSuccess,
+    TResult? Function(_StepperSuccess value)? stepperSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_CheckSuccess value)? checkSuccess,
   }) {
     return checkSuccess?.call(this);
   }

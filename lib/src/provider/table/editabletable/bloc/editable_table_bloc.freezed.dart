@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'editable_table_bloc.dart';
 
@@ -23,7 +23,7 @@ mixin _$EditableTableEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? rebuild,
+    TResult? Function()? rebuild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +39,7 @@ mixin _$EditableTableEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Rebuild value)? rebuild,
+    TResult? Function(_Rebuild value)? rebuild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,17 +54,18 @@ mixin _$EditableTableEvent {
 abstract class $EditableTableEventCopyWith<$Res> {
   factory $EditableTableEventCopyWith(
           EditableTableEvent value, $Res Function(EditableTableEvent) then) =
-      _$EditableTableEventCopyWithImpl<$Res>;
+      _$EditableTableEventCopyWithImpl<$Res, EditableTableEvent>;
 }
 
 /// @nodoc
-class _$EditableTableEventCopyWithImpl<$Res>
+class _$EditableTableEventCopyWithImpl<$Res, $Val extends EditableTableEvent>
     implements $EditableTableEventCopyWith<$Res> {
   _$EditableTableEventCopyWithImpl(this._value, this._then);
 
-  final EditableTableEvent _value;
   // ignore: unused_field
-  final $Res Function(EditableTableEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -76,13 +77,10 @@ abstract class _$$_RebuildCopyWith<$Res> {
 
 /// @nodoc
 class __$$_RebuildCopyWithImpl<$Res>
-    extends _$EditableTableEventCopyWithImpl<$Res>
+    extends _$EditableTableEventCopyWithImpl<$Res, _$_Rebuild>
     implements _$$_RebuildCopyWith<$Res> {
   __$$_RebuildCopyWithImpl(_$_Rebuild _value, $Res Function(_$_Rebuild) _then)
-      : super(_value, (v) => _then(v as _$_Rebuild));
-
-  @override
-  _$_Rebuild get _value => super._value as _$_Rebuild;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -115,7 +113,7 @@ class _$_Rebuild implements _Rebuild {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? rebuild,
+    TResult? Function()? rebuild,
   }) {
     return rebuild?.call();
   }
@@ -143,7 +141,7 @@ class _$_Rebuild implements _Rebuild {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Rebuild value)? rebuild,
+    TResult? Function(_Rebuild value)? rebuild,
   }) {
     return rebuild?.call(this);
   }
@@ -175,8 +173,8 @@ mixin _$EditableTableState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? success,
+    TResult? Function()? initial,
+    TResult? Function()? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -194,8 +192,8 @@ mixin _$EditableTableState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -211,17 +209,18 @@ mixin _$EditableTableState {
 abstract class $EditableTableStateCopyWith<$Res> {
   factory $EditableTableStateCopyWith(
           EditableTableState value, $Res Function(EditableTableState) then) =
-      _$EditableTableStateCopyWithImpl<$Res>;
+      _$EditableTableStateCopyWithImpl<$Res, EditableTableState>;
 }
 
 /// @nodoc
-class _$EditableTableStateCopyWithImpl<$Res>
+class _$EditableTableStateCopyWithImpl<$Res, $Val extends EditableTableState>
     implements $EditableTableStateCopyWith<$Res> {
   _$EditableTableStateCopyWithImpl(this._value, this._then);
 
-  final EditableTableState _value;
   // ignore: unused_field
-  final $Res Function(EditableTableState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -233,13 +232,10 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$EditableTableStateCopyWithImpl<$Res>
+    extends _$EditableTableStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -273,8 +269,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? success,
+    TResult? Function()? initial,
+    TResult? Function()? success,
   }) {
     return initial?.call();
   }
@@ -304,8 +300,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) {
     return initial?.call(this);
   }
@@ -337,13 +333,10 @@ abstract class _$$_SuccessCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$EditableTableStateCopyWithImpl<$Res>
+    extends _$EditableTableStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
-
-  @override
-  _$_Success get _value => super._value as _$_Success;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -377,8 +370,8 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? success,
+    TResult? Function()? initial,
+    TResult? Function()? success,
   }) {
     return success?.call();
   }
@@ -408,8 +401,8 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) {
     return success?.call(this);
   }

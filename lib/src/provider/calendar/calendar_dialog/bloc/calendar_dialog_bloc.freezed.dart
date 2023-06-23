@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'calendar_dialog_bloc.dart';
 
@@ -28,7 +28,7 @@ mixin _$CalendarDialogEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AutovalidateMode autovalidateMode, String category,
+    TResult? Function(AutovalidateMode autovalidateMode, String category,
             bool isValidate)?
         loading,
   }) =>
@@ -48,7 +48,7 @@ mixin _$CalendarDialogEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? loading,
+    TResult? Function(_Started value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,40 +67,43 @@ mixin _$CalendarDialogEvent {
 abstract class $CalendarDialogEventCopyWith<$Res> {
   factory $CalendarDialogEventCopyWith(
           CalendarDialogEvent value, $Res Function(CalendarDialogEvent) then) =
-      _$CalendarDialogEventCopyWithImpl<$Res>;
+      _$CalendarDialogEventCopyWithImpl<$Res, CalendarDialogEvent>;
+  @useResult
   $Res call(
       {AutovalidateMode autovalidateMode, String category, bool isValidate});
 }
 
 /// @nodoc
-class _$CalendarDialogEventCopyWithImpl<$Res>
+class _$CalendarDialogEventCopyWithImpl<$Res, $Val extends CalendarDialogEvent>
     implements $CalendarDialogEventCopyWith<$Res> {
   _$CalendarDialogEventCopyWithImpl(this._value, this._then);
 
-  final CalendarDialogEvent _value;
   // ignore: unused_field
-  final $Res Function(CalendarDialogEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? autovalidateMode = freezed,
-    Object? category = freezed,
-    Object? isValidate = freezed,
+    Object? autovalidateMode = null,
+    Object? category = null,
+    Object? isValidate = null,
   }) {
     return _then(_value.copyWith(
-      autovalidateMode: autovalidateMode == freezed
+      autovalidateMode: null == autovalidateMode
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
               as AutovalidateMode,
-      category: category == freezed
+      category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      isValidate: isValidate == freezed
+      isValidate: null == isValidate
           ? _value.isValidate
           : isValidate // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -111,36 +114,35 @@ abstract class _$$_StartedCopyWith<$Res>
           _$_Started value, $Res Function(_$_Started) then) =
       __$$_StartedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {AutovalidateMode autovalidateMode, String category, bool isValidate});
 }
 
 /// @nodoc
 class __$$_StartedCopyWithImpl<$Res>
-    extends _$CalendarDialogEventCopyWithImpl<$Res>
+    extends _$CalendarDialogEventCopyWithImpl<$Res, _$_Started>
     implements _$$_StartedCopyWith<$Res> {
   __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, (v) => _then(v as _$_Started));
+      : super(_value, _then);
 
-  @override
-  _$_Started get _value => super._value as _$_Started;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? autovalidateMode = freezed,
-    Object? category = freezed,
-    Object? isValidate = freezed,
+    Object? autovalidateMode = null,
+    Object? category = null,
+    Object? isValidate = null,
   }) {
     return _then(_$_Started(
-      autovalidateMode: autovalidateMode == freezed
+      autovalidateMode: null == autovalidateMode
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
               as AutovalidateMode,
-      category: category == freezed
+      category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      isValidate: isValidate == freezed
+      isValidate: null == isValidate
           ? _value.isValidate
           : isValidate // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -173,22 +175,21 @@ class _$_Started implements _Started {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Started &&
-            const DeepCollectionEquality()
-                .equals(other.autovalidateMode, autovalidateMode) &&
-            const DeepCollectionEquality().equals(other.category, category) &&
-            const DeepCollectionEquality()
-                .equals(other.isValidate, isValidate));
+            (identical(other.autovalidateMode, autovalidateMode) ||
+                other.autovalidateMode == autovalidateMode) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.isValidate, isValidate) ||
+                other.isValidate == isValidate));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(autovalidateMode),
-      const DeepCollectionEquality().hash(category),
-      const DeepCollectionEquality().hash(isValidate));
+  int get hashCode =>
+      Object.hash(runtimeType, autovalidateMode, category, isValidate);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StartedCopyWith<_$_Started> get copyWith =>
       __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
 
@@ -205,7 +206,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AutovalidateMode autovalidateMode, String category,
+    TResult? Function(AutovalidateMode autovalidateMode, String category,
             bool isValidate)?
         loading,
   }) {
@@ -237,7 +238,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? loading,
+    TResult? Function(_Started value)? loading,
   }) {
     return loading?.call(this);
   }
@@ -285,8 +286,8 @@ mixin _$CalendarDialogState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(AutovalidateMode autovalidateMode, String category,
+    TResult? Function()? initial,
+    TResult? Function(AutovalidateMode autovalidateMode, String category,
             bool isValidate)?
         loaded,
   }) =>
@@ -308,8 +309,8 @@ mixin _$CalendarDialogState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -325,17 +326,18 @@ mixin _$CalendarDialogState {
 abstract class $CalendarDialogStateCopyWith<$Res> {
   factory $CalendarDialogStateCopyWith(
           CalendarDialogState value, $Res Function(CalendarDialogState) then) =
-      _$CalendarDialogStateCopyWithImpl<$Res>;
+      _$CalendarDialogStateCopyWithImpl<$Res, CalendarDialogState>;
 }
 
 /// @nodoc
-class _$CalendarDialogStateCopyWithImpl<$Res>
+class _$CalendarDialogStateCopyWithImpl<$Res, $Val extends CalendarDialogState>
     implements $CalendarDialogStateCopyWith<$Res> {
   _$CalendarDialogStateCopyWithImpl(this._value, this._then);
 
-  final CalendarDialogState _value;
   // ignore: unused_field
-  final $Res Function(CalendarDialogState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -347,13 +349,10 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$CalendarDialogStateCopyWithImpl<$Res>
+    extends _$CalendarDialogStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -389,8 +388,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(AutovalidateMode autovalidateMode, String category,
+    TResult? Function()? initial,
+    TResult? Function(AutovalidateMode autovalidateMode, String category,
             bool isValidate)?
         loaded,
   }) {
@@ -424,8 +423,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loaded value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -452,36 +451,35 @@ abstract class _Initial implements CalendarDialogState {
 abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {AutovalidateMode autovalidateMode, String category, bool isValidate});
 }
 
 /// @nodoc
 class __$$_LoadedCopyWithImpl<$Res>
-    extends _$CalendarDialogStateCopyWithImpl<$Res>
+    extends _$CalendarDialogStateCopyWithImpl<$Res, _$_Loaded>
     implements _$$_LoadedCopyWith<$Res> {
   __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
-      : super(_value, (v) => _then(v as _$_Loaded));
+      : super(_value, _then);
 
-  @override
-  _$_Loaded get _value => super._value as _$_Loaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? autovalidateMode = freezed,
-    Object? category = freezed,
-    Object? isValidate = freezed,
+    Object? autovalidateMode = null,
+    Object? category = null,
+    Object? isValidate = null,
   }) {
     return _then(_$_Loaded(
-      autovalidateMode: autovalidateMode == freezed
+      autovalidateMode: null == autovalidateMode
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
               as AutovalidateMode,
-      category: category == freezed
+      category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      isValidate: isValidate == freezed
+      isValidate: null == isValidate
           ? _value.isValidate
           : isValidate // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -514,22 +512,21 @@ class _$_Loaded implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
-            const DeepCollectionEquality()
-                .equals(other.autovalidateMode, autovalidateMode) &&
-            const DeepCollectionEquality().equals(other.category, category) &&
-            const DeepCollectionEquality()
-                .equals(other.isValidate, isValidate));
+            (identical(other.autovalidateMode, autovalidateMode) ||
+                other.autovalidateMode == autovalidateMode) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.isValidate, isValidate) ||
+                other.isValidate == isValidate));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(autovalidateMode),
-      const DeepCollectionEquality().hash(category),
-      const DeepCollectionEquality().hash(isValidate));
+  int get hashCode =>
+      Object.hash(runtimeType, autovalidateMode, category, isValidate);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
@@ -547,8 +544,8 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(AutovalidateMode autovalidateMode, String category,
+    TResult? Function()? initial,
+    TResult? Function(AutovalidateMode autovalidateMode, String category,
             bool isValidate)?
         loaded,
   }) {
@@ -582,8 +579,8 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loaded value)? loaded,
   }) {
     return loaded?.call(this);
   }

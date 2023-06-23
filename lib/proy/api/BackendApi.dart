@@ -7,7 +7,7 @@ class BackendApi {
 
   static void configureDio() {
     String baseUrl =
-        kIsWeb ? 'http://localhost:8080/api' : 'http://192.168.0.5:8080/api';
+        kIsWeb ? 'http://localhost:8080/api' : 'http://192.168.0.11:8080/api';
     _dio.options.baseUrl = baseUrl;
 
     // Configure Headers
@@ -33,7 +33,7 @@ class BackendApi {
       final resp = await _dio.post(path, data: formData);
       return resp.data;
     } catch (e) {
-      throw ('Error en el POST');
+      throw ('Error en el POST $e');
     }
   }
 

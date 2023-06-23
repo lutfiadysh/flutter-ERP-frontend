@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/constant/color.dart';
 import 'package:admin_dashboard/src/constant/image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/flutterx.dart';
 
+@RoutePage()
 class UserProfile extends StatefulWidget {
   const UserProfile({super.key});
 

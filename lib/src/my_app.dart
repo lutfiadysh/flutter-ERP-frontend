@@ -13,7 +13,8 @@ import 'package:admin_dashboard/proy/providers/users_provider.dart';
 import 'package:admin_dashboard/proy/services/notification_service.dart';
 import 'package:admin_dashboard/src/constant/theme.dart';
 import 'package:admin_dashboard/src/provider/theme/bloc/theme_mode_bloc.dart';
-import 'package:admin_dashboard/src/routes/routes.gr.dart' as item;
+import 'package:admin_dashboard/src/routes/routes.dart';
+import 'package:admin_dashboard/src/routes/routes.gr.dart' as routes;
 import 'package:admin_dashboard/src/utils/hive/hive.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _appRouter = item.AppRouter();
+  final _appRouter = AppRouter();
   @override
   void initState() {
     super.initState();
@@ -99,11 +100,11 @@ class _MyAppState extends State<MyApp> {
 class MyProyApp extends StatelessWidget {
   const MyProyApp({
     Key? key,
-    required item.AppRouter appRouter,
+    required AppRouter appRouter,
   })  : _appRouter = appRouter,
         super(key: key);
 
-  final item.AppRouter _appRouter;
+  final AppRouter _appRouter;
 
   @override
   Widget build(BuildContext context) {
@@ -122,13 +123,13 @@ class MyProyApp extends StatelessWidget {
                   _appRouter,
                   routes: (_) => [
                     if (authProvider.authStatus == AuthStatus.checking)
-                      const item.LockScreenOne()
+                      const routes.LockScreenOne()
                     else if (authProvider.authStatus ==
                         AuthStatus.authenticated)
-                      const item.MenuBar()
+                      const routes.MenuBar()
                     else if (authProvider.authStatus ==
                         AuthStatus.notauthenticated)
-                      const item.LoginOne()
+                      const routes.LoginOne()
                   ],
                 ),
                 routeInformationParser: _appRouter.defaultRouteParser(),

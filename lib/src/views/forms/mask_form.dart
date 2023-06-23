@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/utils/hover.dart';
 import 'package:admin_dashboard/src/utils/responsive.dart';
 import 'package:admin_dashboard/src/widget/textformfield.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutterx/flutterx.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
+@RoutePage()
 class MaskForm extends StatefulWidget {
   const MaskForm({Key? key}) : super(key: key);
 

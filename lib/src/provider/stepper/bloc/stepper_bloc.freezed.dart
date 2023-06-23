@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'stepper_bloc.dart';
 
@@ -24,7 +24,7 @@ mixin _$StepperEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index)? changeIndex,
+    TResult? Function(int index)? changeIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$StepperEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ChangeIndex value)? changeIndex,
+    TResult? Function(_ChangeIndex value)? changeIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,28 +59,32 @@ mixin _$StepperEvent {
 abstract class $StepperEventCopyWith<$Res> {
   factory $StepperEventCopyWith(
           StepperEvent value, $Res Function(StepperEvent) then) =
-      _$StepperEventCopyWithImpl<$Res>;
+      _$StepperEventCopyWithImpl<$Res, StepperEvent>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class _$StepperEventCopyWithImpl<$Res> implements $StepperEventCopyWith<$Res> {
+class _$StepperEventCopyWithImpl<$Res, $Val extends StepperEvent>
+    implements $StepperEventCopyWith<$Res> {
   _$StepperEventCopyWithImpl(this._value, this._then);
 
-  final StepperEvent _value;
   // ignore: unused_field
-  final $Res Function(StepperEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_value.copyWith(
-      index: index == freezed
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -91,26 +95,25 @@ abstract class _$$_ChangeIndexCopyWith<$Res>
           _$_ChangeIndex value, $Res Function(_$_ChangeIndex) then) =
       __$$_ChangeIndexCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_ChangeIndexCopyWithImpl<$Res>
-    extends _$StepperEventCopyWithImpl<$Res>
+    extends _$StepperEventCopyWithImpl<$Res, _$_ChangeIndex>
     implements _$$_ChangeIndexCopyWith<$Res> {
   __$$_ChangeIndexCopyWithImpl(
       _$_ChangeIndex _value, $Res Function(_$_ChangeIndex) _then)
-      : super(_value, (v) => _then(v as _$_ChangeIndex));
+      : super(_value, _then);
 
-  @override
-  _$_ChangeIndex get _value => super._value as _$_ChangeIndex;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_ChangeIndex(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -136,15 +139,15 @@ class _$_ChangeIndex implements _ChangeIndex {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChangeIndex &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ChangeIndexCopyWith<_$_ChangeIndex> get copyWith =>
       __$$_ChangeIndexCopyWithImpl<_$_ChangeIndex>(this, _$identity);
 
@@ -159,7 +162,7 @@ class _$_ChangeIndex implements _ChangeIndex {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int index)? changeIndex,
+    TResult? Function(int index)? changeIndex,
   }) {
     return changeIndex?.call(index);
   }
@@ -187,7 +190,7 @@ class _$_ChangeIndex implements _ChangeIndex {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ChangeIndex value)? changeIndex,
+    TResult? Function(_ChangeIndex value)? changeIndex,
   }) {
     return changeIndex?.call(this);
   }
@@ -226,8 +229,8 @@ mixin _$StepperState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index)? success,
+    TResult? Function()? initial,
+    TResult? Function(int index)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -245,8 +248,8 @@ mixin _$StepperState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -262,16 +265,18 @@ mixin _$StepperState {
 abstract class $StepperStateCopyWith<$Res> {
   factory $StepperStateCopyWith(
           StepperState value, $Res Function(StepperState) then) =
-      _$StepperStateCopyWithImpl<$Res>;
+      _$StepperStateCopyWithImpl<$Res, StepperState>;
 }
 
 /// @nodoc
-class _$StepperStateCopyWithImpl<$Res> implements $StepperStateCopyWith<$Res> {
+class _$StepperStateCopyWithImpl<$Res, $Val extends StepperState>
+    implements $StepperStateCopyWith<$Res> {
   _$StepperStateCopyWithImpl(this._value, this._then);
 
-  final StepperState _value;
   // ignore: unused_field
-  final $Res Function(StepperState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -282,13 +287,11 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$StepperStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$StepperStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -322,8 +325,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index)? success,
+    TResult? Function()? initial,
+    TResult? Function(int index)? success,
   }) {
     return initial?.call();
   }
@@ -353,8 +356,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) {
     return initial?.call(this);
   }
@@ -382,24 +385,24 @@ abstract class _$$_SuccessCopyWith<$Res> {
   factory _$$_SuccessCopyWith(
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res> extends _$StepperStateCopyWithImpl<$Res>
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$StepperStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
+      : super(_value, _then);
 
-  @override
-  _$_Success get _value => super._value as _$_Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_Success(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -425,15 +428,15 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
@@ -449,8 +452,8 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int index)? success,
+    TResult? Function()? initial,
+    TResult? Function(int index)? success,
   }) {
     return success?.call(index);
   }
@@ -480,8 +483,8 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) {
     return success?.call(this);
   }

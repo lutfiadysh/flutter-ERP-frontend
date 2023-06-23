@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'carousel_bloc.dart';
 
@@ -29,7 +29,7 @@ mixin _$CarouselEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int slideOnlyindex, int controlsIndex, int indicatorIndex,
+    TResult? Function(int slideOnlyindex, int controlsIndex, int indicatorIndex,
             int captionIndex)?
         pageChange,
   }) =>
@@ -49,7 +49,7 @@ mixin _$CarouselEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_PageChange value)? pageChange,
+    TResult? Function(_PageChange value)? pageChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +68,8 @@ mixin _$CarouselEvent {
 abstract class $CarouselEventCopyWith<$Res> {
   factory $CarouselEventCopyWith(
           CarouselEvent value, $Res Function(CarouselEvent) then) =
-      _$CarouselEventCopyWithImpl<$Res>;
+      _$CarouselEventCopyWithImpl<$Res, CarouselEvent>;
+  @useResult
   $Res call(
       {int slideOnlyindex,
       int controlsIndex,
@@ -77,39 +78,41 @@ abstract class $CarouselEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CarouselEventCopyWithImpl<$Res>
+class _$CarouselEventCopyWithImpl<$Res, $Val extends CarouselEvent>
     implements $CarouselEventCopyWith<$Res> {
   _$CarouselEventCopyWithImpl(this._value, this._then);
 
-  final CarouselEvent _value;
   // ignore: unused_field
-  final $Res Function(CarouselEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? slideOnlyindex = freezed,
-    Object? controlsIndex = freezed,
-    Object? indicatorIndex = freezed,
-    Object? captionIndex = freezed,
+    Object? slideOnlyindex = null,
+    Object? controlsIndex = null,
+    Object? indicatorIndex = null,
+    Object? captionIndex = null,
   }) {
     return _then(_value.copyWith(
-      slideOnlyindex: slideOnlyindex == freezed
+      slideOnlyindex: null == slideOnlyindex
           ? _value.slideOnlyindex
           : slideOnlyindex // ignore: cast_nullable_to_non_nullable
               as int,
-      controlsIndex: controlsIndex == freezed
+      controlsIndex: null == controlsIndex
           ? _value.controlsIndex
           : controlsIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      indicatorIndex: indicatorIndex == freezed
+      indicatorIndex: null == indicatorIndex
           ? _value.indicatorIndex
           : indicatorIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      captionIndex: captionIndex == freezed
+      captionIndex: null == captionIndex
           ? _value.captionIndex
           : captionIndex // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -120,6 +123,7 @@ abstract class _$$_PageChangeCopyWith<$Res>
           _$_PageChange value, $Res Function(_$_PageChange) then) =
       __$$_PageChangeCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int slideOnlyindex,
       int controlsIndex,
@@ -129,36 +133,34 @@ abstract class _$$_PageChangeCopyWith<$Res>
 
 /// @nodoc
 class __$$_PageChangeCopyWithImpl<$Res>
-    extends _$CarouselEventCopyWithImpl<$Res>
+    extends _$CarouselEventCopyWithImpl<$Res, _$_PageChange>
     implements _$$_PageChangeCopyWith<$Res> {
   __$$_PageChangeCopyWithImpl(
       _$_PageChange _value, $Res Function(_$_PageChange) _then)
-      : super(_value, (v) => _then(v as _$_PageChange));
+      : super(_value, _then);
 
-  @override
-  _$_PageChange get _value => super._value as _$_PageChange;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? slideOnlyindex = freezed,
-    Object? controlsIndex = freezed,
-    Object? indicatorIndex = freezed,
-    Object? captionIndex = freezed,
+    Object? slideOnlyindex = null,
+    Object? controlsIndex = null,
+    Object? indicatorIndex = null,
+    Object? captionIndex = null,
   }) {
     return _then(_$_PageChange(
-      slideOnlyindex == freezed
+      null == slideOnlyindex
           ? _value.slideOnlyindex
           : slideOnlyindex // ignore: cast_nullable_to_non_nullable
               as int,
-      controlsIndex == freezed
+      null == controlsIndex
           ? _value.controlsIndex
           : controlsIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      indicatorIndex == freezed
+      null == indicatorIndex
           ? _value.indicatorIndex
           : indicatorIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      captionIndex == freezed
+      null == captionIndex
           ? _value.captionIndex
           : captionIndex // ignore: cast_nullable_to_non_nullable
               as int,
@@ -191,26 +193,23 @@ class _$_PageChange implements _PageChange {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PageChange &&
-            const DeepCollectionEquality()
-                .equals(other.slideOnlyindex, slideOnlyindex) &&
-            const DeepCollectionEquality()
-                .equals(other.controlsIndex, controlsIndex) &&
-            const DeepCollectionEquality()
-                .equals(other.indicatorIndex, indicatorIndex) &&
-            const DeepCollectionEquality()
-                .equals(other.captionIndex, captionIndex));
+            (identical(other.slideOnlyindex, slideOnlyindex) ||
+                other.slideOnlyindex == slideOnlyindex) &&
+            (identical(other.controlsIndex, controlsIndex) ||
+                other.controlsIndex == controlsIndex) &&
+            (identical(other.indicatorIndex, indicatorIndex) ||
+                other.indicatorIndex == indicatorIndex) &&
+            (identical(other.captionIndex, captionIndex) ||
+                other.captionIndex == captionIndex));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(slideOnlyindex),
-      const DeepCollectionEquality().hash(controlsIndex),
-      const DeepCollectionEquality().hash(indicatorIndex),
-      const DeepCollectionEquality().hash(captionIndex));
+      runtimeType, slideOnlyindex, controlsIndex, indicatorIndex, captionIndex);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PageChangeCopyWith<_$_PageChange> get copyWith =>
       __$$_PageChangeCopyWithImpl<_$_PageChange>(this, _$identity);
 
@@ -228,7 +227,7 @@ class _$_PageChange implements _PageChange {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int slideOnlyindex, int controlsIndex, int indicatorIndex,
+    TResult? Function(int slideOnlyindex, int controlsIndex, int indicatorIndex,
             int captionIndex)?
         pageChange,
   }) {
@@ -262,7 +261,7 @@ class _$_PageChange implements _PageChange {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_PageChange value)? pageChange,
+    TResult? Function(_PageChange value)? pageChange,
   }) {
     return pageChange?.call(this);
   }
@@ -310,8 +309,8 @@ mixin _$CarouselState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int slideOnlyindex, int controlsIndex, int indicatorIndex,
+    TResult? Function()? initial,
+    TResult? Function(int slideOnlyindex, int controlsIndex, int indicatorIndex,
             int captionIndex)?
         pageChangeSuccess,
   }) =>
@@ -333,8 +332,8 @@ mixin _$CarouselState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_PageChangeSuccess value)? pageChangeSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_PageChangeSuccess value)? pageChangeSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -350,17 +349,18 @@ mixin _$CarouselState {
 abstract class $CarouselStateCopyWith<$Res> {
   factory $CarouselStateCopyWith(
           CarouselState value, $Res Function(CarouselState) then) =
-      _$CarouselStateCopyWithImpl<$Res>;
+      _$CarouselStateCopyWithImpl<$Res, CarouselState>;
 }
 
 /// @nodoc
-class _$CarouselStateCopyWithImpl<$Res>
+class _$CarouselStateCopyWithImpl<$Res, $Val extends CarouselState>
     implements $CarouselStateCopyWith<$Res> {
   _$CarouselStateCopyWithImpl(this._value, this._then);
 
-  final CarouselState _value;
   // ignore: unused_field
-  final $Res Function(CarouselState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -371,13 +371,11 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$CarouselStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$CarouselStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -413,8 +411,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int slideOnlyindex, int controlsIndex, int indicatorIndex,
+    TResult? Function()? initial,
+    TResult? Function(int slideOnlyindex, int controlsIndex, int indicatorIndex,
             int captionIndex)?
         pageChangeSuccess,
   }) {
@@ -448,8 +446,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_PageChangeSuccess value)? pageChangeSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_PageChangeSuccess value)? pageChangeSuccess,
   }) {
     return initial?.call(this);
   }
@@ -477,6 +475,7 @@ abstract class _$$_PageChangeSuccessCopyWith<$Res> {
   factory _$$_PageChangeSuccessCopyWith(_$_PageChangeSuccess value,
           $Res Function(_$_PageChangeSuccess) then) =
       __$$_PageChangeSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {int slideOnlyindex,
       int controlsIndex,
@@ -486,36 +485,34 @@ abstract class _$$_PageChangeSuccessCopyWith<$Res> {
 
 /// @nodoc
 class __$$_PageChangeSuccessCopyWithImpl<$Res>
-    extends _$CarouselStateCopyWithImpl<$Res>
+    extends _$CarouselStateCopyWithImpl<$Res, _$_PageChangeSuccess>
     implements _$$_PageChangeSuccessCopyWith<$Res> {
   __$$_PageChangeSuccessCopyWithImpl(
       _$_PageChangeSuccess _value, $Res Function(_$_PageChangeSuccess) _then)
-      : super(_value, (v) => _then(v as _$_PageChangeSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_PageChangeSuccess get _value => super._value as _$_PageChangeSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? slideOnlyindex = freezed,
-    Object? controlsIndex = freezed,
-    Object? indicatorIndex = freezed,
-    Object? captionIndex = freezed,
+    Object? slideOnlyindex = null,
+    Object? controlsIndex = null,
+    Object? indicatorIndex = null,
+    Object? captionIndex = null,
   }) {
     return _then(_$_PageChangeSuccess(
-      slideOnlyindex == freezed
+      null == slideOnlyindex
           ? _value.slideOnlyindex
           : slideOnlyindex // ignore: cast_nullable_to_non_nullable
               as int,
-      controlsIndex == freezed
+      null == controlsIndex
           ? _value.controlsIndex
           : controlsIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      indicatorIndex == freezed
+      null == indicatorIndex
           ? _value.indicatorIndex
           : indicatorIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      captionIndex == freezed
+      null == captionIndex
           ? _value.captionIndex
           : captionIndex // ignore: cast_nullable_to_non_nullable
               as int,
@@ -548,26 +545,23 @@ class _$_PageChangeSuccess implements _PageChangeSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PageChangeSuccess &&
-            const DeepCollectionEquality()
-                .equals(other.slideOnlyindex, slideOnlyindex) &&
-            const DeepCollectionEquality()
-                .equals(other.controlsIndex, controlsIndex) &&
-            const DeepCollectionEquality()
-                .equals(other.indicatorIndex, indicatorIndex) &&
-            const DeepCollectionEquality()
-                .equals(other.captionIndex, captionIndex));
+            (identical(other.slideOnlyindex, slideOnlyindex) ||
+                other.slideOnlyindex == slideOnlyindex) &&
+            (identical(other.controlsIndex, controlsIndex) ||
+                other.controlsIndex == controlsIndex) &&
+            (identical(other.indicatorIndex, indicatorIndex) ||
+                other.indicatorIndex == indicatorIndex) &&
+            (identical(other.captionIndex, captionIndex) ||
+                other.captionIndex == captionIndex));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(slideOnlyindex),
-      const DeepCollectionEquality().hash(controlsIndex),
-      const DeepCollectionEquality().hash(indicatorIndex),
-      const DeepCollectionEquality().hash(captionIndex));
+      runtimeType, slideOnlyindex, controlsIndex, indicatorIndex, captionIndex);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PageChangeSuccessCopyWith<_$_PageChangeSuccess> get copyWith =>
       __$$_PageChangeSuccessCopyWithImpl<_$_PageChangeSuccess>(
           this, _$identity);
@@ -587,8 +581,8 @@ class _$_PageChangeSuccess implements _PageChangeSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int slideOnlyindex, int controlsIndex, int indicatorIndex,
+    TResult? Function()? initial,
+    TResult? Function(int slideOnlyindex, int controlsIndex, int indicatorIndex,
             int captionIndex)?
         pageChangeSuccess,
   }) {
@@ -624,8 +618,8 @@ class _$_PageChangeSuccess implements _PageChangeSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_PageChangeSuccess value)? pageChangeSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_PageChangeSuccess value)? pageChangeSuccess,
   }) {
     return pageChangeSuccess?.call(this);
   }

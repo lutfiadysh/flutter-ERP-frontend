@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/views/categories/table_categories.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class CategoriesViewTest extends StatefulWidget {
   const CategoriesViewTest({super.key});
 

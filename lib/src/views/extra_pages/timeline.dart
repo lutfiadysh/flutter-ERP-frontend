@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'dart:math';
 import 'package:admin_dashboard/src/constant/color.dart';
 import 'package:admin_dashboard/src/constant/custom_text.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterx/flutterx.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
+@RoutePage()
 class TimelineScreen extends StatefulWidget {
   const TimelineScreen({Key? key}) : super(key: key);
 

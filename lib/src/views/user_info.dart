@@ -15,7 +15,6 @@ class UserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
 
     return Container(
       padding: EdgeInsets.all(16.0),

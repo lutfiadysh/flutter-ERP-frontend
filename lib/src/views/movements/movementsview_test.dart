@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:admin_dashboard/proy/providers/movements_provider.dart';
 import 'package:admin_dashboard/proy/providers/products_provider.dart';
 import 'package:admin_dashboard/src/views/movements/inputcreateView_test.dart';
 import 'package:admin_dashboard/src/views/movements/movementscardsview.dart';
@@ -5,6 +7,7 @@ import 'package:admin_dashboard/src/views/movements/outputcreateView_test.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+@RoutePage()
 class MovementsViewTest extends StatefulWidget {
   const MovementsViewTest({Key? key}) : super(key: key);
 
@@ -19,11 +22,14 @@ class _MovementsViewTestState extends State<MovementsViewTest> {
   void initState() {
     super.initState();
     Provider.of<ProductsProvider>(context, listen: false).getProducts();
+    Provider.of<MovementsProvider>(context, listen: false)
+        .getProductEntriesAndExits();
   }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size.height;
+    final movimientos = Provider.of<MovementsProvider>(context).movimientos;
 
     return SizedBox(
       height: size - 75 - 95,
@@ -31,7 +37,7 @@ class _MovementsViewTestState extends State<MovementsViewTest> {
         appBar: AppBar(
           title: const Text("Movimientos"),
         ),
-        body: const MovementsCardsView(),
+        body: MovementsCardsView(movimientos: movimientos),
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

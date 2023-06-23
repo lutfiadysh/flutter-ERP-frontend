@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/proy/providers/users_provider.dart';
 import 'package:admin_dashboard/src/views/users/registerusers_test.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'card_users.dart';
 
+@RoutePage()
 class UsersViewTest extends StatefulWidget {
   const UsersViewTest({Key? key}) : super(key: key);
 

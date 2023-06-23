@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/utils/responsive.dart';
 import 'package:admin_dashboard/src/views/dashboard/activity.dart';
 import 'package:admin_dashboard/src/views/dashboard/chat_screen.dart';
@@ -12,6 +13,7 @@ import 'package:admin_dashboard/src/views/dashboard/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/flutterx.dart';
 
+@RoutePage()
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
 

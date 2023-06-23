@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/proy/providers/branches_provider.dart';
 import 'package:admin_dashboard/proy/providers/stocks_provider.dart';
 import 'package:admin_dashboard/src/views/stock/card_stocks.dart';
@@ -6,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:admin_dashboard/src/constant/color.dart';
 import 'package:admin_dashboard/src/constant/theme.dart';
 
+@RoutePage()
 class StocksViewTest extends StatefulWidget {
   const StocksViewTest({Key? key}) : super(key: key);
 

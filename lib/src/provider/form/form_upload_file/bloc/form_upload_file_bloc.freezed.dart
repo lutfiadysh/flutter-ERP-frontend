@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'form_upload_file_bloc.dart';
 
@@ -24,8 +24,8 @@ mixin _$FormUploadFileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<dynamic> filesList)? addFile,
-    TResult Function()? clear,
+    TResult? Function(List<dynamic> filesList)? addFile,
+    TResult? Function()? clear,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$FormUploadFileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AddFile value)? addFile,
-    TResult Function(_Clear value)? clear,
+    TResult? Function(_AddFile value)? addFile,
+    TResult? Function(_Clear value)? clear,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,17 +60,18 @@ mixin _$FormUploadFileEvent {
 abstract class $FormUploadFileEventCopyWith<$Res> {
   factory $FormUploadFileEventCopyWith(
           FormUploadFileEvent value, $Res Function(FormUploadFileEvent) then) =
-      _$FormUploadFileEventCopyWithImpl<$Res>;
+      _$FormUploadFileEventCopyWithImpl<$Res, FormUploadFileEvent>;
 }
 
 /// @nodoc
-class _$FormUploadFileEventCopyWithImpl<$Res>
+class _$FormUploadFileEventCopyWithImpl<$Res, $Val extends FormUploadFileEvent>
     implements $FormUploadFileEventCopyWith<$Res> {
   _$FormUploadFileEventCopyWithImpl(this._value, this._then);
 
-  final FormUploadFileEvent _value;
   // ignore: unused_field
-  final $Res Function(FormUploadFileEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -78,25 +79,24 @@ abstract class _$$_AddFileCopyWith<$Res> {
   factory _$$_AddFileCopyWith(
           _$_AddFile value, $Res Function(_$_AddFile) then) =
       __$$_AddFileCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<dynamic> filesList});
 }
 
 /// @nodoc
 class __$$_AddFileCopyWithImpl<$Res>
-    extends _$FormUploadFileEventCopyWithImpl<$Res>
+    extends _$FormUploadFileEventCopyWithImpl<$Res, _$_AddFile>
     implements _$$_AddFileCopyWith<$Res> {
   __$$_AddFileCopyWithImpl(_$_AddFile _value, $Res Function(_$_AddFile) _then)
-      : super(_value, (v) => _then(v as _$_AddFile));
+      : super(_value, _then);
 
-  @override
-  _$_AddFile get _value => super._value as _$_AddFile;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? filesList = freezed,
+    Object? filesList = null,
   }) {
     return _then(_$_AddFile(
-      filesList == freezed
+      null == filesList
           ? _value._filesList
           : filesList // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
@@ -112,6 +112,7 @@ class _$_AddFile implements _AddFile {
   final List<dynamic> _filesList;
   @override
   List<dynamic> get filesList {
+    if (_filesList is EqualUnmodifiableListView) return _filesList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_filesList);
   }
@@ -136,6 +137,7 @@ class _$_AddFile implements _AddFile {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddFileCopyWith<_$_AddFile> get copyWith =>
       __$$_AddFileCopyWithImpl<_$_AddFile>(this, _$identity);
 
@@ -151,8 +153,8 @@ class _$_AddFile implements _AddFile {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<dynamic> filesList)? addFile,
-    TResult Function()? clear,
+    TResult? Function(List<dynamic> filesList)? addFile,
+    TResult? Function()? clear,
   }) {
     return addFile?.call(filesList);
   }
@@ -182,8 +184,8 @@ class _$_AddFile implements _AddFile {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AddFile value)? addFile,
-    TResult Function(_Clear value)? clear,
+    TResult? Function(_AddFile value)? addFile,
+    TResult? Function(_Clear value)? clear,
   }) {
     return addFile?.call(this);
   }
@@ -219,13 +221,10 @@ abstract class _$$_ClearCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ClearCopyWithImpl<$Res>
-    extends _$FormUploadFileEventCopyWithImpl<$Res>
+    extends _$FormUploadFileEventCopyWithImpl<$Res, _$_Clear>
     implements _$$_ClearCopyWith<$Res> {
   __$$_ClearCopyWithImpl(_$_Clear _value, $Res Function(_$_Clear) _then)
-      : super(_value, (v) => _then(v as _$_Clear));
-
-  @override
-  _$_Clear get _value => super._value as _$_Clear;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -259,8 +258,8 @@ class _$_Clear implements _Clear {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<dynamic> filesList)? addFile,
-    TResult Function()? clear,
+    TResult? Function(List<dynamic> filesList)? addFile,
+    TResult? Function()? clear,
   }) {
     return clear?.call();
   }
@@ -290,8 +289,8 @@ class _$_Clear implements _Clear {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AddFile value)? addFile,
-    TResult Function(_Clear value)? clear,
+    TResult? Function(_AddFile value)? addFile,
+    TResult? Function(_Clear value)? clear,
   }) {
     return clear?.call(this);
   }
@@ -324,8 +323,8 @@ mixin _$FormUploadFileState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<dynamic> filesList)? fileSuccess,
+    TResult? Function()? initial,
+    TResult? Function(List<dynamic> filesList)? fileSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -343,8 +342,8 @@ mixin _$FormUploadFileState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_FileSuccess value)? fileSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_FileSuccess value)? fileSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -360,17 +359,18 @@ mixin _$FormUploadFileState {
 abstract class $FormUploadFileStateCopyWith<$Res> {
   factory $FormUploadFileStateCopyWith(
           FormUploadFileState value, $Res Function(FormUploadFileState) then) =
-      _$FormUploadFileStateCopyWithImpl<$Res>;
+      _$FormUploadFileStateCopyWithImpl<$Res, FormUploadFileState>;
 }
 
 /// @nodoc
-class _$FormUploadFileStateCopyWithImpl<$Res>
+class _$FormUploadFileStateCopyWithImpl<$Res, $Val extends FormUploadFileState>
     implements $FormUploadFileStateCopyWith<$Res> {
   _$FormUploadFileStateCopyWithImpl(this._value, this._then);
 
-  final FormUploadFileState _value;
   // ignore: unused_field
-  final $Res Function(FormUploadFileState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -382,13 +382,10 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$FormUploadFileStateCopyWithImpl<$Res>
+    extends _$FormUploadFileStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -422,8 +419,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<dynamic> filesList)? fileSuccess,
+    TResult? Function()? initial,
+    TResult? Function(List<dynamic> filesList)? fileSuccess,
   }) {
     return initial?.call();
   }
@@ -453,8 +450,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_FileSuccess value)? fileSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_FileSuccess value)? fileSuccess,
   }) {
     return initial?.call(this);
   }
@@ -482,26 +479,25 @@ abstract class _$$_FileSuccessCopyWith<$Res> {
   factory _$$_FileSuccessCopyWith(
           _$_FileSuccess value, $Res Function(_$_FileSuccess) then) =
       __$$_FileSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<dynamic> filesList});
 }
 
 /// @nodoc
 class __$$_FileSuccessCopyWithImpl<$Res>
-    extends _$FormUploadFileStateCopyWithImpl<$Res>
+    extends _$FormUploadFileStateCopyWithImpl<$Res, _$_FileSuccess>
     implements _$$_FileSuccessCopyWith<$Res> {
   __$$_FileSuccessCopyWithImpl(
       _$_FileSuccess _value, $Res Function(_$_FileSuccess) _then)
-      : super(_value, (v) => _then(v as _$_FileSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_FileSuccess get _value => super._value as _$_FileSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? filesList = freezed,
+    Object? filesList = null,
   }) {
     return _then(_$_FileSuccess(
-      filesList == freezed
+      null == filesList
           ? _value._filesList
           : filesList // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
@@ -517,6 +513,7 @@ class _$_FileSuccess implements _FileSuccess {
   final List<dynamic> _filesList;
   @override
   List<dynamic> get filesList {
+    if (_filesList is EqualUnmodifiableListView) return _filesList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_filesList);
   }
@@ -541,6 +538,7 @@ class _$_FileSuccess implements _FileSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FileSuccessCopyWith<_$_FileSuccess> get copyWith =>
       __$$_FileSuccessCopyWithImpl<_$_FileSuccess>(this, _$identity);
 
@@ -556,8 +554,8 @@ class _$_FileSuccess implements _FileSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(List<dynamic> filesList)? fileSuccess,
+    TResult? Function()? initial,
+    TResult? Function(List<dynamic> filesList)? fileSuccess,
   }) {
     return fileSuccess?.call(filesList);
   }
@@ -587,8 +585,8 @@ class _$_FileSuccess implements _FileSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_FileSuccess value)? fileSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_FileSuccess value)? fileSuccess,
   }) {
     return fileSuccess?.call(this);
   }

@@ -17,6 +17,7 @@ class CardProducts extends StatefulWidget {
 
 class _CardProductsState extends State<CardProducts> {
   Categoria? categoria;
+  bool _isDialogOpen = false; // Añade esta variable de estado
 
   @override
   void initState() {
@@ -203,6 +204,13 @@ class _CardProductsState extends State<CardProducts> {
   }
 
   Future<void> showUserDialog(String title, Widget content) async {
+    if (_isDialogOpen) {
+      return;
+    }
+    setState(() {
+      _isDialogOpen = true;
+    });
+
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -210,6 +218,13 @@ class _CardProductsState extends State<CardProducts> {
           content: SingleChildScrollView(child: content),
         );
       },
-    );
+    ).then((_) {
+      // Asegúrate de resetear el estado cuando el diálogo se cierre
+      if (mounted) {
+        setState(() {
+          _isDialogOpen = false;
+        });
+      }
+    });
   }
 }

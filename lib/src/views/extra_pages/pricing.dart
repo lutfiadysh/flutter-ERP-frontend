@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'dart:ui';
 
 import 'package:admin_dashboard/src/constant/color.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterx/flutterx.dart';
 
+@RoutePage()
 class Pricing extends StatefulWidget {
   const Pricing({Key? key}) : super(key: key);
 

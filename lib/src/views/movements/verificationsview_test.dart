@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/proy/providers/movements_provider.dart';
 import 'package:admin_dashboard/src/views/movements/card_movements.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+@RoutePage()
 class VerificationsViewTest extends StatefulWidget {
   const VerificationsViewTest({super.key});
 

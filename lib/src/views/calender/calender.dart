@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'dart:async';
 import 'dart:math';
 
@@ -15,6 +16,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterx/flutterx.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+@RoutePage()
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);
 

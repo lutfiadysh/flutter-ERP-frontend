@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'dart:async';
 
 import 'package:admin_dashboard/src/constant/color.dart';
@@ -11,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutterx/flutterx.dart';
 
+@RoutePage()
 class ComingSoon extends StatefulWidget {
   const ComingSoon({Key? key}) : super(key: key);
 

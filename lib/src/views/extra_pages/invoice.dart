@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/constant/color.dart';
 import 'package:admin_dashboard/src/constant/icons.dart';
 import 'package:admin_dashboard/src/constant/theme.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutterx/flutterx.dart';
 import 'package:data_table_2/data_table_2.dart';
 
+@RoutePage()
 class Invoice extends StatefulWidget {
   const Invoice({Key? key}) : super(key: key);
 

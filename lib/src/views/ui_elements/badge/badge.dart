@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/constant/color.dart';
 import 'package:admin_dashboard/src/constant/string.dart';
 import 'package:admin_dashboard/src/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/flutterx.dart';
 
+@RoutePage()
 class Badge extends StatelessWidget {
   const Badge({Key? key}) : super(key: key);
 

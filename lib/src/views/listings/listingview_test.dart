@@ -10,6 +10,7 @@ import 'package:admin_dashboard/proy/models/listing.dart';
 import 'package:admin_dashboard/proy/providers/products_provider.dart';
 import 'package:provider/provider.dart';
 
+@RoutePage()
 class ListingViewTest extends StatefulWidget {
   const ListingViewTest({Key? key}) : super(key: key);
 

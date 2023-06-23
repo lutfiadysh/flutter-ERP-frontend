@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'data_table_bloc.dart';
 
@@ -23,7 +23,7 @@ mixin _$DataTableEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? rebuild,
+    TResult? Function()? rebuild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +39,7 @@ mixin _$DataTableEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Rebuild value)? rebuild,
+    TResult? Function(_Rebuild value)? rebuild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,17 +54,18 @@ mixin _$DataTableEvent {
 abstract class $DataTableEventCopyWith<$Res> {
   factory $DataTableEventCopyWith(
           DataTableEvent value, $Res Function(DataTableEvent) then) =
-      _$DataTableEventCopyWithImpl<$Res>;
+      _$DataTableEventCopyWithImpl<$Res, DataTableEvent>;
 }
 
 /// @nodoc
-class _$DataTableEventCopyWithImpl<$Res>
+class _$DataTableEventCopyWithImpl<$Res, $Val extends DataTableEvent>
     implements $DataTableEventCopyWith<$Res> {
   _$DataTableEventCopyWithImpl(this._value, this._then);
 
-  final DataTableEvent _value;
   // ignore: unused_field
-  final $Res Function(DataTableEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -75,13 +76,11 @@ abstract class _$$_RebuildCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RebuildCopyWithImpl<$Res> extends _$DataTableEventCopyWithImpl<$Res>
+class __$$_RebuildCopyWithImpl<$Res>
+    extends _$DataTableEventCopyWithImpl<$Res, _$_Rebuild>
     implements _$$_RebuildCopyWith<$Res> {
   __$$_RebuildCopyWithImpl(_$_Rebuild _value, $Res Function(_$_Rebuild) _then)
-      : super(_value, (v) => _then(v as _$_Rebuild));
-
-  @override
-  _$_Rebuild get _value => super._value as _$_Rebuild;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -114,7 +113,7 @@ class _$_Rebuild implements _Rebuild {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? rebuild,
+    TResult? Function()? rebuild,
   }) {
     return rebuild?.call();
   }
@@ -142,7 +141,7 @@ class _$_Rebuild implements _Rebuild {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Rebuild value)? rebuild,
+    TResult? Function(_Rebuild value)? rebuild,
   }) {
     return rebuild?.call(this);
   }
@@ -174,8 +173,8 @@ mixin _$DataTableState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? success,
+    TResult? Function()? initial,
+    TResult? Function()? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -193,8 +192,8 @@ mixin _$DataTableState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -210,17 +209,18 @@ mixin _$DataTableState {
 abstract class $DataTableStateCopyWith<$Res> {
   factory $DataTableStateCopyWith(
           DataTableState value, $Res Function(DataTableState) then) =
-      _$DataTableStateCopyWithImpl<$Res>;
+      _$DataTableStateCopyWithImpl<$Res, DataTableState>;
 }
 
 /// @nodoc
-class _$DataTableStateCopyWithImpl<$Res>
+class _$DataTableStateCopyWithImpl<$Res, $Val extends DataTableState>
     implements $DataTableStateCopyWith<$Res> {
   _$DataTableStateCopyWithImpl(this._value, this._then);
 
-  final DataTableState _value;
   // ignore: unused_field
-  final $Res Function(DataTableState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -231,13 +231,11 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$DataTableStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$DataTableStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -271,8 +269,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? success,
+    TResult? Function()? initial,
+    TResult? Function()? success,
   }) {
     return initial?.call();
   }
@@ -302,8 +300,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) {
     return initial?.call(this);
   }
@@ -334,13 +332,11 @@ abstract class _$$_SuccessCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res> extends _$DataTableStateCopyWithImpl<$Res>
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$DataTableStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
-
-  @override
-  _$_Success get _value => super._value as _$_Success;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -374,8 +370,8 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? success,
+    TResult? Function()? initial,
+    TResult? Function()? success,
   }) {
     return success?.call();
   }
@@ -405,8 +401,8 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) {
     return success?.call(this);
   }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'coming_soon_bloc_bloc.dart';
 
@@ -24,7 +24,7 @@ mixin _$ComingSoonBlocEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int seconds)? started,
+    TResult? Function(int seconds)? started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$ComingSoonBlocEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult? Function(_Started value)? started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,29 +59,32 @@ mixin _$ComingSoonBlocEvent {
 abstract class $ComingSoonBlocEventCopyWith<$Res> {
   factory $ComingSoonBlocEventCopyWith(
           ComingSoonBlocEvent value, $Res Function(ComingSoonBlocEvent) then) =
-      _$ComingSoonBlocEventCopyWithImpl<$Res>;
+      _$ComingSoonBlocEventCopyWithImpl<$Res, ComingSoonBlocEvent>;
+  @useResult
   $Res call({int seconds});
 }
 
 /// @nodoc
-class _$ComingSoonBlocEventCopyWithImpl<$Res>
+class _$ComingSoonBlocEventCopyWithImpl<$Res, $Val extends ComingSoonBlocEvent>
     implements $ComingSoonBlocEventCopyWith<$Res> {
   _$ComingSoonBlocEventCopyWithImpl(this._value, this._then);
 
-  final ComingSoonBlocEvent _value;
   // ignore: unused_field
-  final $Res Function(ComingSoonBlocEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? seconds = freezed,
+    Object? seconds = null,
   }) {
     return _then(_value.copyWith(
-      seconds: seconds == freezed
+      seconds: null == seconds
           ? _value.seconds
           : seconds // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -92,25 +95,24 @@ abstract class _$$_StartedCopyWith<$Res>
           _$_Started value, $Res Function(_$_Started) then) =
       __$$_StartedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int seconds});
 }
 
 /// @nodoc
 class __$$_StartedCopyWithImpl<$Res>
-    extends _$ComingSoonBlocEventCopyWithImpl<$Res>
+    extends _$ComingSoonBlocEventCopyWithImpl<$Res, _$_Started>
     implements _$$_StartedCopyWith<$Res> {
   __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, (v) => _then(v as _$_Started));
+      : super(_value, _then);
 
-  @override
-  _$_Started get _value => super._value as _$_Started;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? seconds = freezed,
+    Object? seconds = null,
   }) {
     return _then(_$_Started(
-      seconds == freezed
+      null == seconds
           ? _value.seconds
           : seconds // ignore: cast_nullable_to_non_nullable
               as int,
@@ -136,15 +138,15 @@ class _$_Started implements _Started {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Started &&
-            const DeepCollectionEquality().equals(other.seconds, seconds));
+            (identical(other.seconds, seconds) || other.seconds == seconds));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(seconds));
+  int get hashCode => Object.hash(runtimeType, seconds);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StartedCopyWith<_$_Started> get copyWith =>
       __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
 
@@ -159,7 +161,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int seconds)? started,
+    TResult? Function(int seconds)? started,
   }) {
     return started?.call(seconds);
   }
@@ -187,7 +189,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult? Function(_Started value)? started,
   }) {
     return started?.call(this);
   }
@@ -226,8 +228,8 @@ mixin _$ComingSoonBlocState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int seconds)? startSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int seconds)? startSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -245,8 +247,8 @@ mixin _$ComingSoonBlocState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_StartSuccess value)? startSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartSuccess value)? startSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -262,17 +264,18 @@ mixin _$ComingSoonBlocState {
 abstract class $ComingSoonBlocStateCopyWith<$Res> {
   factory $ComingSoonBlocStateCopyWith(
           ComingSoonBlocState value, $Res Function(ComingSoonBlocState) then) =
-      _$ComingSoonBlocStateCopyWithImpl<$Res>;
+      _$ComingSoonBlocStateCopyWithImpl<$Res, ComingSoonBlocState>;
 }
 
 /// @nodoc
-class _$ComingSoonBlocStateCopyWithImpl<$Res>
+class _$ComingSoonBlocStateCopyWithImpl<$Res, $Val extends ComingSoonBlocState>
     implements $ComingSoonBlocStateCopyWith<$Res> {
   _$ComingSoonBlocStateCopyWithImpl(this._value, this._then);
 
-  final ComingSoonBlocState _value;
   // ignore: unused_field
-  final $Res Function(ComingSoonBlocState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -284,13 +287,10 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$ComingSoonBlocStateCopyWithImpl<$Res>
+    extends _$ComingSoonBlocStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -324,8 +324,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int seconds)? startSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int seconds)? startSuccess,
   }) {
     return initial?.call();
   }
@@ -355,8 +355,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_StartSuccess value)? startSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartSuccess value)? startSuccess,
   }) {
     return initial?.call(this);
   }
@@ -384,26 +384,25 @@ abstract class _$$_StartSuccessCopyWith<$Res> {
   factory _$$_StartSuccessCopyWith(
           _$_StartSuccess value, $Res Function(_$_StartSuccess) then) =
       __$$_StartSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int seconds});
 }
 
 /// @nodoc
 class __$$_StartSuccessCopyWithImpl<$Res>
-    extends _$ComingSoonBlocStateCopyWithImpl<$Res>
+    extends _$ComingSoonBlocStateCopyWithImpl<$Res, _$_StartSuccess>
     implements _$$_StartSuccessCopyWith<$Res> {
   __$$_StartSuccessCopyWithImpl(
       _$_StartSuccess _value, $Res Function(_$_StartSuccess) _then)
-      : super(_value, (v) => _then(v as _$_StartSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_StartSuccess get _value => super._value as _$_StartSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? seconds = freezed,
+    Object? seconds = null,
   }) {
     return _then(_$_StartSuccess(
-      seconds == freezed
+      null == seconds
           ? _value.seconds
           : seconds // ignore: cast_nullable_to_non_nullable
               as int,
@@ -429,15 +428,15 @@ class _$_StartSuccess implements _StartSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StartSuccess &&
-            const DeepCollectionEquality().equals(other.seconds, seconds));
+            (identical(other.seconds, seconds) || other.seconds == seconds));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(seconds));
+  int get hashCode => Object.hash(runtimeType, seconds);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StartSuccessCopyWith<_$_StartSuccess> get copyWith =>
       __$$_StartSuccessCopyWithImpl<_$_StartSuccess>(this, _$identity);
 
@@ -453,8 +452,8 @@ class _$_StartSuccess implements _StartSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int seconds)? startSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int seconds)? startSuccess,
   }) {
     return startSuccess?.call(seconds);
   }
@@ -484,8 +483,8 @@ class _$_StartSuccess implements _StartSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_StartSuccess value)? startSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_StartSuccess value)? startSuccess,
   }) {
     return startSuccess?.call(this);
   }

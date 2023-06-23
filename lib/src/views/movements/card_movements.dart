@@ -16,10 +16,24 @@ class CardMovements extends StatefulWidget {
 }
 
 class _CardMovementsState extends State<CardMovements> {
+  bool showMessage = false;
+
   @override
   void initState() {
     super.initState();
-    Provider.of<MovementsProvider>(context, listen: false).getMovements();
+    fetchMovements();
+  }
+
+  Future<void> fetchMovements() async {
+    await Provider.of<MovementsProvider>(context, listen: false).getMovements();
+
+    Future.delayed(const Duration(seconds: 5), () {
+      if (widget.movimientos.isEmpty) {
+        setState(() {
+          showMessage = true;
+        });
+      }
+    });
   }
 
   List<Movimiento> filterMovementsByType(String type,
@@ -39,103 +53,22 @@ class _CardMovementsState extends State<CardMovements> {
         .toList();
   }
 
-  Widget buildList(List<Movimiento> filteredMovements,
-      {bool showMovementType = false}) {
-    return ListView.builder(
-      itemCount: filteredMovements.length,
-      itemBuilder: (context, index) {
-        final movimiento = filteredMovements[index];
-
-        return GestureDetector(
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return MovementDetailsDialog(movimiento: movimiento);
-              },
-            );
-          },
-          child: Card(
-            margin: const EdgeInsets.only(bottom: 10),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    children: [
-                      VerificationImage(
-                        imageUrl: movimiento.stock.producto.img,
-                      ),
-                      const SizedBox(height: 8),
-                      VerificationBadge(
-                        verificationStatus: movimiento.verificacion,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          movimiento.stock.producto.nombre,
-                          style: const TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                        if (showMovementType)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8),
-                            child: Text(
-                              'Movimiento: ${movimiento.movimiento}',
-                              style: const TextStyle(
-                                fontSize: 14,
-                              ),
-                            ),
-                          ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'Sucursal: ${movimiento.stock.sucursal.definicion}',
-                          style: const TextStyle(
-                            fontSize: 14,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'Cantidad de cajas: ${movimiento.cantidadCajas}',
-                          style: const TextStyle(
-                            fontSize: 14,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'Cantidad de piezas: ${movimiento.cantidadPiezas}',
-                          style: const TextStyle(
-                            fontSize: 14,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'Creado: ${timeAgo(movimiento.fecha)}',
-                          style: const TextStyle(
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    if (widget.movimientos.isEmpty) {
+      if (showMessage) {
+        return const Center(
+          child: Text(
+            'No existen movimientos, agrega uno.',
+          ),
+        );
+      } else {
+        return const Center(
+            child:
+                CircularProgressIndicator(color: Colors.white, strokeWidth: 2));
+      }
+    }
+
     return DefaultTabController(
       length: 4,
       child: Column(
@@ -264,4 +197,99 @@ String timeAgo(DateTime date) {
   } else {
     return 'hace un momento';
   }
+}
+
+Widget buildList(List<Movimiento> filteredMovements,
+    {bool showMovementType = false}) {
+  return ListView.builder(
+    itemCount: filteredMovements.length,
+    itemBuilder: (context, index) {
+      final movimiento = filteredMovements[index];
+
+      return GestureDetector(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return MovementDetailsDialog(movimiento: movimiento);
+            },
+          );
+        },
+        child: Card(
+          margin: const EdgeInsets.only(bottom: 10),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  children: [
+                    VerificationImage(
+                      imageUrl: movimiento.stock.producto.img,
+                    ),
+                    const SizedBox(height: 8),
+                    VerificationBadge(
+                      verificationStatus: movimiento.verificacion,
+                    ),
+                  ],
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        movimiento.stock.producto.nombre,
+                        style: const TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      if (showMovementType)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: Text(
+                            'Movimiento: ${movimiento.movimiento}',
+                            style: const TextStyle(
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Sucursal: ${movimiento.stock.sucursal.definicion}',
+                        style: const TextStyle(
+                          fontSize: 14,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Cantidad de cajas: ${movimiento.cantidadCajas}',
+                        style: const TextStyle(
+                          fontSize: 14,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Cantidad de piezas: ${movimiento.cantidadPiezas}',
+                        style: const TextStyle(
+                          fontSize: 14,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Creado: ${timeAgo(movimiento.fecha)}',
+                        style: const TextStyle(
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }

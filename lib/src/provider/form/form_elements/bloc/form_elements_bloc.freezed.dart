@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'form_elements_bloc.dart';
 
@@ -27,11 +27,11 @@ mixin _$FormElementsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int value)? increment,
-    TResult Function(int value)? decrement,
-    TResult Function(String dateAndtime)? datePicker,
-    TResult Function(Color color)? colorPicker,
-    TResult Function(String value)? dropDown,
+    TResult? Function(int value)? increment,
+    TResult? Function(int value)? decrement,
+    TResult? Function(String dateAndtime)? datePicker,
+    TResult? Function(Color color)? colorPicker,
+    TResult? Function(String value)? dropDown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,11 +55,11 @@ mixin _$FormElementsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Increment value)? increment,
-    TResult Function(_Decrement value)? decrement,
-    TResult Function(_DatePicker value)? datePicker,
-    TResult Function(_ColorPicker value)? colorPicker,
-    TResult Function(_DropDown value)? dropDown,
+    TResult? Function(_Increment value)? increment,
+    TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_DatePicker value)? datePicker,
+    TResult? Function(_ColorPicker value)? colorPicker,
+    TResult? Function(_DropDown value)? dropDown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,17 +78,18 @@ mixin _$FormElementsEvent {
 abstract class $FormElementsEventCopyWith<$Res> {
   factory $FormElementsEventCopyWith(
           FormElementsEvent value, $Res Function(FormElementsEvent) then) =
-      _$FormElementsEventCopyWithImpl<$Res>;
+      _$FormElementsEventCopyWithImpl<$Res, FormElementsEvent>;
 }
 
 /// @nodoc
-class _$FormElementsEventCopyWithImpl<$Res>
+class _$FormElementsEventCopyWithImpl<$Res, $Val extends FormElementsEvent>
     implements $FormElementsEventCopyWith<$Res> {
   _$FormElementsEventCopyWithImpl(this._value, this._then);
 
-  final FormElementsEvent _value;
   // ignore: unused_field
-  final $Res Function(FormElementsEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -96,26 +97,25 @@ abstract class _$$_IncrementCopyWith<$Res> {
   factory _$$_IncrementCopyWith(
           _$_Increment value, $Res Function(_$_Increment) then) =
       __$$_IncrementCopyWithImpl<$Res>;
+  @useResult
   $Res call({int value});
 }
 
 /// @nodoc
 class __$$_IncrementCopyWithImpl<$Res>
-    extends _$FormElementsEventCopyWithImpl<$Res>
+    extends _$FormElementsEventCopyWithImpl<$Res, _$_Increment>
     implements _$$_IncrementCopyWith<$Res> {
   __$$_IncrementCopyWithImpl(
       _$_Increment _value, $Res Function(_$_Increment) _then)
-      : super(_value, (v) => _then(v as _$_Increment));
+      : super(_value, _then);
 
-  @override
-  _$_Increment get _value => super._value as _$_Increment;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_Increment(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
@@ -141,15 +141,15 @@ class _$_Increment implements _Increment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Increment &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_IncrementCopyWith<_$_Increment> get copyWith =>
       __$$_IncrementCopyWithImpl<_$_Increment>(this, _$identity);
 
@@ -168,11 +168,11 @@ class _$_Increment implements _Increment {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int value)? increment,
-    TResult Function(int value)? decrement,
-    TResult Function(String dateAndtime)? datePicker,
-    TResult Function(Color color)? colorPicker,
-    TResult Function(String value)? dropDown,
+    TResult? Function(int value)? increment,
+    TResult? Function(int value)? decrement,
+    TResult? Function(String dateAndtime)? datePicker,
+    TResult? Function(Color color)? colorPicker,
+    TResult? Function(String value)? dropDown,
   }) {
     return increment?.call(value);
   }
@@ -208,11 +208,11 @@ class _$_Increment implements _Increment {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Increment value)? increment,
-    TResult Function(_Decrement value)? decrement,
-    TResult Function(_DatePicker value)? datePicker,
-    TResult Function(_ColorPicker value)? colorPicker,
-    TResult Function(_DropDown value)? dropDown,
+    TResult? Function(_Increment value)? increment,
+    TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_DatePicker value)? datePicker,
+    TResult? Function(_ColorPicker value)? colorPicker,
+    TResult? Function(_DropDown value)? dropDown,
   }) {
     return increment?.call(this);
   }
@@ -248,26 +248,25 @@ abstract class _$$_DecrementCopyWith<$Res> {
   factory _$$_DecrementCopyWith(
           _$_Decrement value, $Res Function(_$_Decrement) then) =
       __$$_DecrementCopyWithImpl<$Res>;
+  @useResult
   $Res call({int value});
 }
 
 /// @nodoc
 class __$$_DecrementCopyWithImpl<$Res>
-    extends _$FormElementsEventCopyWithImpl<$Res>
+    extends _$FormElementsEventCopyWithImpl<$Res, _$_Decrement>
     implements _$$_DecrementCopyWith<$Res> {
   __$$_DecrementCopyWithImpl(
       _$_Decrement _value, $Res Function(_$_Decrement) _then)
-      : super(_value, (v) => _then(v as _$_Decrement));
+      : super(_value, _then);
 
-  @override
-  _$_Decrement get _value => super._value as _$_Decrement;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_Decrement(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
@@ -293,15 +292,15 @@ class _$_Decrement implements _Decrement {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Decrement &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DecrementCopyWith<_$_Decrement> get copyWith =>
       __$$_DecrementCopyWithImpl<_$_Decrement>(this, _$identity);
 
@@ -320,11 +319,11 @@ class _$_Decrement implements _Decrement {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int value)? increment,
-    TResult Function(int value)? decrement,
-    TResult Function(String dateAndtime)? datePicker,
-    TResult Function(Color color)? colorPicker,
-    TResult Function(String value)? dropDown,
+    TResult? Function(int value)? increment,
+    TResult? Function(int value)? decrement,
+    TResult? Function(String dateAndtime)? datePicker,
+    TResult? Function(Color color)? colorPicker,
+    TResult? Function(String value)? dropDown,
   }) {
     return decrement?.call(value);
   }
@@ -360,11 +359,11 @@ class _$_Decrement implements _Decrement {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Increment value)? increment,
-    TResult Function(_Decrement value)? decrement,
-    TResult Function(_DatePicker value)? datePicker,
-    TResult Function(_ColorPicker value)? colorPicker,
-    TResult Function(_DropDown value)? dropDown,
+    TResult? Function(_Increment value)? increment,
+    TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_DatePicker value)? datePicker,
+    TResult? Function(_ColorPicker value)? colorPicker,
+    TResult? Function(_DropDown value)? dropDown,
   }) {
     return decrement?.call(this);
   }
@@ -400,26 +399,25 @@ abstract class _$$_DatePickerCopyWith<$Res> {
   factory _$$_DatePickerCopyWith(
           _$_DatePicker value, $Res Function(_$_DatePicker) then) =
       __$$_DatePickerCopyWithImpl<$Res>;
+  @useResult
   $Res call({String dateAndtime});
 }
 
 /// @nodoc
 class __$$_DatePickerCopyWithImpl<$Res>
-    extends _$FormElementsEventCopyWithImpl<$Res>
+    extends _$FormElementsEventCopyWithImpl<$Res, _$_DatePicker>
     implements _$$_DatePickerCopyWith<$Res> {
   __$$_DatePickerCopyWithImpl(
       _$_DatePicker _value, $Res Function(_$_DatePicker) _then)
-      : super(_value, (v) => _then(v as _$_DatePicker));
+      : super(_value, _then);
 
-  @override
-  _$_DatePicker get _value => super._value as _$_DatePicker;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dateAndtime = freezed,
+    Object? dateAndtime = null,
   }) {
     return _then(_$_DatePicker(
-      dateAndtime == freezed
+      null == dateAndtime
           ? _value.dateAndtime
           : dateAndtime // ignore: cast_nullable_to_non_nullable
               as String,
@@ -445,16 +443,16 @@ class _$_DatePicker implements _DatePicker {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DatePicker &&
-            const DeepCollectionEquality()
-                .equals(other.dateAndtime, dateAndtime));
+            (identical(other.dateAndtime, dateAndtime) ||
+                other.dateAndtime == dateAndtime));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(dateAndtime));
+  int get hashCode => Object.hash(runtimeType, dateAndtime);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DatePickerCopyWith<_$_DatePicker> get copyWith =>
       __$$_DatePickerCopyWithImpl<_$_DatePicker>(this, _$identity);
 
@@ -473,11 +471,11 @@ class _$_DatePicker implements _DatePicker {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int value)? increment,
-    TResult Function(int value)? decrement,
-    TResult Function(String dateAndtime)? datePicker,
-    TResult Function(Color color)? colorPicker,
-    TResult Function(String value)? dropDown,
+    TResult? Function(int value)? increment,
+    TResult? Function(int value)? decrement,
+    TResult? Function(String dateAndtime)? datePicker,
+    TResult? Function(Color color)? colorPicker,
+    TResult? Function(String value)? dropDown,
   }) {
     return datePicker?.call(dateAndtime);
   }
@@ -513,11 +511,11 @@ class _$_DatePicker implements _DatePicker {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Increment value)? increment,
-    TResult Function(_Decrement value)? decrement,
-    TResult Function(_DatePicker value)? datePicker,
-    TResult Function(_ColorPicker value)? colorPicker,
-    TResult Function(_DropDown value)? dropDown,
+    TResult? Function(_Increment value)? increment,
+    TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_DatePicker value)? datePicker,
+    TResult? Function(_ColorPicker value)? colorPicker,
+    TResult? Function(_DropDown value)? dropDown,
   }) {
     return datePicker?.call(this);
   }
@@ -553,26 +551,25 @@ abstract class _$$_ColorPickerCopyWith<$Res> {
   factory _$$_ColorPickerCopyWith(
           _$_ColorPicker value, $Res Function(_$_ColorPicker) then) =
       __$$_ColorPickerCopyWithImpl<$Res>;
+  @useResult
   $Res call({Color color});
 }
 
 /// @nodoc
 class __$$_ColorPickerCopyWithImpl<$Res>
-    extends _$FormElementsEventCopyWithImpl<$Res>
+    extends _$FormElementsEventCopyWithImpl<$Res, _$_ColorPicker>
     implements _$$_ColorPickerCopyWith<$Res> {
   __$$_ColorPickerCopyWithImpl(
       _$_ColorPicker _value, $Res Function(_$_ColorPicker) _then)
-      : super(_value, (v) => _then(v as _$_ColorPicker));
+      : super(_value, _then);
 
-  @override
-  _$_ColorPicker get _value => super._value as _$_ColorPicker;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? color = freezed,
+    Object? color = null,
   }) {
     return _then(_$_ColorPicker(
-      color == freezed
+      null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as Color,
@@ -598,15 +595,15 @@ class _$_ColorPicker implements _ColorPicker {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ColorPicker &&
-            const DeepCollectionEquality().equals(other.color, color));
+            (identical(other.color, color) || other.color == color));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(color));
+  int get hashCode => Object.hash(runtimeType, color);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ColorPickerCopyWith<_$_ColorPicker> get copyWith =>
       __$$_ColorPickerCopyWithImpl<_$_ColorPicker>(this, _$identity);
 
@@ -625,11 +622,11 @@ class _$_ColorPicker implements _ColorPicker {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int value)? increment,
-    TResult Function(int value)? decrement,
-    TResult Function(String dateAndtime)? datePicker,
-    TResult Function(Color color)? colorPicker,
-    TResult Function(String value)? dropDown,
+    TResult? Function(int value)? increment,
+    TResult? Function(int value)? decrement,
+    TResult? Function(String dateAndtime)? datePicker,
+    TResult? Function(Color color)? colorPicker,
+    TResult? Function(String value)? dropDown,
   }) {
     return colorPicker?.call(color);
   }
@@ -665,11 +662,11 @@ class _$_ColorPicker implements _ColorPicker {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Increment value)? increment,
-    TResult Function(_Decrement value)? decrement,
-    TResult Function(_DatePicker value)? datePicker,
-    TResult Function(_ColorPicker value)? colorPicker,
-    TResult Function(_DropDown value)? dropDown,
+    TResult? Function(_Increment value)? increment,
+    TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_DatePicker value)? datePicker,
+    TResult? Function(_ColorPicker value)? colorPicker,
+    TResult? Function(_DropDown value)? dropDown,
   }) {
     return colorPicker?.call(this);
   }
@@ -705,26 +702,25 @@ abstract class _$$_DropDownCopyWith<$Res> {
   factory _$$_DropDownCopyWith(
           _$_DropDown value, $Res Function(_$_DropDown) then) =
       __$$_DropDownCopyWithImpl<$Res>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
 class __$$_DropDownCopyWithImpl<$Res>
-    extends _$FormElementsEventCopyWithImpl<$Res>
+    extends _$FormElementsEventCopyWithImpl<$Res, _$_DropDown>
     implements _$$_DropDownCopyWith<$Res> {
   __$$_DropDownCopyWithImpl(
       _$_DropDown _value, $Res Function(_$_DropDown) _then)
-      : super(_value, (v) => _then(v as _$_DropDown));
+      : super(_value, _then);
 
-  @override
-  _$_DropDown get _value => super._value as _$_DropDown;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_DropDown(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -750,15 +746,15 @@ class _$_DropDown implements _DropDown {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DropDown &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DropDownCopyWith<_$_DropDown> get copyWith =>
       __$$_DropDownCopyWithImpl<_$_DropDown>(this, _$identity);
 
@@ -777,11 +773,11 @@ class _$_DropDown implements _DropDown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int value)? increment,
-    TResult Function(int value)? decrement,
-    TResult Function(String dateAndtime)? datePicker,
-    TResult Function(Color color)? colorPicker,
-    TResult Function(String value)? dropDown,
+    TResult? Function(int value)? increment,
+    TResult? Function(int value)? decrement,
+    TResult? Function(String dateAndtime)? datePicker,
+    TResult? Function(Color color)? colorPicker,
+    TResult? Function(String value)? dropDown,
   }) {
     return dropDown?.call(value);
   }
@@ -817,11 +813,11 @@ class _$_DropDown implements _DropDown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Increment value)? increment,
-    TResult Function(_Decrement value)? decrement,
-    TResult Function(_DatePicker value)? datePicker,
-    TResult Function(_ColorPicker value)? colorPicker,
-    TResult Function(_DropDown value)? dropDown,
+    TResult? Function(_Increment value)? increment,
+    TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_DatePicker value)? datePicker,
+    TResult? Function(_ColorPicker value)? colorPicker,
+    TResult? Function(_DropDown value)? dropDown,
   }) {
     return dropDown?.call(this);
   }
@@ -866,12 +862,12 @@ mixin _$FormElementsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int value)? incrementSuccess,
-    TResult Function(int value)? decrementSuccess,
-    TResult Function(String dateAndtime)? datepickerSuccess,
-    TResult Function(Color color)? colorpickerSuccess,
-    TResult Function(String value)? dropDownSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int value)? incrementSuccess,
+    TResult? Function(int value)? decrementSuccess,
+    TResult? Function(String dateAndtime)? datepickerSuccess,
+    TResult? Function(Color color)? colorpickerSuccess,
+    TResult? Function(String value)? dropDownSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -897,12 +893,12 @@ mixin _$FormElementsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_IncrementSuccess value)? incrementSuccess,
-    TResult Function(_DecrementSuccess value)? decrementSuccess,
-    TResult Function(_DatepickerSuccess value)? datepickerSuccess,
-    TResult Function(_ColorpickerSuccess value)? colorpickerSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IncrementSuccess value)? incrementSuccess,
+    TResult? Function(_DecrementSuccess value)? decrementSuccess,
+    TResult? Function(_DatepickerSuccess value)? datepickerSuccess,
+    TResult? Function(_ColorpickerSuccess value)? colorpickerSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -922,17 +918,18 @@ mixin _$FormElementsState {
 abstract class $FormElementsStateCopyWith<$Res> {
   factory $FormElementsStateCopyWith(
           FormElementsState value, $Res Function(FormElementsState) then) =
-      _$FormElementsStateCopyWithImpl<$Res>;
+      _$FormElementsStateCopyWithImpl<$Res, FormElementsState>;
 }
 
 /// @nodoc
-class _$FormElementsStateCopyWithImpl<$Res>
+class _$FormElementsStateCopyWithImpl<$Res, $Val extends FormElementsState>
     implements $FormElementsStateCopyWith<$Res> {
   _$FormElementsStateCopyWithImpl(this._value, this._then);
 
-  final FormElementsState _value;
   // ignore: unused_field
-  final $Res Function(FormElementsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -944,13 +941,10 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -988,12 +982,12 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int value)? incrementSuccess,
-    TResult Function(int value)? decrementSuccess,
-    TResult Function(String dateAndtime)? datepickerSuccess,
-    TResult Function(Color color)? colorpickerSuccess,
-    TResult Function(String value)? dropDownSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int value)? incrementSuccess,
+    TResult? Function(int value)? decrementSuccess,
+    TResult? Function(String dateAndtime)? datepickerSuccess,
+    TResult? Function(Color color)? colorpickerSuccess,
+    TResult? Function(String value)? dropDownSuccess,
   }) {
     return initial?.call();
   }
@@ -1031,12 +1025,12 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_IncrementSuccess value)? incrementSuccess,
-    TResult Function(_DecrementSuccess value)? decrementSuccess,
-    TResult Function(_DatepickerSuccess value)? datepickerSuccess,
-    TResult Function(_ColorpickerSuccess value)? colorpickerSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IncrementSuccess value)? incrementSuccess,
+    TResult? Function(_DecrementSuccess value)? decrementSuccess,
+    TResult? Function(_DatepickerSuccess value)? datepickerSuccess,
+    TResult? Function(_ColorpickerSuccess value)? colorpickerSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
   }) {
     return initial?.call(this);
   }
@@ -1068,26 +1062,25 @@ abstract class _$$_IncrementSuccessCopyWith<$Res> {
   factory _$$_IncrementSuccessCopyWith(
           _$_IncrementSuccess value, $Res Function(_$_IncrementSuccess) then) =
       __$$_IncrementSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int value});
 }
 
 /// @nodoc
 class __$$_IncrementSuccessCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$_IncrementSuccess>
     implements _$$_IncrementSuccessCopyWith<$Res> {
   __$$_IncrementSuccessCopyWithImpl(
       _$_IncrementSuccess _value, $Res Function(_$_IncrementSuccess) _then)
-      : super(_value, (v) => _then(v as _$_IncrementSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_IncrementSuccess get _value => super._value as _$_IncrementSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_IncrementSuccess(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
@@ -1113,15 +1106,15 @@ class _$_IncrementSuccess implements _IncrementSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IncrementSuccess &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_IncrementSuccessCopyWith<_$_IncrementSuccess> get copyWith =>
       __$$_IncrementSuccessCopyWithImpl<_$_IncrementSuccess>(this, _$identity);
 
@@ -1141,12 +1134,12 @@ class _$_IncrementSuccess implements _IncrementSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int value)? incrementSuccess,
-    TResult Function(int value)? decrementSuccess,
-    TResult Function(String dateAndtime)? datepickerSuccess,
-    TResult Function(Color color)? colorpickerSuccess,
-    TResult Function(String value)? dropDownSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int value)? incrementSuccess,
+    TResult? Function(int value)? decrementSuccess,
+    TResult? Function(String dateAndtime)? datepickerSuccess,
+    TResult? Function(Color color)? colorpickerSuccess,
+    TResult? Function(String value)? dropDownSuccess,
   }) {
     return incrementSuccess?.call(value);
   }
@@ -1184,12 +1177,12 @@ class _$_IncrementSuccess implements _IncrementSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_IncrementSuccess value)? incrementSuccess,
-    TResult Function(_DecrementSuccess value)? decrementSuccess,
-    TResult Function(_DatepickerSuccess value)? datepickerSuccess,
-    TResult Function(_ColorpickerSuccess value)? colorpickerSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IncrementSuccess value)? incrementSuccess,
+    TResult? Function(_DecrementSuccess value)? decrementSuccess,
+    TResult? Function(_DatepickerSuccess value)? datepickerSuccess,
+    TResult? Function(_ColorpickerSuccess value)? colorpickerSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
   }) {
     return incrementSuccess?.call(this);
   }
@@ -1226,26 +1219,25 @@ abstract class _$$_DecrementSuccessCopyWith<$Res> {
   factory _$$_DecrementSuccessCopyWith(
           _$_DecrementSuccess value, $Res Function(_$_DecrementSuccess) then) =
       __$$_DecrementSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int value});
 }
 
 /// @nodoc
 class __$$_DecrementSuccessCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$_DecrementSuccess>
     implements _$$_DecrementSuccessCopyWith<$Res> {
   __$$_DecrementSuccessCopyWithImpl(
       _$_DecrementSuccess _value, $Res Function(_$_DecrementSuccess) _then)
-      : super(_value, (v) => _then(v as _$_DecrementSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_DecrementSuccess get _value => super._value as _$_DecrementSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_DecrementSuccess(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
@@ -1271,15 +1263,15 @@ class _$_DecrementSuccess implements _DecrementSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DecrementSuccess &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DecrementSuccessCopyWith<_$_DecrementSuccess> get copyWith =>
       __$$_DecrementSuccessCopyWithImpl<_$_DecrementSuccess>(this, _$identity);
 
@@ -1299,12 +1291,12 @@ class _$_DecrementSuccess implements _DecrementSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int value)? incrementSuccess,
-    TResult Function(int value)? decrementSuccess,
-    TResult Function(String dateAndtime)? datepickerSuccess,
-    TResult Function(Color color)? colorpickerSuccess,
-    TResult Function(String value)? dropDownSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int value)? incrementSuccess,
+    TResult? Function(int value)? decrementSuccess,
+    TResult? Function(String dateAndtime)? datepickerSuccess,
+    TResult? Function(Color color)? colorpickerSuccess,
+    TResult? Function(String value)? dropDownSuccess,
   }) {
     return decrementSuccess?.call(value);
   }
@@ -1342,12 +1334,12 @@ class _$_DecrementSuccess implements _DecrementSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_IncrementSuccess value)? incrementSuccess,
-    TResult Function(_DecrementSuccess value)? decrementSuccess,
-    TResult Function(_DatepickerSuccess value)? datepickerSuccess,
-    TResult Function(_ColorpickerSuccess value)? colorpickerSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IncrementSuccess value)? incrementSuccess,
+    TResult? Function(_DecrementSuccess value)? decrementSuccess,
+    TResult? Function(_DatepickerSuccess value)? datepickerSuccess,
+    TResult? Function(_ColorpickerSuccess value)? colorpickerSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
   }) {
     return decrementSuccess?.call(this);
   }
@@ -1384,26 +1376,25 @@ abstract class _$$_DatepickerSuccessCopyWith<$Res> {
   factory _$$_DatepickerSuccessCopyWith(_$_DatepickerSuccess value,
           $Res Function(_$_DatepickerSuccess) then) =
       __$$_DatepickerSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({String dateAndtime});
 }
 
 /// @nodoc
 class __$$_DatepickerSuccessCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$_DatepickerSuccess>
     implements _$$_DatepickerSuccessCopyWith<$Res> {
   __$$_DatepickerSuccessCopyWithImpl(
       _$_DatepickerSuccess _value, $Res Function(_$_DatepickerSuccess) _then)
-      : super(_value, (v) => _then(v as _$_DatepickerSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_DatepickerSuccess get _value => super._value as _$_DatepickerSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dateAndtime = freezed,
+    Object? dateAndtime = null,
   }) {
     return _then(_$_DatepickerSuccess(
-      dateAndtime == freezed
+      null == dateAndtime
           ? _value.dateAndtime
           : dateAndtime // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1429,16 +1420,16 @@ class _$_DatepickerSuccess implements _DatepickerSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DatepickerSuccess &&
-            const DeepCollectionEquality()
-                .equals(other.dateAndtime, dateAndtime));
+            (identical(other.dateAndtime, dateAndtime) ||
+                other.dateAndtime == dateAndtime));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(dateAndtime));
+  int get hashCode => Object.hash(runtimeType, dateAndtime);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DatepickerSuccessCopyWith<_$_DatepickerSuccess> get copyWith =>
       __$$_DatepickerSuccessCopyWithImpl<_$_DatepickerSuccess>(
           this, _$identity);
@@ -1459,12 +1450,12 @@ class _$_DatepickerSuccess implements _DatepickerSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int value)? incrementSuccess,
-    TResult Function(int value)? decrementSuccess,
-    TResult Function(String dateAndtime)? datepickerSuccess,
-    TResult Function(Color color)? colorpickerSuccess,
-    TResult Function(String value)? dropDownSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int value)? incrementSuccess,
+    TResult? Function(int value)? decrementSuccess,
+    TResult? Function(String dateAndtime)? datepickerSuccess,
+    TResult? Function(Color color)? colorpickerSuccess,
+    TResult? Function(String value)? dropDownSuccess,
   }) {
     return datepickerSuccess?.call(dateAndtime);
   }
@@ -1502,12 +1493,12 @@ class _$_DatepickerSuccess implements _DatepickerSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_IncrementSuccess value)? incrementSuccess,
-    TResult Function(_DecrementSuccess value)? decrementSuccess,
-    TResult Function(_DatepickerSuccess value)? datepickerSuccess,
-    TResult Function(_ColorpickerSuccess value)? colorpickerSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IncrementSuccess value)? incrementSuccess,
+    TResult? Function(_DecrementSuccess value)? decrementSuccess,
+    TResult? Function(_DatepickerSuccess value)? datepickerSuccess,
+    TResult? Function(_ColorpickerSuccess value)? colorpickerSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
   }) {
     return datepickerSuccess?.call(this);
   }
@@ -1545,26 +1536,25 @@ abstract class _$$_ColorpickerSuccessCopyWith<$Res> {
   factory _$$_ColorpickerSuccessCopyWith(_$_ColorpickerSuccess value,
           $Res Function(_$_ColorpickerSuccess) then) =
       __$$_ColorpickerSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({Color color});
 }
 
 /// @nodoc
 class __$$_ColorpickerSuccessCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$_ColorpickerSuccess>
     implements _$$_ColorpickerSuccessCopyWith<$Res> {
   __$$_ColorpickerSuccessCopyWithImpl(
       _$_ColorpickerSuccess _value, $Res Function(_$_ColorpickerSuccess) _then)
-      : super(_value, (v) => _then(v as _$_ColorpickerSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_ColorpickerSuccess get _value => super._value as _$_ColorpickerSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? color = freezed,
+    Object? color = null,
   }) {
     return _then(_$_ColorpickerSuccess(
-      color == freezed
+      null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as Color,
@@ -1590,15 +1580,15 @@ class _$_ColorpickerSuccess implements _ColorpickerSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ColorpickerSuccess &&
-            const DeepCollectionEquality().equals(other.color, color));
+            (identical(other.color, color) || other.color == color));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(color));
+  int get hashCode => Object.hash(runtimeType, color);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ColorpickerSuccessCopyWith<_$_ColorpickerSuccess> get copyWith =>
       __$$_ColorpickerSuccessCopyWithImpl<_$_ColorpickerSuccess>(
           this, _$identity);
@@ -1619,12 +1609,12 @@ class _$_ColorpickerSuccess implements _ColorpickerSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int value)? incrementSuccess,
-    TResult Function(int value)? decrementSuccess,
-    TResult Function(String dateAndtime)? datepickerSuccess,
-    TResult Function(Color color)? colorpickerSuccess,
-    TResult Function(String value)? dropDownSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int value)? incrementSuccess,
+    TResult? Function(int value)? decrementSuccess,
+    TResult? Function(String dateAndtime)? datepickerSuccess,
+    TResult? Function(Color color)? colorpickerSuccess,
+    TResult? Function(String value)? dropDownSuccess,
   }) {
     return colorpickerSuccess?.call(color);
   }
@@ -1662,12 +1652,12 @@ class _$_ColorpickerSuccess implements _ColorpickerSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_IncrementSuccess value)? incrementSuccess,
-    TResult Function(_DecrementSuccess value)? decrementSuccess,
-    TResult Function(_DatepickerSuccess value)? datepickerSuccess,
-    TResult Function(_ColorpickerSuccess value)? colorpickerSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IncrementSuccess value)? incrementSuccess,
+    TResult? Function(_DecrementSuccess value)? decrementSuccess,
+    TResult? Function(_DatepickerSuccess value)? datepickerSuccess,
+    TResult? Function(_ColorpickerSuccess value)? colorpickerSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
   }) {
     return colorpickerSuccess?.call(this);
   }
@@ -1704,26 +1694,25 @@ abstract class _$$_DropDownSuccessCopyWith<$Res> {
   factory _$$_DropDownSuccessCopyWith(
           _$_DropDownSuccess value, $Res Function(_$_DropDownSuccess) then) =
       __$$_DropDownSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
 class __$$_DropDownSuccessCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$_DropDownSuccess>
     implements _$$_DropDownSuccessCopyWith<$Res> {
   __$$_DropDownSuccessCopyWithImpl(
       _$_DropDownSuccess _value, $Res Function(_$_DropDownSuccess) _then)
-      : super(_value, (v) => _then(v as _$_DropDownSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_DropDownSuccess get _value => super._value as _$_DropDownSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_DropDownSuccess(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1749,15 +1738,15 @@ class _$_DropDownSuccess implements _DropDownSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DropDownSuccess &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DropDownSuccessCopyWith<_$_DropDownSuccess> get copyWith =>
       __$$_DropDownSuccessCopyWithImpl<_$_DropDownSuccess>(this, _$identity);
 
@@ -1777,12 +1766,12 @@ class _$_DropDownSuccess implements _DropDownSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(int value)? incrementSuccess,
-    TResult Function(int value)? decrementSuccess,
-    TResult Function(String dateAndtime)? datepickerSuccess,
-    TResult Function(Color color)? colorpickerSuccess,
-    TResult Function(String value)? dropDownSuccess,
+    TResult? Function()? initial,
+    TResult? Function(int value)? incrementSuccess,
+    TResult? Function(int value)? decrementSuccess,
+    TResult? Function(String dateAndtime)? datepickerSuccess,
+    TResult? Function(Color color)? colorpickerSuccess,
+    TResult? Function(String value)? dropDownSuccess,
   }) {
     return dropDownSuccess?.call(value);
   }
@@ -1820,12 +1809,12 @@ class _$_DropDownSuccess implements _DropDownSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_IncrementSuccess value)? incrementSuccess,
-    TResult Function(_DecrementSuccess value)? decrementSuccess,
-    TResult Function(_DatepickerSuccess value)? datepickerSuccess,
-    TResult Function(_ColorpickerSuccess value)? colorpickerSuccess,
-    TResult Function(_DropDownSuccess value)? dropDownSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_IncrementSuccess value)? incrementSuccess,
+    TResult? Function(_DecrementSuccess value)? decrementSuccess,
+    TResult? Function(_DatepickerSuccess value)? datepickerSuccess,
+    TResult? Function(_ColorpickerSuccess value)? colorpickerSuccess,
+    TResult? Function(_DropDownSuccess value)? dropDownSuccess,
   }) {
     return dropDownSuccess?.call(this);
   }

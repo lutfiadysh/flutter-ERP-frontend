@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'calendar_drag_bloc.dart';
 
@@ -24,7 +24,7 @@ mixin _$CalendarDragEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool dragStarted)? started,
+    TResult? Function(bool dragStarted)? started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$CalendarDragEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult? Function(_Started value)? started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,29 +59,32 @@ mixin _$CalendarDragEvent {
 abstract class $CalendarDragEventCopyWith<$Res> {
   factory $CalendarDragEventCopyWith(
           CalendarDragEvent value, $Res Function(CalendarDragEvent) then) =
-      _$CalendarDragEventCopyWithImpl<$Res>;
+      _$CalendarDragEventCopyWithImpl<$Res, CalendarDragEvent>;
+  @useResult
   $Res call({bool dragStarted});
 }
 
 /// @nodoc
-class _$CalendarDragEventCopyWithImpl<$Res>
+class _$CalendarDragEventCopyWithImpl<$Res, $Val extends CalendarDragEvent>
     implements $CalendarDragEventCopyWith<$Res> {
   _$CalendarDragEventCopyWithImpl(this._value, this._then);
 
-  final CalendarDragEvent _value;
   // ignore: unused_field
-  final $Res Function(CalendarDragEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dragStarted = freezed,
+    Object? dragStarted = null,
   }) {
     return _then(_value.copyWith(
-      dragStarted: dragStarted == freezed
+      dragStarted: null == dragStarted
           ? _value.dragStarted
           : dragStarted // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -92,25 +95,24 @@ abstract class _$$_StartedCopyWith<$Res>
           _$_Started value, $Res Function(_$_Started) then) =
       __$$_StartedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool dragStarted});
 }
 
 /// @nodoc
 class __$$_StartedCopyWithImpl<$Res>
-    extends _$CalendarDragEventCopyWithImpl<$Res>
+    extends _$CalendarDragEventCopyWithImpl<$Res, _$_Started>
     implements _$$_StartedCopyWith<$Res> {
   __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, (v) => _then(v as _$_Started));
+      : super(_value, _then);
 
-  @override
-  _$_Started get _value => super._value as _$_Started;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dragStarted = freezed,
+    Object? dragStarted = null,
   }) {
     return _then(_$_Started(
-      dragStarted: dragStarted == freezed
+      dragStarted: null == dragStarted
           ? _value.dragStarted
           : dragStarted // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -136,16 +138,16 @@ class _$_Started implements _Started {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Started &&
-            const DeepCollectionEquality()
-                .equals(other.dragStarted, dragStarted));
+            (identical(other.dragStarted, dragStarted) ||
+                other.dragStarted == dragStarted));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(dragStarted));
+  int get hashCode => Object.hash(runtimeType, dragStarted);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StartedCopyWith<_$_Started> get copyWith =>
       __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
 
@@ -160,7 +162,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool dragStarted)? started,
+    TResult? Function(bool dragStarted)? started,
   }) {
     return started?.call(dragStarted);
   }
@@ -188,7 +190,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult? Function(_Started value)? started,
   }) {
     return started?.call(this);
   }
@@ -227,8 +229,8 @@ mixin _$CalendarDragState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool dragStarted)? dragStart,
+    TResult? Function()? initial,
+    TResult? Function(bool dragStarted)? dragStart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -246,8 +248,8 @@ mixin _$CalendarDragState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_DragStart value)? dragStart,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DragStart value)? dragStart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -263,17 +265,18 @@ mixin _$CalendarDragState {
 abstract class $CalendarDragStateCopyWith<$Res> {
   factory $CalendarDragStateCopyWith(
           CalendarDragState value, $Res Function(CalendarDragState) then) =
-      _$CalendarDragStateCopyWithImpl<$Res>;
+      _$CalendarDragStateCopyWithImpl<$Res, CalendarDragState>;
 }
 
 /// @nodoc
-class _$CalendarDragStateCopyWithImpl<$Res>
+class _$CalendarDragStateCopyWithImpl<$Res, $Val extends CalendarDragState>
     implements $CalendarDragStateCopyWith<$Res> {
   _$CalendarDragStateCopyWithImpl(this._value, this._then);
 
-  final CalendarDragState _value;
   // ignore: unused_field
-  final $Res Function(CalendarDragState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -285,13 +288,10 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$CalendarDragStateCopyWithImpl<$Res>
+    extends _$CalendarDragStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -325,8 +325,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool dragStarted)? dragStart,
+    TResult? Function()? initial,
+    TResult? Function(bool dragStarted)? dragStart,
   }) {
     return initial?.call();
   }
@@ -356,8 +356,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_DragStart value)? dragStart,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DragStart value)? dragStart,
   }) {
     return initial?.call(this);
   }
@@ -385,26 +385,25 @@ abstract class _$$_DragStartCopyWith<$Res> {
   factory _$$_DragStartCopyWith(
           _$_DragStart value, $Res Function(_$_DragStart) then) =
       __$$_DragStartCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool dragStarted});
 }
 
 /// @nodoc
 class __$$_DragStartCopyWithImpl<$Res>
-    extends _$CalendarDragStateCopyWithImpl<$Res>
+    extends _$CalendarDragStateCopyWithImpl<$Res, _$_DragStart>
     implements _$$_DragStartCopyWith<$Res> {
   __$$_DragStartCopyWithImpl(
       _$_DragStart _value, $Res Function(_$_DragStart) _then)
-      : super(_value, (v) => _then(v as _$_DragStart));
+      : super(_value, _then);
 
-  @override
-  _$_DragStart get _value => super._value as _$_DragStart;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dragStarted = freezed,
+    Object? dragStarted = null,
   }) {
     return _then(_$_DragStart(
-      dragStarted: dragStarted == freezed
+      dragStarted: null == dragStarted
           ? _value.dragStarted
           : dragStarted // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -430,16 +429,16 @@ class _$_DragStart implements _DragStart {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DragStart &&
-            const DeepCollectionEquality()
-                .equals(other.dragStarted, dragStarted));
+            (identical(other.dragStarted, dragStarted) ||
+                other.dragStarted == dragStarted));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(dragStarted));
+  int get hashCode => Object.hash(runtimeType, dragStarted);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DragStartCopyWith<_$_DragStart> get copyWith =>
       __$$_DragStartCopyWithImpl<_$_DragStart>(this, _$identity);
 
@@ -455,8 +454,8 @@ class _$_DragStart implements _DragStart {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool dragStarted)? dragStart,
+    TResult? Function()? initial,
+    TResult? Function(bool dragStarted)? dragStart,
   }) {
     return dragStart?.call(dragStarted);
   }
@@ -486,8 +485,8 @@ class _$_DragStart implements _DragStart {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_DragStart value)? dragStart,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DragStart value)? dragStart,
   }) {
     return dragStart?.call(this);
   }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'calendar_format_bloc.dart';
 
@@ -28,7 +28,7 @@ mixin _$CalendarFormatEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CalendarFormat calendarFormat,
+    TResult? Function(CalendarFormat calendarFormat,
             Map<DateTime, List<Map<String, dynamic>>> eventsList)?
         loading,
   }) =>
@@ -48,7 +48,7 @@ mixin _$CalendarFormatEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
+    TResult? Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,36 +67,39 @@ mixin _$CalendarFormatEvent {
 abstract class $CalendarFormatEventCopyWith<$Res> {
   factory $CalendarFormatEventCopyWith(
           CalendarFormatEvent value, $Res Function(CalendarFormatEvent) then) =
-      _$CalendarFormatEventCopyWithImpl<$Res>;
+      _$CalendarFormatEventCopyWithImpl<$Res, CalendarFormatEvent>;
+  @useResult
   $Res call(
       {CalendarFormat calendarFormat,
       Map<DateTime, List<Map<String, dynamic>>> eventsList});
 }
 
 /// @nodoc
-class _$CalendarFormatEventCopyWithImpl<$Res>
+class _$CalendarFormatEventCopyWithImpl<$Res, $Val extends CalendarFormatEvent>
     implements $CalendarFormatEventCopyWith<$Res> {
   _$CalendarFormatEventCopyWithImpl(this._value, this._then);
 
-  final CalendarFormatEvent _value;
   // ignore: unused_field
-  final $Res Function(CalendarFormatEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? calendarFormat = freezed,
-    Object? eventsList = freezed,
+    Object? calendarFormat = null,
+    Object? eventsList = null,
   }) {
     return _then(_value.copyWith(
-      calendarFormat: calendarFormat == freezed
+      calendarFormat: null == calendarFormat
           ? _value.calendarFormat
           : calendarFormat // ignore: cast_nullable_to_non_nullable
               as CalendarFormat,
-      eventsList: eventsList == freezed
+      eventsList: null == eventsList
           ? _value.eventsList
           : eventsList // ignore: cast_nullable_to_non_nullable
               as Map<DateTime, List<Map<String, dynamic>>>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -107,6 +110,7 @@ abstract class _$$_LoadingCopyWith<$Res>
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {CalendarFormat calendarFormat,
       Map<DateTime, List<Map<String, dynamic>>> eventsList});
@@ -114,25 +118,23 @@ abstract class _$$_LoadingCopyWith<$Res>
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$CalendarFormatEventCopyWithImpl<$Res>
+    extends _$CalendarFormatEventCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
+      : super(_value, _then);
 
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? calendarFormat = freezed,
-    Object? eventsList = freezed,
+    Object? calendarFormat = null,
+    Object? eventsList = null,
   }) {
     return _then(_$_Loading(
-      calendarFormat: calendarFormat == freezed
+      calendarFormat: null == calendarFormat
           ? _value.calendarFormat
           : calendarFormat // ignore: cast_nullable_to_non_nullable
               as CalendarFormat,
-      eventsList: eventsList == freezed
+      eventsList: null == eventsList
           ? _value._eventsList
           : eventsList // ignore: cast_nullable_to_non_nullable
               as Map<DateTime, List<Map<String, dynamic>>>,
@@ -153,6 +155,7 @@ class _$_Loading implements _Loading {
   final Map<DateTime, List<Map<String, dynamic>>> _eventsList;
   @override
   Map<DateTime, List<Map<String, dynamic>>> get eventsList {
+    if (_eventsList is EqualUnmodifiableMapView) return _eventsList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_eventsList);
   }
@@ -167,20 +170,19 @@ class _$_Loading implements _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
-            const DeepCollectionEquality()
-                .equals(other.calendarFormat, calendarFormat) &&
+            (identical(other.calendarFormat, calendarFormat) ||
+                other.calendarFormat == calendarFormat) &&
             const DeepCollectionEquality()
                 .equals(other._eventsList, _eventsList));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(calendarFormat),
+  int get hashCode => Object.hash(runtimeType, calendarFormat,
       const DeepCollectionEquality().hash(_eventsList));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
 
@@ -197,7 +199,7 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CalendarFormat calendarFormat,
+    TResult? Function(CalendarFormat calendarFormat,
             Map<DateTime, List<Map<String, dynamic>>> eventsList)?
         loading,
   }) {
@@ -229,7 +231,7 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
+    TResult? Function(_Loading value)? loading,
   }) {
     return loading?.call(this);
   }
@@ -275,8 +277,8 @@ mixin _$CalendarFormatState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(CalendarFormat calendarFormat,
+    TResult? Function()? initial,
+    TResult? Function(CalendarFormat calendarFormat,
             Map<DateTime, List<Map<String, dynamic>>> eventsList)?
         loaded,
   }) =>
@@ -298,8 +300,8 @@ mixin _$CalendarFormatState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -315,17 +317,18 @@ mixin _$CalendarFormatState {
 abstract class $CalendarFormatStateCopyWith<$Res> {
   factory $CalendarFormatStateCopyWith(
           CalendarFormatState value, $Res Function(CalendarFormatState) then) =
-      _$CalendarFormatStateCopyWithImpl<$Res>;
+      _$CalendarFormatStateCopyWithImpl<$Res, CalendarFormatState>;
 }
 
 /// @nodoc
-class _$CalendarFormatStateCopyWithImpl<$Res>
+class _$CalendarFormatStateCopyWithImpl<$Res, $Val extends CalendarFormatState>
     implements $CalendarFormatStateCopyWith<$Res> {
   _$CalendarFormatStateCopyWithImpl(this._value, this._then);
 
-  final CalendarFormatState _value;
   // ignore: unused_field
-  final $Res Function(CalendarFormatState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -337,13 +340,10 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$CalendarFormatStateCopyWithImpl<$Res>
+    extends _$CalendarFormatStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -379,8 +379,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(CalendarFormat calendarFormat,
+    TResult? Function()? initial,
+    TResult? Function(CalendarFormat calendarFormat,
             Map<DateTime, List<Map<String, dynamic>>> eventsList)?
         loaded,
   }) {
@@ -414,8 +414,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loaded value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -442,6 +442,7 @@ abstract class _Initial implements CalendarFormatState {
 abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {CalendarFormat calendarFormat,
       Map<DateTime, List<Map<String, dynamic>>> eventsList});
@@ -449,25 +450,23 @@ abstract class _$$_LoadedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadedCopyWithImpl<$Res>
-    extends _$CalendarFormatStateCopyWithImpl<$Res>
+    extends _$CalendarFormatStateCopyWithImpl<$Res, _$_Loaded>
     implements _$$_LoadedCopyWith<$Res> {
   __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
-      : super(_value, (v) => _then(v as _$_Loaded));
+      : super(_value, _then);
 
-  @override
-  _$_Loaded get _value => super._value as _$_Loaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? calendarFormat = freezed,
-    Object? eventsList = freezed,
+    Object? calendarFormat = null,
+    Object? eventsList = null,
   }) {
     return _then(_$_Loaded(
-      calendarFormat: calendarFormat == freezed
+      calendarFormat: null == calendarFormat
           ? _value.calendarFormat
           : calendarFormat // ignore: cast_nullable_to_non_nullable
               as CalendarFormat,
-      eventsList: eventsList == freezed
+      eventsList: null == eventsList
           ? _value._eventsList
           : eventsList // ignore: cast_nullable_to_non_nullable
               as Map<DateTime, List<Map<String, dynamic>>>,
@@ -488,6 +487,7 @@ class _$_Loaded implements _Loaded {
   final Map<DateTime, List<Map<String, dynamic>>> _eventsList;
   @override
   Map<DateTime, List<Map<String, dynamic>>> get eventsList {
+    if (_eventsList is EqualUnmodifiableMapView) return _eventsList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_eventsList);
   }
@@ -502,20 +502,19 @@ class _$_Loaded implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
-            const DeepCollectionEquality()
-                .equals(other.calendarFormat, calendarFormat) &&
+            (identical(other.calendarFormat, calendarFormat) ||
+                other.calendarFormat == calendarFormat) &&
             const DeepCollectionEquality()
                 .equals(other._eventsList, _eventsList));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(calendarFormat),
+  int get hashCode => Object.hash(runtimeType, calendarFormat,
       const DeepCollectionEquality().hash(_eventsList));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
@@ -533,8 +532,8 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(CalendarFormat calendarFormat,
+    TResult? Function()? initial,
+    TResult? Function(CalendarFormat calendarFormat,
             Map<DateTime, List<Map<String, dynamic>>> eventsList)?
         loaded,
   }) {
@@ -568,8 +567,8 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loaded value)? loaded,
   }) {
     return loaded?.call(this);
   }

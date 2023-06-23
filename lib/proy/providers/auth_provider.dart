@@ -24,6 +24,7 @@ class AuthProvider extends ChangeNotifier {
       'correo': email,
       'password': password,
     };
+    print(data);
 
     BackendApi.post('/auth/login', data).then((json) {
       final authResponse = AuthResponse.fromMap(json);
@@ -36,6 +37,7 @@ class AuthProvider extends ChangeNotifier {
 
       notifyListeners();
     }).catchError((e) {
+      print(e);
       NotificationsService.showSnackbarError('Usuario/Contraseña no válidos');
     });
   }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'theme_mode_bloc.dart';
 
@@ -24,7 +24,7 @@ mixin _$ThemeModeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool? themeMode)? changeTheme,
+    TResult? Function(bool? themeMode)? changeTheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$ThemeModeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ChangeTheme value)? changeTheme,
+    TResult? Function(_ChangeTheme value)? changeTheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,29 +59,32 @@ mixin _$ThemeModeEvent {
 abstract class $ThemeModeEventCopyWith<$Res> {
   factory $ThemeModeEventCopyWith(
           ThemeModeEvent value, $Res Function(ThemeModeEvent) then) =
-      _$ThemeModeEventCopyWithImpl<$Res>;
+      _$ThemeModeEventCopyWithImpl<$Res, ThemeModeEvent>;
+  @useResult
   $Res call({bool? themeMode});
 }
 
 /// @nodoc
-class _$ThemeModeEventCopyWithImpl<$Res>
+class _$ThemeModeEventCopyWithImpl<$Res, $Val extends ThemeModeEvent>
     implements $ThemeModeEventCopyWith<$Res> {
   _$ThemeModeEventCopyWithImpl(this._value, this._then);
 
-  final ThemeModeEvent _value;
   // ignore: unused_field
-  final $Res Function(ThemeModeEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? themeMode = freezed,
   }) {
     return _then(_value.copyWith(
-      themeMode: themeMode == freezed
+      themeMode: freezed == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as bool?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -92,26 +95,25 @@ abstract class _$$_ChangeThemeCopyWith<$Res>
           _$_ChangeTheme value, $Res Function(_$_ChangeTheme) then) =
       __$$_ChangeThemeCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool? themeMode});
 }
 
 /// @nodoc
 class __$$_ChangeThemeCopyWithImpl<$Res>
-    extends _$ThemeModeEventCopyWithImpl<$Res>
+    extends _$ThemeModeEventCopyWithImpl<$Res, _$_ChangeTheme>
     implements _$$_ChangeThemeCopyWith<$Res> {
   __$$_ChangeThemeCopyWithImpl(
       _$_ChangeTheme _value, $Res Function(_$_ChangeTheme) _then)
-      : super(_value, (v) => _then(v as _$_ChangeTheme));
+      : super(_value, _then);
 
-  @override
-  _$_ChangeTheme get _value => super._value as _$_ChangeTheme;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? themeMode = freezed,
   }) {
     return _then(_$_ChangeTheme(
-      themeMode == freezed
+      freezed == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as bool?,
@@ -137,15 +139,16 @@ class _$_ChangeTheme implements _ChangeTheme {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChangeTheme &&
-            const DeepCollectionEquality().equals(other.themeMode, themeMode));
+            (identical(other.themeMode, themeMode) ||
+                other.themeMode == themeMode));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(themeMode));
+  int get hashCode => Object.hash(runtimeType, themeMode);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ChangeThemeCopyWith<_$_ChangeTheme> get copyWith =>
       __$$_ChangeThemeCopyWithImpl<_$_ChangeTheme>(this, _$identity);
 
@@ -160,7 +163,7 @@ class _$_ChangeTheme implements _ChangeTheme {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool? themeMode)? changeTheme,
+    TResult? Function(bool? themeMode)? changeTheme,
   }) {
     return changeTheme?.call(themeMode);
   }
@@ -188,7 +191,7 @@ class _$_ChangeTheme implements _ChangeTheme {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ChangeTheme value)? changeTheme,
+    TResult? Function(_ChangeTheme value)? changeTheme,
   }) {
     return changeTheme?.call(this);
   }
@@ -227,8 +230,8 @@ mixin _$ThemeModeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool themeMode)? success,
+    TResult? Function()? initial,
+    TResult? Function(bool themeMode)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -246,8 +249,8 @@ mixin _$ThemeModeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -263,17 +266,18 @@ mixin _$ThemeModeState {
 abstract class $ThemeModeStateCopyWith<$Res> {
   factory $ThemeModeStateCopyWith(
           ThemeModeState value, $Res Function(ThemeModeState) then) =
-      _$ThemeModeStateCopyWithImpl<$Res>;
+      _$ThemeModeStateCopyWithImpl<$Res, ThemeModeState>;
 }
 
 /// @nodoc
-class _$ThemeModeStateCopyWithImpl<$Res>
+class _$ThemeModeStateCopyWithImpl<$Res, $Val extends ThemeModeState>
     implements $ThemeModeStateCopyWith<$Res> {
   _$ThemeModeStateCopyWithImpl(this._value, this._then);
 
-  final ThemeModeState _value;
   // ignore: unused_field
-  final $Res Function(ThemeModeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -284,13 +288,11 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$ThemeModeStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$ThemeModeStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -324,8 +326,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool themeMode)? success,
+    TResult? Function()? initial,
+    TResult? Function(bool themeMode)? success,
   }) {
     return initial?.call();
   }
@@ -355,8 +357,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) {
     return initial?.call(this);
   }
@@ -384,24 +386,24 @@ abstract class _$$_SuccessCopyWith<$Res> {
   factory _$$_SuccessCopyWith(
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({bool themeMode});
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res> extends _$ThemeModeStateCopyWithImpl<$Res>
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$ThemeModeStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
+      : super(_value, _then);
 
-  @override
-  _$_Success get _value => super._value as _$_Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? themeMode = freezed,
+    Object? themeMode = null,
   }) {
     return _then(_$_Success(
-      themeMode == freezed
+      null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -427,15 +429,16 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality().equals(other.themeMode, themeMode));
+            (identical(other.themeMode, themeMode) ||
+                other.themeMode == themeMode));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(themeMode));
+  int get hashCode => Object.hash(runtimeType, themeMode);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
@@ -451,8 +454,8 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool themeMode)? success,
+    TResult? Function()? initial,
+    TResult? Function(bool themeMode)? success,
   }) {
     return success?.call(themeMode);
   }
@@ -482,8 +485,8 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Success value)? success,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
   }) {
     return success?.call(this);
   }

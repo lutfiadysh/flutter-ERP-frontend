@@ -1,5 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'package:auto_route/auto_route.dart';
 import 'dart:ui';
 
 import 'package:admin_dashboard/src/constant/color.dart';
@@ -21,6 +22,7 @@ import 'package:flutter_excel/excel.dart';
 import 'package:flutterx/flutterx.dart';
 import 'package:mime/mime.dart';
 
+@RoutePage()
 class FileUploadForm extends StatefulWidget {
   const FileUploadForm({Key? key}) : super(key: key);
 

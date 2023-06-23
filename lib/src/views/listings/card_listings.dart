@@ -2,7 +2,6 @@ import 'package:admin_dashboard/proy/models/listing.dart';
 import 'package:admin_dashboard/proy/providers/listings_provider.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/flutterx.dart';
 import 'package:provider/provider.dart';
 
 class CardsListingsViewTest extends StatefulWidget {
@@ -16,6 +15,20 @@ class CardsListingsViewTest extends StatefulWidget {
 }
 
 class _CardListingsViewTestState extends State<CardsListingsViewTest> {
+  bool showMessage = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Después de 5 segundos, si todavía no hay cotizaciones, muestra el mensaje
+    Future.delayed(const Duration(seconds: 5), () {
+      if (widget.cotizaciones.isEmpty) {
+        setState(() {
+          showMessage = true;
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +36,17 @@ class _CardListingsViewTestState extends State<CardsListingsViewTest> {
     final cotizaciones = listingsProvider.cotizaciones;
 
     if (cotizaciones.isEmpty) {
-      return const FxLoader.basicLoader(color: Colors.white, size: 16);
+      if (showMessage) {
+        return const Center(
+          child: Text(
+            'No existen cotizaciones, agrega una.',
+          ),
+        );
+      } else {
+        return const Center(
+            child:
+                CircularProgressIndicator(color: Colors.white, strokeWidth: 2));
+      }
     }
 
     return ListView.separated(
@@ -87,7 +110,6 @@ class _CardListingsViewTestState extends State<CardsListingsViewTest> {
       },
     );
   }
-  
 }
 
 String _formatDate(DateTime date) {

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'form_repeater_bloc.dart';
 
@@ -34,18 +34,18 @@ mixin _$FormRepeaterEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         add,
-    TResult Function(int index)? delete,
-    TResult Function(String fileName, int index)? addFile,
-    TResult Function(TextEditingController phoneController)? addPhone,
-    TResult Function(int index)? deletePhone,
-    TResult Function(String value)? radioSelect,
+    TResult? Function(int index)? delete,
+    TResult? Function(String fileName, int index)? addFile,
+    TResult? Function(TextEditingController phoneController)? addPhone,
+    TResult? Function(int index)? deletePhone,
+    TResult? Function(String value)? radioSelect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,12 +77,12 @@ mixin _$FormRepeaterEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Add value)? add,
-    TResult Function(_Delete value)? delete,
-    TResult Function(_AddFile value)? addFile,
-    TResult Function(_AddPhone value)? addPhone,
-    TResult Function(_DeletePhone value)? deletePhone,
-    TResult Function(_RadioSelect value)? radioSelect,
+    TResult? Function(_Add value)? add,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_AddFile value)? addFile,
+    TResult? Function(_AddPhone value)? addPhone,
+    TResult? Function(_DeletePhone value)? deletePhone,
+    TResult? Function(_RadioSelect value)? radioSelect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -102,23 +102,25 @@ mixin _$FormRepeaterEvent {
 abstract class $FormRepeaterEventCopyWith<$Res> {
   factory $FormRepeaterEventCopyWith(
           FormRepeaterEvent value, $Res Function(FormRepeaterEvent) then) =
-      _$FormRepeaterEventCopyWithImpl<$Res>;
+      _$FormRepeaterEventCopyWithImpl<$Res, FormRepeaterEvent>;
 }
 
 /// @nodoc
-class _$FormRepeaterEventCopyWithImpl<$Res>
+class _$FormRepeaterEventCopyWithImpl<$Res, $Val extends FormRepeaterEvent>
     implements $FormRepeaterEventCopyWith<$Res> {
   _$FormRepeaterEventCopyWithImpl(this._value, this._then);
 
-  final FormRepeaterEvent _value;
   // ignore: unused_field
-  final $Res Function(FormRepeaterEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$_AddCopyWith<$Res> {
   factory _$$_AddCopyWith(_$_Add value, $Res Function(_$_Add) then) =
       __$$_AddCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {String fileName,
       TextEditingController nameController,
@@ -128,40 +130,39 @@ abstract class _$$_AddCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AddCopyWithImpl<$Res> extends _$FormRepeaterEventCopyWithImpl<$Res>
+class __$$_AddCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_Add>
     implements _$$_AddCopyWith<$Res> {
   __$$_AddCopyWithImpl(_$_Add _value, $Res Function(_$_Add) _then)
-      : super(_value, (v) => _then(v as _$_Add));
+      : super(_value, _then);
 
-  @override
-  _$_Add get _value => super._value as _$_Add;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fileName = freezed,
-    Object? nameController = freezed,
-    Object? emailController = freezed,
-    Object? subjectController = freezed,
-    Object? messageController = freezed,
+    Object? fileName = null,
+    Object? nameController = null,
+    Object? emailController = null,
+    Object? subjectController = null,
+    Object? messageController = null,
   }) {
     return _then(_$_Add(
-      fileName == freezed
+      null == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
               as String,
-      nameController == freezed
+      null == nameController
           ? _value.nameController
           : nameController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
-      emailController == freezed
+      null == emailController
           ? _value.emailController
           : emailController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
-      subjectController == freezed
+      null == subjectController
           ? _value.subjectController
           : subjectController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
-      messageController == freezed
+      null == messageController
           ? _value.messageController
           : messageController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
@@ -196,28 +197,25 @@ class _$_Add implements _Add {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Add &&
-            const DeepCollectionEquality().equals(other.fileName, fileName) &&
-            const DeepCollectionEquality()
-                .equals(other.nameController, nameController) &&
-            const DeepCollectionEquality()
-                .equals(other.emailController, emailController) &&
-            const DeepCollectionEquality()
-                .equals(other.subjectController, subjectController) &&
-            const DeepCollectionEquality()
-                .equals(other.messageController, messageController));
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName) &&
+            (identical(other.nameController, nameController) ||
+                other.nameController == nameController) &&
+            (identical(other.emailController, emailController) ||
+                other.emailController == emailController) &&
+            (identical(other.subjectController, subjectController) ||
+                other.subjectController == subjectController) &&
+            (identical(other.messageController, messageController) ||
+                other.messageController == messageController));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(fileName),
-      const DeepCollectionEquality().hash(nameController),
-      const DeepCollectionEquality().hash(emailController),
-      const DeepCollectionEquality().hash(subjectController),
-      const DeepCollectionEquality().hash(messageController));
+  int get hashCode => Object.hash(runtimeType, fileName, nameController,
+      emailController, subjectController, messageController);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddCopyWith<_$_Add> get copyWith =>
       __$$_AddCopyWithImpl<_$_Add>(this, _$identity);
 
@@ -244,18 +242,18 @@ class _$_Add implements _Add {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         add,
-    TResult Function(int index)? delete,
-    TResult Function(String fileName, int index)? addFile,
-    TResult Function(TextEditingController phoneController)? addPhone,
-    TResult Function(int index)? deletePhone,
-    TResult Function(String value)? radioSelect,
+    TResult? Function(int index)? delete,
+    TResult? Function(String fileName, int index)? addFile,
+    TResult? Function(TextEditingController phoneController)? addPhone,
+    TResult? Function(int index)? deletePhone,
+    TResult? Function(String value)? radioSelect,
   }) {
     return add?.call(fileName, nameController, emailController,
         subjectController, messageController);
@@ -301,12 +299,12 @@ class _$_Add implements _Add {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Add value)? add,
-    TResult Function(_Delete value)? delete,
-    TResult Function(_AddFile value)? addFile,
-    TResult Function(_AddPhone value)? addPhone,
-    TResult Function(_DeletePhone value)? deletePhone,
-    TResult Function(_RadioSelect value)? radioSelect,
+    TResult? Function(_Add value)? add,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_AddFile value)? addFile,
+    TResult? Function(_AddPhone value)? addPhone,
+    TResult? Function(_DeletePhone value)? deletePhone,
+    TResult? Function(_RadioSelect value)? radioSelect,
   }) {
     return add?.call(this);
   }
@@ -350,25 +348,24 @@ abstract class _Add implements FormRepeaterEvent {
 abstract class _$$_DeleteCopyWith<$Res> {
   factory _$$_DeleteCopyWith(_$_Delete value, $Res Function(_$_Delete) then) =
       __$$_DeleteCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_DeleteCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_Delete>
     implements _$$_DeleteCopyWith<$Res> {
   __$$_DeleteCopyWithImpl(_$_Delete _value, $Res Function(_$_Delete) _then)
-      : super(_value, (v) => _then(v as _$_Delete));
+      : super(_value, _then);
 
-  @override
-  _$_Delete get _value => super._value as _$_Delete;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_Delete(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -394,15 +391,15 @@ class _$_Delete implements _Delete {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Delete &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DeleteCopyWith<_$_Delete> get copyWith =>
       __$$_DeleteCopyWithImpl<_$_Delete>(this, _$identity);
 
@@ -428,18 +425,18 @@ class _$_Delete implements _Delete {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         add,
-    TResult Function(int index)? delete,
-    TResult Function(String fileName, int index)? addFile,
-    TResult Function(TextEditingController phoneController)? addPhone,
-    TResult Function(int index)? deletePhone,
-    TResult Function(String value)? radioSelect,
+    TResult? Function(int index)? delete,
+    TResult? Function(String fileName, int index)? addFile,
+    TResult? Function(TextEditingController phoneController)? addPhone,
+    TResult? Function(int index)? deletePhone,
+    TResult? Function(String value)? radioSelect,
   }) {
     return delete?.call(index);
   }
@@ -483,12 +480,12 @@ class _$_Delete implements _Delete {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Add value)? add,
-    TResult Function(_Delete value)? delete,
-    TResult Function(_AddFile value)? addFile,
-    TResult Function(_AddPhone value)? addPhone,
-    TResult Function(_DeletePhone value)? deletePhone,
-    TResult Function(_RadioSelect value)? radioSelect,
+    TResult? Function(_Add value)? add,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_AddFile value)? addFile,
+    TResult? Function(_AddPhone value)? addPhone,
+    TResult? Function(_DeletePhone value)? deletePhone,
+    TResult? Function(_RadioSelect value)? radioSelect,
   }) {
     return delete?.call(this);
   }
@@ -525,30 +522,29 @@ abstract class _$$_AddFileCopyWith<$Res> {
   factory _$$_AddFileCopyWith(
           _$_AddFile value, $Res Function(_$_AddFile) then) =
       __$$_AddFileCopyWithImpl<$Res>;
+  @useResult
   $Res call({String fileName, int index});
 }
 
 /// @nodoc
 class __$$_AddFileCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_AddFile>
     implements _$$_AddFileCopyWith<$Res> {
   __$$_AddFileCopyWithImpl(_$_AddFile _value, $Res Function(_$_AddFile) _then)
-      : super(_value, (v) => _then(v as _$_AddFile));
+      : super(_value, _then);
 
-  @override
-  _$_AddFile get _value => super._value as _$_AddFile;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fileName = freezed,
-    Object? index = freezed,
+    Object? fileName = null,
+    Object? index = null,
   }) {
     return _then(_$_AddFile(
-      fileName == freezed
+      null == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
               as String,
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -576,18 +572,17 @@ class _$_AddFile implements _AddFile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddFile &&
-            const DeepCollectionEquality().equals(other.fileName, fileName) &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName) &&
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(fileName),
-      const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, fileName, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddFileCopyWith<_$_AddFile> get copyWith =>
       __$$_AddFileCopyWithImpl<_$_AddFile>(this, _$identity);
 
@@ -613,18 +608,18 @@ class _$_AddFile implements _AddFile {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         add,
-    TResult Function(int index)? delete,
-    TResult Function(String fileName, int index)? addFile,
-    TResult Function(TextEditingController phoneController)? addPhone,
-    TResult Function(int index)? deletePhone,
-    TResult Function(String value)? radioSelect,
+    TResult? Function(int index)? delete,
+    TResult? Function(String fileName, int index)? addFile,
+    TResult? Function(TextEditingController phoneController)? addPhone,
+    TResult? Function(int index)? deletePhone,
+    TResult? Function(String value)? radioSelect,
   }) {
     return addFile?.call(fileName, index);
   }
@@ -668,12 +663,12 @@ class _$_AddFile implements _AddFile {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Add value)? add,
-    TResult Function(_Delete value)? delete,
-    TResult Function(_AddFile value)? addFile,
-    TResult Function(_AddPhone value)? addPhone,
-    TResult Function(_DeletePhone value)? deletePhone,
-    TResult Function(_RadioSelect value)? radioSelect,
+    TResult? Function(_Add value)? add,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_AddFile value)? addFile,
+    TResult? Function(_AddPhone value)? addPhone,
+    TResult? Function(_DeletePhone value)? deletePhone,
+    TResult? Function(_RadioSelect value)? radioSelect,
   }) {
     return addFile?.call(this);
   }
@@ -711,26 +706,25 @@ abstract class _$$_AddPhoneCopyWith<$Res> {
   factory _$$_AddPhoneCopyWith(
           _$_AddPhone value, $Res Function(_$_AddPhone) then) =
       __$$_AddPhoneCopyWithImpl<$Res>;
+  @useResult
   $Res call({TextEditingController phoneController});
 }
 
 /// @nodoc
 class __$$_AddPhoneCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_AddPhone>
     implements _$$_AddPhoneCopyWith<$Res> {
   __$$_AddPhoneCopyWithImpl(
       _$_AddPhone _value, $Res Function(_$_AddPhone) _then)
-      : super(_value, (v) => _then(v as _$_AddPhone));
+      : super(_value, _then);
 
-  @override
-  _$_AddPhone get _value => super._value as _$_AddPhone;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phoneController = freezed,
+    Object? phoneController = null,
   }) {
     return _then(_$_AddPhone(
-      phoneController == freezed
+      null == phoneController
           ? _value.phoneController
           : phoneController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
@@ -756,16 +750,16 @@ class _$_AddPhone implements _AddPhone {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddPhone &&
-            const DeepCollectionEquality()
-                .equals(other.phoneController, phoneController));
+            (identical(other.phoneController, phoneController) ||
+                other.phoneController == phoneController));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(phoneController));
+  int get hashCode => Object.hash(runtimeType, phoneController);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddPhoneCopyWith<_$_AddPhone> get copyWith =>
       __$$_AddPhoneCopyWithImpl<_$_AddPhone>(this, _$identity);
 
@@ -791,18 +785,18 @@ class _$_AddPhone implements _AddPhone {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         add,
-    TResult Function(int index)? delete,
-    TResult Function(String fileName, int index)? addFile,
-    TResult Function(TextEditingController phoneController)? addPhone,
-    TResult Function(int index)? deletePhone,
-    TResult Function(String value)? radioSelect,
+    TResult? Function(int index)? delete,
+    TResult? Function(String fileName, int index)? addFile,
+    TResult? Function(TextEditingController phoneController)? addPhone,
+    TResult? Function(int index)? deletePhone,
+    TResult? Function(String value)? radioSelect,
   }) {
     return addPhone?.call(phoneController);
   }
@@ -846,12 +840,12 @@ class _$_AddPhone implements _AddPhone {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Add value)? add,
-    TResult Function(_Delete value)? delete,
-    TResult Function(_AddFile value)? addFile,
-    TResult Function(_AddPhone value)? addPhone,
-    TResult Function(_DeletePhone value)? deletePhone,
-    TResult Function(_RadioSelect value)? radioSelect,
+    TResult? Function(_Add value)? add,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_AddFile value)? addFile,
+    TResult? Function(_AddPhone value)? addPhone,
+    TResult? Function(_DeletePhone value)? deletePhone,
+    TResult? Function(_RadioSelect value)? radioSelect,
   }) {
     return addPhone?.call(this);
   }
@@ -889,26 +883,25 @@ abstract class _$$_DeletePhoneCopyWith<$Res> {
   factory _$$_DeletePhoneCopyWith(
           _$_DeletePhone value, $Res Function(_$_DeletePhone) then) =
       __$$_DeletePhoneCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_DeletePhoneCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_DeletePhone>
     implements _$$_DeletePhoneCopyWith<$Res> {
   __$$_DeletePhoneCopyWithImpl(
       _$_DeletePhone _value, $Res Function(_$_DeletePhone) _then)
-      : super(_value, (v) => _then(v as _$_DeletePhone));
+      : super(_value, _then);
 
-  @override
-  _$_DeletePhone get _value => super._value as _$_DeletePhone;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_DeletePhone(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -934,15 +927,15 @@ class _$_DeletePhone implements _DeletePhone {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeletePhone &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DeletePhoneCopyWith<_$_DeletePhone> get copyWith =>
       __$$_DeletePhoneCopyWithImpl<_$_DeletePhone>(this, _$identity);
 
@@ -968,18 +961,18 @@ class _$_DeletePhone implements _DeletePhone {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         add,
-    TResult Function(int index)? delete,
-    TResult Function(String fileName, int index)? addFile,
-    TResult Function(TextEditingController phoneController)? addPhone,
-    TResult Function(int index)? deletePhone,
-    TResult Function(String value)? radioSelect,
+    TResult? Function(int index)? delete,
+    TResult? Function(String fileName, int index)? addFile,
+    TResult? Function(TextEditingController phoneController)? addPhone,
+    TResult? Function(int index)? deletePhone,
+    TResult? Function(String value)? radioSelect,
   }) {
     return deletePhone?.call(index);
   }
@@ -1023,12 +1016,12 @@ class _$_DeletePhone implements _DeletePhone {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Add value)? add,
-    TResult Function(_Delete value)? delete,
-    TResult Function(_AddFile value)? addFile,
-    TResult Function(_AddPhone value)? addPhone,
-    TResult Function(_DeletePhone value)? deletePhone,
-    TResult Function(_RadioSelect value)? radioSelect,
+    TResult? Function(_Add value)? add,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_AddFile value)? addFile,
+    TResult? Function(_AddPhone value)? addPhone,
+    TResult? Function(_DeletePhone value)? deletePhone,
+    TResult? Function(_RadioSelect value)? radioSelect,
   }) {
     return deletePhone?.call(this);
   }
@@ -1065,26 +1058,25 @@ abstract class _$$_RadioSelectCopyWith<$Res> {
   factory _$$_RadioSelectCopyWith(
           _$_RadioSelect value, $Res Function(_$_RadioSelect) then) =
       __$$_RadioSelectCopyWithImpl<$Res>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
 class __$$_RadioSelectCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_RadioSelect>
     implements _$$_RadioSelectCopyWith<$Res> {
   __$$_RadioSelectCopyWithImpl(
       _$_RadioSelect _value, $Res Function(_$_RadioSelect) _then)
-      : super(_value, (v) => _then(v as _$_RadioSelect));
+      : super(_value, _then);
 
-  @override
-  _$_RadioSelect get _value => super._value as _$_RadioSelect;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_RadioSelect(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1110,15 +1102,15 @@ class _$_RadioSelect implements _RadioSelect {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RadioSelect &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RadioSelectCopyWith<_$_RadioSelect> get copyWith =>
       __$$_RadioSelectCopyWithImpl<_$_RadioSelect>(this, _$identity);
 
@@ -1144,18 +1136,18 @@ class _$_RadioSelect implements _RadioSelect {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         add,
-    TResult Function(int index)? delete,
-    TResult Function(String fileName, int index)? addFile,
-    TResult Function(TextEditingController phoneController)? addPhone,
-    TResult Function(int index)? deletePhone,
-    TResult Function(String value)? radioSelect,
+    TResult? Function(int index)? delete,
+    TResult? Function(String fileName, int index)? addFile,
+    TResult? Function(TextEditingController phoneController)? addPhone,
+    TResult? Function(int index)? deletePhone,
+    TResult? Function(String value)? radioSelect,
   }) {
     return radioSelect?.call(value);
   }
@@ -1199,12 +1191,12 @@ class _$_RadioSelect implements _RadioSelect {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Add value)? add,
-    TResult Function(_Delete value)? delete,
-    TResult Function(_AddFile value)? addFile,
-    TResult Function(_AddPhone value)? addPhone,
-    TResult Function(_DeletePhone value)? deletePhone,
-    TResult Function(_RadioSelect value)? radioSelect,
+    TResult? Function(_Add value)? add,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_AddFile value)? addFile,
+    TResult? Function(_AddPhone value)? addPhone,
+    TResult? Function(_DeletePhone value)? deletePhone,
+    TResult? Function(_RadioSelect value)? radioSelect,
   }) {
     return radioSelect?.call(this);
   }
@@ -1258,19 +1250,19 @@ mixin _$FormRepeaterState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
+    TResult? Function()? initial,
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         addSuceess,
-    TResult Function(int index)? deleteSuceess,
-    TResult Function(String fileName, int index)? addFileSuceess,
-    TResult Function(TextEditingController phoneController)? addPhoneSuceess,
-    TResult Function(int index)? deletePhoneSuceess,
-    TResult Function(String value)? radioSelectSuceess,
+    TResult? Function(int index)? deleteSuceess,
+    TResult? Function(String fileName, int index)? addFileSuceess,
+    TResult? Function(TextEditingController phoneController)? addPhoneSuceess,
+    TResult? Function(int index)? deletePhoneSuceess,
+    TResult? Function(String value)? radioSelectSuceess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1304,13 +1296,13 @@ mixin _$FormRepeaterState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddSuccess value)? addSuceess,
-    TResult Function(_DeleteSuccess value)? deleteSuceess,
-    TResult Function(_AddFileSuccess value)? addFileSuceess,
-    TResult Function(_AddPhoneSuccess value)? addPhoneSuceess,
-    TResult Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
-    TResult Function(_RadioSelectSuceess value)? radioSelectSuceess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddSuccess value)? addSuceess,
+    TResult? Function(_DeleteSuccess value)? deleteSuceess,
+    TResult? Function(_AddFileSuccess value)? addFileSuceess,
+    TResult? Function(_AddPhoneSuccess value)? addPhoneSuceess,
+    TResult? Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
+    TResult? Function(_RadioSelectSuceess value)? radioSelectSuceess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1331,17 +1323,18 @@ mixin _$FormRepeaterState {
 abstract class $FormRepeaterStateCopyWith<$Res> {
   factory $FormRepeaterStateCopyWith(
           FormRepeaterState value, $Res Function(FormRepeaterState) then) =
-      _$FormRepeaterStateCopyWithImpl<$Res>;
+      _$FormRepeaterStateCopyWithImpl<$Res, FormRepeaterState>;
 }
 
 /// @nodoc
-class _$FormRepeaterStateCopyWithImpl<$Res>
+class _$FormRepeaterStateCopyWithImpl<$Res, $Val extends FormRepeaterState>
     implements $FormRepeaterStateCopyWith<$Res> {
   _$FormRepeaterStateCopyWithImpl(this._value, this._then);
 
-  final FormRepeaterState _value;
   // ignore: unused_field
-  final $Res Function(FormRepeaterState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -1353,13 +1346,10 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1405,19 +1395,19 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
+    TResult? Function()? initial,
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         addSuceess,
-    TResult Function(int index)? deleteSuceess,
-    TResult Function(String fileName, int index)? addFileSuceess,
-    TResult Function(TextEditingController phoneController)? addPhoneSuceess,
-    TResult Function(int index)? deletePhoneSuceess,
-    TResult Function(String value)? radioSelectSuceess,
+    TResult? Function(int index)? deleteSuceess,
+    TResult? Function(String fileName, int index)? addFileSuceess,
+    TResult? Function(TextEditingController phoneController)? addPhoneSuceess,
+    TResult? Function(int index)? deletePhoneSuceess,
+    TResult? Function(String value)? radioSelectSuceess,
   }) {
     return initial?.call();
   }
@@ -1463,13 +1453,13 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddSuccess value)? addSuceess,
-    TResult Function(_DeleteSuccess value)? deleteSuceess,
-    TResult Function(_AddFileSuccess value)? addFileSuceess,
-    TResult Function(_AddPhoneSuccess value)? addPhoneSuceess,
-    TResult Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
-    TResult Function(_RadioSelectSuceess value)? radioSelectSuceess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddSuccess value)? addSuceess,
+    TResult? Function(_DeleteSuccess value)? deleteSuceess,
+    TResult? Function(_AddFileSuccess value)? addFileSuceess,
+    TResult? Function(_AddPhoneSuccess value)? addPhoneSuceess,
+    TResult? Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
+    TResult? Function(_RadioSelectSuceess value)? radioSelectSuceess,
   }) {
     return initial?.call(this);
   }
@@ -1502,6 +1492,7 @@ abstract class _$$_AddSuccessCopyWith<$Res> {
   factory _$$_AddSuccessCopyWith(
           _$_AddSuccess value, $Res Function(_$_AddSuccess) then) =
       __$$_AddSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {String fileName,
       TextEditingController nameController,
@@ -1512,41 +1503,39 @@ abstract class _$$_AddSuccessCopyWith<$Res> {
 
 /// @nodoc
 class __$$_AddSuccessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_AddSuccess>
     implements _$$_AddSuccessCopyWith<$Res> {
   __$$_AddSuccessCopyWithImpl(
       _$_AddSuccess _value, $Res Function(_$_AddSuccess) _then)
-      : super(_value, (v) => _then(v as _$_AddSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_AddSuccess get _value => super._value as _$_AddSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fileName = freezed,
-    Object? nameController = freezed,
-    Object? emailController = freezed,
-    Object? subjectController = freezed,
-    Object? messageController = freezed,
+    Object? fileName = null,
+    Object? nameController = null,
+    Object? emailController = null,
+    Object? subjectController = null,
+    Object? messageController = null,
   }) {
     return _then(_$_AddSuccess(
-      fileName == freezed
+      null == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
               as String,
-      nameController == freezed
+      null == nameController
           ? _value.nameController
           : nameController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
-      emailController == freezed
+      null == emailController
           ? _value.emailController
           : emailController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
-      subjectController == freezed
+      null == subjectController
           ? _value.subjectController
           : subjectController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
-      messageController == freezed
+      null == messageController
           ? _value.messageController
           : messageController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
@@ -1581,28 +1570,25 @@ class _$_AddSuccess implements _AddSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddSuccess &&
-            const DeepCollectionEquality().equals(other.fileName, fileName) &&
-            const DeepCollectionEquality()
-                .equals(other.nameController, nameController) &&
-            const DeepCollectionEquality()
-                .equals(other.emailController, emailController) &&
-            const DeepCollectionEquality()
-                .equals(other.subjectController, subjectController) &&
-            const DeepCollectionEquality()
-                .equals(other.messageController, messageController));
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName) &&
+            (identical(other.nameController, nameController) ||
+                other.nameController == nameController) &&
+            (identical(other.emailController, emailController) ||
+                other.emailController == emailController) &&
+            (identical(other.subjectController, subjectController) ||
+                other.subjectController == subjectController) &&
+            (identical(other.messageController, messageController) ||
+                other.messageController == messageController));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(fileName),
-      const DeepCollectionEquality().hash(nameController),
-      const DeepCollectionEquality().hash(emailController),
-      const DeepCollectionEquality().hash(subjectController),
-      const DeepCollectionEquality().hash(messageController));
+  int get hashCode => Object.hash(runtimeType, fileName, nameController,
+      emailController, subjectController, messageController);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddSuccessCopyWith<_$_AddSuccess> get copyWith =>
       __$$_AddSuccessCopyWithImpl<_$_AddSuccess>(this, _$identity);
 
@@ -1631,19 +1617,19 @@ class _$_AddSuccess implements _AddSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
+    TResult? Function()? initial,
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         addSuceess,
-    TResult Function(int index)? deleteSuceess,
-    TResult Function(String fileName, int index)? addFileSuceess,
-    TResult Function(TextEditingController phoneController)? addPhoneSuceess,
-    TResult Function(int index)? deletePhoneSuceess,
-    TResult Function(String value)? radioSelectSuceess,
+    TResult? Function(int index)? deleteSuceess,
+    TResult? Function(String fileName, int index)? addFileSuceess,
+    TResult? Function(TextEditingController phoneController)? addPhoneSuceess,
+    TResult? Function(int index)? deletePhoneSuceess,
+    TResult? Function(String value)? radioSelectSuceess,
   }) {
     return addSuceess?.call(fileName, nameController, emailController,
         subjectController, messageController);
@@ -1691,13 +1677,13 @@ class _$_AddSuccess implements _AddSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddSuccess value)? addSuceess,
-    TResult Function(_DeleteSuccess value)? deleteSuceess,
-    TResult Function(_AddFileSuccess value)? addFileSuceess,
-    TResult Function(_AddPhoneSuccess value)? addPhoneSuceess,
-    TResult Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
-    TResult Function(_RadioSelectSuceess value)? radioSelectSuceess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddSuccess value)? addSuceess,
+    TResult? Function(_DeleteSuccess value)? deleteSuceess,
+    TResult? Function(_AddFileSuccess value)? addFileSuceess,
+    TResult? Function(_AddPhoneSuccess value)? addPhoneSuceess,
+    TResult? Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
+    TResult? Function(_RadioSelectSuceess value)? radioSelectSuceess,
   }) {
     return addSuceess?.call(this);
   }
@@ -1744,26 +1730,25 @@ abstract class _$$_DeleteSuccessCopyWith<$Res> {
   factory _$$_DeleteSuccessCopyWith(
           _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
       __$$_DeleteSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_DeleteSuccess>
     implements _$$_DeleteSuccessCopyWith<$Res> {
   __$$_DeleteSuccessCopyWithImpl(
       _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
-      : super(_value, (v) => _then(v as _$_DeleteSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_DeleteSuccess get _value => super._value as _$_DeleteSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_DeleteSuccess(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -1789,15 +1774,15 @@ class _$_DeleteSuccess implements _DeleteSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeleteSuccess &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
       __$$_DeleteSuccessCopyWithImpl<_$_DeleteSuccess>(this, _$identity);
 
@@ -1825,19 +1810,19 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
+    TResult? Function()? initial,
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         addSuceess,
-    TResult Function(int index)? deleteSuceess,
-    TResult Function(String fileName, int index)? addFileSuceess,
-    TResult Function(TextEditingController phoneController)? addPhoneSuceess,
-    TResult Function(int index)? deletePhoneSuceess,
-    TResult Function(String value)? radioSelectSuceess,
+    TResult? Function(int index)? deleteSuceess,
+    TResult? Function(String fileName, int index)? addFileSuceess,
+    TResult? Function(TextEditingController phoneController)? addPhoneSuceess,
+    TResult? Function(int index)? deletePhoneSuceess,
+    TResult? Function(String value)? radioSelectSuceess,
   }) {
     return deleteSuceess?.call(index);
   }
@@ -1883,13 +1868,13 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddSuccess value)? addSuceess,
-    TResult Function(_DeleteSuccess value)? deleteSuceess,
-    TResult Function(_AddFileSuccess value)? addFileSuceess,
-    TResult Function(_AddPhoneSuccess value)? addPhoneSuceess,
-    TResult Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
-    TResult Function(_RadioSelectSuceess value)? radioSelectSuceess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddSuccess value)? addSuceess,
+    TResult? Function(_DeleteSuccess value)? deleteSuceess,
+    TResult? Function(_AddFileSuccess value)? addFileSuceess,
+    TResult? Function(_AddPhoneSuccess value)? addPhoneSuceess,
+    TResult? Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
+    TResult? Function(_RadioSelectSuceess value)? radioSelectSuceess,
   }) {
     return deleteSuceess?.call(this);
   }
@@ -1927,31 +1912,30 @@ abstract class _$$_AddFileSuccessCopyWith<$Res> {
   factory _$$_AddFileSuccessCopyWith(
           _$_AddFileSuccess value, $Res Function(_$_AddFileSuccess) then) =
       __$$_AddFileSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({String fileName, int index});
 }
 
 /// @nodoc
 class __$$_AddFileSuccessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_AddFileSuccess>
     implements _$$_AddFileSuccessCopyWith<$Res> {
   __$$_AddFileSuccessCopyWithImpl(
       _$_AddFileSuccess _value, $Res Function(_$_AddFileSuccess) _then)
-      : super(_value, (v) => _then(v as _$_AddFileSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_AddFileSuccess get _value => super._value as _$_AddFileSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fileName = freezed,
-    Object? index = freezed,
+    Object? fileName = null,
+    Object? index = null,
   }) {
     return _then(_$_AddFileSuccess(
-      fileName == freezed
+      null == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
               as String,
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -1979,18 +1963,17 @@ class _$_AddFileSuccess implements _AddFileSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddFileSuccess &&
-            const DeepCollectionEquality().equals(other.fileName, fileName) &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName) &&
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(fileName),
-      const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, fileName, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddFileSuccessCopyWith<_$_AddFileSuccess> get copyWith =>
       __$$_AddFileSuccessCopyWithImpl<_$_AddFileSuccess>(this, _$identity);
 
@@ -2018,19 +2001,19 @@ class _$_AddFileSuccess implements _AddFileSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
+    TResult? Function()? initial,
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         addSuceess,
-    TResult Function(int index)? deleteSuceess,
-    TResult Function(String fileName, int index)? addFileSuceess,
-    TResult Function(TextEditingController phoneController)? addPhoneSuceess,
-    TResult Function(int index)? deletePhoneSuceess,
-    TResult Function(String value)? radioSelectSuceess,
+    TResult? Function(int index)? deleteSuceess,
+    TResult? Function(String fileName, int index)? addFileSuceess,
+    TResult? Function(TextEditingController phoneController)? addPhoneSuceess,
+    TResult? Function(int index)? deletePhoneSuceess,
+    TResult? Function(String value)? radioSelectSuceess,
   }) {
     return addFileSuceess?.call(fileName, index);
   }
@@ -2076,13 +2059,13 @@ class _$_AddFileSuccess implements _AddFileSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddSuccess value)? addSuceess,
-    TResult Function(_DeleteSuccess value)? deleteSuceess,
-    TResult Function(_AddFileSuccess value)? addFileSuceess,
-    TResult Function(_AddPhoneSuccess value)? addPhoneSuceess,
-    TResult Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
-    TResult Function(_RadioSelectSuceess value)? radioSelectSuceess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddSuccess value)? addSuceess,
+    TResult? Function(_DeleteSuccess value)? deleteSuceess,
+    TResult? Function(_AddFileSuccess value)? addFileSuceess,
+    TResult? Function(_AddPhoneSuccess value)? addPhoneSuceess,
+    TResult? Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
+    TResult? Function(_RadioSelectSuceess value)? radioSelectSuceess,
   }) {
     return addFileSuceess?.call(this);
   }
@@ -2122,26 +2105,25 @@ abstract class _$$_AddPhoneSuccessCopyWith<$Res> {
   factory _$$_AddPhoneSuccessCopyWith(
           _$_AddPhoneSuccess value, $Res Function(_$_AddPhoneSuccess) then) =
       __$$_AddPhoneSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({TextEditingController phoneController});
 }
 
 /// @nodoc
 class __$$_AddPhoneSuccessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_AddPhoneSuccess>
     implements _$$_AddPhoneSuccessCopyWith<$Res> {
   __$$_AddPhoneSuccessCopyWithImpl(
       _$_AddPhoneSuccess _value, $Res Function(_$_AddPhoneSuccess) _then)
-      : super(_value, (v) => _then(v as _$_AddPhoneSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_AddPhoneSuccess get _value => super._value as _$_AddPhoneSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phoneController = freezed,
+    Object? phoneController = null,
   }) {
     return _then(_$_AddPhoneSuccess(
-      phoneController == freezed
+      null == phoneController
           ? _value.phoneController
           : phoneController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
@@ -2167,16 +2149,16 @@ class _$_AddPhoneSuccess implements _AddPhoneSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddPhoneSuccess &&
-            const DeepCollectionEquality()
-                .equals(other.phoneController, phoneController));
+            (identical(other.phoneController, phoneController) ||
+                other.phoneController == phoneController));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(phoneController));
+  int get hashCode => Object.hash(runtimeType, phoneController);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddPhoneSuccessCopyWith<_$_AddPhoneSuccess> get copyWith =>
       __$$_AddPhoneSuccessCopyWithImpl<_$_AddPhoneSuccess>(this, _$identity);
 
@@ -2204,19 +2186,19 @@ class _$_AddPhoneSuccess implements _AddPhoneSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
+    TResult? Function()? initial,
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         addSuceess,
-    TResult Function(int index)? deleteSuceess,
-    TResult Function(String fileName, int index)? addFileSuceess,
-    TResult Function(TextEditingController phoneController)? addPhoneSuceess,
-    TResult Function(int index)? deletePhoneSuceess,
-    TResult Function(String value)? radioSelectSuceess,
+    TResult? Function(int index)? deleteSuceess,
+    TResult? Function(String fileName, int index)? addFileSuceess,
+    TResult? Function(TextEditingController phoneController)? addPhoneSuceess,
+    TResult? Function(int index)? deletePhoneSuceess,
+    TResult? Function(String value)? radioSelectSuceess,
   }) {
     return addPhoneSuceess?.call(phoneController);
   }
@@ -2262,13 +2244,13 @@ class _$_AddPhoneSuccess implements _AddPhoneSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddSuccess value)? addSuceess,
-    TResult Function(_DeleteSuccess value)? deleteSuceess,
-    TResult Function(_AddFileSuccess value)? addFileSuceess,
-    TResult Function(_AddPhoneSuccess value)? addPhoneSuceess,
-    TResult Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
-    TResult Function(_RadioSelectSuceess value)? radioSelectSuceess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddSuccess value)? addSuceess,
+    TResult? Function(_DeleteSuccess value)? deleteSuceess,
+    TResult? Function(_AddFileSuccess value)? addFileSuceess,
+    TResult? Function(_AddPhoneSuccess value)? addPhoneSuceess,
+    TResult? Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
+    TResult? Function(_RadioSelectSuceess value)? radioSelectSuceess,
   }) {
     return addPhoneSuceess?.call(this);
   }
@@ -2307,26 +2289,25 @@ abstract class _$$_DeletePhoneSuccessCopyWith<$Res> {
   factory _$$_DeletePhoneSuccessCopyWith(_$_DeletePhoneSuccess value,
           $Res Function(_$_DeletePhoneSuccess) then) =
       __$$_DeletePhoneSuccessCopyWithImpl<$Res>;
+  @useResult
   $Res call({int index});
 }
 
 /// @nodoc
 class __$$_DeletePhoneSuccessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_DeletePhoneSuccess>
     implements _$$_DeletePhoneSuccessCopyWith<$Res> {
   __$$_DeletePhoneSuccessCopyWithImpl(
       _$_DeletePhoneSuccess _value, $Res Function(_$_DeletePhoneSuccess) _then)
-      : super(_value, (v) => _then(v as _$_DeletePhoneSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_DeletePhoneSuccess get _value => super._value as _$_DeletePhoneSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = freezed,
+    Object? index = null,
   }) {
     return _then(_$_DeletePhoneSuccess(
-      index == freezed
+      null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -2352,15 +2333,15 @@ class _$_DeletePhoneSuccess implements _DeletePhoneSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeletePhoneSuccess &&
-            const DeepCollectionEquality().equals(other.index, index));
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DeletePhoneSuccessCopyWith<_$_DeletePhoneSuccess> get copyWith =>
       __$$_DeletePhoneSuccessCopyWithImpl<_$_DeletePhoneSuccess>(
           this, _$identity);
@@ -2389,19 +2370,19 @@ class _$_DeletePhoneSuccess implements _DeletePhoneSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
+    TResult? Function()? initial,
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         addSuceess,
-    TResult Function(int index)? deleteSuceess,
-    TResult Function(String fileName, int index)? addFileSuceess,
-    TResult Function(TextEditingController phoneController)? addPhoneSuceess,
-    TResult Function(int index)? deletePhoneSuceess,
-    TResult Function(String value)? radioSelectSuceess,
+    TResult? Function(int index)? deleteSuceess,
+    TResult? Function(String fileName, int index)? addFileSuceess,
+    TResult? Function(TextEditingController phoneController)? addPhoneSuceess,
+    TResult? Function(int index)? deletePhoneSuceess,
+    TResult? Function(String value)? radioSelectSuceess,
   }) {
     return deletePhoneSuceess?.call(index);
   }
@@ -2447,13 +2428,13 @@ class _$_DeletePhoneSuccess implements _DeletePhoneSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddSuccess value)? addSuceess,
-    TResult Function(_DeleteSuccess value)? deleteSuceess,
-    TResult Function(_AddFileSuccess value)? addFileSuceess,
-    TResult Function(_AddPhoneSuccess value)? addPhoneSuceess,
-    TResult Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
-    TResult Function(_RadioSelectSuceess value)? radioSelectSuceess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddSuccess value)? addSuceess,
+    TResult? Function(_DeleteSuccess value)? deleteSuceess,
+    TResult? Function(_AddFileSuccess value)? addFileSuceess,
+    TResult? Function(_AddPhoneSuccess value)? addPhoneSuceess,
+    TResult? Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
+    TResult? Function(_RadioSelectSuceess value)? radioSelectSuceess,
   }) {
     return deletePhoneSuceess?.call(this);
   }
@@ -2491,26 +2472,25 @@ abstract class _$$_RadioSelectSuceessCopyWith<$Res> {
   factory _$$_RadioSelectSuceessCopyWith(_$_RadioSelectSuceess value,
           $Res Function(_$_RadioSelectSuceess) then) =
       __$$_RadioSelectSuceessCopyWithImpl<$Res>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
 class __$$_RadioSelectSuceessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_RadioSelectSuceess>
     implements _$$_RadioSelectSuceessCopyWith<$Res> {
   __$$_RadioSelectSuceessCopyWithImpl(
       _$_RadioSelectSuceess _value, $Res Function(_$_RadioSelectSuceess) _then)
-      : super(_value, (v) => _then(v as _$_RadioSelectSuceess));
+      : super(_value, _then);
 
-  @override
-  _$_RadioSelectSuceess get _value => super._value as _$_RadioSelectSuceess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$_RadioSelectSuceess(
-      value == freezed
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -2536,15 +2516,15 @@ class _$_RadioSelectSuceess implements _RadioSelectSuceess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RadioSelectSuceess &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RadioSelectSuceessCopyWith<_$_RadioSelectSuceess> get copyWith =>
       __$$_RadioSelectSuceessCopyWithImpl<_$_RadioSelectSuceess>(
           this, _$identity);
@@ -2573,19 +2553,19 @@ class _$_RadioSelectSuceess implements _RadioSelectSuceess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
+    TResult? Function()? initial,
+    TResult? Function(
             String fileName,
             TextEditingController nameController,
             TextEditingController emailController,
             TextEditingController subjectController,
             TextEditingController messageController)?
         addSuceess,
-    TResult Function(int index)? deleteSuceess,
-    TResult Function(String fileName, int index)? addFileSuceess,
-    TResult Function(TextEditingController phoneController)? addPhoneSuceess,
-    TResult Function(int index)? deletePhoneSuceess,
-    TResult Function(String value)? radioSelectSuceess,
+    TResult? Function(int index)? deleteSuceess,
+    TResult? Function(String fileName, int index)? addFileSuceess,
+    TResult? Function(TextEditingController phoneController)? addPhoneSuceess,
+    TResult? Function(int index)? deletePhoneSuceess,
+    TResult? Function(String value)? radioSelectSuceess,
   }) {
     return radioSelectSuceess?.call(value);
   }
@@ -2631,13 +2611,13 @@ class _$_RadioSelectSuceess implements _RadioSelectSuceess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_AddSuccess value)? addSuceess,
-    TResult Function(_DeleteSuccess value)? deleteSuceess,
-    TResult Function(_AddFileSuccess value)? addFileSuceess,
-    TResult Function(_AddPhoneSuccess value)? addPhoneSuceess,
-    TResult Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
-    TResult Function(_RadioSelectSuceess value)? radioSelectSuceess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddSuccess value)? addSuceess,
+    TResult? Function(_DeleteSuccess value)? deleteSuceess,
+    TResult? Function(_AddFileSuccess value)? addFileSuceess,
+    TResult? Function(_AddPhoneSuccess value)? addPhoneSuceess,
+    TResult? Function(_DeletePhoneSuccess value)? deletePhoneSuceess,
+    TResult? Function(_RadioSelectSuceess value)? radioSelectSuceess,
   }) {
     return radioSelectSuceess?.call(this);
   }

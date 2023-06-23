@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'checkbox_bloc.dart';
 
@@ -24,7 +24,7 @@ mixin _$CheckboxEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool isChecked)? started,
+    TResult? Function(bool isChecked)? started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$CheckboxEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult? Function(_Started value)? started,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,29 +59,32 @@ mixin _$CheckboxEvent {
 abstract class $CheckboxEventCopyWith<$Res> {
   factory $CheckboxEventCopyWith(
           CheckboxEvent value, $Res Function(CheckboxEvent) then) =
-      _$CheckboxEventCopyWithImpl<$Res>;
+      _$CheckboxEventCopyWithImpl<$Res, CheckboxEvent>;
+  @useResult
   $Res call({bool isChecked});
 }
 
 /// @nodoc
-class _$CheckboxEventCopyWithImpl<$Res>
+class _$CheckboxEventCopyWithImpl<$Res, $Val extends CheckboxEvent>
     implements $CheckboxEventCopyWith<$Res> {
   _$CheckboxEventCopyWithImpl(this._value, this._then);
 
-  final CheckboxEvent _value;
   // ignore: unused_field
-  final $Res Function(CheckboxEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isChecked = freezed,
+    Object? isChecked = null,
   }) {
     return _then(_value.copyWith(
-      isChecked: isChecked == freezed
+      isChecked: null == isChecked
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -92,24 +95,24 @@ abstract class _$$_StartedCopyWith<$Res>
           _$_Started value, $Res Function(_$_Started) then) =
       __$$_StartedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool isChecked});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res> extends _$CheckboxEventCopyWithImpl<$Res>
+class __$$_StartedCopyWithImpl<$Res>
+    extends _$CheckboxEventCopyWithImpl<$Res, _$_Started>
     implements _$$_StartedCopyWith<$Res> {
   __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, (v) => _then(v as _$_Started));
+      : super(_value, _then);
 
-  @override
-  _$_Started get _value => super._value as _$_Started;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isChecked = freezed,
+    Object? isChecked = null,
   }) {
     return _then(_$_Started(
-      isChecked: isChecked == freezed
+      isChecked: null == isChecked
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -135,15 +138,16 @@ class _$_Started implements _Started {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Started &&
-            const DeepCollectionEquality().equals(other.isChecked, isChecked));
+            (identical(other.isChecked, isChecked) ||
+                other.isChecked == isChecked));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isChecked));
+  int get hashCode => Object.hash(runtimeType, isChecked);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StartedCopyWith<_$_Started> get copyWith =>
       __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
 
@@ -158,7 +162,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool isChecked)? started,
+    TResult? Function(bool isChecked)? started,
   }) {
     return started?.call(isChecked);
   }
@@ -186,7 +190,7 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult? Function(_Started value)? started,
   }) {
     return started?.call(this);
   }
@@ -225,7 +229,7 @@ mixin _$CheckboxState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool isChecked)? success,
+    TResult? Function(bool isChecked)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -241,7 +245,7 @@ mixin _$CheckboxState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Success value)? success,
+    TResult? Function(_Success value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -260,29 +264,32 @@ mixin _$CheckboxState {
 abstract class $CheckboxStateCopyWith<$Res> {
   factory $CheckboxStateCopyWith(
           CheckboxState value, $Res Function(CheckboxState) then) =
-      _$CheckboxStateCopyWithImpl<$Res>;
+      _$CheckboxStateCopyWithImpl<$Res, CheckboxState>;
+  @useResult
   $Res call({bool isChecked});
 }
 
 /// @nodoc
-class _$CheckboxStateCopyWithImpl<$Res>
+class _$CheckboxStateCopyWithImpl<$Res, $Val extends CheckboxState>
     implements $CheckboxStateCopyWith<$Res> {
   _$CheckboxStateCopyWithImpl(this._value, this._then);
 
-  final CheckboxState _value;
   // ignore: unused_field
-  final $Res Function(CheckboxState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isChecked = freezed,
+    Object? isChecked = null,
   }) {
     return _then(_value.copyWith(
-      isChecked: isChecked == freezed
+      isChecked: null == isChecked
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -293,24 +300,24 @@ abstract class _$$_SuccessCopyWith<$Res>
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool isChecked});
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res> extends _$CheckboxStateCopyWithImpl<$Res>
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$CheckboxStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
+      : super(_value, _then);
 
-  @override
-  _$_Success get _value => super._value as _$_Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isChecked = freezed,
+    Object? isChecked = null,
   }) {
     return _then(_$_Success(
-      isChecked == freezed
+      null == isChecked
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -336,15 +343,16 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality().equals(other.isChecked, isChecked));
+            (identical(other.isChecked, isChecked) ||
+                other.isChecked == isChecked));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isChecked));
+  int get hashCode => Object.hash(runtimeType, isChecked);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
@@ -359,7 +367,7 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool isChecked)? success,
+    TResult? Function(bool isChecked)? success,
   }) {
     return success?.call(isChecked);
   }
@@ -387,7 +395,7 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Success value)? success,
+    TResult? Function(_Success value)? success,
   }) {
     return success?.call(this);
   }

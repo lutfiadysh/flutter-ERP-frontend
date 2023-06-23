@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/proy/providers/products_provider.dart';
 import 'package:admin_dashboard/src/views/products/card_products.dart';
 import 'package:admin_dashboard/src/views/products/productviewcreate_test.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+@RoutePage()
 class ProductsViewTest extends StatefulWidget {
   const ProductsViewTest({super.key});
 
