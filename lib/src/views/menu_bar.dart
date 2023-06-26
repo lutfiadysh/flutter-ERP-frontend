@@ -141,7 +141,8 @@ class _MenuBarState extends State<MenuBar> {
     item.ListingsViewTest(),
     item.TransferViewTest(),
     item.ListingViewTest(),
-    item.SalesViewTest()
+    item.SalesViewTest(),
+    item.SaleViewTest()
   ];
   @override
   Widget build(BuildContext context) {

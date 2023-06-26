@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final salesResponse = salesResponseFromMap(jsonString);
+
 import 'dart:convert';
 
 class Venta {
@@ -49,7 +53,7 @@ class _Cotizacion {
   final String nit;
   final String sucursal;
   final DateTime fecha;
-  final List<_Producto> productos;
+  final List<_ProductoElement> productos;
   final int total;
   final int v;
 
@@ -79,8 +83,8 @@ class _Cotizacion {
         nit: json["nit"],
         sucursal: json["sucursal"],
         fecha: DateTime.parse(json["fecha"]),
-        productos: List<_Producto>.from(
-            json["productos"].map((x) => _Producto.fromMap(x))),
+        productos: List<_ProductoElement>.from(
+            json["productos"].map((x) => _ProductoElement.fromMap(x))),
         total: json["total"],
         v: json["__v"],
       );
@@ -99,9 +103,9 @@ class _Cotizacion {
       };
 }
 
-class _Producto {
+class _ProductoElement {
   final String id;
-  final String producto;
+  final _Producto producto;
   final int cantidadCajas;
   final int cantidadPiezas;
   final double precioUnitarioPiezas;
@@ -110,7 +114,7 @@ class _Producto {
   final int precioTotalCajas;
   final int precioTotal;
 
-  _Producto({
+  _ProductoElement({
     required this.id,
     required this.producto,
     required this.cantidadCajas,
@@ -122,13 +126,15 @@ class _Producto {
     required this.precioTotal,
   });
 
-  factory _Producto.fromJson(String str) => _Producto.fromMap(json.decode(str));
+  factory _ProductoElement.fromJson(String str) =>
+      _ProductoElement.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory _Producto.fromMap(Map<String, dynamic> json) => _Producto(
+  factory _ProductoElement.fromMap(Map<String, dynamic> json) =>
+      _ProductoElement(
         id: json["_id"],
-        producto: json["producto"],
+        producto: _Producto.fromMap(json["producto"]),
         cantidadCajas: json["cantidadCajas"],
         cantidadPiezas: json["cantidadPiezas"],
         precioUnitarioPiezas: json["precioUnitarioPiezas"]?.toDouble(),
@@ -140,7 +146,7 @@ class _Producto {
 
   Map<String, dynamic> toMap() => {
         "_id": id,
-        "producto": producto,
+        "producto": producto.toMap(),
         "cantidadCajas": cantidadCajas,
         "cantidadPiezas": cantidadPiezas,
         "precioUnitarioPiezas": precioUnitarioPiezas,
@@ -148,6 +154,66 @@ class _Producto {
         "precioTotalPiezas": precioTotalPiezas,
         "precioTotalCajas": precioTotalCajas,
         "precioTotal": precioTotal,
+      };
+}
+
+class _Producto {
+  final bool estado;
+  final bool disponible;
+  final String color;
+  final String id;
+  final String nombre;
+  final int precioCaja;
+  final double precioPorUnidad;
+  final String usuario;
+  final String categoria;
+  final int v;
+  final String img;
+
+  _Producto({
+    required this.estado,
+    required this.disponible,
+    required this.color,
+    required this.id,
+    required this.nombre,
+    required this.precioCaja,
+    required this.precioPorUnidad,
+    required this.usuario,
+    required this.categoria,
+    required this.v,
+    required this.img,
+  });
+
+  factory _Producto.fromJson(String str) => _Producto.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory _Producto.fromMap(Map<String, dynamic> json) => _Producto(
+        estado: json["estado"],
+        disponible: json["disponible"],
+        color: json["color"],
+        id: json["_id"],
+        nombre: json["nombre"],
+        precioCaja: json["precioCaja"],
+        precioPorUnidad: json["precioPorUnidad"]?.toDouble(),
+        usuario: json["usuario"],
+        categoria: json["categoria"],
+        v: json["__v"],
+        img: json["img"],
+      );
+
+  Map<String, dynamic> toMap() => {
+        "estado": estado,
+        "disponible": disponible,
+        "color": color,
+        "_id": id,
+        "nombre": nombre,
+        "precioCaja": precioCaja,
+        "precioPorUnidad": precioPorUnidad,
+        "usuario": usuario,
+        "categoria": categoria,
+        "__v": v,
+        "img": img,
       };
 }
 
@@ -161,7 +227,7 @@ class _Movimiento {
   final String id;
   final _Usuario usuario;
   final String movimiento;
-  final _Stock stock;
+  final Stock stock;
   final String venta;
   final DateTime fecha;
   final int v;
@@ -197,7 +263,7 @@ class _Movimiento {
         id: json["_id"],
         usuario: _Usuario.fromMap(json["usuario"]),
         movimiento: json["movimiento"],
-        stock: _Stock.fromMap(json["stock"]),
+        stock: Stock.fromMap(json["stock"]),
         venta: json["venta"],
         fecha: DateTime.parse(json["fecha"]),
         v: json["__v"],
@@ -220,19 +286,19 @@ class _Movimiento {
       };
 }
 
-class _Stock {
+class Stock {
   final int cantidadCajas;
   final int cantidadPiezas;
   final int reservadoCajas;
   final int reservadoPiezas;
   final String id;
-  final String producto;
+  final _Producto producto;
   final String sucursal;
   final DateTime fecha;
   final List<dynamic> historial;
   final int v;
 
-  _Stock({
+  Stock({
     required this.cantidadCajas,
     required this.cantidadPiezas,
     required this.reservadoCajas,
@@ -245,17 +311,17 @@ class _Stock {
     required this.v,
   });
 
-  factory _Stock.fromJson(String str) => _Stock.fromMap(json.decode(str));
+  factory Stock.fromJson(String str) => Stock.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory _Stock.fromMap(Map<String, dynamic> json) => _Stock(
+  factory Stock.fromMap(Map<String, dynamic> json) => Stock(
         cantidadCajas: json["cantidadCajas"],
         cantidadPiezas: json["cantidadPiezas"],
         reservadoCajas: json["reservadoCajas"],
         reservadoPiezas: json["reservadoPiezas"],
         id: json["_id"],
-        producto: json["producto"],
+        producto: _Producto.fromMap(json["producto"]),
         sucursal: json["sucursal"],
         fecha: DateTime.parse(json["fecha"]),
         historial: List<dynamic>.from(json["historial"].map((x) => x)),
@@ -268,7 +334,7 @@ class _Stock {
         "reservadoCajas": reservadoCajas,
         "reservadoPiezas": reservadoPiezas,
         "_id": id,
-        "producto": producto,
+        "producto": producto.toMap(),
         "sucursal": sucursal,
         "fecha": fecha.toIso8601String(),
         "historial": List<dynamic>.from(historial.map((x) => x)),

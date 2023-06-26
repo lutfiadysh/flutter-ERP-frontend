@@ -27,6 +27,7 @@ import 'package:admin_dashboard/src/views/movements/movementsview_test.dart';
 import 'package:admin_dashboard/src/views/movements/verificationsview_test.dart';
 import 'package:admin_dashboard/src/views/products/productsview_test.dart';
 import 'package:admin_dashboard/src/views/sales/salesview_test.dart';
+import 'package:admin_dashboard/src/views/sales/saleview_test.dart';
 import 'package:admin_dashboard/src/views/stock/stocksview_test.dart';
 import 'package:admin_dashboard/src/views/tables/basic_table.dart';
 import 'package:admin_dashboard/src/views/tables/data_tables.dart';
@@ -141,6 +142,8 @@ int getRouteIndex(String route) {
     return 45;
   } else if (route == Strings.salesView) {
     return 46;
+  } else if (route == Strings.saleView) {
+    return 47;
   } else {
     return 0;
   }
@@ -239,6 +242,8 @@ Widget getRouteWidget(int index) {
     return const ListingViewTest();
   } else if (index == 46) {
     return const SalesViewTest();
+  } else if (index == 47) {
+    return const SaleViewTest();
   } else {
     return const Dashboard();
   }

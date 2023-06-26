@@ -116,9 +116,10 @@ class _ListingViewTestState extends State<ListingViewTest> {
               },
               itemBuilder: (BuildContext context) {
                 List<String> options = ['Guardar', 'Vender'];
-                if (isEditing)
+                if (isEditing) {
                   options.add(
                       'Generar PDF'); // condicionalmente agregar 'Generar PDF' si isEditing es true
+                }
                 return options.map((String choice) {
                   return PopupMenuItem<String>(
                     value: choice,

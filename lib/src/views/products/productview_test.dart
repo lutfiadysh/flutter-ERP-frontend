@@ -1,71 +1,63 @@
-import 'package:admin_dashboard/proy/providers/products_provider.dart';
-import 'package:admin_dashboard/proy/services/notification_service.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:admin_dashboard/proy/providers/products_provider.dart';
 import 'package:provider/provider.dart';
-
 import '../../../proy/models/product.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:admin_dashboard/proy/services/notification_service.dart';
 
 class ProductViewTest extends StatefulWidget {
-  final String id;
+  final String productId;
 
-  const ProductViewTest({super.key, required this.id});
+  const ProductViewTest({Key? key, required this.productId}) : super(key: key);
 
   @override
-  State<ProductViewTest> createState() => _ProductViewTestState();
+  _ProductViewTestState createState() => _ProductViewTestState();
 }
 
 class _ProductViewTestState extends State<ProductViewTest> {
-  Producto? producto;
+  late Future<Producto?> fetchProduct;
 
   @override
   void initState() {
     super.initState();
-    final productsProvider =
-        Provider.of<ProductsProvider>(context, listen: false);
-
-    productsProvider.getProductById(widget.id).then((productDB) {
-      setState(() {
-        producto = productDB;
-      });
-    });
+    fetchProduct = Provider.of<ProductsProvider>(context, listen: false)
+        .getProductById(widget.productId);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Builder(builder: (context) {
-      if (producto == null) {
-        return Container(
-          alignment: Alignment.center,
-          height: 300,
-          child: const CircularProgressIndicator(),
-        );
-      } else {
-        return ProductViewModal(producto: producto);
-      }
-    });
+    return FutureBuilder<Producto?>(
+      future: fetchProduct,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        }
+
+        if (snapshot.hasError) {
+          return Center(child: Text('Error loading product details'));
+        }
+
+        return ProductDetails(product: snapshot.data!);
+      },
+    );
   }
 }
 
-class ProductViewModal extends StatelessWidget {
-  const ProductViewModal({
-    Key? key,
-    this.producto,
-  }) : super(key: key);
+class ProductDetails extends StatelessWidget {
+  final Producto product;
 
-  final Producto? producto;
+  const ProductDetails({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: SingleChildScrollView(
-        // Agrega esto para solucionar el desbordamiento
         child: Column(
           children: [
-            _AvatarContainerMobile(producto: producto),
+            ProductImage(product: product),
             const SizedBox(height: 20),
-            _UserData(producto: producto),
+            ProductForm(product: product),
           ],
         ),
       ),
@@ -73,23 +65,37 @@ class ProductViewModal extends StatelessWidget {
   }
 }
 
-class _UserData extends StatelessWidget {
-  const _UserData({
-    Key? key,
-    this.producto,
-  }) : super(key: key);
+class ProductForm extends StatefulWidget {
+  final Producto product;
 
-  final Producto? producto;
+  const ProductForm({Key? key, required this.product}) : super(key: key);
+
+  @override
+  _ProductFormState createState() => _ProductFormState();
+}
+
+class _ProductFormState extends State<ProductForm> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController priceBoxController = TextEditingController();
+  final TextEditingController unitPriceController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    nameController.text = widget.product.nombre;
+    priceBoxController.text = widget.product.precioCaja.toString();
+    unitPriceController.text = widget.product.precioPorUnidad.toString();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildTituloProducto(),
+        _buildProductTitle(),
         const SizedBox(height: 20),
         _buildTextField(
-          initialValue: producto!.nombre,
+          controller: nameController,
           hint: "Ingrese el nombre del producto",
           validator: (value) {
             if (value == null || value.isEmpty) {
@@ -103,13 +109,13 @@ class _UserData extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         _buildTextField(
-          initialValue: producto!.precioCaja.toString(),
+          controller: priceBoxController,
           hint: "Ingrese el precio por caja",
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
         ),
         const SizedBox(height: 20),
         _buildTextField(
-          initialValue: producto!.precioPorUnidad.toString(),
+          controller: unitPriceController,
           hint: "Ingrese el precio por unidad",
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
         ),
@@ -120,21 +126,21 @@ class _UserData extends StatelessWidget {
   }
 
   Widget _buildTextField(
-      {required String initialValue,
+      {required TextEditingController controller,
       required String hint,
       TextInputType? keyboardType,
       String? Function(String?)? validator}) {
     return TextFormField(
-      initialValue: initialValue,
+      controller: controller,
       keyboardType: keyboardType,
       decoration: InputDecoration(hintText: hint),
       validator: validator,
     );
   }
 
-  Widget _buildTituloProducto() {
+  Widget _buildProductTitle() {
     return Text(
-      producto!.nombre,
+      widget.product.nombre,
       style: const TextStyle(
         fontSize: 28.0,
         fontWeight: FontWeight.w600,
@@ -151,10 +157,10 @@ class _UserData extends StatelessWidget {
       child: ElevatedButton.icon(
         onPressed: () async {
           final saved = await productsProvider.updateProduct(
-              producto!.id,
-              producto!.nombre,
-              producto!.precioCaja,
-              producto!.precioPorUnidad);
+              widget.product.id,
+              nameController.text,
+              double.parse(priceBoxController.text),
+              double.parse(unitPriceController.text));
           if (saved) {
             Navigator.pop(context);
             NotificationsService.showSnackbar('Producto actualizado');
@@ -170,33 +176,33 @@ class _UserData extends StatelessWidget {
   }
 }
 
-class _AvatarContainerMobile extends StatefulWidget {
-  final Producto? producto;
+class ProductImage extends StatefulWidget {
+  final Producto product;
 
-  const _AvatarContainerMobile({this.producto});
+  const ProductImage({Key? key, required this.product}) : super(key: key);
 
   @override
-  _AvatarContainerMobileState createState() => _AvatarContainerMobileState();
+  _ProductImageState createState() => _ProductImageState();
 }
 
-class _AvatarContainerMobileState extends State<_AvatarContainerMobile> {
-  String? _imageURL;
+class _ProductImageState extends State<ProductImage> {
+  String? imageUrl;
 
   @override
   void initState() {
     super.initState();
-    _imageURL = widget.producto!.img;
+    imageUrl = widget.product.img;
   }
 
   @override
   Widget build(BuildContext context) {
     final productsProvider = Provider.of<ProductsProvider>(context);
 
-    Widget image = _imageURL == null
+    Widget image = imageUrl == null
         ? const Image(image: AssetImage('assets/no-image.jpg'))
         : FadeInImage.assetNetwork(
             placeholder: 'assets/loader.gif',
-            image: _imageURL!,
+            image: imageUrl!,
             fit: BoxFit.cover, // ajusta la imagen al contenedor
             width: 250, // establece un ancho máximo
             height: 250, // establece un alto máximo
@@ -215,10 +221,10 @@ class _AvatarContainerMobileState extends State<_AvatarContainerMobile> {
           PlatformFile file = result.files.first;
           NotificationsService.showBusyIndicator(context);
           final resp = await productsProvider.uploadImage(
-              '/uploads/productos/${widget.producto!.id}', file.bytes!);
+              '/uploads/productos/${widget.product.id}', file.bytes!);
 
           setState(() {
-            _imageURL = resp.img; // actualiza el estado de la imagen
+            imageUrl = resp.img; // actualiza el estado de la imagen
           });
 
           Navigator.of(context).pop();

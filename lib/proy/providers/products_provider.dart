@@ -39,6 +39,8 @@ class ProductsProvider extends ChangeNotifier {
       'precioCaja': precioPorCaja,
       'precioPorUnidad': precioPorUnidad,
     };
+
+    print(data);
     try {
       await BackendApi.put('/productos/$id', data);
 

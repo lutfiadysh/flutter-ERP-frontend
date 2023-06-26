@@ -26,9 +26,12 @@ class _MovementsCardsView extends State<MovementsCardsView> {
     // Después de 5 segundos, si todavía no hay cotizaciones, muestra el mensaje
     Future.delayed(const Duration(seconds: 5), () {
       if (widget.movimientos.isEmpty) {
-        setState(() {
-          showMessage = true;
-        });
+        if (mounted) {
+          // Verificar si el widget todavía está montado
+          setState(() {
+            showMessage = true;
+          });
+        }
       }
     });
   }

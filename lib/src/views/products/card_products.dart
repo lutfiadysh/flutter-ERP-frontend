@@ -117,7 +117,7 @@ class _CardProductsState extends State<CardProducts> {
                     showUserDialog(
                       'Actualizar producto',
                       ProductViewTest(
-                        id: producto.id,
+                        productId: producto.id,
                       ),
                     );
                   },

@@ -40,6 +40,7 @@ class Strings {
   static const String transferCreate = 'Crear traspaso';
   static const String listingCreate = 'Crear cotizacion';
   static const String salesView = 'Ventas';
+  static const String saleView = 'Ver venta';
   static const String uiElements = 'Widgets';
   static const String inventory = 'Inventario';
   static const String sales = 'Ventas';

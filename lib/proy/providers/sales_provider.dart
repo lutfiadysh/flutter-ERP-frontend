@@ -6,12 +6,25 @@ import 'package:flutter/material.dart';
 class SalesProvider extends ChangeNotifier {
   List<Venta> ventas = [];
 
+  Venta? venta;
+  Venta? selectedVenta;
+
   Future<void> getSales() async {
     final resp = await BackendApi.httpGet('/ventas');
     final salesResp = SalesResponse.fromMap(resp);
 
     ventas = [...salesResp.ventas];
 
+    notifyListeners();
+  }
+
+  void selectVenta(Venta venta) {
+    selectedVenta = venta;
+    notifyListeners();
+  }
+
+  void deselectVenta() {
+    selectedVenta = null;
     notifyListeners();
   }
 
