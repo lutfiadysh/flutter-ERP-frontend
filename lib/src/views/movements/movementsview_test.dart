@@ -41,44 +41,48 @@ class _MovementsViewTestState extends State<MovementsViewTest> {
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            AnimatedOpacity(
-              duration: const Duration(milliseconds: 200),
-              opacity: isOpen ? 1 : 0,
-              child: MediaQuery.of(context).size.width > 600
-                  ? FloatingActionButton.extended(
-                      heroTag: 'fab1',
-                      onPressed: () {
-                        // Acción para el primer botón flotante
-                        _showDialogInput(context);
-                      },
-                      icon: const Icon(Icons.input),
-                      label: const Text('Crear entrada'))
-                  : FloatingActionButton(
-                      onPressed: () {
-                        _showDialogInput(context);
-                      },
-                      child: const Icon(Icons.input),
-                    ),
+            IgnorePointer(
+              ignoring: !isOpen,
+              child: AnimatedOpacity(
+                duration: const Duration(milliseconds: 200),
+                opacity: isOpen ? 1 : 0,
+                child: MediaQuery.of(context).size.width > 600
+                    ? FloatingActionButton.extended(
+                        heroTag: 'fab1',
+                        onPressed: () {
+                          _showDialogInput(context);
+                        },
+                        icon: const Icon(Icons.input),
+                        label: const Text('Crear entrada'))
+                    : FloatingActionButton(
+                        onPressed: () {
+                          _showDialogInput(context);
+                        },
+                        child: const Icon(Icons.input),
+                      ),
+              ),
             ),
             const SizedBox(height: 10),
-            AnimatedOpacity(
-              duration: const Duration(milliseconds: 200),
-              opacity: isOpen ? 1 : 0,
-              child: MediaQuery.of(context).size.width > 600
-                  ? FloatingActionButton.extended(
-                      heroTag: 'fab2',
-                      onPressed: () {
-                        _showDialogOutput(context);
-                        // Acción para el segundo botón flotante
-                      },
-                      icon: const Icon(Icons.output),
-                      label: const Text('Crear salida'))
-                  : FloatingActionButton(
-                      onPressed: () {
-                        _showDialogOutput(context);
-                      },
-                      child: const Icon(Icons.output),
-                    ),
+            IgnorePointer(
+              ignoring: !isOpen,
+              child: AnimatedOpacity(
+                duration: const Duration(milliseconds: 200),
+                opacity: isOpen ? 1 : 0,
+                child: MediaQuery.of(context).size.width > 600
+                    ? FloatingActionButton.extended(
+                        heroTag: 'fab2',
+                        onPressed: () {
+                          _showDialogOutput(context);
+                        },
+                        icon: const Icon(Icons.output),
+                        label: const Text('Crear salida'))
+                    : FloatingActionButton(
+                        onPressed: () {
+                          _showDialogOutput(context);
+                        },
+                        child: const Icon(Icons.output),
+                      ),
+              ),
             ),
             const SizedBox(height: 10),
             MediaQuery.of(context).size.width > 600
@@ -93,19 +97,20 @@ class _MovementsViewTestState extends State<MovementsViewTest> {
                     label: isOpen
                         ? MediaQuery.of(context).size.width > 600
                             ? const Text('Cancelar')
-                            : Text('')
+                            : const Text('')
                         : MediaQuery.of(context).size.width > 600
                             ? const Text('Crear movimiento')
-                            : Text(''),
+                            : const Text(''),
                   )
                 : FloatingActionButton(
+                    heroTag: 'fab3',
                     onPressed: () {
                       setState(() {
                         isOpen = !isOpen;
                       });
                     },
                     child: Icon(isOpen ? Icons.close : Icons.add),
-                  ),
+                  )
           ],
         ),
       ),

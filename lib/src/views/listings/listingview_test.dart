@@ -82,11 +82,20 @@ class _ListingViewTestState extends State<ListingViewTest> {
                         'No se pudo crear la cotización, agregue el nombre del cliente.');
                   } else {
                     try {
-                      await listingProvider.newListing(
-                          productos, clientName, clientNIT);
+                      isEditing
+                          ? await listingProvider.updateListing(
+                              selectedCotizacion.id,
+                              productos,
+                              clientName,
+                              clientNIT)
+                          : await listingProvider.newListing(
+                              productos, clientName, clientNIT);
                       tabsRouter.setActiveIndex(43);
                       NotificationsService.showSnackbar(
-                          'Cotización creada con éxito.');
+                        isEditing
+                            ? 'Cotización editada con éxito.'
+                            : 'Cotización creada con éxito.',
+                      );
                     } catch (e) {
                       NotificationsService.showSnackbarError(
                           'No se pudo crear la cotización.');
@@ -127,7 +136,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
                   );
                 }).toList();
               },
-              icon: Icon(Icons.more_vert),
+              icon: const Icon(Icons.more_vert),
               tooltip: "Opciones",
             ),
           ],

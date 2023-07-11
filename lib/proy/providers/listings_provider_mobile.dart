@@ -89,11 +89,21 @@ class ListingsProvider extends ChangeNotifier {
         };
       }).toList(),
     };
+    print(data);
     try {
       await BackendApi.putAux('/cotizaciones/$id', data);
+
+      cotizaciones = cotizaciones.map((cotizacion) {
+        if (cotizacion.id == id) {
+          cotizacion.cliente = nombreCliente;
+          cotizacion.nit = nit;
+          cotizacion.productos = productos;
+        }
+        return cotizacion;
+      }).toList();
+
       notifyListeners();
     } catch (e) {
-      print(e);
       throw Exception('Error en actualizar cotizacion');
     }
   }

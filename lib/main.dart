@@ -8,7 +8,7 @@ import 'proy/services/local_storage.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await LocalStorage.configurePrefs();
-  BackendApi.configureDio();
+  await BackendApi.configureDio();
   //Flurorouter.configureRoutes();
 
   if (TargetPlatform.windows == defaultTargetPlatform ||

@@ -28,12 +28,36 @@ class SalesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future newSale(String sale) async {
+  Future registerPay(String id) async {
     final data = {
-      'cotizacion': sale,
+      'venta': id,
+    };
+
+    try {
+      BackendApi.put('/ventas/pagar_venta/$id', data);
+      ventas = ventas.map((venta) {
+        if (venta.id != id) return venta;
+
+        return venta;
+      }).toList();
+
+      notifyListeners();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  Future newSale(String listing) async {
+    final data = {
+      'cotizacion': listing,
     };
     try {
-      await BackendApi.postAux('/ventas', data);
+      final Map<String, dynamic> json =
+          await BackendApi.postAux('/ventas', data);
+
+      final Venta newVenta = Venta.fromMap(json);
+      ventas.add(newVenta);
       notifyListeners();
       return true;
     } catch (e) {

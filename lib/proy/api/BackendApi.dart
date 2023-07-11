@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 class BackendApi {
   static final Dio _dio = Dio();
 
-  static void configureDio() {
+  static Future<void> configureDio()async{
     String baseUrl =
         kIsWeb ? 'http://localhost:8080/api' : 'http://192.168.0.11:8080/api';
     _dio.options.baseUrl = baseUrl;
@@ -20,9 +20,8 @@ class BackendApi {
     try {
       final resp = await _dio.get(path);
       return resp.data;
-    } on DioError catch (e) {
-      print(e.response);
-      throw ('Error en el GET');
+    } on DioError catch (DioError) {
+      throw (DioError.response?.data['msg'] ?? 'Error en el GET');
     }
   }
 

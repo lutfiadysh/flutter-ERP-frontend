@@ -79,6 +79,7 @@ dependencies:
   html: ^0.15.3
   open_file: ^3.3.1
   flutter_dotenv: ^5.1.0
+  marquee: ^2.2.3
 
 dev_dependencies:
   flutter_test:

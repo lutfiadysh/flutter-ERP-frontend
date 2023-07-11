@@ -24,6 +24,7 @@ class AuthProvider extends ChangeNotifier {
       'correo': email,
       'password': password,
     };
+
     print(data);
 
     BackendApi.post('/auth/login', data).then((json) {

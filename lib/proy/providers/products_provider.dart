@@ -40,7 +40,6 @@ class ProductsProvider extends ChangeNotifier {
       'precioPorUnidad': precioPorUnidad,
     };
 
-    print(data);
     try {
       await BackendApi.put('/productos/$id', data);
 

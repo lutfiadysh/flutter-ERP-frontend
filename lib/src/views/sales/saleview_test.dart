@@ -29,6 +29,7 @@ class _SaleViewTestState extends State<SaleViewTest> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final tabsRouter = AutoTabsRouter.of(context);
+    final salesProvider = Provider.of<SalesProvider>(context);
 
     return SizedBox(
       height: height - 210,
@@ -39,6 +40,38 @@ class _SaleViewTestState extends State<SaleViewTest> {
             icon: const Icon(Icons.arrow_back),
             onPressed: () => tabsRouter.setActiveIndex(46),
           ),
+          actions: <Widget>[
+            PopupMenuButton<String>(
+              onSelected: (String result) {
+                // Handle menu selection here
+                // Add your code like navigating to another page, etc.
+                if (result == 'Registrar pago') {
+                  salesProvider.registerPay(selectedVenta.id);
+                } else if (result == 'Anular venta') {
+                  print('Anular venta');
+                } else if (result == 'Facturar') {
+                  print('Facturar');
+                }
+              },
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                if (selectedVenta.estado == 'Pendiente')
+                  const PopupMenuItem<String>(
+                    value: 'Registrar pago',
+                    child: Text('Registrar pago'),
+                  ),
+                if (selectedVenta.estado == 'Pendiente')
+                  const PopupMenuItem<String>(
+                    value: 'Anular venta',
+                    child: Text('Anular venta'),
+                  ),
+                if (selectedVenta.estado == 'Pagado')
+                  const PopupMenuItem<String>(
+                    value: 'Facturar',
+                    child: Text('Facturar'),
+                  ),
+              ],
+            ),
+          ],
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
@@ -74,27 +107,27 @@ class _SaleViewTestState extends State<SaleViewTest> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Table(
-                columnWidths: {
+                columnWidths: const {
                   0: FlexColumnWidth(3),
                   1: FlexColumnWidth(2),
                   2: FlexColumnWidth(2),
                 },
                 children: [
                   // Header
-                  TableRow(
+                  const TableRow(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Text('Producto',
                             style: TextStyle(fontWeight: FontWeight.bold)),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Text('Cantidad',
                             style: TextStyle(fontWeight: FontWeight.bold)),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Text('Total',
                             style: TextStyle(fontWeight: FontWeight.bold)),
                       ),
@@ -130,16 +163,19 @@ class _SaleViewTestState extends State<SaleViewTest> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               ...selectedVenta.movimientos.map((movimiento) {
-                return Card(
-                  child: ListTile(
-                    leading: const Icon(Icons.sync_alt),
-                    title:
-                        Text('Producto: ${movimiento.stock.producto.nombre}'),
-                    subtitle: Text(
-                        'Cantidad Cajas: ${movimiento.cantidadCajas}, Cantidad Piezas: ${movimiento.cantidadPiezas}'),
-                    trailing: movimiento.verificacion == 'EN ESPERA'
-                        ? const Icon(Icons.timelapse, color: Colors.yellow)
-                        : const Icon(Icons.check, color: Colors.green),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Card(
+                    child: ListTile(
+                      leading: const Icon(Icons.sync_alt),
+                      title:
+                          Text('Producto: ${movimiento.stock.producto.nombre}'),
+                      subtitle: Text(
+                          'Cantidad Cajas: ${movimiento.cantidadCajas}, Cantidad Piezas: ${movimiento.cantidadPiezas}'),
+                      trailing: movimiento.verificacion == 'EN ESPERA'
+                          ? const Icon(Icons.timelapse, color: Colors.yellow)
+                          : const Icon(Icons.check, color: Colors.green),
+                    ),
                   ),
                 );
               }).toList(),

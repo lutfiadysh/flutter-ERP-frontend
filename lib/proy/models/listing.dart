@@ -105,6 +105,8 @@ class ProductoElement {
         "precioTotalCajas": precioTotalCajas,
         "precioTotal": precioTotal,
       };
+
+  copyWith({required int cantidadCajas, required int cantidadPiezas, required double precioUnitarioCajas, required double precioUnitarioPiezas}) {}
 }
 
 class _Sucursal {
