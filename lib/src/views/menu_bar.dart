@@ -16,6 +16,7 @@ import 'package:admin_dashboard/src/widget/end_drawer.dart';
 import 'package:admin_dashboard/src/widget/expantion_tile.dart';
 import 'package:admin_dashboard/src/widget/svg_icon.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterx/flutterx.dart';
@@ -144,94 +145,105 @@ class _MenuBarState extends State<MenuBar> {
     item.SalesViewTest(),
     item.SaleViewTest()
   ];
+  
   @override
   Widget build(BuildContext context) {
-    return AutoTabsRouter(
-      routes: _routes,
-      builder: (context, child) {
-        final tabsRouter = AutoTabsRouter.of(context);
-        return Scaffold(
-          resizeToAvoidBottomInset: true,
-          key: _scaffoldKey,
-          endDrawer: Drawer(
-            width: 280,
-            child: SafeArea(child: SettingDrawer(scaffoldKey: _scaffoldKey)),
-          ),
-          appBar: _appBar(tabsRouter),
-          body: SafeArea(
-            child: Scaffold(
-              key: _scaffoldDrawerKey,
-              drawerScrimColor: ColorConst.transparent,
-              drawer: _sidebar(tabsRouter),
-              body: Row(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ValueListenableBuilder<bool>(
-                    valueListenable: isOpen,
-                    builder: (context, value, child) {
-                      return Responsive.isWeb(context)
-                          ? _sidebar(tabsRouter)
-                          : const SizedBox.shrink();
-                    },
-                  ),
-                  Expanded(
-                    child: LayoutBuilder(
-                      builder:
-                          (BuildContext context, BoxConstraints constraints) {
-                        final double contentHeight = constraints.maxHeight;
-
-                        return SelectionArea(
-                          child: SizedBox(
-                            height: contentHeight,
-                            child: CustomScrollView(
-                              controller: _scrollController,
-                              slivers: [
-                                SliverList(
-                                  delegate: SliverChildListDelegate(
-                                    [
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 24.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            FxBox.h20,
-                                            getRouteWidget(
-                                                tabsRouter.activeIndex),
-                                            FxBox.h20,
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                SliverFillRemaining(
-                                  hasScrollBody: false,
-                                  fillOverscroll: true,
-                                  child: Column(
-                                    children: <Widget>[
-                                      const Expanded(
-                                        child: SizedBox.shrink(),
-                                      ),
-                                      _footer(),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
+    return WillPopScope(
+      onWillPop: () {
+           final router = context.router;
+              if (router.canNavigateBack) {
+                router.back();
+              }
+              // if can't navigate back go with normal behavior
+              return SynchronousFuture(!router.canNavigateBack);
+      },
+      child: AutoTabsRouter(
+        routes: _routes,
+        builder: (context, child) {
+          final tabsRouter = AutoTabsRouter.of(context);
+          return Scaffold(
+            resizeToAvoidBottomInset: true,
+            key: _scaffoldKey,
+            endDrawer: Drawer(
+              width: 280,
+              child: SafeArea(child: SettingDrawer(scaffoldKey: _scaffoldKey)),
+            ),
+            appBar: _appBar(tabsRouter),
+            body: SafeArea(
+              child: Scaffold(
+                key: _scaffoldDrawerKey,
+                drawerScrimColor: ColorConst.transparent,
+                drawer: _sidebar(tabsRouter),
+                body: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ValueListenableBuilder<bool>(
+                      valueListenable: isOpen,
+                      builder: (context, value, child) {
+                        return Responsive.isWeb(context)
+                            ? _sidebar(tabsRouter)
+                            : const SizedBox.shrink();
                       },
                     ),
-                  ),
-                ],
+                    Expanded(
+                      child: LayoutBuilder(
+                        builder:
+                            (BuildContext context, BoxConstraints constraints) {
+                          final double contentHeight = constraints.maxHeight;
+    
+                          return SelectionArea(
+                            child: SizedBox(
+                              height: contentHeight,
+                              child: CustomScrollView(
+                                controller: _scrollController,
+                                slivers: [
+                                  SliverList(
+                                    delegate: SliverChildListDelegate(
+                                      [
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 24.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              FxBox.h20,
+                                              getRouteWidget(
+                                                  tabsRouter.activeIndex),
+                                              FxBox.h20,
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SliverFillRemaining(
+                                    hasScrollBody: false,
+                                    fillOverscroll: true,
+                                    child: Column(
+                                      children: <Widget>[
+                                        const Expanded(
+                                          child: SizedBox.shrink(),
+                                        ),
+                                        _footer(),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 

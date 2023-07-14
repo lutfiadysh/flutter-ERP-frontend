@@ -11,7 +11,10 @@ class AppRouter extends $AppRouter {
   final List<AutoRoute> routes = [
     AutoRoute(path: '/', page: MenuBar.page, children: [
       RedirectRoute(path: '', redirectTo: 'dashboard'),
-      AutoRoute(path: 'dashboard', page: Dashboard.page),
+      AutoRoute(
+        path: 'dashboard',
+        page: Dashboard.page,
+      ),
       AutoRoute(path: 'calendar', page: Calendar.page),
       AutoRoute(path: 'map', page: GoogleMaps.page),
       AutoRoute(path: 'toast', page: Toast.page),
