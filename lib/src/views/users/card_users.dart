@@ -140,31 +140,14 @@ class _CardUsersState extends State<CardUsers> {
   }
 
   void _showUserDetails(BuildContext context, String userId) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return Dialog(
-          child: SizedBox(
-            width: screenWidth < 600 ? screenWidth * 0.9 : 450,
-            height: screenHeight * 0.8,
-            child: Column(
-              children: <Widget>[
-                AppBar(
-                  leading: IconButton(
-                    icon: const Icon(Icons.close),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  title: const Text('Perfil de usuario'),
-                ),
-                Expanded(
-                  child: UserViewTest(
-                    uid: userId,
-                  ),
-                ),
-              ],
+        return AlertDialog(
+          title: const Text('Detalles del usuario'),
+          content: SingleChildScrollView(
+            child: UserViewTest(
+              uid: userId,
             ),
           ),
         );

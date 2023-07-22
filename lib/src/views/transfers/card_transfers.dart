@@ -2,65 +2,36 @@ import 'package:admin_dashboard/proy/models/transfer.dart';
 import 'package:admin_dashboard/proy/providers/transfers_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:auto_route/auto_route.dart';
 
-class TableTransfers extends StatefulWidget {
-  const TableTransfers({
+class CardTransfers extends StatefulWidget {
+  final List<Traspaso> traspasos;
+
+  const CardTransfers({
     Key? key,
+    required this.traspasos,
   }) : super(key: key);
 
   @override
-  State<TableTransfers> createState() => _TableTransfersState();
+  State<CardTransfers> createState() => _TransfersState();
 }
 
-class _TableTransfersState extends State<TableTransfers> {
-  @override
-  void initState() {
-    super.initState();
-
-    Provider.of<TransfersProvider>(context, listen: false).getTransfers();
-  }
-
+class _TransfersState extends State<CardTransfers> {
   @override
   Widget build(BuildContext context) {
     final traspasos = Provider.of<TransfersProvider>(context).traspasos;
-    final size = MediaQuery.of(context).size;
-    final isLargeScreen =
-        size.width > 800; // Cambia este valor según tus necesidades
-    final tabsRouter = AutoTabsRouter.of(context);
+    // Cambia este valor según tus necesidades
 
     return SizedBox(
-      height: size.height - 80 - 90,
       // Usa el 70% del ancho de la pantalla en pantallas grandes
-      child: Scaffold(
-        appBar: AppBar(title: const Text("Traspasos")),
-        resizeToAvoidBottomInset: true,
-        body: SingleChildScrollView(
-          child: Center(
-            child: SizedBox(
-              width: isLargeScreen ? size.width * 0.5 : size.width,
-              child: Column(
-                children: traspasos
-                    .map((traspaso) => TraspasoCard(traspaso: traspaso))
-                    .toList(),
-              ),
-            ),
+
+      child: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: traspasos
+                .map((traspaso) => TraspasoCard(traspaso: traspaso))
+                .toList(),
           ),
         ),
-        floatingActionButton: isLargeScreen
-            ? FloatingActionButton.extended(
-                onPressed: () {
-                  tabsRouter.setActiveIndex(44);
-                },
-                icon: const Icon(Icons.add_rounded),
-                label: const Text('Crear Traspaso'),
-              )
-            : FloatingActionButton(
-                onPressed: () {
-                  tabsRouter.setActiveIndex(44);
-                },
-                child: const Icon(Icons.add_rounded),
-              ),
       ),
     );
   }

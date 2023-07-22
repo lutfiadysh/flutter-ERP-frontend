@@ -19,15 +19,15 @@ class UserFormProvider extends ChangeNotifier {
       String? uid,
       String? img,
       Branch? sucursal}) {
-    user = new item.Usuario(
-      rol: rol ?? this.user!.rol,
-      estado: estado ?? this.user!.estado,
-      google: google ?? this.user!.google,
-      nombre: nombre ?? this.user!.nombre,
-      correo: correo ?? this.user!.correo,
-      uid: uid ?? this.user!.uid,
-      img: img ?? this.user!.img,
-      sucursal: sucursal ?? this.user!.sucursal,
+    user = item.Usuario(
+      rol: rol ?? user!.rol,
+      estado: estado ?? user!.estado,
+      google: google ?? user!.google,
+      nombre: nombre ?? user!.nombre,
+      correo: correo ?? user!.correo,
+      uid: uid ?? user!.uid,
+      img: img ?? user!.img,
+      sucursal: sucursal ?? user!.sucursal,
     );
     notifyListeners();
   }
@@ -36,8 +36,8 @@ class UserFormProvider extends ChangeNotifier {
     return formKey.currentState!.validate();
   }
 
-  Future updateUser() async {
-    if (!_validForm()) return false;
+  Future<item.Usuario?> updateUser() async {
+    if (!_validForm()) return null;
 
     final data = {
       'nombre': user!.nombre,
@@ -45,10 +45,20 @@ class UserFormProvider extends ChangeNotifier {
     };
 
     try {
+      print('el usuario es' + user!.uid);
+
       final resp = await BackendApi.put('/usuarios/${user!.uid}', data);
-      return true;
+      print(resp);
+      // Aquí, deberías actualizar la información del usuario con la respuesta recibida.
+      // Suponiendo que tu API devuelve los detalles del usuario actualizado, actualizas el usuario aquí.
+      user = item.Usuario.fromMap(resp);
+
+      notifyListeners();
+
+      // Devuelve el usuario actualizado.
+      return user;
     } catch (e) {
-      return false;
+      return null;
     }
   }
 
@@ -60,7 +70,6 @@ class UserFormProvider extends ChangeNotifier {
 
       return user!;
     } catch (e) {
-      print(e);
       throw 'Error en user from provider';
     }
   }

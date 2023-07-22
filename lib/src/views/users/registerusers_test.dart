@@ -9,11 +9,12 @@ class RegisterViewTest extends StatefulWidget {
   const RegisterViewTest({Key? key}) : super(key: key);
 
   @override
-  State<RegisterViewTest> createState() => _RegisterViewState();
+  _RegisterViewState createState() => _RegisterViewState();
 }
 
 class _RegisterViewState extends State<RegisterViewTest> {
   String? role;
+  bool _isLoading = false;
 
   List<String> roleList = [
     "Vendedor",
@@ -26,124 +27,131 @@ class _RegisterViewState extends State<RegisterViewTest> {
   Widget build(BuildContext context) {
     final userProvider = Provider.of<UsersProvider>(context);
 
-    return Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: ChangeNotifierProvider(
-        create: (context) => RegisterFormProvider(),
-        child: Builder(
-          builder: (context) {
-            final registerFormProvider =
-                Provider.of<RegisterFormProvider>(context, listen: false);
-            return Center(
-              child: Form(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                key: registerFormProvider.formkey,
+    return ChangeNotifierProvider(
+      create: (context) => RegisterFormProvider(),
+      child: Builder(
+        builder: (context) {
+          final registerFormProvider =
+              Provider.of<RegisterFormProvider>(context, listen: false);
+          return Center(
+            child: Form(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              key: registerFormProvider.formkey,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Nombre',
-                        ),
-                        onChanged: (value) => registerFormProvider.name = value,
-                        validator: (value) {
-                          if (value == null ||
-                              value.isEmpty ||
-                              value.length < 6) {
-                            return 'Nombre no valido';
-                          }
-                          return null;
-                        },
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Nombre',
+                        contentPadding: EdgeInsets.all(10.0),
+                      ),
+                      onChanged: (value) => registerFormProvider.name = value,
+                      validator: (value) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.length < 6) {
+                          return 'Nombre no valido';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 20),
+                    DropdownButtonFormField<String>(
+                      value: role,
+                      hint: const Text('Selecciona el rol'),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          role = newValue!;
+                        });
+                      },
+                      items: roleList
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        contentPadding: EdgeInsets.all(10.0),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: DropdownButtonFormField<String>(
-                        value: role,
-                        hint: Text('Selecciona el rol'),
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                        ),
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            role = newValue!;
-                          });
-                        },
-                        items: roleList
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
+                    const SizedBox(height: 20),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Correo Electrónico',
+                        contentPadding: EdgeInsets.all(10.0),
                       ),
+                      validator: (value) {
+                        if (!EmailValidator.validate(value ?? '')) {
+                          return 'Email no válido';
+                        }
+                        return null;
+                      },
+                      onChanged: (value) => registerFormProvider.email = value,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Correo Electrónico',
-                        ),
-                        validator: (value) {
-                          if (!EmailValidator.validate(value ?? '')) {
-                            return 'Email no válido';
-                          }
-                          return null;
-                        },
-                        onChanged: (value) =>
-                            registerFormProvider.email = value,
+                    const SizedBox(height: 20),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Contraseña',
+                        contentPadding: EdgeInsets.all(10.0),
                       ),
+                      onChanged: (value) =>
+                          registerFormProvider.password = value,
+                      validator: (value) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.length < 6) {
+                          return 'Contraseña no valida';
+                        }
+                        return null;
+                      },
+                      obscureText: true,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Contraseña',
-                        ),
-                        onChanged: (value) =>
-                            registerFormProvider.password = value,
-                        validator: (value) {
-                          if (value == null ||
-                              value.isEmpty ||
-                              value.length < 6) {
-                            return 'Contraseña no valida';
-                          }
-                          return null;
-                        },
-                        obscureText: true,
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: _isLoading
+                          ? null
+                          : () async {
+                              setState(() {
+                                _isLoading = true;
+                              });
+                              final saved = await userProvider.register(
+                                  registerFormProvider.email,
+                                  registerFormProvider.password,
+                                  registerFormProvider.name,
+                                  role!);
+                              setState(() {
+                                _isLoading = false;
+                              });
+                              if (saved) {
+                                Navigator.pop(context);
+                                NotificationsService.showSnackbar(
+                                    'Usuario actualizado');
+                              } else {
+                                NotificationsService.showSnackbarError(
+                                    'No se pudo guardar');
+                              }
+                            },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor:
+                            Colors.blue, // This is the color of the text
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: OutlinedButton(
-                        onPressed: () async {
-                          final saved = await userProvider.register(
-                              registerFormProvider.email,
-                              registerFormProvider.password,
-                              registerFormProvider.name,
-                              role!);
-                          if (saved) {
-                            Navigator.pop(context);
-                            NotificationsService.showSnackbar(
-                                'Usuario actualizado');
-                          } else {
-                            NotificationsService.showSnackbarError(
-                                'No se pudo guardar');
-                          }
-                        },
-                        child: const Text("Crear cuenta"),
-                      ),
+                      child: _isLoading
+                          ? const CircularProgressIndicator()
+                          : const Text("Crear cuenta"),
                     ),
                   ],
                 ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

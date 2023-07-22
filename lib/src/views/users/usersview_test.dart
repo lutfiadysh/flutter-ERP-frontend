@@ -57,30 +57,11 @@ class _UsersViewTestState extends State<UsersViewTest> {
   }
 
   Future<dynamic> _showDialog(BuildContext context) {
-    final isMobile = MediaQuery.of(context).size.width < 600;
     return showDialog(
       context: context,
-      builder: (BuildContext context) => Dialog(
-        child: Container(
-          width: isMobile
-              ? MediaQuery.of(context).size.width * 0.9
-              : 400, // Ancho de 400 para la vista web
-          height: isMobile ? 508 : 500, // Altura de 500 para la vista web
-          child: Column(
-            children: <Widget>[
-              AppBar(
-                leading: IconButton(
-                  icon: const Icon(Icons.close),
-                  onPressed: () => Navigator.pop(context),
-                ),
-                title: const Text('Crear usuario'),
-              ),
-              const Expanded(
-                child: RegisterViewTest(),
-              ),
-            ],
-          ),
-        ),
+      builder: (BuildContext context) => const AlertDialog(
+        content: SingleChildScrollView(child: RegisterViewTest()),
+        title: Text('Crear usuario'),
       ),
     );
   }

@@ -5,11 +5,10 @@ import 'package:flutter/foundation.dart';
 class BackendApi {
   static final Dio _dio = Dio();
 
-  static Future<void> configureDio()async{
-    String baseUrl =
-        true ? 'http://localhost:8080/api' : 'http://192.168.0.11:8080/api';
+  static Future<void> configureDio() async {
+    String baseUrl = 'http://192.168.0.11:8080/api';
     _dio.options.baseUrl = baseUrl;
-    
+
     // Configure Headers
     _dio.options.headers = {
       'x-token': LocalStorage.prefs.getString('token') ?? ''

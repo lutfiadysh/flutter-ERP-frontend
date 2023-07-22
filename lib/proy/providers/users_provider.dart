@@ -24,9 +24,10 @@ class UsersProvider extends ChangeNotifier {
   }
 
   Future<Usuario?> getUserById(String uid) async {
-    //TODO: peticion http
     try {
       final resp = await BackendApi.httpGet('/usuarios/$uid');
+      print(resp);
+
       final user = Usuario.fromMap(resp);
       return user;
     } catch (e) {
@@ -97,4 +98,6 @@ class UsersProvider extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  
 }
