@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/proy/models/client.dart';
 import 'package:admin_dashboard/proy/models/listing.dart';
 import 'package:admin_dashboard/proy/models/stock.dart';
 import 'package:admin_dashboard/proy/providers/stocks_provider.dart';
@@ -15,6 +16,7 @@ class ListingTable extends StatefulWidget {
     required this.onClientNameChanged,
     required this.onClientNITChanged,
     required this.date,
+    required this.onEditClient,
   }) : super(key: key);
 
   final List<ProductoElement> productos;
@@ -23,6 +25,7 @@ class ListingTable extends StatefulWidget {
   final String clientNIT;
   final ValueChanged<String> onClientNameChanged;
   final ValueChanged<String> onClientNITChanged;
+  final ValueChanged<Cliente> onEditClient;
   final DateTime date;
 
   @override

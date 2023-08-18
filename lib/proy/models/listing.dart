@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:admin_dashboard/proy/models/client.dart';
 import 'package:admin_dashboard/proy/models/product.dart';
 
 class Cotizacion {
@@ -20,7 +21,7 @@ class Cotizacion {
   String id;
   String numero;
   _Usuario usuario;
-  String cliente;
+  Cliente cliente;
   String? nit;
   _Sucursal sucursal;
   DateTime fecha;
@@ -37,8 +38,7 @@ class Cotizacion {
   factory Cotizacion.fromMap(Map<String, dynamic> json) => Cotizacion(
         id: json["_id"],
         usuario: _Usuario.fromMap(json["usuario"]),
-        cliente: json["cliente"],
-        nit: json["nit"],
+        cliente: Cliente.fromMap(json["cliente"]),
         sucursal: _Sucursal.fromMap(json["sucursal"]),
         fecha: DateTime.parse(json["fecha"]),
         productos: List<ProductoElement>.from(
@@ -53,7 +53,6 @@ class Cotizacion {
         "_id": id,
         "usuario": usuario.toMap(),
         "cliente": cliente,
-        "nit": nit,
         "sucursal": sucursal.toMap(),
         "fecha": fecha.toIso8601String(),
         "productos": List<dynamic>.from(productos.map((x) => x.toMap())),

@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:admin_dashboard/proy/api/BackendApi.dart';
+import 'package:admin_dashboard/proy/models/client.dart';
 import 'package:admin_dashboard/proy/models/http/listings_response.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -34,14 +35,12 @@ class ListingsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> newListing(
-    List<ProductoElement> productos,
-    String nombreCliente,
-    String nit,
-  ) async {
+  Future<void> newListing(List<ProductoElement> productos, String nombreCliente,
+      String nit, Cliente? cliente) async {
     final Map<String, dynamic> data = {
-      'cliente': nombreCliente,
+      'nombreCliente': nombreCliente,
       'nit': nit,
+      'cliente': cliente?.id,
       'productos': productos.map((producto) {
         return {
           'producto': producto.producto!.id,
@@ -70,12 +69,8 @@ class ListingsProvider extends ChangeNotifier {
   Future updateListing(
     String id,
     List<ProductoElement> productos,
-    String nombreCliente,
-    String nit,
   ) async {
     final Map<String, dynamic> data = {
-      'cliente': nombreCliente,
-      'nit': nit,
       'productos': productos.map((producto) {
         return {
           'producto': producto.producto!.id,
@@ -95,8 +90,6 @@ class ListingsProvider extends ChangeNotifier {
 
       cotizaciones = cotizaciones.map((cotizacion) {
         if (cotizacion.id == id) {
-          cotizacion.cliente = nombreCliente;
-          cotizacion.nit = nit;
           cotizacion.productos = productos;
         }
         return cotizacion;

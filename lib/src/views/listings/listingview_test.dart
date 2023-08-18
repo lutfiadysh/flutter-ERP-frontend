@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/proy/models/client.dart';
 import 'package:admin_dashboard/proy/providers/auth_provider.dart';
 import 'package:admin_dashboard/proy/providers/listings_provider.dart';
 import 'package:admin_dashboard/proy/providers/sales_provider.dart';
@@ -20,6 +21,7 @@ class ListingViewTest extends StatefulWidget {
 
 class _ListingViewTestState extends State<ListingViewTest> {
   List<ProductoElement> productos = [];
+  Cliente? cliente;
   String clientName = 'Nombre del cliente';
   String clientNIT = 'NIT del cliente';
   String sellerName = 'Nombre del vendedor';
@@ -38,7 +40,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
     if (listingProvider.selectedCotizacion != null) {
       selectedCotizacion = listingProvider.selectedCotizacion!;
       productos = selectedCotizacion!.productos;
-      clientName = selectedCotizacion!.cliente;
+      clientName = selectedCotizacion!.cliente.nombre;
       clientNIT = selectedCotizacion!.nit ?? "Sin NIT";
       date = selectedCotizacion!.fecha;
       sellerName = selectedCotizacion!.usuario.nombre;
@@ -84,12 +86,9 @@ class _ListingViewTestState extends State<ListingViewTest> {
                     try {
                       isEditing
                           ? await listingProvider.updateListing(
-                              selectedCotizacion!.id,
-                              productos,
-                              clientName,
-                              clientNIT)
+                              selectedCotizacion!.id, productos)
                           : await listingProvider.newListing(
-                              productos, clientName, clientNIT);
+                              productos, clientName, clientNIT, cliente);
                       tabsRouter.setActiveIndex(43);
                       NotificationsService.showSnackbar(
                         isEditing
@@ -160,6 +159,11 @@ class _ListingViewTestState extends State<ListingViewTest> {
           onClientNITChanged: (newNIT) {
             setState(() {
               clientNIT = newNIT;
+            });
+          },
+          onEditClient: (newClient) {
+            setState(() {
+              cliente = newClient;
             });
           },
         ),
