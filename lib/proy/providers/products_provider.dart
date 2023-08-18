@@ -97,9 +97,18 @@ class ProductsProvider extends ChangeNotifier {
       final resp = await BackendApi.uploadFile(path, bytes);
       print(resp);
       producto = Producto.fromMap(resp);
-      print(producto);
-      notifyListeners();
 
+      // Encuentra el producto en la lista de productos
+      int productIndex =
+          productos.indexWhere((prod) => prod.id == producto!.id);
+
+      // Actualiza la imagen del producto en la lista de productos
+      if (productIndex != -1) {
+        productos[productIndex].img = producto!.img;
+        notifyListeners();
+      }
+
+      print(producto);
       return producto!;
     } catch (e) {
       print(e);

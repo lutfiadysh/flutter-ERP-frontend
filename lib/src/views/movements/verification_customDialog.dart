@@ -130,27 +130,29 @@ class MovementDetailsDialog extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TextButton(
-                onPressed: () async {
-                  // Aquí puedes agregar la lógica para verificar el movimiento
-                  try {
-                    if (movimiento.movimiento == 'ENTRADA') {
-                      await movementsProvider.updateMovementInput(
-                          id: movimiento.id);
-                    } else if (movimiento.movimiento == 'SALIDA') {
-                      await movementsProvider.updateMovementOutput(
-                          id: movimiento.id);
-                    } else {
-                      throw Exception('Tipo de movimiento desconocido');
-                    }
+                onPressed: movimiento.verificadoPor == null
+                    ? () async {
+                        // Aquí puedes agregar la lógica para verificar el movimiento
+                        try {
+                          if (movimiento.movimiento == 'ENTRADA') {
+                            await movementsProvider.updateMovementInput(
+                                id: movimiento.id);
+                          } else if (movimiento.movimiento == 'SALIDA') {
+                            await movementsProvider.updateMovementOutput(
+                                id: movimiento.id);
+                          } else {
+                            throw Exception('Tipo de movimiento desconocido');
+                          }
 
-                    Navigator.pop(context);
-                    NotificationsService.showSnackbar('Movimiento actualizado');
-                  } catch (e) {
-                    print("Error al actualizar el movimiento: $e");
-                    NotificationsService.showSnackbar(
-                        'Error al actualizar el movimiento');
-                  }
-                },
+                          Navigator.pop(context);
+                          NotificationsService.showSnackbar(
+                              'Movimiento actualizado');
+                        } catch (e) {
+                          NotificationsService.showSnackbar(
+                              'Error al actualizar el movimiento');
+                        }
+                      }
+                    : null, // Si verificadoPor no es nulo, el botón estará desactivado
                 child: const Text(
                   'VERIFICAR',
                   style: TextStyle(

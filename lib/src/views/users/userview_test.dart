@@ -1,3 +1,5 @@
+import 'package:admin_dashboard/proy/models/branch.dart';
+import 'package:admin_dashboard/proy/providers/branches_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:admin_dashboard/proy/models/user.dart';
 import 'package:admin_dashboard/proy/providers/user_form_provider.dart';
@@ -24,6 +26,7 @@ class _UserViewTestState extends State<UserViewTest> {
     super.initState();
     futureUser = Provider.of<UsersProvider>(context, listen: false)
         .getUserById(widget.uid);
+    Provider.of<BranchesProvider>(context, listen: false).getBranches();
   }
 
   @override
@@ -31,8 +34,9 @@ class _UserViewTestState extends State<UserViewTest> {
     return FutureBuilder<Usuario?>(
       future: futureUser,
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting)
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
+        }
         if (snapshot.hasError) return Text('Error: ${snapshot.error}');
         if (snapshot.data == null) return const Text('Usuario no encontrado');
 
@@ -47,24 +51,40 @@ class _UserViewTestState extends State<UserViewTest> {
   }
 }
 
-class UserForm extends StatelessWidget {
+class UserForm extends StatefulWidget {
   final Usuario? user;
 
   const UserForm({Key? key, this.user}) : super(key: key);
 
   @override
+  State<UserForm> createState() => _UserFormState();
+}
+
+class _UserFormState extends State<UserForm> {
+  String? role;
+  Branch? branch;
+
+  List<String> roleList = [
+    "Vendedor",
+    "Supervisor",
+    "Administrador",
+    "Inventarios"
+  ];
+
+  @override
   Widget build(BuildContext context) {
     final userFormProvider = Provider.of<UserFormProvider>(context);
+    final sucursales = Provider.of<BranchesProvider>(context).branches;
     return Form(
       key: userFormProvider.formKey,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            AvatarContainer(imageUrl: user?.img),
-            SizedBox(height: 20),
+            AvatarContainer(imageUrl: widget.user?.img),
+            const SizedBox(height: 20),
             CustomField(
-              initialValue: user?.nombre,
+              initialValue: widget.user?.nombre,
               labelText: 'Nombre',
               validator: (value) => (value == null || value.isEmpty)
                   ? 'Ingrese un nombre.'
@@ -74,9 +94,9 @@ class UserForm extends StatelessWidget {
               onChanged: (value) =>
                   userFormProvider.copyUserWith(nombre: value),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             CustomField(
-              initialValue: user?.correo,
+              initialValue: widget.user?.correo,
               labelText: 'Correo',
               validator: (value) => !EmailValidator.validate(value ?? '')
                   ? 'Email no válido'
@@ -84,8 +104,51 @@ class UserForm extends StatelessWidget {
               onChanged: (value) =>
                   userFormProvider.copyUserWith(correo: value),
             ),
-            SizedBox(height: 20),
-            SaveButton(user: user),
+            const SizedBox(height: 20),
+            DropdownButtonFormField<String>(
+              value: role,
+              hint: Text(widget.user?.rol ?? 'Rol'),
+              onChanged: (String? newValue) {
+                userFormProvider.copyUserWith(rol: newValue);
+              },
+              items: roleList.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              decoration: const InputDecoration(
+                label: Text('Rol'),
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.all(10.0),
+              ),
+            ),
+            const SizedBox(height: 20),
+            DropdownButtonFormField<Branch>(
+              value: branch, // Asegúrate de que 'branch' sea de tipo 'Branch'
+              hint: Text(widget.user?.sucursal.municipio ?? 'Sucursal'),
+              onChanged: (Branch? newValue) {
+                if (newValue != null) {
+                  userFormProvider.copyUserWith(
+                      sucursal:
+                          newValue); // Asume que copyUserWith puede manejar un objeto Branch
+                }
+              },
+              items: sucursales.map<DropdownMenuItem<Branch>>((Branch value) {
+                return DropdownMenuItem<Branch>(
+                  value: value,
+                  child: Text(value
+                      .municipio), // Asume que 'definicion' es una propiedad de la clase Branch
+                );
+              }).toList(),
+              decoration: const InputDecoration(
+                label: Text('Sucursal'),
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.all(10.0),
+              ),
+            ),
+            const SizedBox(height: 20),
+            SaveButton(user: widget.user),
           ],
         ),
       ),
@@ -110,7 +173,11 @@ class CustomField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       initialValue: initialValue,
-      decoration: InputDecoration(labelText: labelText),
+      decoration: InputDecoration(
+        labelText: labelText,
+        border: const OutlineInputBorder(),
+        contentPadding: const EdgeInsets.all(10.0),
+      ),
       validator: validator,
       onChanged: onChanged,
     );
@@ -164,21 +231,37 @@ class AvatarContainer extends StatelessWidget {
         backgroundImage: image.image as ImageProvider<Object>?,
         child: Align(
           alignment: Alignment.bottomRight,
-          child: IconButton(
-            icon: const Icon(Icons.camera_alt),
+          child: ElevatedButton(
+            style: ButtonStyle(
+              shape:
+                  MaterialStateProperty.all<CircleBorder>(const CircleBorder()),
+            ),
             onPressed: () async {
-              final result = await FilePicker.platform.pickFiles(
-                  type: FileType.custom,
-                  allowedExtensions: ['jpg', 'png', 'jpeg']);
+              print('el id del usuario es:' + user!.uid);
+              FilePickerResult? result = await FilePicker.platform.pickFiles(
+                withData: true,
+                type: FileType.custom,
+                allowedExtensions: ['jpg', 'png', 'jpeg'],
+                allowMultiple: false,
+              );
+
               if (result != null) {
-                final file = result.files.first;
+                PlatformFile file = result.files.first;
                 NotificationsService.showBusyIndicator(context);
+
                 final resp = await userFormProvider.uploadImage(
-                    '/uploads/usuarios/${user?.uid}', file.bytes!);
-                usersProvider.refreshUser(resp);
+                    '/uploads/usuarios/${user.uid}', file.bytes!);
+
+                // Asumiendo que tienes un método para actualizar la información del usuario
+                usersProvider.refreshUser(resp!);
+
+                // Suponiendo que quieres cerrar el indicador de ocupado y/o una ventana emergente
                 Navigator.of(context).pop();
+              } else {
+                print('No hay imagen seleccionada');
               }
             },
+            child: const Icon(Icons.camera_alt),
           ),
         ),
       ),

@@ -35,25 +35,5 @@ class InputsProvider extends ChangeNotifier {
     }
   }
 
-  /*
-  Future newTransfer(List<Note> list) async {
-    final list2 = Note.getListMapAux(list);
-
-    for (var i = 0; i < list2.length; i++) {
-      //print(list2[i]);
-    }
-
-    final data = {'productos': list2};
-    //print(data);
-
-    try {
-      final json = await BackendApi.postAux('/traspasos', data);
-      final newTransfer = Traspaso.fromMap(json);
-      traspasos.add(newTransfer);
-      notifyListeners();
-    } catch (e) {
-      print(e);
-      throw ('Error en crear traspaso');
-    }
-  }*/
+  
 }

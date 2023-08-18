@@ -1,42 +1,36 @@
 import 'package:admin_dashboard/proy/models/sale.dart';
-import 'package:admin_dashboard/proy/providers/sales_provider.dart';
-import 'package:auto_route/auto_route.dart';
+import 'package:admin_dashboard/src/views/movements/salemovementsview_test.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-class CardSales extends StatefulWidget {
+class CardSalesMovements extends StatefulWidget {
   final List<Venta> ventas;
 
-  const CardSales({Key? key, required this.ventas}) : super(key: key);
+  const CardSalesMovements({Key? key, required this.ventas}) : super(key: key);
 
   @override
-  State<CardSales> createState() => _CardSalesState();
+  State<CardSalesMovements> createState() => _CardSalesMovementsState();
 }
 
-class _CardSalesState extends State<CardSales> {
+class _CardSalesMovementsState extends State<CardSalesMovements> {
   bool showMessage = false;
 
   @override
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 5), () {
-      if (mounted) {
-        setState(() {
-          showMessage = true;
-        });
-      }
+      setState(() {
+        showMessage = true;
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final salesProvider = Provider.of<SalesProvider>(context);
-
     if (widget.ventas.isEmpty) {
       if (showMessage) {
         return const Center(
           child: Text(
-            'No existen ventas, agrega una.',
+            'No existen ventas.',
           ),
         );
       } else {
@@ -51,8 +45,13 @@ class _CardSalesState extends State<CardSales> {
         final venta = widget.ventas[index];
         return InkWell(
           onTap: () {
-            salesProvider.selectVenta(venta);
-            AutoTabsRouter.of(context).setActiveIndex(47);
+            // Navega a la vista SaleMovementsView al hacer tap en una venta
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SaleMovementsView(saleId: venta.id),
+              ),
+            );
           },
           child: Card(
             elevation: 2.0,

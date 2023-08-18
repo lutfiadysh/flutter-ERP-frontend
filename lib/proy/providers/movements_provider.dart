@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 class MovementsProvider extends ChangeNotifier {
   List<Movimiento> movimientos = [];
+  List<Movimiento> movimientosPorVenta = [];
   Map<String, List<Movimiento>> productEntries = {};
   Map<String, List<Movimiento>> productExits = {};
   getMovements() async {
@@ -84,6 +85,51 @@ class MovementsProvider extends ChangeNotifier {
       return true;
     } catch (e) {
       return false;
+    }
+  }
+
+  Future<void> getProductMovementsByProductName(String productName) async {
+    final respMovements = await BackendApi.search(
+        '/movimientos/buscar', {'nombreProducto': productName});
+    final movementsResp = MovementsResponse.fromMap(respMovements);
+
+    productEntries.clear();
+    productExits.clear();
+
+    for (Movimiento movement in movementsResp.movimientos) {
+      String productId = movement.stock.producto.id;
+
+      if (movement.movimiento == "ENTRADA") {
+        if (!productEntries.containsKey(productId)) {
+          productEntries[productId] = [];
+        }
+        productEntries[productId]!.add(movement);
+      } else if (movement.movimiento == "SALIDA") {
+        if (!productExits.containsKey(productId)) {
+          productExits[productId] = [];
+        }
+        productExits[productId]!.add(movement);
+      }
+    }
+
+    notifyListeners();
+  }
+
+  Future<void> getMovementsBySale(String saleId) async {
+    try {
+      final respMovements =
+          await BackendApi.httpGet('/movimientos/venta/$saleId');
+      final movementsResp = MovementsResponse.fromMap(respMovements);
+
+      // Limpia la lista de movimientos por venta.
+      movimientosPorVenta.clear();
+
+      // Asigna los nuevos movimientos desde la respuesta a la lista de movimientos por venta.
+      movimientosPorVenta = [...movementsResp.movimientos];
+
+      notifyListeners();
+    } catch (e) {
+      // Aquí puedes manejar cualquier error o excepción que quieras.
     }
   }
 }

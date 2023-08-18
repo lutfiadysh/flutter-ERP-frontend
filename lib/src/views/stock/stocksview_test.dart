@@ -48,7 +48,7 @@ class _StocksViewTestState extends State<StocksViewTest> {
                 indicatorWeight: 4,
                 isScrollable: true,
                 tabs: sucursales
-                    .map((sucursal) => Tab(text: sucursal.definicion))
+                    .map((sucursal) => Tab(text: sucursal.municipio))
                     .toList(),
               ),
             ),

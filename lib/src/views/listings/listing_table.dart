@@ -1,14 +1,12 @@
 import 'package:admin_dashboard/proy/models/listing.dart';
 import 'package:admin_dashboard/proy/models/stock.dart';
-import 'package:admin_dashboard/proy/models/user.dart';
-import 'package:admin_dashboard/proy/providers/auth_provider.dart';
 import 'package:admin_dashboard/proy/providers/stocks_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class ListingTable extends StatefulWidget {
-  ListingTable({
+  const ListingTable({
     Key? key,
     required this.productos,
     required this.clientName,
@@ -32,9 +30,32 @@ class ListingTable extends StatefulWidget {
 }
 
 class _ListingTableState extends State<ListingTable> {
+  late double total;
+
+  @override
+  void initState() {
+    super.initState();
+    total = calculateTotal(widget.productos);
+  }
+
+  void updateProduct(int index, ProductoElement newProduct) {
+    setState(() {
+      widget.productos[index] = newProduct;
+      total = calculateTotal(widget.productos); // Recalcular el total
+    });
+  }
+
+  void editProduct(int index, ProductoElement newProduct) {
+    // Cambio aquí
+    setState(() {
+      widget.productos[index] = newProduct;
+      total = calculateTotal(widget.productos); // Recalcular el total
+    });
+  }
+
   final TextStyle _headerTextStyle =
-      TextStyle(fontSize: 16, fontWeight: FontWeight.w600);
-  final EdgeInsets _cellPadding = EdgeInsets.all(8.0);
+      const TextStyle(fontSize: 16, fontWeight: FontWeight.w600);
+  final EdgeInsets _cellPadding = const EdgeInsets.all(8.0);
 
   double calculateTotal(List<ProductoElement> productos) {
     return productos.fold(0, (double total, ProductoElement producto) {
@@ -84,14 +105,10 @@ class _ListingTableState extends State<ListingTable> {
                     isDark: isDark,
                     headerTextStyle: _headerTextStyle,
                     cellPadding: _cellPadding,
-                    onProductChanged: (updatedProductos) {
-                      setState(() {
-                        productos = updatedProductos;
-                      });
-                    },
+                    onEditProduct: editProduct, // Pasa la función aquí
                   ),
                   const Divider(),
-                  TotalSection(total: calculateTotal(productos)),
+                  TotalSection(total: total),
                 ],
               );
             },
@@ -110,8 +127,9 @@ class HeaderSection extends StatelessWidget {
   final Function(String) onClientNameChanged;
   final Function(String) onClientNITChanged;
 
-  HeaderSection(
-      {required this.sellerName,
+  const HeaderSection(
+      {super.key,
+      required this.sellerName,
       required this.clientName,
       required this.clientNIT,
       required this.fecha,
@@ -135,7 +153,7 @@ class HeaderSection extends StatelessWidget {
               onTap: () async {
                 final newName = await showDialog<String>(
                   context: context,
-                  builder: (BuildContext context) => ClientNameDialog(),
+                  builder: (BuildContext context) => const ClientNameDialog(),
                 );
                 if (newName != null && newName.isNotEmpty) {
                   onClientNameChanged(newName);
@@ -153,7 +171,7 @@ class HeaderSection extends StatelessWidget {
               onTap: () async {
                 final newNIT = await showDialog<String>(
                   context: context,
-                  builder: (BuildContext context) => ClientNITDialog(),
+                  builder: (BuildContext context) => const ClientNITDialog(),
                 );
                 if (newNIT != null && newNIT.isNotEmpty) {
                   onClientNITChanged(newNIT);
@@ -171,6 +189,8 @@ class HeaderSection extends StatelessWidget {
 }
 
 class ClientNameDialog extends StatelessWidget {
+  const ClientNameDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     String? newClientName;
@@ -199,6 +219,8 @@ class ClientNameDialog extends StatelessWidget {
 }
 
 class ClientNITDialog extends StatelessWidget {
+  const ClientNITDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     String? newClientNIT;
@@ -232,15 +254,16 @@ class ProductTable extends StatefulWidget {
   final bool isDark;
   final TextStyle headerTextStyle;
   final EdgeInsets cellPadding;
-  final Function(List<ProductoElement>) onProductChanged;
+  final Function(int, ProductoElement) onEditProduct;
 
-  ProductTable({
+  const ProductTable({
+    super.key,
     required this.productos,
     required this.isLargeScreen,
     required this.isDark,
     required this.headerTextStyle,
     required this.cellPadding,
-    required this.onProductChanged,
+    required this.onEditProduct, // Agrega esta línea
   });
 
   @override
@@ -249,6 +272,36 @@ class ProductTable extends StatefulWidget {
 
 class _ProductTableState extends State<ProductTable> {
   List<Stock> stocks = [];
+
+  int getTotalCajas(String productoId) {
+    return stocks.where((stock) => stock.producto.id == productoId).fold(
+        0, (int total, Stock stock) => total + (stock.cantidadCajas ?? 0));
+  }
+
+  int getTotalPiezas(String productoId) {
+    return stocks.where((stock) => stock.producto.id == productoId).fold(
+        0, (int total, Stock stock) => total + (stock.cantidadPiezas ?? 0));
+  }
+
+  void editProduct(int index) async {
+    final producto = widget.productos[index];
+    final totalCajas = getTotalCajas(producto.producto?.id ?? '');
+    final totalPiezas = getTotalPiezas(producto.producto?.id ?? '');
+
+    final updatedProducto = await showDialog<ProductoElement>(
+      context: context,
+      builder: (context) => EditProductDialog(
+        producto: producto,
+        totalCajas: totalCajas, // Pasa la cantidad total de cajas
+        totalPiezas: totalPiezas, // Pasa la cantidad total de piezas
+      ),
+    );
+
+    if (updatedProducto != null) {
+      widget.onEditProduct(index,
+          updatedProducto); // Llama a la función de devolución de llamada aquí
+    }
+  }
 
   @override
   void initState() {
@@ -266,9 +319,6 @@ class _ProductTableState extends State<ProductTable> {
 
   @override
   Widget build(BuildContext context) {
-    final userFormProvider = Provider.of<AuthProvider>(context);
-    final user = userFormProvider.user!;
-
     return Table(
       columnWidths: {
         0: const FlexColumnWidth(1),
@@ -352,7 +402,9 @@ class _ProductTableState extends State<ProductTable> {
               ),
           ],
         ),
-        ...widget.productos.map<TableRow>((producto) {
+        ...widget.productos.asMap().entries.map<TableRow>((entry) {
+          final index = entry.key;
+          final producto = entry.value;
           final precioCajaOriginal = producto.producto?.precioCaja ?? 0;
           final precioCajaActual = producto.precioUnitarioCajas;
           final diferenciaCaja =
@@ -373,18 +425,8 @@ class _ProductTableState extends State<ProductTable> {
             children: [
               TableCell(
                 child: InkWell(
-                  onTap: () {
-                    showProductDetailsDialog(
-                        context: context,
-                        producto: producto,
-                        productos: widget.productos,
-                        onProductUpdated: (updatedProductos, updatedProducto) {
-                          // Llama al callback para notificar al widget padre
-                          widget.onProductChanged(updatedProductos);
-                        },
-                        stocks: stocks,
-                        user: user);
-                  },
+                  onTap: () =>
+                      editProduct(index), // Llamar a editProduct cuando se toca
                   child: Padding(
                     padding: widget.cellPadding,
                     child: Text(producto.producto?.nombre ?? 'N/A'),
@@ -444,7 +486,7 @@ class _ProductTableState extends State<ProductTable> {
 class TotalSection extends StatelessWidget {
   final double total;
 
-  TotalSection({required this.total});
+  const TotalSection({super.key, required this.total});
 
   @override
   Widget build(BuildContext context) {
@@ -455,165 +497,127 @@ class TotalSection extends StatelessWidget {
         children: [
           const Text('Total: ',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          Text('${total.toStringAsFixed(2)}',
-              style: const TextStyle(fontSize: 18)),
+          Text(total.toStringAsFixed(2), style: const TextStyle(fontSize: 18)),
         ],
       ),
     );
   }
 }
 
-Future<void> showProductDetailsDialog({
-  required BuildContext context,
-  required ProductoElement producto,
-  required Function(List<ProductoElement>, ProductoElement) onProductUpdated,
-  required List<ProductoElement> productos,
-  required List<Stock> stocks,
-  required Usuario user,
-}) async {
-  final formKey = GlobalKey<FormState>();
-  int cantidadCajas = producto.cantidadCajas;
-  int cantidadPiezas = producto.cantidadPiezas;
-  double precioCaja = producto.precioUnitarioCajas;
-  double precioUnidad = producto.precioUnitarioPiezas;
+class EditProductDialog extends StatefulWidget {
+  final ProductoElement producto;
+  final int totalCajas; // Añade la cantidad total de cajas aquí
+  final int totalPiezas; // Añade la cantidad total de piezas aquí
 
-  // Aquí necesitamos obtener la cantidad total de cajas y piezas en stock para este producto
-  int totalCajasStockSucursal =
-      getStock(false, producto.producto!.id, stocks, user.sucursal.id);
-  int totalPiezasStockSucursal =
-      getStock(true, producto.producto!.id, stocks, user.sucursal.id);
-  int totalCajasStock = getStock(false, producto.producto!.id, stocks, null);
-  int totalPiezasStock = getStock(true, producto.producto!.id, stocks, null);
+  const EditProductDialog(
+      {super.key,
+      required this.producto,
+      required this.totalCajas,
+      required this.totalPiezas});
 
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        content: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('Nombre: ${producto.producto!.nombre}'),
-                TextFormField(
-                  initialValue: '$cantidadCajas',
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: 'Cantidad de cajas',
-                    // Mostrar el stock disponible en la sucursal y en total
-                    helperText:
-                        'Sucursal: $totalCajasStockSucursal, Total: $totalCajasStock',
-                  ),
-                  validator: (value) {
-                    int newValue = int.tryParse(value!) ?? 0;
-                    if (value.isEmpty || newValue > totalCajasStockSucursal) {
-                      return 'Por favor, ingrese un número válido y que no exceda el stock disponible en la sucursal';
-                    }
-                    return null;
-                  },
-                  onSaved: (newValue) {
-                    cantidadCajas = int.parse(newValue!);
-                  },
-                ),
-                TextFormField(
-                  initialValue: '$cantidadPiezas',
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: 'Cantidad de piezas',
-                    // Mostrar el stock disponible en la sucursal y en total
-                    helperText:
-                        'Sucursal: $totalPiezasStockSucursal, Total: $totalPiezasStock',
-                  ),
-                  validator: (value) {
-                    int newValue = int.tryParse(value!) ?? 0;
-                    if (value.isEmpty || newValue > totalPiezasStockSucursal) {
-                      return 'Por favor, ingrese un número válido y que no exceda el stock disponible en la sucursal';
-                    }
-                    return null;
-                  },
-                  onSaved: (newValue) {
-                    cantidadPiezas = int.parse(newValue!);
-                  },
-                ),
-                TextFormField(
-                  initialValue: '$precioCaja',
-                  keyboardType: TextInputType.number,
-                  decoration:
-                      const InputDecoration(labelText: 'Precio por caja'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Por favor, ingrese un número válido';
-                    }
-                    return null;
-                  },
-                  onSaved: (newValue) {
-                    precioCaja = double.parse(newValue!);
-                  },
-                ),
-                TextFormField(
-                  initialValue: '$precioUnidad',
-                  keyboardType: TextInputType.number,
-                  decoration:
-                      const InputDecoration(labelText: 'Precio por unidad'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Por favor, ingrese un número válido';
-                    }
-                    return null;
-                  },
-                  onSaved: (newValue) {
-                    precioUnidad = double.parse(newValue!);
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('Cancelar'),
-          ),
-          TextButton(
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-
-                final updatedProducto = producto.copyWith(
-                  cantidadCajas: cantidadCajas,
-                  cantidadPiezas: cantidadPiezas,
-                  precioUnitarioCajas: precioCaja,
-                  precioUnitarioPiezas: precioUnidad,
-                );
-
-                onProductUpdated(productos, updatedProducto);
-                Navigator.of(context).pop();
-              }
-            },
-            child: const Text('Guardar'),
-          ),
-        ],
-      );
-    },
-  );
+  @override
+  _EditProductDialogState createState() => _EditProductDialogState();
 }
 
-// Esta es la función que obtiene el total de cajas o piezas en stock para un producto en específico
-int getStock(
-    bool isPiezas, String productId, List<Stock> stocks, String? sucursalId) {
-  int total = 0;
+class _EditProductDialogState extends State<EditProductDialog> {
+  late TextEditingController _cajasController;
+  late TextEditingController _piezasController;
+  late TextEditingController _precioCajasController;
+  late TextEditingController _precioPiezasController;
 
-  for (var stock in stocks) {
-    if (stock.producto.id == productId &&
-        (sucursalId == null || stock.sucursal.id == sucursalId)) {
-      total += isPiezas ? stock.cantidadPiezas ?? 0 : stock.cantidadCajas ?? 0;
-    }
+  @override
+  void initState() {
+    super.initState();
+    _cajasController =
+        TextEditingController(text: widget.producto.cantidadCajas.toString());
+    _piezasController =
+        TextEditingController(text: widget.producto.cantidadPiezas.toString());
+    _precioCajasController = TextEditingController(
+        text: widget.producto.precioUnitarioCajas.toString());
+    _precioPiezasController = TextEditingController(
+        text: widget.producto.precioUnitarioPiezas.toString());
   }
 
-  return total;
+  @override
+  void dispose() {
+    _cajasController.dispose();
+    _piezasController.dispose();
+    _precioCajasController.dispose();
+    _precioPiezasController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Row(
+        children: [
+          Icon(Icons.edit, color: Colors.blue),
+          SizedBox(width: 8),
+          Text('Editar Producto', style: TextStyle(color: Colors.blue)),
+        ],
+      ),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 15),
+            TextField(
+              controller: _cajasController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: 'Cantidad de Cajas',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 15),
+            TextField(
+              controller: _piezasController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: 'Cantidad de Piezas',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 15),
+            TextField(
+              controller: _precioCajasController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: 'Precio por Caja',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 15),
+            TextField(
+              controller: _precioPiezasController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: 'Precio por Pieza',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Cancelar', style: TextStyle(color: Colors.red)),
+        ),
+        TextButton(
+          onPressed: () {
+            final updatedProducto = widget.producto.copyWith(
+              cantidadCajas: int.parse(_cajasController.text),
+              cantidadPiezas: int.parse(_piezasController.text),
+              precioUnitarioCajas: double.parse(_precioCajasController.text),
+              precioUnitarioPiezas: double.parse(_precioPiezasController.text),
+            );
+            Navigator.of(context).pop(updatedProducto);
+          },
+          child: const Text('Aceptar', style: TextStyle(color: Colors.green)),
+        ),
+      ],
+    );
+  }
 }

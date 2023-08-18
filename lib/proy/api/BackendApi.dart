@@ -86,4 +86,14 @@ class BackendApi {
       throw ('Error en el PUT $e');
     }
   }
+
+  static Future<dynamic> search(
+      String path, Map<String, String> queryParameters) async {
+    try {
+      final resp = await _dio.get(path, queryParameters: queryParameters);
+      return resp.data;
+    } on DioError catch (e) {
+      throw (e.response?.data['msg'] ?? 'Error en el SEARCH');
+    }
+  }
 }

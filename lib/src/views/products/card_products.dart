@@ -29,22 +29,9 @@ class _CardProductsState extends State<CardProducts> {
   Widget build(BuildContext context) {
     final categoryProvider =
         Provider.of<CategoriesProvider>(context, listen: false);
-    final width = MediaQuery.of(context).size.width;
 
-    int crossAxisCount = 1;
-    if (width >= 768 && width < 1200) {
-      crossAxisCount = 2;
-    } else if (width >= 1200) {
-      crossAxisCount = 3;
-    }
-
-    return GridView.builder(
+    return ListView.builder(
       shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        childAspectRatio: 4.95 / 3,
-        crossAxisSpacing: 10,
-      ),
       itemCount: widget.productos.length,
       itemBuilder: (context, index) {
         final producto = widget.productos[index];
@@ -117,7 +104,7 @@ class _CardProductsState extends State<CardProducts> {
                     showUserDialog(
                       'Actualizar producto',
                       ProductViewTest(
-                        productId: producto.id,
+                        product: producto,
                       ),
                     );
                   },

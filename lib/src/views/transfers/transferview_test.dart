@@ -125,23 +125,6 @@ class ProductsListView extends StatelessWidget {
       itemBuilder: (context, index) {
         final note = _notes[index];
 
-        final image = (note.producto.img == null)
-            ? ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: const Image(
-                  fit: BoxFit.fitHeight,
-                  image: AssetImage('assets/no-image.jpg'),
-                ),
-              )
-            : ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: FadeInImage.assetNetwork(
-                  placeholder: 'assets/loader.gif',
-                  image: note.producto.img!,
-                  fit: BoxFit.fitWidth,
-                ),
-              );
-
         return Center(
           child: Dismissible(
             key: UniqueKey(),

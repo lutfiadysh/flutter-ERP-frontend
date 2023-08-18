@@ -25,7 +25,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
   String sellerName = 'Nombre del vendedor';
   String id = 'Cotizacion ID';
   DateTime date = DateTime.now();
-  late Cotizacion selectedCotizacion;
+  Cotizacion? selectedCotizacion;
   bool isEditing = false;
 
   @override
@@ -37,12 +37,12 @@ class _ListingViewTestState extends State<ListingViewTest> {
         Provider.of<ListingsProvider>(context, listen: false);
     if (listingProvider.selectedCotizacion != null) {
       selectedCotizacion = listingProvider.selectedCotizacion!;
-      productos = selectedCotizacion.productos;
-      clientName = selectedCotizacion.cliente;
-      clientNIT = selectedCotizacion.nit ?? "Sin NIT";
-      date = selectedCotizacion.fecha;
-      sellerName = selectedCotizacion.usuario.nombre;
-      id = selectedCotizacion.id;
+      productos = selectedCotizacion!.productos;
+      clientName = selectedCotizacion!.cliente;
+      clientNIT = selectedCotizacion!.nit ?? "Sin NIT";
+      date = selectedCotizacion!.fecha;
+      sellerName = selectedCotizacion!.usuario.nombre;
+      id = selectedCotizacion!.id;
       isEditing = true;
     } else {
       sellerName = userFormProvider.user!.nombre;
@@ -84,7 +84,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
                     try {
                       isEditing
                           ? await listingProvider.updateListing(
-                              selectedCotizacion.id,
+                              selectedCotizacion!.id,
                               productos,
                               clientName,
                               clientNIT)
@@ -110,7 +110,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
                         'No se pudo realizar la venta, agregue el nombre del cliente.');
                   } else {
                     try {
-                      await saleProvider.newSale(selectedCotizacion.id);
+                      await saleProvider.newSale(selectedCotizacion!.id);
                       tabsRouter.setActiveIndex(43);
                       NotificationsService.showSnackbar(
                           'Venta realizada con éxito.');
@@ -120,15 +120,20 @@ class _ListingViewTestState extends State<ListingViewTest> {
                     }
                   }
                 } else if (value == 'Generar PDF' && isEditing) {
-                  await listingProvider.createPdf(selectedCotizacion);
+                  await listingProvider.createPdf(selectedCotizacion!);
                 }
               },
               itemBuilder: (BuildContext context) {
-                List<String> options = ['Guardar', 'Vender'];
-                if (isEditing) {
-                  options.add(
-                      'Generar PDF'); // condicionalmente agregar 'Generar PDF' si isEditing es true
+                List<String> options = ['Guardar'];
+
+                if (selectedCotizacion != null) {
+                  if (selectedCotizacion!.vendido) {
+                    options = ['Generar PDF'];
+                  } else {
+                    options = ['Generar PDF', 'Vender'];
+                  }
                 }
+
                 return options.map((String choice) {
                   return PopupMenuItem<String>(
                     value: choice,

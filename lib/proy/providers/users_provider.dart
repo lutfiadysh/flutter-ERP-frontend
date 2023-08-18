@@ -35,13 +35,14 @@ class UsersProvider extends ChangeNotifier {
     }
   }
 
-  Future register(
-      String email, String password, String name, String role) async {
+  Future register(String email, String password, String name, String branch,
+      String role) async {
     // ignore: todo
     final data = {
       'nombre': name,
       'correo': email,
       'password': password,
+      'sucursal': branch,
       'rol': role
     };
 
@@ -98,6 +99,4 @@ class UsersProvider extends ChangeNotifier {
 
     notifyListeners();
   }
-
-  
 }

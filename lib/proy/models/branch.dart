@@ -3,16 +3,20 @@ import 'dart:convert';
 class Branch {
   Branch({
     required this.categoria,
+    required this.codigoSucursal, // Campo añadido
     required this.id,
-    required this.definicion,
     required this.direccion,
+    required this.municipio,
+    this.telefono,
     required this.usuario,
   });
 
   String categoria;
+  int codigoSucursal; // Campo añadido
   String id;
-  String definicion;
   String direccion;
+  String municipio;
+  String? telefono;
   _Usuario usuario;
 
   factory Branch.fromJson(String str) => Branch.fromMap(json.decode(str));
@@ -21,17 +25,21 @@ class Branch {
 
   factory Branch.fromMap(Map<String, dynamic> json) => Branch(
         categoria: json["categoria"],
+        codigoSucursal: json["codigoSucursal"], // Campo añadido
         id: json["_id"],
-        definicion: json["definicion"],
         direccion: json["direccion"],
+        municipio: json["municipio"],
+        telefono: json["telefono"],
         usuario: _Usuario.fromMap(json["usuario"]),
       );
 
   Map<String, dynamic> toMap() => {
         "categoria": categoria,
+        "codigoSucursal": codigoSucursal, // Campo añadido
         "_id": id,
-        "definicion": definicion,
         "direccion": direccion,
+        "municipio": municipio,
+        "telefono": telefono,
         "usuario": usuario.toMap(),
       };
 }

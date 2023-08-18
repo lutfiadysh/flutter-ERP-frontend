@@ -42,13 +42,12 @@ class UserFormProvider extends ChangeNotifier {
     final data = {
       'nombre': user!.nombre,
       'correo': user!.correo,
+      'rol': user!.rol,
+      'sucursal': user!.sucursal.id,
     };
 
     try {
-      print('el usuario es' + user!.uid);
-
       final resp = await BackendApi.put('/usuarios/${user!.uid}', data);
-      print(resp);
       // Aquí, deberías actualizar la información del usuario con la respuesta recibida.
       // Suponiendo que tu API devuelve los detalles del usuario actualizado, actualizas el usuario aquí.
       user = item.Usuario.fromMap(resp);
@@ -62,13 +61,14 @@ class UserFormProvider extends ChangeNotifier {
     }
   }
 
-  Future<item.Usuario> uploadImage(String path, Uint8List bytes) async {
+  Future<item.Usuario?> uploadImage(String path, Uint8List bytes) async {
     try {
       final resp = await BackendApi.uploadFile(path, bytes);
+      print(resp);
       user = item.Usuario.fromMap(resp);
       notifyListeners();
 
-      return user!;
+      return user;
     } catch (e) {
       throw 'Error en user from provider';
     }

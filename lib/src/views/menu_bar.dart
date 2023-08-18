@@ -145,17 +145,17 @@ class _MenuBarState extends State<MenuBar> {
     item.SalesViewTest(),
     item.SaleViewTest()
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () {
-           final router = context.router;
-              if (router.canNavigateBack) {
-                router.back();
-              }
-              // if can't navigate back go with normal behavior
-              return SynchronousFuture(!router.canNavigateBack);
+        final router = context.router;
+        if (router.canNavigateBack) {
+          router.back();
+        }
+        // if can't navigate back go with normal behavior
+        return SynchronousFuture(!router.canNavigateBack);
       },
       child: AutoTabsRouter(
         routes: _routes,
@@ -191,7 +191,7 @@ class _MenuBarState extends State<MenuBar> {
                         builder:
                             (BuildContext context, BoxConstraints constraints) {
                           final double contentHeight = constraints.maxHeight;
-    
+
                           return SelectionArea(
                             child: SizedBox(
                               height: contentHeight,
@@ -557,7 +557,7 @@ class _MenuBarState extends State<MenuBar> {
                 children: [
                   FxBox.h8,
                   UserInfo(
-                    imageUrl: user.img!,
+                    imageUrl: user.img,
                     name: user.nombre,
                     role: user.rol,
                   ),

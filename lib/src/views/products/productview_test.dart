@@ -6,75 +6,15 @@ import 'package:file_picker/file_picker.dart';
 import 'package:admin_dashboard/proy/services/notification_service.dart';
 
 class ProductViewTest extends StatefulWidget {
-  final String productId;
+  final Producto product;
 
-  const ProductViewTest({Key? key, required this.productId}) : super(key: key);
+  const ProductViewTest({Key? key, required this.product}) : super(key: key);
 
   @override
   _ProductViewTestState createState() => _ProductViewTestState();
 }
 
 class _ProductViewTestState extends State<ProductViewTest> {
-  late Future<Producto?> fetchProduct;
-
-  @override
-  void initState() {
-    super.initState();
-    fetchProduct = Provider.of<ProductsProvider>(context, listen: false)
-        .getProductById(widget.productId);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<Producto?>(
-      future: fetchProduct,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
-        }
-
-        if (snapshot.hasError) {
-          return Center(child: Text('Error loading product details'));
-        }
-
-        return ProductDetails(product: snapshot.data!);
-      },
-    );
-  }
-}
-
-class ProductDetails extends StatelessWidget {
-  final Producto product;
-
-  const ProductDetails({Key? key, required this.product}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            ProductImage(product: product),
-            const SizedBox(height: 20),
-            ProductForm(product: product),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ProductForm extends StatefulWidget {
-  final Producto product;
-
-  const ProductForm({Key? key, required this.product}) : super(key: key);
-
-  @override
-  _ProductFormState createState() => _ProductFormState();
-}
-
-class _ProductFormState extends State<ProductForm> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController priceBoxController = TextEditingController();
   final TextEditingController unitPriceController = TextEditingController();
@@ -83,8 +23,8 @@ class _ProductFormState extends State<ProductForm> {
   void initState() {
     super.initState();
     nameController.text = widget.product.nombre;
-    priceBoxController.text = widget.product.precioCaja.toString();
-    unitPriceController.text = widget.product.precioPorUnidad.toString();
+    priceBoxController.text = "${widget.product.precioCaja} Bs";
+    unitPriceController.text = "${widget.product.precioPorUnidad} Bs";
   }
 
   @override
@@ -92,10 +32,12 @@ class _ProductFormState extends State<ProductForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildProductTitle(),
+        const SizedBox(height: 10),
+        ProductImage(product: widget.product),
         const SizedBox(height: 20),
         _buildTextField(
           controller: nameController,
+          label: "Nombre del Producto",
           hint: "Ingrese el nombre del producto",
           validator: (value) {
             if (value == null || value.isEmpty) {
@@ -110,12 +52,14 @@ class _ProductFormState extends State<ProductForm> {
         const SizedBox(height: 20),
         _buildTextField(
           controller: priceBoxController,
+          label: "Precio por Caja",
           hint: "Ingrese el precio por caja",
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
         ),
         const SizedBox(height: 20),
         _buildTextField(
           controller: unitPriceController,
+          label: "Precio por Unidad",
           hint: "Ingrese el precio por unidad",
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
         ),
@@ -125,26 +69,22 @@ class _ProductFormState extends State<ProductForm> {
     );
   }
 
-  Widget _buildTextField(
-      {required TextEditingController controller,
-      required String hint,
-      TextInputType? keyboardType,
-      String? Function(String?)? validator}) {
+  Widget _buildTextField({
+    required TextEditingController controller,
+    required String label,
+    required String hint,
+    TextInputType? keyboardType,
+    String? Function(String?)? validator,
+  }) {
     return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
-      decoration: InputDecoration(hintText: hint),
-      validator: validator,
-    );
-  }
-
-  Widget _buildProductTitle() {
-    return Text(
-      widget.product.nombre,
-      style: const TextStyle(
-        fontSize: 28.0,
-        fontWeight: FontWeight.w600,
+      decoration: InputDecoration(
+        labelText: label,
+        hintText: hint,
+        border: OutlineInputBorder(),
       ),
+      validator: validator,
     );
   }
 
@@ -228,8 +168,6 @@ class _ProductImageState extends State<ProductImage> {
           });
 
           Navigator.of(context).pop();
-        } else {
-          print('No hay imagen seleccionada');
         }
       },
       child: ClipRRect(

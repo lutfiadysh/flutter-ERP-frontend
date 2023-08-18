@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:admin_dashboard/proy/models/transfer.dart';
 import 'package:admin_dashboard/proy/providers/transfers_provider.dart';
 import 'package:flutter/material.dart';
@@ -16,23 +18,66 @@ class CardTransfers extends StatefulWidget {
 }
 
 class _TransfersState extends State<CardTransfers> {
+  Future<void>? _loadTransfers;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadTransfers = _fetchTransfers();
+  }
+
+  Future<void> _fetchTransfers() async {
+    return Provider.of<TransfersProvider>(context, listen: false)
+        .getTransfers()
+        .timeout(const Duration(seconds: 5), onTimeout: () {
+      // Si se supera el tiempo de espera, se lanza una excepción.
+      throw TimeoutException('Tiempo de espera superado');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final traspasos = Provider.of<TransfersProvider>(context).traspasos;
-    // Cambia este valor según tus necesidades
+    return FutureBuilder(
+      future: _loadTransfers,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return const Center(
+            child: Text(
+              'Error al cargar los traspasos o tiempo de espera superado.',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          );
+        } else {
+          final traspasos = Provider.of<TransfersProvider>(context).traspasos;
 
-    return SizedBox(
-      // Usa el 70% del ancho de la pantalla en pantallas grandes
-
-      child: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: traspasos
-                .map((traspaso) => TraspasoCard(traspaso: traspaso))
-                .toList(),
-          ),
-        ),
-      ),
+          return Center(
+            // Agregado este Center
+            child: SizedBox(
+              width:
+                  double.infinity, // Asegura que ocupe todo el ancho disponible
+              child: SingleChildScrollView(
+                child: traspasos.isNotEmpty
+                    ? Column(
+                        children: traspasos
+                            .map((traspaso) => TraspasoCard(traspaso: traspaso))
+                            .toList(),
+                      )
+                    : const Center(
+                        child: Text(
+                          'No existen traspasos, añade uno',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+              ),
+            ),
+          );
+        }
+      },
     );
   }
 }
@@ -154,7 +199,7 @@ List<TableRow> entradasToTableRows(List<Movements> movimientos) {
         padding: const EdgeInsets.symmetric(vertical: 4.0),
         child: ProductImageCircle(
           imageUrl: movimiento.stock.producto.img ??
-              AssetImage('assets/no-image.jpg'),
+              const AssetImage('assets/no-image.jpg'),
           verification: movimiento.verificacion,
         ),
       ),
@@ -176,7 +221,7 @@ List<TableRow> salidasToTableRows(List<Movements> movimientos) {
         padding: const EdgeInsets.symmetric(vertical: 4.0),
         child: ProductImageCircle(
           imageUrl: movimiento.stock.producto.img ??
-              AssetImage('assets/no-image.jpg'),
+              const AssetImage('assets/no-image.jpg'),
           verification: movimiento.verificacion,
         ),
       ),

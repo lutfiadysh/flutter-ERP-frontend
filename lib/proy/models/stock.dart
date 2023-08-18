@@ -8,6 +8,8 @@ class Stock {
     this.cantidadPiezas,
     this.reservadoCajas,
     this.reservadoPiezas,
+    this.entranteCajas,
+    this.entrantePiezas,
     required this.id,
     this.cantidad,
     required this.producto,
@@ -19,6 +21,8 @@ class Stock {
   int? cantidadPiezas;
   int? reservadoCajas;
   int? reservadoPiezas;
+  int? entranteCajas;
+  int? entrantePiezas;
   String id;
   int? cantidad;
   Producto producto;
@@ -34,6 +38,8 @@ class Stock {
         cantidadPiezas: json["cantidadPiezas"],
         reservadoCajas: json["reservadoCajas"],
         reservadoPiezas: json["reservadoPiezas"],
+        entranteCajas: json["entranteCajas"],
+        entrantePiezas: json["entrantePiezas"],
         id: json["_id"],
         cantidad: json["cantidad"],
         producto: Producto.fromMap(json["producto"]),
@@ -46,6 +52,8 @@ class Stock {
         "cantidadPiezas": cantidadPiezas,
         "reservadoCajas": reservadoCajas,
         "reservadoPiezas": reservadoPiezas,
+        "entranteCajas": entranteCajas,
+        "entrantePiezas": entrantePiezas,
         "_id": id,
         "cantidad": cantidad,
         "producto": producto.toMap(),

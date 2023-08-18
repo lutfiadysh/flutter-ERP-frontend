@@ -8,9 +8,14 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:provider/provider.dart';
 
 class MovementsCardsView extends StatefulWidget {
-  final List<Movimiento> movimientos;
+  final Map<String, List<Movimiento>> productEntries;
+  final Map<String, List<Movimiento>> productExits;
 
-  const MovementsCardsView({super.key, required this.movimientos});
+  const MovementsCardsView({
+    Key? key,
+    required this.productEntries,
+    required this.productExits,
+  }) : super(key: key);
 
   @override
   _MovementsCardsView createState() => _MovementsCardsView();
@@ -25,7 +30,7 @@ class _MovementsCardsView extends State<MovementsCardsView> {
     initializeDateFormatting('es');
     // Después de 5 segundos, si todavía no hay cotizaciones, muestra el mensaje
     Future.delayed(const Duration(seconds: 5), () {
-      if (widget.movimientos.isEmpty) {
+      if (widget.productEntries.isEmpty && widget.productExits.isEmpty) {
         if (mounted) {
           // Verificar si el widget todavía está montado
           setState(() {
@@ -38,15 +43,14 @@ class _MovementsCardsView extends State<MovementsCardsView> {
 
   @override
   Widget build(BuildContext context) {
-    final movementsProvider = Provider.of<MovementsProvider>(context);
-    final productEntries = movementsProvider.productEntries;
-    final productExits = movementsProvider.productExits;
+    final productEntries = widget.productEntries;
+    final productExits = widget.productExits;
 
     if (productEntries.isEmpty && productExits.isEmpty) {
       if (showMessage) {
         return const Center(
           child: Text(
-            'No existen cotizaciones, agrega una.',
+            'No existen movimientos, agrega uno.',
           ),
         );
       } else {
@@ -56,17 +60,33 @@ class _MovementsCardsView extends State<MovementsCardsView> {
       }
     }
 
+    // Filtra los IDs de los productos que tienen entradas y/o salidas
+    final productIds = {...productEntries.keys, ...productExits.keys}
+        .where((productId) =>
+            productEntries[productId]!.isNotEmpty ||
+            productExits[productId]!.isNotEmpty)
+        .toList();
+
     return RefreshIndicator(
       onRefresh: () async {
-        await movementsProvider.getProductEntriesAndExits();
+        await Provider.of<MovementsProvider>(context, listen: false)
+            .getProductEntriesAndExits();
+
         setState(() {}); // Para reconstruir el widget.
       },
       child: ListView.separated(
         shrinkWrap: true,
         separatorBuilder: (context, index) => const SizedBox(height: 8),
-        itemCount: productEntries.length,
+        itemCount: productIds.length,
         itemBuilder: (context, index) {
-          final productId = productEntries.keys.elementAt(index);
+          final productId = productIds[index];
+
+          // Asegúrate de que existen entradas y/o salidas para este producto
+          if (productEntries[productId]!.isEmpty &&
+              productExits[productId]!.isEmpty) {
+            return Container(); // Devuelve un contenedor vacío en este caso
+          }
+
           final productName =
               productEntries[productId]![0].stock.producto.nombre;
           final imageUrl = productEntries[productId]![0].stock.producto.img;

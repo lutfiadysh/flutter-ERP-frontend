@@ -13,6 +13,7 @@ class Cotizacion {
     required this.productos,
     required this.total,
     required this.estado,
+    required this.vendido,
     this.nit,
   });
 
@@ -26,6 +27,7 @@ class Cotizacion {
   List<ProductoElement> productos;
   double total;
   bool estado;
+  bool vendido;
 
   factory Cotizacion.fromJson(String str) =>
       Cotizacion.fromMap(json.decode(str));
@@ -43,6 +45,7 @@ class Cotizacion {
             json["productos"].map((x) => ProductoElement.fromMap(x))),
         total: json["total"].toDouble(),
         estado: json["estado"],
+        vendido: json["vendido"],
         numero: '',
       );
 
@@ -56,6 +59,7 @@ class Cotizacion {
         "productos": List<dynamic>.from(productos.map((x) => x.toMap())),
         "total": total,
         "estado": estado,
+        "vendido": vendido,
       };
 }
 
@@ -106,7 +110,25 @@ class ProductoElement {
         "precioTotal": precioTotal,
       };
 
-  copyWith({required int cantidadCajas, required int cantidadPiezas, required double precioUnitarioCajas, required double precioUnitarioPiezas}) {}
+  ProductoElement copyWith({
+    int? cantidadCajas,
+    int? cantidadPiezas,
+    double? precioUnitarioCajas,
+    double? precioUnitarioPiezas,
+  }) {
+    return ProductoElement(
+      producto: producto!,
+      cantidadCajas: cantidadCajas ?? this.cantidadCajas,
+      cantidadPiezas: cantidadPiezas ?? this.cantidadPiezas,
+      precioUnitarioCajas: precioUnitarioCajas ?? this.precioUnitarioCajas,
+      precioUnitarioPiezas: precioUnitarioPiezas ?? this.precioUnitarioPiezas,
+      precioTotalPiezas:
+          precioTotalPiezas, // Puedes ajustar esto según sea necesario
+      precioTotalCajas:
+          precioTotalCajas, // Puedes ajustar esto según sea necesario
+      precioTotal: precioTotal, // Puedes ajustar esto según sea necesario
+    );
+  }
 }
 
 class _Sucursal {

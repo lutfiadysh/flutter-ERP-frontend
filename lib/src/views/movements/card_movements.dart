@@ -1,27 +1,31 @@
+import 'package:admin_dashboard/proy/providers/sales_provider.dart';
 import 'package:admin_dashboard/src/constant/color.dart';
 import 'package:admin_dashboard/src/constant/theme.dart';
+import 'package:admin_dashboard/src/views/movements/card_salemovements.dart';
 import 'package:flutter/material.dart';
 import 'package:admin_dashboard/proy/models/movement.dart';
 import 'package:admin_dashboard/proy/providers/movements_provider.dart';
 import 'package:provider/provider.dart';
 import 'verification_customDialog.dart';
 
-class CardMovements extends StatefulWidget {
+class CardSaleMovements extends StatefulWidget {
   final List<Movimiento> movimientos;
 
-  const CardMovements({Key? key, required this.movimientos}) : super(key: key);
+  const CardSaleMovements({Key? key, required this.movimientos})
+      : super(key: key);
 
   @override
-  State<CardMovements> createState() => _CardMovementsState();
+  State<CardSaleMovements> createState() => _CardSaleMovementsState();
 }
 
-class _CardMovementsState extends State<CardMovements> {
+class _CardSaleMovementsState extends State<CardSaleMovements> {
   bool showMessage = false;
 
   @override
   void initState() {
     super.initState();
     fetchMovements();
+    Provider.of<SalesProvider>(context, listen: false).getSales();
   }
 
   Future<void> fetchMovements() async {
@@ -55,6 +59,8 @@ class _CardMovementsState extends State<CardMovements> {
 
   @override
   Widget build(BuildContext context) {
+    final ventas = Provider.of<SalesProvider>(context).ventas;
+
     if (widget.movimientos.isEmpty) {
       if (showMessage) {
         return const Center(
@@ -70,7 +76,7 @@ class _CardMovementsState extends State<CardMovements> {
     }
 
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +92,9 @@ class _CardMovementsState extends State<CardMovements> {
               Tab(text: 'Movimientos'),
               Tab(text: 'Entradas'),
               Tab(text: 'Salidas'),
-              Tab(text: 'Verificados')
+              Tab(text: 'Verificados'),
+              Tab(text: 'Ventas'),
+              //Tab(text: 'Traspasos'),
             ],
           ),
           const SizedBox(height: 10),
@@ -100,6 +108,9 @@ class _CardMovementsState extends State<CardMovements> {
                 buildList(filterMovementsByType('SALIDA',
                     verificationStatus: 'EN ESPERA')),
                 buildList(filterMovementsByVerificationStatus('VERIFICADO')),
+                CardSalesMovements(
+                  ventas: ventas,
+                ),
               ],
             ),
           ),

@@ -168,7 +168,7 @@ class _Producto {
   final String usuario;
   final String categoria;
   final int v;
-  final String img;
+  String? img;
 
   _Producto({
     required this.estado,
@@ -181,7 +181,7 @@ class _Producto {
     required this.usuario,
     required this.categoria,
     required this.v,
-    required this.img,
+    this.img,
   });
 
   factory _Producto.fromJson(String str) => _Producto.fromMap(json.decode(str));

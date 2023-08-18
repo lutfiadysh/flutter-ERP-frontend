@@ -42,9 +42,7 @@ class ProductDetail extends StatelessWidget {
                   3: FlexColumnWidth(1),
                 },
                 children: _movementsToTableRows(
-                  productMovements[productId]!
-                      .where((entry) => entry.verificacion == 'VERIFICADO')
-                      .toList(),
+                  productMovements[productId]!.toList(),
                 ),
               ),
             ],

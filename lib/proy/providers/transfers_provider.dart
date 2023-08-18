@@ -6,19 +6,25 @@ import 'package:flutter/material.dart';
 
 class TransfersProvider extends ChangeNotifier {
   List<Traspaso> traspasos = [];
+  bool isLoading = true; // Indica si los datos están cargando
 
-  getTransfers() async {
-    final resp = await BackendApi.httpGet('/traspasos');
-    final transfersResp = TransferResponse.fromMap(resp);
-
-    traspasos = [...transfersResp.traspasos];
-
-    notifyListeners();
+  /// Obtiene todos los traspasos
+  Future<void> getTransfers() async {
+    _setLoading(true);
+    try {
+      final resp = await BackendApi.httpGet('/traspasos');
+      final transfersResp = TransferResponse.fromMap(resp);
+      traspasos = [...transfersResp.traspasos];
+    } catch (e) {
+      // Aquí puedes manejar el error, mostrar un mensaje al usuario, etc.
+    } finally {
+      _setLoading(false);
+    }
   }
 
-  Future newTransfer(List<Note> list) async {
+  /// Crea un nuevo traspaso
+  Future<bool> newTransfer(List<Note> list) async {
     final list2 = Note.getListMapAux(list);
-
     final data = {'productos': list2};
 
     try {
@@ -26,8 +32,15 @@ class TransfersProvider extends ChangeNotifier {
       final newTransfer = Traspaso.fromMap(json);
       traspasos.add(newTransfer);
       notifyListeners();
+      return true;
     } catch (e) {
-      throw ('Error en crear traspaso');
+      return false;
     }
+  }
+
+  /// Actualiza el estado de carga y notifica a los oyentes
+  void _setLoading(bool value) {
+    isLoading = value;
+    notifyListeners();
   }
 }

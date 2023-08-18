@@ -31,7 +31,7 @@ class _VerificationsViewTestState extends State<VerificationsViewTest> {
         appBar: AppBar(
           title: const Text("Verificaciones"),
         ),
-        body: CardMovements(movimientos: movimientos),
+        body: CardSaleMovements(movimientos: movimientos),
       ),
     );
   }

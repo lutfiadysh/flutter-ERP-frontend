@@ -16,20 +16,8 @@ class CardUsers extends StatefulWidget {
 class _CardUsersState extends State<CardUsers> {
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    // Decide el número de elementos de la cuadrícula en base al tamaño de la pantalla
-    int gridCount = (screenWidth < 600) ? 1 : 2;
-    // Ajusta según tus necesidades
-    return GridView.builder(
-      shrinkWrap: true,
+    return ListView.builder(
       itemCount: widget.usuarios.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: gridCount,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        childAspectRatio: 2, // Ajusta esto según tus necesidades
-      ),
       itemBuilder: (context, index) {
         final usuario = widget.usuarios[index];
 
@@ -66,44 +54,45 @@ class _CardUsersState extends State<CardUsers> {
               onTap: () {
                 _showUserDetails(context, usuario.uid);
               },
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(
-                    minHeight: 200), // Define a minimum height
+              child: Padding(
+                padding: const EdgeInsets.all(16),
                 child: Row(
                   children: [
                     Container(
                       width: 100,
                       height: 100,
-                      margin: const EdgeInsets.all(16),
+                      margin: const EdgeInsets.only(right: 16),
                       child: image,
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              usuario.nombre,
-                              style: const TextStyle(fontSize: 20),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              'Correo: ${usuario.correo}',
-                              style: const TextStyle(fontSize: 16),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              'Rol: ${usuario.rol}',
-                              style: const TextStyle(fontSize: 16),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              'Estado: ${usuario.estado ? 'Activo' : 'Inactivo'}',
-                              style: const TextStyle(fontSize: 16),
-                            ),
-                          ],
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            usuario.nombre,
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            'Correo: ${usuario.correo}',
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            'Rol: ${usuario.rol}',
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            'Estado: ${usuario.estado ? 'Activo' : 'Inactivo'}',
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            'Sucursal: ${usuario.sucursal.municipio}',
+                            style: const TextStyle(fontSize: 16),
+                          )
+                        ],
                       ),
                     ),
                   ],

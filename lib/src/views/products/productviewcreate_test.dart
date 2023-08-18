@@ -10,7 +10,8 @@ class ProductViewCreateTest extends StatefulWidget {
   final Producto? producto;
   final Categoria? categoria;
 
-  const ProductViewCreateTest({super.key, this.producto, this.categoria});
+  const ProductViewCreateTest({Key? key, this.producto, this.categoria})
+      : super(key: key);
 
   @override
   State<ProductViewCreateTest> createState() => _ProductViewCreateTestState();
@@ -41,18 +42,26 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
   @override
   Widget build(BuildContext context) {
     final categorias = Provider.of<CategoriesProvider>(context).categorias;
-
+    final theme = Theme.of(context);
     final productProvider =
         Provider.of<ProductsProvider>(context, listen: false);
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(height: 10),
         TextFormField(
           initialValue: widget.producto?.nombre ?? '',
           onChanged: (value) => nombre = value,
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             hintText: 'Introduce el nombre del producto',
-            labelText: 'Nombre del producto',
+            hintStyle: theme.textTheme.bodyLarge,
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: theme.primaryColor),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: theme.primaryColorDark),
+            ),
           ),
         ),
         const SizedBox(height: 20),
@@ -63,7 +72,6 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
           onChanged: (value) {
             setState(() {
               first = value;
-              print(first);
             });
           },
           items: categorias.map<DropdownMenuItem<Categoria>>((Categoria value) {
@@ -72,9 +80,15 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
               child: Text(value.nombre),
             );
           }).toList(),
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             hintText: 'Selecciona una categoría',
-            labelText: 'Categoría del producto',
+            hintStyle: theme.textTheme.bodyLarge,
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: theme.primaryColor),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: theme.primaryColorDark),
+            ),
           ),
         ),
         const SizedBox(height: 20),
@@ -93,9 +107,15 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
               precioPorUnidadController.text = '';
             }
           },
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             hintText: 'Introduce el precio por caja',
-            labelText: 'Precio por caja',
+            hintStyle: theme.textTheme.bodyLarge,
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: theme.primaryColor),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: theme.primaryColorDark),
+            ),
           ),
         ),
         const SizedBox(height: 20),
@@ -103,15 +123,21 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
           controller: precioPorUnidadController,
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
           enabled: first != null,
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             hintText: 'El precio por unidad se calculará automáticamente',
-            labelText: 'Precio por unidad',
+            hintStyle: theme.textTheme.bodyLarge,
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: theme.primaryColor),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: theme.primaryColorDark),
+            ),
           ),
         ),
         Container(
           margin: const EdgeInsets.only(top: 30),
           alignment: Alignment.center,
-          child: OutlinedButton(
+          child: ElevatedButton(
             onPressed: () async {
               try {
                 if (id == null) {
@@ -126,16 +152,34 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
                     'No se pudo guardar el producto');
               }
             },
-            child: Text('Guardar'),
+            style: ElevatedButton.styleFrom(
+              textStyle: theme.textTheme.labelLarge,
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+            ),
+            child: const Text('Guardar'),
           ),
         ),
       ],
     );
   }
-}
 
-double calcularPrecioPorUnidad(double precioPorCaja, int piezasPorCaja) {
-  double precioPorUnidad = precioPorCaja / piezasPorCaja;
-  precioPorUnidad += precioPorUnidad * 0.10; // Añadir un 10% adicional
-  return precioPorUnidad;
+  double calcularPrecioPorUnidad(double precioPorCaja, int piezasPorCaja) {
+    double precioPorUnidad = precioPorCaja / piezasPorCaja;
+    precioPorUnidad += precioPorUnidad * 0.10; // Add an additional 10%
+
+    double fractionalPart = precioPorUnidad - precioPorUnidad.floor();
+    if (fractionalPart < 0.25) {
+      precioPorUnidad = precioPorUnidad.floorToDouble();
+    } else if (fractionalPart >= 0.25 && fractionalPart < 0.75) {
+      precioPorUnidad = precioPorUnidad.floorToDouble() + 0.5;
+    } else {
+      precioPorUnidad = precioPorUnidad.floorToDouble() + 1.0;
+    }
+
+    return precioPorUnidad;
+  }
 }

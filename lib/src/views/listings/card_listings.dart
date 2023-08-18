@@ -80,7 +80,7 @@ class _CardListingsViewTestState extends State<CardsListingsViewTest> {
                   ),
                   const SizedBox(height: 4.0),
                   Text(
-                    "Estado: ${cotizacion.estado ? 'Activo' : 'Inactivo'}",
+                    "Estado: ${cotizacion.vendido ? 'Vendido' : 'En espera'}",
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                   const SizedBox(height: 4.0),

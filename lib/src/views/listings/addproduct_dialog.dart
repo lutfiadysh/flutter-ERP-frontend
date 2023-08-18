@@ -57,9 +57,13 @@ class _AddProductDialogState extends State<AddProductDialog> {
     for (var stock in stocks) {
       if (stock.producto.id == productoDialog!.id) {
         if (isPiece) {
-          totalStock += stock.cantidadPiezas ?? 0;
+          totalStock +=
+              ((stock.cantidadPiezas ?? 0) - (stock.reservadoPiezas ?? 0)) +
+                  (stock.entrantePiezas ?? 0);
         } else {
-          totalStock += stock.cantidadCajas ?? 0;
+          totalStock +=
+              ((stock.cantidadCajas ?? 0) - (stock.reservadoCajas ?? 0)) +
+                  (stock.entranteCajas ?? 0);
         }
       }
     }
@@ -78,9 +82,13 @@ class _AddProductDialogState extends State<AddProductDialog> {
       if (stock.producto.id == productoDialog!.id &&
           stock.sucursal.id == branchId) {
         if (isPiece) {
-          totalStock += stock.cantidadPiezas ?? 0;
+          totalStock +=
+              ((stock.cantidadPiezas ?? 0) - (stock.reservadoPiezas ?? 0)) +
+                  (stock.entrantePiezas ?? 0);
         } else {
-          totalStock += stock.cantidadCajas ?? 0;
+          totalStock +=
+              ((stock.cantidadCajas ?? 0) - (stock.reservadoCajas ?? 0)) +
+                  (stock.entranteCajas ?? 0);
         }
       }
     }

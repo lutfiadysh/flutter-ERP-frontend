@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:admin_dashboard/proy/databases/users_datasource.dart';
 import 'package:admin_dashboard/proy/providers/users_provider.dart';
 import 'package:admin_dashboard/src/constant/string.dart';
 import 'package:admin_dashboard/src/widget/datatable.dart';
@@ -10,13 +9,11 @@ import 'package:provider/provider.dart';
 
 @RoutePage()
 class ResponsiveTable extends StatelessWidget {
-  
   const ResponsiveTable({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final usersProvider = Provider.of<UsersProvider>(context);
-    final usersDataSource = UsersDataSource(usersProvider.users);
 
     return Card(
       child: Padding(

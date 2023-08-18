@@ -103,7 +103,21 @@ class _CardStocksState extends State<CardStocks> {
                             style: const TextStyle(
                               fontSize: 14,
                             ),
-                          )
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            "Cajas entrantes: ${stock.entranteCajas}",
+                            style: const TextStyle(
+                              fontSize: 14,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            "Piezas entrantes: ${stock.entrantePiezas}",
+                            style: const TextStyle(
+                              fontSize: 14,
+                            ),
+                          ),
                         ],
                       ),
                     ),

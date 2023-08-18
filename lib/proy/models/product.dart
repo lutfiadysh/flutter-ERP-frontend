@@ -65,7 +65,6 @@ class Producto {
 
   @override
   int get hashCode => id.hashCode; // Devuelve el hashCode del atributo 'id'
-
 }
 
 class _Categoria {
