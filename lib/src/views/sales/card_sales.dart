@@ -15,6 +15,7 @@ class CardSales extends StatefulWidget {
 
 class _CardSalesState extends State<CardSales> {
   bool showMessage = false;
+  late Venta ventaById;
 
   @override
   void initState() {
@@ -50,19 +51,20 @@ class _CardSalesState extends State<CardSales> {
       itemBuilder: (context, index) {
         final venta = widget.ventas[index];
         return InkWell(
-          onTap: () {
-            salesProvider.selectVenta(venta);
+          onTap: () async {
+            ventaById = await salesProvider.getSaleById(venta.id);
+            salesProvider.selectVenta(ventaById);
             AutoTabsRouter.of(context).setActiveIndex(47);
           },
           child: Card(
             elevation: 2.0,
             child: ListTile(
-              title: Text('Cliente:${venta.cotizacion.cliente}'),
+              title: Text('Cliente: ${venta.cotizacion.cliente.nombre}'),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('NIT o CI:${venta.cotizacion.nit}'),
-                  Text('Venta por ${venta.usuario.nombre}'),
+                  Text('NIT o CI: ${venta.cotizacion.cliente.nit}'),
+                  Text('Venta por: ${venta.usuario.nombre}'),
                   Text(
                       'Fecha: ${venta.fechaVenta.toLocal().toString().split(' ')[0]}'),
                   Text('Cotización Total: ${venta.cotizacion.total}'),

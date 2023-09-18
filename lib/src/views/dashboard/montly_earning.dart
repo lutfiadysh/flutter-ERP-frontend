@@ -30,75 +30,6 @@ class _MonthlyearningState extends State<Monthlyearning> {
         maxY: 20,
       ),
     );
-    // return LineChartData(
-    //   lineTouchData: LineTouchData(
-    //     enabled: true,
-    //     touchTooltipData: LineTouchTooltipData(
-    //       getTooltipItems: (touchedSpots) {
-    //         double value = 0.0;
-    //         for (LineBarSpot lineBarSpot in touchedSpots) {
-    //           value = lineBarSpot.y;
-    //         }
-    //         return [
-    //           LineTooltipItem(
-    //             value.toString(),
-    //             const TextStyle(
-    //               color: ColorConst.darkFontColor,
-    //               fontWeight: FontWeight.w700,
-    //             ),
-    //           ),
-    //         ];
-    //       },
-    //       tooltipBgColor: ColorConst.grey800,
-    //     ),
-    //   ),
-    //   borderData: FlBorderData(
-    //     show: false,
-    //   ),
-    //   gridData: FlGridData(
-    //     drawVerticalLine: true,
-    //   ),
-    //   titlesData: FlTitlesData(
-    //     rightTitles: AxisTitles(
-    //       sideTitles: SideTitles(showTitles: false),
-    //     ),
-    //     topTitles: AxisTitles(
-    //       sideTitles: SideTitles(showTitles: false),
-    //     ),
-    //     bottomTitles: AxisTitles(
-    //       sideTitles: SideTitles(
-    //         showTitles: true,
-    //         reservedSize: 30,
-    //         interval: 1,
-    //       ),
-    //     ),
-    //   ),
-    //   minX: 0,
-    //   maxX: 11,
-    //   minY: 0,
-    //   maxY: 6,
-    //   lineBarsData: [
-    //     LineChartBarData(
-    //       spots: const [
-    //         FlSpot(0, 3),
-    //         FlSpot(2, 5.5),
-    //         FlSpot(4, 4),
-    //         FlSpot(6, 5),
-    //         FlSpot(8, 3),
-    //         FlSpot(9.5, 2),
-    //         FlSpot(11, 4),
-    //       ],
-    //       isCurved: true,
-    //       color: ColorConst.primary,
-    //       barWidth: 2,
-    //       isStrokeCapRound: true,
-    //       belowBarData: BarAreaData(
-    //         show: true,
-    //         color: ColorConst.chartForgoundColor,
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
 
   FlTitlesData get titlesData => FlTitlesData(
@@ -412,17 +343,6 @@ class _MonthlyearningState extends State<Monthlyearning> {
     );
   }
 
-  // Widget _circularProgress() {
-  //   return FxCircularProgress(
-  //     height: 72,
-  //     percentage: 40,
-  //     showPercentage: false,
-  //     round: false,
-  //     color: ColorConst.success,
-  //     backColor: ColorConst.darkFontColor,
-  //     stroke: 10,
-  //   );
-  // }
 
   Widget _halfCircleChart({
     required double chartpercentage,

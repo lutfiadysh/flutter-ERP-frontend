@@ -176,11 +176,11 @@ class _Producto {
 class _Sucursal {
   _Sucursal({
     required this.id,
-    required this.definicion,
+    required this.municipio,
   });
 
   String id;
-  String definicion;
+  String municipio;
 
   factory _Sucursal.fromJson(String str) => _Sucursal.fromMap(json.decode(str));
 
@@ -188,11 +188,11 @@ class _Sucursal {
 
   factory _Sucursal.fromMap(Map<String, dynamic> json) => _Sucursal(
         id: json["_id"],
-        definicion: json["definicion"],
+        municipio: json["municipio"],
       );
 
   Map<String, dynamic> toMap() => {
         "_id": id,
-        "definicion": definicion,
+        "municipio": municipio,
       };
 }

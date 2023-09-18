@@ -69,7 +69,7 @@ class ProductDetail extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: Align(
                 alignment: Alignment.centerRight,
-                child: Text(entry.stock.sucursal.definicion),
+                child: Text(entry.stock.sucursal.municipio),
               ),
             ),
             Padding(

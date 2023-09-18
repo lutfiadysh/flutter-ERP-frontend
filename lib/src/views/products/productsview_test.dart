@@ -31,7 +31,7 @@ class _ProductsViewTestState extends State<ProductsViewTest> {
     // Decide si es móvil o web según el ancho de pantalla
     bool isMobile = screenWidth < 600;
     return SizedBox(
-      height: size - 75 - 95,
+      height: size - 210,
       child: Scaffold(
         appBar: AppBar(title: const Text("Productos")),
         body: CardProducts(productos: productos),

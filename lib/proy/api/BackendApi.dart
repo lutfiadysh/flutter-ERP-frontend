@@ -6,7 +6,7 @@ class BackendApi {
   static final Dio _dio = Dio();
 
   static Future<void> configureDio() async {
-    String baseUrl = 'http://192.168.0.5:8080/api';
+    String baseUrl = 'http://192.168.0.4:8080/api';
     _dio.options.baseUrl = baseUrl;
 
     // Configure Headers
@@ -40,7 +40,7 @@ class BackendApi {
       final resp = await _dio.post(path, data: data);
       return resp.data;
     } catch (e) {
-      throw ('Error en el POSTAUX');
+      throw ('Error en el POSTAUX $e');
     }
   }
 
@@ -70,7 +70,7 @@ class BackendApi {
     try {
       final resp = await _dio.delete(path, data: formData);
       return resp.data;
-    } on DioError catch (e) {
+    } on DioError {
       throw ('Error en el DELETE');
     }
   }

@@ -189,14 +189,14 @@ class ProductsListView extends StatelessWidget {
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              "Origen: ${note.origen.sucursal.definicion}",
+                              "Origen: ${note.origen.sucursal.municipio}",
                               style: const TextStyle(
                                 fontSize: 14,
                               ),
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              "Origen: ${note.destino.sucursal.definicion}",
+                              "Origen: ${note.destino.sucursal.municipio}",
                               style: const TextStyle(
                                 fontSize: 14,
                               ),

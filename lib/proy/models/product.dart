@@ -11,6 +11,7 @@ class Producto {
     this.img,
     this.precioCaja,
     this.precioPorUnidad,
+    required this.codigoProducto,
   });
 
   String id;
@@ -22,6 +23,7 @@ class Producto {
   bool disponible;
   double? precioCaja;
   double? precioPorUnidad;
+  String codigoProducto;
 
   factory Producto.fromJson(String str) => Producto.fromMap(json.decode(str));
 
@@ -37,6 +39,7 @@ class Producto {
         img: json["img"],
         color: json["color"],
         disponible: json["disponible"],
+        codigoProducto: json["codigoProducto"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -49,6 +52,7 @@ class Producto {
         "img": img,
         "color": color,
         "disponible": disponible,
+        "codigoProducto": codigoProducto,
       };
 
   @override

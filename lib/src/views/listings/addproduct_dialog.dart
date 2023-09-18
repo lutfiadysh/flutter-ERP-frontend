@@ -263,7 +263,8 @@ class _AddProductDialogState extends State<AddProductDialog> {
                             );
 
                             widget.onProductAdded(productoElement);
-                            Navigator.pop(context);
+                            Navigator.pop(context,
+                                productoElement); // Devuelve el productoElement al widget padre
                           }
                         },
                   child: const Text("Añadir al listado"),

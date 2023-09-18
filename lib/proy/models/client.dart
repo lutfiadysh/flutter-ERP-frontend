@@ -7,13 +7,15 @@ class Cliente {
     this.nit,
     required this.estado,
     this.ci,
+    required this.codigoCliente,
   });
 
-  final String id;
-  final String nombre;
+  String id;
+  String nombre;
   String? nit;
-  final bool estado;
+  bool estado;
   String? ci;
+  String codigoCliente;
 
   factory Cliente.fromJson(String str) => Cliente.fromMap(json.decode(str));
 
@@ -25,6 +27,7 @@ class Cliente {
         nit: json["nit"],
         estado: json["estado"],
         ci: json["ci"],
+        codigoCliente: json["codigoCliente"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -33,5 +36,6 @@ class Cliente {
         "nit": nit,
         "estado": estado,
         "ci": ci,
+        "codigoCliente": codigoCliente,
       };
 }

@@ -6,7 +6,7 @@ import 'package:admin_dashboard/proy/models/product.dart';
 class Cotizacion {
   Cotizacion({
     required this.id,
-    required this.numero,
+    this.numero,
     required this.usuario,
     required this.cliente,
     required this.sucursal,
@@ -19,7 +19,7 @@ class Cotizacion {
   });
 
   String id;
-  String numero;
+  String? numero;
   _Usuario usuario;
   Cliente cliente;
   String? nit;
@@ -46,19 +46,20 @@ class Cotizacion {
         total: json["total"].toDouble(),
         estado: json["estado"],
         vendido: json["vendido"],
-        numero: '',
+        numero: json["numero"],
       );
 
   Map<String, dynamic> toMap() => {
         "_id": id,
         "usuario": usuario.toMap(),
-        "cliente": cliente,
+        "cliente": cliente.toMap(),
         "sucursal": sucursal.toMap(),
         "fecha": fecha.toIso8601String(),
         "productos": List<dynamic>.from(productos.map((x) => x.toMap())),
         "total": total,
         "estado": estado,
         "vendido": vendido,
+        "numero": numero,
       };
 }
 
@@ -114,6 +115,9 @@ class ProductoElement {
     int? cantidadPiezas,
     double? precioUnitarioCajas,
     double? precioUnitarioPiezas,
+    double? precioTotalPiezas,
+    double? precioTotalCajas,
+    double? precioTotal,
   }) {
     return ProductoElement(
       producto: producto!,
@@ -121,22 +125,23 @@ class ProductoElement {
       cantidadPiezas: cantidadPiezas ?? this.cantidadPiezas,
       precioUnitarioCajas: precioUnitarioCajas ?? this.precioUnitarioCajas,
       precioUnitarioPiezas: precioUnitarioPiezas ?? this.precioUnitarioPiezas,
-      precioTotalPiezas:
-          precioTotalPiezas, // Puedes ajustar esto según sea necesario
-      precioTotalCajas:
-          precioTotalCajas, // Puedes ajustar esto según sea necesario
-      precioTotal: precioTotal, // Puedes ajustar esto según sea necesario
+      precioTotalPiezas: precioTotalPiezas ??
+          this.precioTotalPiezas, // Puedes ajustar esto según sea necesario
+      precioTotalCajas: precioTotalCajas ??
+          this.precioTotalCajas, // Puedes ajustar esto según sea necesario
+      precioTotal: precioTotal ??
+          this.precioTotal, // Puedes ajustar esto según sea necesario
     );
   }
 }
 
 class _Sucursal {
   String id;
-  String definicion;
+  String municipio;
 
   _Sucursal({
     required this.id,
-    required this.definicion,
+    required this.municipio,
   });
 
   factory _Sucursal.fromJson(String str) => _Sucursal.fromMap(json.decode(str));
@@ -145,12 +150,12 @@ class _Sucursal {
 
   factory _Sucursal.fromMap(Map<String, dynamic> json) => _Sucursal(
         id: json["_id"],
-        definicion: json["definicion"],
+        municipio: json["municipio"],
       );
 
   Map<String, dynamic> toMap() => {
         "_id": id,
-        "definicion": definicion,
+        "municipio": municipio,
       };
 }
 

@@ -29,10 +29,14 @@ class _TransfersViewTestState extends State<TransfersViewTest> {
     final size = MediaQuery.of(context).size;
     final isLargeScreen = size.width > 800;
     final tabsRouter = AutoTabsRouter.of(context);
+    final double navigationBarHeight = MediaQuery.of(context).padding.bottom;
 
     return SizedBox(
-      height: size.height - 80 - 90,
+      height: size.height - 210 - navigationBarHeight,
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Traspasos'),
+        ),
         floatingActionButton: isLargeScreen
             ? FloatingActionButton.extended(
                 onPressed: () {

@@ -18,7 +18,7 @@ class MovementsDTS extends DataTableSource {
     return DataRow.byIndex(index: index, cells: [
       DataCell(Text(movimiento.movimiento)),
       DataCell(Text(movimiento.stock.producto.nombre)),
-      DataCell(Text(movimiento.stock.sucursal.definicion)),
+      DataCell(Text(movimiento.stock.sucursal.municipio)),
       DataCell(Text(movimiento.cantidadCajas.toString())),
       DataCell(Text(movimiento.cantidadPiezas.toString())),
       DataCell(Text(dateFormat.format(movimiento.fecha.toLocal()))),

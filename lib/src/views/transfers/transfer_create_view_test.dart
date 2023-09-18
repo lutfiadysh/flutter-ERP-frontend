@@ -257,7 +257,6 @@ class _TransferViewCreateTestState extends State<TransferCreateViewTest> {
                       widget.didSubmitText(destinoDialog!, origenDialog!,
                           productoDialog!, cantidadCajas, cantidadPiezas);
                       Navigator.of(context).pop();
-                      print(destinoDialog!);
                     },
                     text: 'Guardar',
                   ),
@@ -276,7 +275,7 @@ DropdownMenuItem<Stock> buildStockDropdownMenuItem(
   return DropdownMenuItem<Stock>(
     value: value,
     child: isSelected
-        ? Text(value.sucursal.definicion)
+        ? Text(value.sucursal.municipio)
         : Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -286,7 +285,7 @@ DropdownMenuItem<Stock> buildStockDropdownMenuItem(
                   'Sucursal:',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                Text(value.sucursal.definicion),
+                Text(value.sucursal.municipio),
                 const SizedBox(height: 4),
                 Row(children: [
                   Column(

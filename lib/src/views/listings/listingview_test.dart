@@ -1,4 +1,3 @@
-import 'package:admin_dashboard/proy/models/client.dart';
 import 'package:admin_dashboard/proy/providers/auth_provider.dart';
 import 'package:admin_dashboard/proy/providers/listings_provider.dart';
 import 'package:admin_dashboard/proy/providers/sales_provider.dart';
@@ -21,10 +20,12 @@ class ListingViewTest extends StatefulWidget {
 
 class _ListingViewTestState extends State<ListingViewTest> {
   List<ProductoElement> productos = [];
-  Cliente? cliente;
-  String clientName = 'Nombre del cliente';
-  String clientNIT = 'NIT del cliente';
+  double total = 0;
+  String clientID = 'ID del cliente';
+  String clientName = '';
+  String clientNIT = '';
   String sellerName = 'Nombre del vendedor';
+  String clientCI = '';
   String id = 'Cotizacion ID';
   DateTime date = DateTime.now();
   Cotizacion? selectedCotizacion;
@@ -41,7 +42,9 @@ class _ListingViewTestState extends State<ListingViewTest> {
       selectedCotizacion = listingProvider.selectedCotizacion!;
       productos = selectedCotizacion!.productos;
       clientName = selectedCotizacion!.cliente.nombre;
-      clientNIT = selectedCotizacion!.nit ?? "Sin NIT";
+      clientNIT = selectedCotizacion!.cliente.nit ?? "Sin NIT";
+      clientCI = selectedCotizacion!.cliente.ci ?? "Sin CI";
+      clientID = selectedCotizacion!.cliente.id;
       date = selectedCotizacion!.fecha;
       sellerName = selectedCotizacion!.usuario.nombre;
       id = selectedCotizacion!.id;
@@ -87,8 +90,8 @@ class _ListingViewTestState extends State<ListingViewTest> {
                       isEditing
                           ? await listingProvider.updateListing(
                               selectedCotizacion!.id, productos)
-                          : await listingProvider.newListing(
-                              productos, clientName, clientNIT, cliente);
+                          : await listingProvider.newListing(productos,
+                              clientName, clientNIT, clientCI, clientID);
                       tabsRouter.setActiveIndex(43);
                       NotificationsService.showSnackbar(
                         isEditing
@@ -96,8 +99,12 @@ class _ListingViewTestState extends State<ListingViewTest> {
                             : 'Cotización creada con éxito.',
                       );
                     } catch (e) {
+                      print(e);
                       NotificationsService.showSnackbarError(
-                          'No se pudo crear la cotización.');
+                        isEditing
+                            ? 'No se pudo actualizar la cotizacion.'
+                            : 'No se pudo crear la cotizacion.',
+                      );
                     }
                   }
                 } else if (value == 'Vender') {
@@ -129,7 +136,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
                   if (selectedCotizacion!.vendido) {
                     options = ['Generar PDF'];
                   } else {
-                    options = ['Generar PDF', 'Vender'];
+                    options = ['Generar PDF', 'Vender', 'Guardar'];
                   }
                 }
 
@@ -146,11 +153,14 @@ class _ListingViewTestState extends State<ListingViewTest> {
           ],
         ),
         body: ListingTable(
+          total: total,
           sellerName: sellerName,
           date: date,
           productos: productos,
           clientNIT: clientNIT,
           clientName: clientName,
+          clientCI: clientCI,
+          clienteID: '',
           onClientNameChanged: (newName) {
             setState(() {
               clientName = newName;
@@ -161,9 +171,14 @@ class _ListingViewTestState extends State<ListingViewTest> {
               clientNIT = newNIT;
             });
           },
-          onEditClient: (newClient) {
+          onEditClient: (newClientID) {
             setState(() {
-              cliente = newClient;
+              clientID = newClientID;
+            });
+          },
+          onClientCIChanged: (newCi) {
+            setState(() {
+              clientCI = newCi;
             });
           },
         ),
@@ -175,6 +190,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
                 onProductAdded: (producto) {
                   setState(() {
                     productos.add(producto);
+                    total += producto.precioTotal;
                   });
                 },
               ),

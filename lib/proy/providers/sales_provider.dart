@@ -18,6 +18,14 @@ class SalesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<Venta> getSaleById(String id) async {
+    final resp = await BackendApi.httpGet('/ventas/$id');
+    final sale = Venta.fromMap(resp);
+    venta = sale;
+    notifyListeners();
+    return venta!;
+  }
+
   void selectVenta(Venta venta) {
     selectedVenta = venta;
     notifyListeners();
@@ -28,23 +36,18 @@ class SalesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future registerPay(String id) async {
-    final data = {
-      'venta': id,
-    };
+  Future<Venta> registerPay(String id) async {
+    final data = {'venta': id};
 
     try {
-      BackendApi.put('/ventas/pagar_venta/$id', data);
-      ventas = ventas.map((venta) {
-        if (venta.id != id) return venta;
-
-        return venta;
-      }).toList();
+      final resp = await BackendApi.put('/ventas/pagar_venta/$id', data);
+      final sale = Venta.fromMap(resp);
+      venta = sale;
 
       notifyListeners();
-      return true;
+      return venta!;
     } catch (e) {
-      return false;
+      throw ('Error en el registro de pago');
     }
   }
 

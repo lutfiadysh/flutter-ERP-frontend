@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:admin_dashboard/proy/api/BackendApi.dart';
-import 'package:admin_dashboard/proy/models/client.dart';
 import 'package:admin_dashboard/proy/models/http/listings_response.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -36,11 +35,10 @@ class ListingsProvider extends ChangeNotifier {
   }
 
   Future<void> newListing(List<ProductoElement> productos, String nombreCliente,
-      String nit, Cliente? cliente) async {
+      String? nit, String? ci, String? cliente) async {
     final Map<String, dynamic> data = {
-      'nombreCliente': nombreCliente,
-      'nit': nit,
-      'cliente': cliente?.id,
+      'clienteNombre': nombreCliente,
+      'clienteId': cliente,
       'productos': productos.map((producto) {
         return {
           'producto': producto.producto!.id,
@@ -55,14 +53,25 @@ class ListingsProvider extends ChangeNotifier {
       }).toList(),
     };
 
+    if (nit != null && nit.isNotEmpty) {
+      data['nit'] = nit;
+    }
+
+    if (ci != null && ci.isNotEmpty) {
+      data['ci'] = ci;
+    }
+
+    print(data);
+
     try {
-      final Map<String, dynamic> json =
-          await BackendApi.postAux('/cotizaciones', data);
-      final Cotizacion newListing = Cotizacion.fromMap(json);
+      final resp = await BackendApi.postAux('/cotizaciones', data);
+      print(resp.toString());
+      final Cotizacion newListing = Cotizacion.fromMap(resp);
+      print(newListing);
       cotizaciones.add(newListing);
       notifyListeners();
     } catch (e) {
-      throw Exception('Error en crear cotizacion');
+      throw Exception('Error en crear cotizacion $e');
     }
   }
 
@@ -97,6 +106,7 @@ class ListingsProvider extends ChangeNotifier {
 
       notifyListeners();
     } catch (e) {
+      print(e);
       throw Exception('Error en actualizar cotizacion');
     }
   }

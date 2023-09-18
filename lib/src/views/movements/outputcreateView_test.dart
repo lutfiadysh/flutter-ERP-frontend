@@ -237,7 +237,7 @@ DropdownMenuItem<Stock> buildStockDropdownMenuItem(
   return DropdownMenuItem<Stock>(
     value: value,
     child: isSelected
-        ? Text(value.sucursal.definicion)
+        ? Text(value.sucursal.municipio)
         : Card(
             margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
             child: Padding(
@@ -249,7 +249,7 @@ DropdownMenuItem<Stock> buildStockDropdownMenuItem(
                     'Sucursal:',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  Text(value.sucursal.definicion),
+                  Text(value.sucursal.municipio),
                   const SizedBox(height: 4),
                   Row(children: [
                     Column(

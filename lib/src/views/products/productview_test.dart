@@ -23,8 +23,8 @@ class _ProductViewTestState extends State<ProductViewTest> {
   void initState() {
     super.initState();
     nameController.text = widget.product.nombre;
-    priceBoxController.text = "${widget.product.precioCaja} Bs";
-    unitPriceController.text = "${widget.product.precioPorUnidad} Bs";
+    priceBoxController.text = "${widget.product.precioCaja}";
+    unitPriceController.text = "${widget.product.precioPorUnidad}";
   }
 
   @override

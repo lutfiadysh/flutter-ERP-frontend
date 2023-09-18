@@ -267,7 +267,7 @@ Widget buildList(List<Movimiento> filteredMovements,
                         ),
                       const SizedBox(height: 8),
                       Text(
-                        'Sucursal: ${movimiento.stock.sucursal.definicion}',
+                        'Sucursal: ${movimiento.stock.sucursal.municipio}',
                         style: const TextStyle(
                           fontSize: 14,
                         ),

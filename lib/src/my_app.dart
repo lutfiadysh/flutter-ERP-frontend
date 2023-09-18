@@ -1,6 +1,8 @@
 import 'package:admin_dashboard/proy/providers/branches_provider.dart';
 import 'package:admin_dashboard/proy/providers/categories_provider.dart';
+import 'package:admin_dashboard/proy/providers/clients_provider.dart';
 import 'package:admin_dashboard/proy/providers/inputs_provider.dart';
+import 'package:admin_dashboard/proy/providers/invoice_provider.dart';
 import 'package:admin_dashboard/proy/providers/listings_provider.dart';
 import 'package:admin_dashboard/proy/providers/movements_provider.dart';
 import 'package:admin_dashboard/proy/providers/outputs_provider.dart';
@@ -90,6 +92,12 @@ class _MyAppState extends State<MyApp> {
         ),
         ChangeNotifierProvider(
           create: (_) => SalesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ClientsProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => InvoicesProvider(),
         ),
       ],
       child: MyProyApp(appRouter: _appRouter),

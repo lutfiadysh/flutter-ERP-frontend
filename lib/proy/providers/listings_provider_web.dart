@@ -31,14 +31,11 @@ class ListingsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> newListing(
-    List<ProductoElement> productos,
-    String nombreCliente,
-    String nit,
-  ) async {
+  Future<void> newListing(List<ProductoElement> productos, String nombreCliente,
+      String? nit, String? ci, String? cliente) async {
     final Map<String, dynamic> data = {
-      'cliente': nombreCliente,
-      'nit': nit,
+      'clienteNombre': nombreCliente,
+      'clienteId': cliente,
       'productos': productos.map((producto) {
         return {
           'producto': producto.producto!.id,
@@ -53,26 +50,33 @@ class ListingsProvider extends ChangeNotifier {
       }).toList(),
     };
 
+    if (nit != null && nit.isNotEmpty) {
+      data['nit'] = nit;
+    }
+
+    if (ci != null && ci.isNotEmpty) {
+      data['ci'] = ci;
+    }
+
+    print(data);
+
     try {
-      final Map<String, dynamic> json =
-          await BackendApi.postAux('/cotizaciones', data);
-      final Cotizacion newListing = Cotizacion.fromMap(json);
+      final resp = await BackendApi.postAux('/cotizaciones', data);
+      print(resp.toString());
+      final Cotizacion newListing = Cotizacion.fromMap(resp);
+      print(newListing);
       cotizaciones.add(newListing);
       notifyListeners();
     } catch (e) {
-      throw Exception('Error en crear cotizacion');
+      throw Exception('Error en crear cotizacion $e');
     }
   }
 
   Future updateListing(
     String id,
     List<ProductoElement> productos,
-    String nombreCliente,
-    String nit,
   ) async {
     final Map<String, dynamic> data = {
-      'cliente': nombreCliente,
-      'nit': nit,
       'productos': productos.map((producto) {
         return {
           'producto': producto.producto!.id,
@@ -86,8 +90,17 @@ class ListingsProvider extends ChangeNotifier {
         };
       }).toList(),
     };
+    print(data);
     try {
       await BackendApi.putAux('/cotizaciones/$id', data);
+
+      cotizaciones = cotizaciones.map((cotizacion) {
+        if (cotizacion.id == id) {
+          cotizacion.productos = productos;
+        }
+        return cotizacion;
+      }).toList();
+
       notifyListeners();
     } catch (e) {
       print(e);

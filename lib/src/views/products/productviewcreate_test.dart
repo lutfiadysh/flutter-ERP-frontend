@@ -18,6 +18,7 @@ class ProductViewCreateTest extends StatefulWidget {
 }
 
 class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String nombre = '';
   String categoria = '';
   String? id;
@@ -30,7 +31,6 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     id = widget.producto?.id;
     nombre = widget.producto?.nombre ?? '';
@@ -46,124 +46,139 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
     final productProvider =
         Provider.of<ProductsProvider>(context, listen: false);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 10),
-        TextFormField(
-          initialValue: widget.producto?.nombre ?? '',
-          onChanged: (value) => nombre = value,
-          decoration: InputDecoration(
-            hintText: 'Introduce el nombre del producto',
-            hintStyle: theme.textTheme.bodyLarge,
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: theme.primaryColor),
-            ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: theme.primaryColorDark),
-            ),
-          ),
-        ),
-        const SizedBox(height: 20),
-        DropdownButtonFormField<Categoria>(
-          value: first,
-          iconSize: 24,
-          elevation: 16,
-          onChanged: (value) {
-            setState(() {
-              first = value;
-            });
-          },
-          items: categorias.map<DropdownMenuItem<Categoria>>((Categoria value) {
-            return DropdownMenuItem<Categoria>(
-              value: value,
-              child: Text(value.nombre),
-            );
-          }).toList(),
-          decoration: InputDecoration(
-            hintText: 'Selecciona una categoría',
-            hintStyle: theme.textTheme.bodyLarge,
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: theme.primaryColor),
-            ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: theme.primaryColorDark),
-            ),
-          ),
-        ),
-        const SizedBox(height: 20),
-        TextFormField(
-          controller: precioPorCajaController,
-          keyboardType: const TextInputType.numberWithOptions(decimal: true),
-          enabled: first != null,
-          onChanged: (value) {
-            if (first != null && value.isNotEmpty) {
-              precioPorCaja = double.parse(value);
-              precioPorUnidad = calcularPrecioPorUnidad(
-                  precioPorCaja!, first!.unidadesPorCaja);
-              precioPorUnidadController.text =
-                  precioPorUnidad!.toStringAsFixed(2);
-            } else {
-              precioPorUnidadController.text = '';
-            }
-          },
-          decoration: InputDecoration(
-            hintText: 'Introduce el precio por caja',
-            hintStyle: theme.textTheme.bodyLarge,
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: theme.primaryColor),
-            ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: theme.primaryColorDark),
-            ),
-          ),
-        ),
-        const SizedBox(height: 20),
-        TextFormField(
-          controller: precioPorUnidadController,
-          keyboardType: const TextInputType.numberWithOptions(decimal: true),
-          enabled: first != null,
-          decoration: InputDecoration(
-            hintText: 'El precio por unidad se calculará automáticamente',
-            hintStyle: theme.textTheme.bodyLarge,
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: theme.primaryColor),
-            ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: theme.primaryColorDark),
-            ),
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(top: 30),
-          alignment: Alignment.center,
-          child: ElevatedButton(
-            onPressed: () async {
-              try {
-                if (id == null) {
-                  await productProvider.newProduct(
-                      nombre, first!.id, precioPorCaja, precioPorUnidad);
-                  NotificationsService.showSnackbar('Producto $nombre creado!');
-                }
-                Navigator.of(context).pop();
-              } catch (e) {
-                Navigator.of(context).pop();
-                NotificationsService.showSnackbarError(
-                    'No se pudo guardar el producto');
-              }
-            },
-            style: ElevatedButton.styleFrom(
-              textStyle: theme.textTheme.labelLarge,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0),
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 10),
+          TextFormField(
+            initialValue: widget.producto?.nombre ?? '',
+            onChanged: (value) => nombre = value,
+            decoration: InputDecoration(
+              labelText: 'Nombre del Producto',
+              hintText: 'Introduce el nombre del producto',
+              hintStyle: theme.textTheme.bodyLarge,
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: theme.primaryColor, width: 1.0),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(color: theme.primaryColorDark, width: 2.0),
               ),
             ),
-            child: const Text('Guardar'),
           ),
-        ),
-      ],
+          const SizedBox(height: 20),
+          DropdownButtonFormField<Categoria>(
+            value: first,
+            iconSize: 24,
+            elevation: 16,
+            onChanged: (value) {
+              setState(() {
+                first = value;
+              });
+            },
+            items:
+                categorias.map<DropdownMenuItem<Categoria>>((Categoria value) {
+              return DropdownMenuItem<Categoria>(
+                value: value,
+                child: Text(value.nombre),
+              );
+            }).toList(),
+            decoration: InputDecoration(
+              labelText: 'Categoría',
+              hintText: 'Selecciona una categoría',
+              hintStyle: theme.textTheme.bodyLarge,
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: theme.primaryColor, width: 1.0),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(color: theme.primaryColorDark, width: 2.0),
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+          TextFormField(
+            controller: precioPorCajaController,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+            enabled: first != null,
+            onChanged: (value) {
+              if (first != null && value.isNotEmpty) {
+                precioPorCaja = double.parse(value);
+                precioPorUnidad = calcularPrecioPorUnidad(
+                    precioPorCaja!, first!.unidadesPorCaja);
+                precioPorUnidadController.text =
+                    precioPorUnidad!.toStringAsFixed(2);
+              } else {
+                precioPorUnidadController.text = '';
+              }
+            },
+            decoration: InputDecoration(
+              labelText: 'Precio por Caja',
+              hintText: 'Introduce el precio por caja',
+              hintStyle: theme.textTheme.bodyLarge,
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: theme.primaryColor, width: 1.0),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(color: theme.primaryColorDark, width: 2.0),
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+          TextFormField(
+            controller: precioPorUnidadController,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+            enabled: first != null,
+            decoration: InputDecoration(
+              labelText: 'Precio por Unidad',
+              hintText: 'El precio por unidad se calculará automáticamente',
+              hintStyle: theme.textTheme.bodyLarge,
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: theme.primaryColor, width: 1.0),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(color: theme.primaryColorDark, width: 2.0),
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 30),
+            alignment: Alignment.center,
+            child: ElevatedButton(
+              onPressed: () async {
+                if (_formKey.currentState!.validate()) {
+                  try {
+                    if (id == null) {
+                      await productProvider.newProduct(
+                          nombre, first!.id, precioPorCaja, precioPorUnidad);
+                      NotificationsService.showSnackbar(
+                          'Producto $nombre creado!');
+                    }
+                    Navigator.of(context).pop();
+                  } catch (e) {
+                    Navigator.of(context).pop();
+                    NotificationsService.showSnackbarError(
+                        'No se pudo guardar el producto');
+                  }
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                textStyle: theme.textTheme.labelLarge,
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 30.0, vertical: 15.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+              ),
+              child: const Text('Guardar'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

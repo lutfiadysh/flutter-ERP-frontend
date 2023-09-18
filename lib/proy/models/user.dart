@@ -13,6 +13,7 @@ class Usuario {
     this.img,
     required this.sucursal,
     this.codigoPuntoVenta,
+    required this.codigoUsuario,
   });
 
   String rol;
@@ -24,6 +25,7 @@ class Usuario {
   String? img;
   Branch sucursal;
   String? codigoPuntoVenta;
+  String codigoUsuario;
 
   factory Usuario.fromJson(String str) => Usuario.fromMap(json.decode(str));
 
@@ -38,6 +40,7 @@ class Usuario {
       uid: json["uid"],
       img: json["img"],
       codigoPuntoVenta: json["codigoPuntoVenta"],
+      codigoUsuario: json["codigoUsuario"],
       sucursal: Branch.fromMap(json["sucursal"]));
 
   Map<String, dynamic> toMap() => {
@@ -48,6 +51,7 @@ class Usuario {
         "correo": correo,
         "img": img,
         "codigoPuntoVenta": codigoPuntoVenta,
+        "codigoUsuario": codigoUsuario,
         "sucursal": sucursal.toMap()
       };
 }

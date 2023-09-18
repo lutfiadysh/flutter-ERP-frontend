@@ -1,3 +1,5 @@
+import 'package:admin_dashboard/proy/models/invoice.dart';
+import 'package:admin_dashboard/proy/providers/invoice_provider.dart';
 import 'package:admin_dashboard/proy/providers/sales_provider.dart';
 import 'package:admin_dashboard/proy/providers/stocks_provider.dart';
 import 'package:auto_route/auto_route.dart';
@@ -15,6 +17,8 @@ class SaleViewTest extends StatefulWidget {
 
 class _SaleViewTestState extends State<SaleViewTest> {
   late Venta selectedVenta;
+  late Factura selectedFactura;
+  late Venta ventaPaymentUpdate;
 
   @override
   void initState() {
@@ -48,6 +52,7 @@ class _SaleViewTestState extends State<SaleViewTest> {
     final height = MediaQuery.of(context).size.height;
     final tabsRouter = AutoTabsRouter.of(context);
     final salesProvider = Provider.of<SalesProvider>(context);
+    final invoicesProvider = Provider.of<InvoicesProvider>(context);
 
     return SizedBox(
       height: height - 210,
@@ -55,9 +60,9 @@ class _SaleViewTestState extends State<SaleViewTest> {
         future: Provider.of<StocksProvider>(context, listen: false).getStocks(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: const CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.error != null) {
-            return Center(child: Text('An error occurred!'));
+            return const Center(child: Text('An error occurred!'));
           } else {
             return Scaffold(
               appBar: AppBar(
@@ -68,13 +73,45 @@ class _SaleViewTestState extends State<SaleViewTest> {
                 ),
                 actions: <Widget>[
                   PopupMenuButton<String>(
-                    onSelected: (String result) {
-                      if (result == 'Registrar pago') {
-                        salesProvider.registerPay(selectedVenta.id);
-                      } else if (result == 'Anular venta') {
-                        print('Anular venta');
-                      } else if (result == 'Facturar') {
-                        print('Facturar');
+                    onSelected: (String result) async {
+                      try {
+                        if (result == 'Registrar pago') {
+                          try {
+                            Venta updatedVenta = await salesProvider
+                                .registerPay(selectedVenta.id);
+                            setState(() {
+                              selectedVenta = updatedVenta;
+                            });
+                          } catch (e) {
+                            print('Error al registrar el pago: $e');
+                            // Manejo de errores específicos aquí
+                          }
+                        } else if (result == 'Anular venta') {
+                          // Tu lógica para anular la venta
+                          print('Anular venta');
+                        } else if (result == 'Emitir factura') {
+                          Factura selectedFactura;
+                          if (selectedVenta.facturado) {
+                            // Si ya está facturado, obtén la factura existente
+                            selectedFactura = await invoicesProvider
+                                .getInvoiceById(selectedVenta.factura!);
+                          } else {
+                            // Intenta obtener la factura existente, si falla, crea una nueva
+                            try {
+                              selectedFactura = await invoicesProvider
+                                  .getInvoiceById(selectedVenta.factura!);
+                            } catch (e) {
+                              selectedFactura = await invoicesProvider
+                                  .createInvoice(selectedVenta.id);
+                            }
+                          }
+                          // Genera el PDF de la factura
+                          await invoicesProvider
+                              .createPdfInvoice(selectedFactura);
+                        }
+                      } catch (e) {
+                        print('Error: $e');
+                        // Aquí puedes añadir lógica para manejar errores específicos
                       }
                     },
                     itemBuilder: (BuildContext context) =>
@@ -91,8 +128,8 @@ class _SaleViewTestState extends State<SaleViewTest> {
                         ),
                       if (selectedVenta.estado == 'Pagado')
                         const PopupMenuItem<String>(
-                          value: 'Facturar',
-                          child: Text('Facturar'),
+                          value: 'Emitir factura',
+                          child: Text('Emitir factura'),
                         ),
                     ],
                   ),
@@ -115,6 +152,10 @@ class _SaleViewTestState extends State<SaleViewTest> {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Text('Usuario: ${selectedVenta.usuario.nombre}'),
+                            Text(
+                                'Cliente: ${selectedVenta.cotizacion.cliente.nombre}'),
+                            Text(
+                                'NIT: ${selectedVenta.cotizacion.cliente.nit}'),
                             Text('Estado: ${selectedVenta.estado}'),
                             Text(
                                 'Fecha: ${selectedVenta.fechaVenta.toLocal().toString().split(' ')[0]}'),
@@ -161,7 +202,7 @@ class _SaleViewTestState extends State<SaleViewTest> {
                         ),
                         ...selectedVenta.cotizacion.productos.map((producto) {
                           final enStock = stockSatisfaceDemanda(
-                              producto.producto.id,
+                              producto.producto!.id,
                               producto.cantidadCajas,
                               producto.cantidadPiezas);
                           final stockColor =
@@ -171,7 +212,7 @@ class _SaleViewTestState extends State<SaleViewTest> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(producto.producto.nombre,
+                                child: Text(producto.producto!.nombre,
                                     style: TextStyle(color: stockColor)),
                               ),
                               Padding(

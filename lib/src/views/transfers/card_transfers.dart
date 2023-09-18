@@ -52,28 +52,27 @@ class _TransfersState extends State<CardTransfers> {
         } else {
           final traspasos = Provider.of<TransfersProvider>(context).traspasos;
 
-          return Center(
-            // Agregado este Center
-            child: SizedBox(
-              width:
-                  double.infinity, // Asegura que ocupe todo el ancho disponible
-              child: SingleChildScrollView(
-                child: traspasos.isNotEmpty
-                    ? Column(
-                        children: traspasos
-                            .map((traspaso) => TraspasoCard(traspaso: traspaso))
-                            .toList(),
-                      )
-                    : const Center(
-                        child: Text(
-                          'No existen traspasos, añade uno',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
+          return SizedBox(
+            width:
+                double.infinity, // Asegura que ocupe todo el ancho disponible
+            child: SingleChildScrollView(
+              child: traspasos.isNotEmpty
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment
+                          .start, // Alineación desde el inicio
+                      children: traspasos
+                          .map((traspaso) => TraspasoCard(traspaso: traspaso))
+                          .toList(),
+                    )
+                  : const Center(
+                      child: Text(
+                        'No existen traspasos, añade uno',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-              ),
+                    ),
             ),
           );
         }
@@ -209,7 +208,7 @@ List<TableRow> entradasToTableRows(List<Movements> movimientos) {
       ),
       Text('${movimiento.cantidadCajas}'),
       Text('${movimiento.cantidadPiezas}'),
-      Text(movimiento.stock.sucursal.definicion),
+      Text(movimiento.stock.sucursal.municipio),
     ]);
   }).toList();
 }
@@ -231,7 +230,7 @@ List<TableRow> salidasToTableRows(List<Movements> movimientos) {
       ),
       Text('${movimiento.cantidadCajas}'),
       Text('${movimiento.cantidadPiezas}'),
-      Text(movimiento.stock.sucursal.definicion),
+      Text(movimiento.stock.sucursal.municipio),
     ]);
   }).toList();
 }

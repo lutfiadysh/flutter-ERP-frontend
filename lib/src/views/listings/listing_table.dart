@@ -1,13 +1,16 @@
 import 'package:admin_dashboard/proy/models/client.dart';
 import 'package:admin_dashboard/proy/models/listing.dart';
 import 'package:admin_dashboard/proy/models/stock.dart';
+import 'package:admin_dashboard/proy/providers/clients_provider.dart';
 import 'package:admin_dashboard/proy/providers/stocks_provider.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class ListingTable extends StatefulWidget {
-  const ListingTable({
+  ListingTable({
     Key? key,
     required this.productos,
     required this.clientName,
@@ -17,15 +20,23 @@ class ListingTable extends StatefulWidget {
     required this.onClientNITChanged,
     required this.date,
     required this.onEditClient,
+    required this.clientCI,
+    required this.onClientCIChanged,
+    required this.total,
+    required this.clienteID,
   }) : super(key: key);
 
+  final double total;
   final List<ProductoElement> productos;
   final String sellerName;
   final String clientName;
   final String clientNIT;
+  final String clientCI;
+  final String clienteID; // Nuevo campo
   final ValueChanged<String> onClientNameChanged;
   final ValueChanged<String> onClientNITChanged;
-  final ValueChanged<Cliente> onEditClient;
+  final ValueChanged<String> onClientCIChanged; // Nuevo campo
+  final ValueChanged<String> onEditClient;
   final DateTime date;
 
   @override
@@ -89,12 +100,17 @@ class _ListingTableState extends State<ListingTable> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   HeaderSection(
-                      sellerName: widget.sellerName,
-                      clientName: widget.clientName,
-                      clientNIT: widget.clientNIT,
-                      fecha: fecha,
-                      onClientNameChanged: widget.onClientNameChanged,
-                      onClientNITChanged: widget.onClientNITChanged),
+                    sellerName: widget.sellerName,
+                    clientName: widget.clientName,
+                    clientNIT: widget.clientNIT,
+                    fecha: fecha,
+                    onClientNameChanged: widget.onClientNameChanged,
+                    onClientNITChanged: widget.onClientNITChanged,
+                    clientCI: widget.clientCI,
+                    onClientCIChanged: widget.onClientCIChanged,
+                    onEditClient: widget.onEditClient,
+                    clientID: widget.clienteID, // Nuevo campo
+                  ),
                   const SizedBox(height: 20),
                   const Divider(),
                   const SizedBox(height: 10),
@@ -111,7 +127,7 @@ class _ListingTableState extends State<ListingTable> {
                     onEditProduct: editProduct, // Pasa la función aquí
                   ),
                   const Divider(),
-                  TotalSection(total: total),
+                  TotalSection(productos: productos),
                 ],
               );
             },
@@ -126,127 +142,228 @@ class HeaderSection extends StatelessWidget {
   final String sellerName;
   final String clientName;
   final String clientNIT;
+  final String clientCI;
+  final String clientID; // Nuevo campo
   final String fecha;
-  final Function(String) onClientNameChanged;
-  final Function(String) onClientNITChanged;
+  final ValueChanged<String> onClientNameChanged; // Cambiado a ValueChanged
+  final ValueChanged<String> onClientNITChanged; // Cambiado a ValueChanged
+  final ValueChanged<String> onClientCIChanged;
+  final ValueChanged<String> onEditClient; // Nuevo campo
 
-  const HeaderSection(
-      {super.key,
-      required this.sellerName,
-      required this.clientName,
-      required this.clientNIT,
-      required this.fecha,
-      required this.onClientNameChanged,
-      required this.onClientNITChanged});
+  const HeaderSection({
+    Key? key, // Corregido key
+    required this.sellerName,
+    required this.clientName,
+    required this.clientNIT,
+    required this.clientCI, // Nuevo campo
+    required this.fecha,
+    required this.onClientNameChanged,
+    required this.onClientNITChanged,
+    required this.onClientCIChanged,
+    required this.onEditClient,
+    required this.clientID, // Nuevo campo
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text('Cotización',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-        const SizedBox(height: 20),
-        Text('Creado por: $sellerName'),
-        const SizedBox(height: 8),
-        Row(
-          children: [
-            const Text('Cliente: '),
-            InkWell(
-              onTap: () async {
-                final newName = await showDialog<String>(
-                  context: context,
-                  builder: (BuildContext context) => const ClientNameDialog(),
-                );
-                if (newName != null && newName.isNotEmpty) {
-                  onClientNameChanged(newName);
-                }
-              },
-              child: Text(clientName),
-            ),
-          ],
-        ),
-        const SizedBox(height: 8),
-        Row(
-          children: [
-            const Text('NIT: '),
-            InkWell(
-              onTap: () async {
-                final newNIT = await showDialog<String>(
-                  context: context,
-                  builder: (BuildContext context) => const ClientNITDialog(),
-                );
-                if (newNIT != null && newNIT.isNotEmpty) {
-                  onClientNITChanged(newNIT);
-                }
-              },
-              child: Text(clientNIT),
-            ),
-          ],
-        ),
-        const SizedBox(height: 8),
-        Text('Fecha: $fecha'),
-      ],
+    return InkWell(
+      // Se añade InkWell para abrir el diálogo con un toque en cualquier parte de la sección
+      onTap: () async {
+        final clientData = await showDialog<Map<String, String>>(
+          context: context,
+          builder: (BuildContext context) => ClientDataDialog(
+            newClientName: clientName,
+            newClientNIT: clientNIT,
+            newClientCI: clientCI,
+            newClientID: clientID, // Nuevo campo
+          ),
+        );
+        if (clientData != null) {
+          onClientNameChanged(clientData['name']!);
+          onClientNITChanged(clientData['nit']!);
+          onClientCIChanged(clientData['ci']!);
+          onEditClient(clientData['id']!); // Nuevo campo
+        }
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Vendedor: $sellerName'),
+          const SizedBox(height: 10),
+          Text('Cliente: $clientName'),
+          const SizedBox(height: 10),
+          Text('NIT: $clientNIT'),
+          const SizedBox(height: 10),
+          Text('CI: $clientCI'), // Nuevo campo
+          const SizedBox(height: 10),
+          Text('Fecha: $fecha'),
+          // El resto del código sigue igual
+        ],
+      ),
     );
   }
 }
 
-class ClientNameDialog extends StatelessWidget {
-  const ClientNameDialog({super.key});
+class ClientDataDialog extends StatefulWidget {
+  final String newClientName;
+  final String newClientNIT;
+  final String newClientCI;
+  final String newClientID; // Nuevo campo
+
+  ClientDataDialog({
+    required this.newClientName,
+    required this.newClientNIT,
+    required this.newClientCI,
+    required this.newClientID,
+  });
 
   @override
-  Widget build(BuildContext context) {
-    String? newClientName;
-    return AlertDialog(
-      title: const Text('Cambiar nombre del cliente'),
-      content: TextField(
-        onChanged: (value) {
-          newClientName = value;
-        },
-        decoration: const InputDecoration(
-          hintText: 'Ingrese el nuevo nombre del cliente',
-        ),
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancelar'),
-        ),
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(newClientName),
-          child: const Text('Aceptar'),
-        ),
-      ],
-    );
-  }
+  _ClientDataDialogState createState() => _ClientDataDialogState();
 }
 
-class ClientNITDialog extends StatelessWidget {
-  const ClientNITDialog({super.key});
+class _ClientDataDialogState extends State<ClientDataDialog> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController nitController = TextEditingController();
+  TextEditingController ciController = TextEditingController();
+  TextEditingController idController = TextEditingController(); // Nuevo campo
+  Cliente? selectedClient;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    nameController.text = widget.newClientName;
+    nitController.text = widget.newClientNIT;
+    ciController.text = widget.newClientCI;
+    idController.text = widget.newClientID; // Nuevo campo
+  }
 
   @override
   Widget build(BuildContext context) {
-    String? newClientNIT;
-    return AlertDialog(
-      title: const Text('Cambiar NIT del cliente'),
-      content: TextField(
-        onChanged: (value) {
-          newClientNIT = value;
-        },
-        decoration: const InputDecoration(
-          hintText: 'Ingrese el nuevo NIT del cliente',
-        ),
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancelar'),
-        ),
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(newClientNIT),
-          child: const Text('Aceptar'),
-        ),
-      ],
+    final clientsProvider =
+        Provider.of<ClientsProvider>(context, listen: false);
+
+    return FutureBuilder<List<Cliente>>(
+      future: clientsProvider.getClients(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return AlertDialog(
+            content: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                color:
+                    Theme.of(context).primaryColor, // Color primario de tu tema
+                shape: BoxShape.circle, // Forma redonda
+              ),
+              child: const Center(
+                child: SizedBox(
+                  height: 30,
+                  width: 30,
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                        Colors.white), // Color del indicador
+                  ),
+                ),
+              ),
+            ),
+            backgroundColor: Colors.transparent, // Fondo transparente
+            elevation: 0, // Sin sombra
+          );
+        } else if (snapshot.hasError) {
+          return const AlertDialog(
+            content: Text('Ocurrió un error al cargar los datos.'),
+          );
+        } else {
+          final clientes = snapshot.data ?? [];
+          return AlertDialog(
+            title: const Text('Actualizar datos del cliente'),
+            content: SingleChildScrollView(
+              child: Form(
+                key: _formKey,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    DropdownSearch<Cliente>(
+                      popupProps: const PopupProps.menu(
+                        showSelectedItems: true,
+                        showSearchBox: true,
+                      ),
+                      dropdownDecoratorProps: const DropDownDecoratorProps(
+                        dropdownSearchDecoration: InputDecoration(
+                          labelText: "Cliente",
+                          hintText: "Seleccione un cliente",
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                      items: clientes,
+                      onChanged: (Cliente? cliente) {
+                        setState(() {
+                          selectedClient = cliente;
+                          if (selectedClient != null) {
+                            nameController.text = selectedClient!.nombre;
+                            nitController.text =
+                                selectedClient!.nit ?? 'Sin NIT';
+                            ciController.text = selectedClient!.ci ?? 'Sin CI';
+                            idController.text = selectedClient!.id;
+                          }
+                        });
+                      },
+                      selectedItem: selectedClient,
+                      itemAsString: (Cliente u) =>
+                          'Nombre: ${u.nombre}- NIT: ${u.nit} - CI: ${u.ci}',
+                      compareFn: (Cliente a, Cliente b) => a.nombre == b.nombre,
+                    ),
+                    const SizedBox(height: 10),
+                    TextField(
+                      controller: nameController,
+                      decoration: const InputDecoration(
+                        labelText: 'Nombre del cliente',
+                        hintText: 'Ingrese el nuevo nombre del cliente',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    TextField(
+                      controller: nitController,
+                      decoration: const InputDecoration(
+                        labelText: 'NIT del cliente',
+                        hintText: 'Ingrese el nuevo NIT del cliente',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    TextField(
+                      controller: ciController,
+                      decoration: const InputDecoration(
+                        labelText: 'CI del cliente',
+                        hintText: 'Ingrese el nuevo CI del cliente',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Cancelar'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop({
+                  'name': nameController.text,
+                  'nit': nitController.text,
+                  'ci': ciController.text,
+                  'id': idController.text, // Nuevo campo
+                }),
+                child: const Text('Aceptar'),
+              ),
+            ],
+          );
+        }
+      },
     );
   }
 }
@@ -486,13 +603,29 @@ class _ProductTableState extends State<ProductTable> {
   }
 }
 
-class TotalSection extends StatelessWidget {
-  final double total;
+class TotalSection extends StatefulWidget {
+  final List<ProductoElement> productos;
 
-  const TotalSection({super.key, required this.total});
+  const TotalSection({Key? key, required this.productos}) : super(key: key);
+
+  @override
+  State<TotalSection> createState() => _TotalSectionState();
+}
+
+class _TotalSectionState extends State<TotalSection> {
+  double calculateTotal(List<ProductoElement> productos) {
+    return productos.fold(0, (double total, ProductoElement producto) {
+      final totalCajas =
+          producto.cantidadCajas * (producto.precioUnitarioCajas);
+      final totalPiezas =
+          producto.cantidadPiezas * (producto.precioUnitarioPiezas);
+      return total + totalCajas + totalPiezas;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final total = calculateTotal(widget.productos);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
@@ -615,6 +748,14 @@ class _EditProductDialogState extends State<EditProductDialog> {
               cantidadPiezas: int.parse(_piezasController.text),
               precioUnitarioCajas: double.parse(_precioCajasController.text),
               precioUnitarioPiezas: double.parse(_precioPiezasController.text),
+              precioTotalPiezas: int.parse(_piezasController.text) *
+                  double.parse(_precioPiezasController.text),
+              precioTotalCajas: int.parse(_cajasController.text) *
+                  double.parse(_precioCajasController.text),
+              precioTotal: (int.parse(_cajasController.text) *
+                      double.parse(_precioCajasController.text)) +
+                  (int.parse(_piezasController.text) *
+                      double.parse(_precioPiezasController.text)),
             );
             Navigator.of(context).pop(updatedProducto);
           },

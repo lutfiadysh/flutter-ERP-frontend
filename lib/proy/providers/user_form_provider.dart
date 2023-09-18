@@ -18,7 +18,8 @@ class UserFormProvider extends ChangeNotifier {
       String? correo,
       String? uid,
       String? img,
-      Branch? sucursal}) {
+      Branch? sucursal,
+      String? codigoUsuario}) {
     user = item.Usuario(
       rol: rol ?? user!.rol,
       estado: estado ?? user!.estado,
@@ -28,6 +29,7 @@ class UserFormProvider extends ChangeNotifier {
       uid: uid ?? user!.uid,
       img: img ?? user!.img,
       sucursal: sucursal ?? user!.sucursal,
+      codigoUsuario: codigoUsuario ?? user!.codigoUsuario,
     );
     notifyListeners();
   }

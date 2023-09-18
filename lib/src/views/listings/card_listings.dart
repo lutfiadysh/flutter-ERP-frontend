@@ -65,12 +65,12 @@ class _CardListingsViewTestState extends State<CardsListingsViewTest> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Cliente: ${cotizacion.cliente}",
+                    "Cliente: ${cotizacion.cliente.nombre}",
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(height: 4.0),
                   Text(
-                    "Sucursal: ${cotizacion.sucursal.definicion}",
+                    "Sucursal: ${cotizacion.sucursal.municipio}",
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                   const SizedBox(height: 4.0),

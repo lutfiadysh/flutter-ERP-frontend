@@ -17,7 +17,7 @@ class InputsDTS extends DataTableSource {
     // TODO: implement getRow
     return DataRow.byIndex(index: index, cells: [
       DataCell(Text(entrada.stock.producto.nombre)),
-      DataCell(Text(entrada.stock.sucursal.definicion)),
+      DataCell(Text(entrada.stock.sucursal.municipio)),
       DataCell(Text(entrada.cantidadCajas.toString())),
       DataCell(Text(entrada.cantidadPiezas.toString())),
       DataCell(Text(dateFormat.format(entrada.fecha.toLocal()))),

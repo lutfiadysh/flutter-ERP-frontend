@@ -8,7 +8,7 @@ class ProductsProvider extends ChangeNotifier {
   List<Producto> productos = [];
   Producto? producto;
 
-  getProducts() async {
+  Future getProducts() async {
     final resp = await BackendApi.httpGet('/productos');
     final productsResp = ProductsResponse.fromMap(resp);
 
@@ -74,9 +74,8 @@ class ProductsProvider extends ChangeNotifier {
 
       productos.add(newProduct);
       notifyListeners();
-      return true;
     } catch (e) {
-      return false;
+      throw ('Error en crear producto');
     }
   }
 
