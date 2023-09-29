@@ -6,7 +6,7 @@ class BackendApi {
   static final Dio _dio = Dio();
 
   static Future<void> configureDio() async {
-    String baseUrl = 'http://192.168.0.4:8080/api';
+    String baseUrl = 'http://192.168.0.5:8080/api';
     _dio.options.baseUrl = baseUrl;
 
     // Configure Headers
