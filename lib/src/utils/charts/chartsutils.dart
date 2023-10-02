@@ -25,7 +25,6 @@ getChart(ChartType chartType) {
   } else if (chartType == ChartType.areaChart) {
     return const AreaChart();
   } else if (chartType == ChartType.piaChart) {
-    return const PieChartSample2();
   } else if (chartType == ChartType.colomnChart) {
     return const ColumnChart();
   } else if (chartType == ChartType.advancedSmileChart) {

@@ -1,10 +1,19 @@
 import 'package:admin_dashboard/src/constant/color.dart';
-import 'package:admin_dashboard/src/constant/string.dart';
 import 'package:admin_dashboard/src/constant/text.dart';
 import 'package:flutter/material.dart';
 
 class TopProductSale extends StatefulWidget {
-  const TopProductSale({Key? key}) : super(key: key);
+  final String titulo;
+  final String cantidad;
+  final String producto;
+  final String descripcion;
+  TopProductSale(
+      {Key? key,
+      required this.titulo,
+      required this.cantidad,
+      required this.producto,
+      required this.descripcion})
+      : super(key: key);
 
   @override
   State<TopProductSale> createState() => _TopProductSaleState();
@@ -34,25 +43,25 @@ class _TopProductSaleState extends State<TopProductSale> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ConstText.lightText(
-                text: Strings.topProductSale,
+                text: widget.titulo,
                 // color: ColorConst.white.withOpacity(0.5),
                 fontSize: 17,
                 fontWeight: FontWeight.bold,
               ),
               ConstText.largeText(
-                text: '1452',
+                text: widget.cantidad,
                 fontSize: 33,
                 color: ColorConst.primary,
                 fontWeight: FontWeight.bold,
               ),
               ConstText.lightText(
-                text: Strings.computer,
+                text: widget.producto,
                 color: ColorConst.primary,
                 fontSize: 15,
                 fontWeight: FontWeight.w500,
               ),
               ConstText.lightText(
-                text: 'Lorem Ipsum is simply dummy text of the printing.',
+                text: widget.descripcion,
                 textAlign: TextAlign.center,
                 fontSize: 15,
                 // color: ColorConst.white.withOpacity(0.5),

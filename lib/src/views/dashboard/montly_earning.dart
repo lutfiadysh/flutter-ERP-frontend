@@ -87,9 +87,12 @@ class _MonthlyEarningsState extends State<Monthlyearning> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ConstText.lightText(
-                text: "Ventas mensuales",
-                fontWeight: FontWeight.bold,
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: ConstText.lightText(
+                  text: "Ventas mensuales",
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               FxBox.h24,
               Responsive.isMobile(context)
@@ -101,20 +104,10 @@ class _MonthlyEarningsState extends State<Monthlyearning> {
                               roundedMaxY: roundedMaxY, barGroups: barGroups),
                         ),
                         FxBox.h16,
-                        const Divider(),
                         FxBox.h16,
-                        Expanded(
-                          child: _monthEarning(
-                            durationText: 'Meta de ventas anual',
-                            salesAmount:
-                                'Bs. ${widget.dashboard.metasDeVentas.montoMetaVentasAnualFormateado}',
-                            salesTotal: widget.dashboard.montoVentasAnual,
-                            salesGoal: widget.dashboard.metasDeVentas.anual,
-                            descriptionText:
-                                'Ventas alcanzadas el año anterior',
-                          ),
+                        const Divider(
+                          thickness: 1,
                         ),
-                        FxBox.h16,
                         Expanded(
                           child: _monthEarning(
                             durationText: 'Meta de ventas mensual',
@@ -125,6 +118,10 @@ class _MonthlyEarningsState extends State<Monthlyearning> {
                             descriptionText:
                                 'Ventas alcanzadas el mes anterior',
                           ),
+                        ),
+                        FxBox.h16,
+                        const Divider(
+                          thickness: 1,
                         ),
                         FxBox.h16,
                         Expanded(
@@ -147,19 +144,7 @@ class _MonthlyEarningsState extends State<Monthlyearning> {
                           child: VentasMensuales(
                               roundedMaxY: roundedMaxY, barGroups: barGroups),
                         ),
-                        FxBox.h16,
-                        Expanded(
-                          child: _monthEarning(
-                            durationText: 'Meta de ventas anual',
-                            salesAmount:
-                                'Bs. ${widget.dashboard.metasDeVentas.montoMetaVentasAnualFormateado}',
-                            salesTotal: widget.dashboard.montoVentasAnual,
-                            salesGoal: widget.dashboard.metasDeVentas.anual,
-                            descriptionText:
-                                'Ventas alcanzadas el año anterior',
-                          ),
-                        ),
-                        FxBox.h16,
+                        FxBox.w16,
                         Expanded(
                           child: _monthEarning(
                             durationText: 'Meta de ventas mensual',
@@ -171,7 +156,7 @@ class _MonthlyEarningsState extends State<Monthlyearning> {
                                 'Ventas alcanzadas el mes anterior',
                           ),
                         ),
-                        FxBox.h16,
+                        FxBox.w16,
                         Expanded(
                           child: _monthEarning(
                             durationText: 'Meta de ventas diario',
@@ -229,9 +214,6 @@ class _MonthlyEarningsState extends State<Monthlyearning> {
           text: descriptionText,
           fontSize: 15,
           fontWeight: FontWeight.w600,
-        ),
-        Divider(
-          color: Colors.grey[300],
         ),
       ],
     );

@@ -140,13 +140,11 @@ class _Producto {
 }
 
 class _Usuario {
-  _Usuario({
-    required this.id,
-    required this.nombre,
-  });
+  _Usuario({required this.id, required this.nombre, this.img});
 
   String id;
   String nombre;
+  String? img;
 
   factory _Usuario.fromJson(String str) => _Usuario.fromMap(json.decode(str));
 
@@ -155,11 +153,13 @@ class _Usuario {
   factory _Usuario.fromMap(Map<String, dynamic> json) => _Usuario(
         id: json["_id"],
         nombre: json["nombre"],
+        img: json["img"],
       );
 
   Map<String, dynamic> toMap() => {
         "_id": id,
         "nombre": nombre,
+        "img": img,
       };
 }
 

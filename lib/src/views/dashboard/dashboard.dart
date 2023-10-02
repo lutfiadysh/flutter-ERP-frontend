@@ -1,14 +1,11 @@
 import 'package:admin_dashboard/proy/providers/dashboard_provider.dart';
+import 'package:admin_dashboard/src/views/dashboard/movements_report.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/utils/responsive.dart';
-import 'package:admin_dashboard/src/views/dashboard/activity.dart';
-import 'package:admin_dashboard/src/views/dashboard/chat_screen.dart';
-import 'package:admin_dashboard/src/views/dashboard/client_review.dart';
 import 'package:admin_dashboard/src/views/dashboard/list_item.dart';
 import 'package:admin_dashboard/src/views/dashboard/montly_earning.dart';
 import 'package:admin_dashboard/src/views/dashboard/sales_analytics.dart';
 import 'package:admin_dashboard/src/views/dashboard/sales_report.dart';
-import 'package:admin_dashboard/src/views/dashboard/status_box.dart';
 import 'package:admin_dashboard/src/views/dashboard/top_producr_sales_box.dart';
 import 'package:admin_dashboard/src/views/dashboard/transaction.dart';
 import 'package:flutter/material.dart';
@@ -97,80 +94,205 @@ class _DashboardState extends State<Dashboard> {
                             ? Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Expanded(
-                                    child: SalesReport(),
+                                  Expanded(
+                                    child: SalesReport(
+                                      dashboard: dashboard,
+                                      titulo: 'Estado de verificaciones',
+                                    ),
                                   ),
                                   FxBox.w24,
-                                  const Expanded(
-                                    child: Salesanalytics(),
+                                  Expanded(
+                                    child: MovementsReport(
+                                      dashboard: dashboard,
+                                      titulo: 'Estado de movimientos',
+                                    ),
                                   ),
                                 ],
                               )
                             : Column(
                                 children: [
-                                  const SalesReport(),
+                                  SalesReport(
+                                    dashboard: dashboard,
+                                    titulo: 'Estado de verificaciones',
+                                  ),
                                   FxBox.h24,
-                                  const Salesanalytics(),
+                                  MovementsReport(
+                                    dashboard: dashboard,
+                                    titulo: 'Estado de movimientos',
+                                  ),
                                 ],
                               ),
                         FxBox.h24,
                         Responsive.isWeb(context)
                             ? Row(
                                 children: [
-                                  const Expanded(
-                                    child: Chatscreen(),
-                                  ),
-                                  FxBox.w24,
                                   Expanded(
                                     child: Column(
                                       children: [
                                         Row(
                                           children: [
-                                            const Expanded(child: StatusBox()),
+                                            Expanded(
+                                                child: TopProductSale(
+                                              titulo: 'Producto más vendido',
+                                              cantidad: dashboard
+                                                  .productoMasVendidoCantidad
+                                                  .toString(),
+                                              producto:
+                                                  dashboard.productoMasVendido,
+                                              //
+                                              descripcion:
+                                                  'Producto más vendido en cajas el ultimo año',
+                                            )),
                                             FxBox.w24,
-                                            const Expanded(
-                                                child: TopProductSale()),
+                                            Expanded(
+                                                child: TopProductSale(
+                                              titulo: 'Producto menos vendido',
+                                              cantidad: dashboard
+                                                  .productoMenosVendidoCantidad
+                                                  .toString(),
+                                              producto: dashboard
+                                                  .productoMenosVendido,
+                                              descripcion:
+                                                  'Producto menos vendido en cajas el ultimo año',
+                                            )),
+                                            FxBox.w24,
+                                            Expanded(
+                                                child: TopProductSale(
+                                              titulo: 'Producto más rentable',
+                                              cantidad: dashboard
+                                                  .productoMasRentableMontoFormateado
+                                                  .toString(),
+                                              producto:
+                                                  dashboard.productoMasRentable,
+                                              descripcion:
+                                                  'Monto vendido en bolivianos el ultimo año',
+                                            )),
+                                            FxBox.w24,
+                                            Expanded(
+                                                child: TopProductSale(
+                                              titulo: 'Producto menos rentable',
+                                              cantidad: dashboard
+                                                  .productoMenosRentableMontoFormateado
+                                                  .toString(),
+                                              producto: dashboard
+                                                  .productoMenosRentable,
+                                              descripcion:
+                                                  'Monto vendido en bolivianos el ultimo año',
+                                            )),
                                           ],
                                         ),
-                                        FxBox.h24,
-                                        const Clienresponse(),
                                       ],
                                     ),
-                                  ),
-                                  FxBox.w24,
-                                  const Expanded(
-                                    child: Activity(),
                                   ),
                                 ],
                               )
                             : Column(
                                 children: [
-                                  const Chatscreen(),
-                                  FxBox.h24,
                                   Responsive.isTablet(context)
                                       ? Row(
                                           children: [
-                                            const Expanded(child: StatusBox()),
+                                            Expanded(
+                                                child: TopProductSale(
+                                              titulo: 'Producto más vendido',
+                                              cantidad: dashboard
+                                                  .productoMasVendidoCantidad
+                                                  .toString(),
+                                              producto:
+                                                  dashboard.productoMasVendido,
+                                              descripcion:
+                                                  'Producto más vendido en cajas el ultimo año',
+                                            )),
                                             FxBox.w24,
-                                            const Expanded(
-                                                child: TopProductSale()),
+                                            Expanded(
+                                                child: TopProductSale(
+                                              titulo: 'Producto menos vendido',
+                                              cantidad: dashboard
+                                                  .productoMenosVendidoCantidad
+                                                  .toString(),
+                                              producto: dashboard
+                                                  .productoMenosVendido,
+                                              descripcion:
+                                                  'Producto menos vendido en cajas el ultimo año',
+                                            )),
+                                            FxBox.w24,
+                                            Expanded(
+                                                child: TopProductSale(
+                                              titulo: 'Producto más rentable',
+                                              cantidad: dashboard
+                                                  .productoMasRentableMontoFormateado
+                                                  .toString(),
+                                              producto:
+                                                  dashboard.productoMasRentable,
+                                              descripcion:
+                                                  'Monto vendido en bolivianos el ultimo año',
+                                            )),
+                                            FxBox.w24,
+                                            Expanded(
+                                                child: TopProductSale(
+                                              titulo: 'Producto menos rentable',
+                                              cantidad: dashboard
+                                                  .productoMenosRentableMontoFormateado
+                                                  .toString(),
+                                              producto: dashboard
+                                                  .productoMenosRentable,
+                                              descripcion:
+                                                  'Monto vendido en bolivianos el ultimo año',
+                                            )),
                                           ],
                                         )
                                       : Column(
                                           children: [
-                                            const StatusBox(),
+                                            TopProductSale(
+                                              titulo: 'Producto más vendido',
+                                              cantidad: dashboard
+                                                  .productoMasVendidoCantidad
+                                                  .toString(),
+                                              producto:
+                                                  dashboard.productoMasVendido,
+                                              descripcion:
+                                                  'Producto más vendido en cajas el ultimo año',
+                                            ),
                                             FxBox.h24,
-                                            const TopProductSale(),
+                                            TopProductSale(
+                                              titulo: 'Producto menos vendido',
+                                              cantidad: dashboard
+                                                  .productoMenosVendidoCantidad
+                                                  .toString(),
+                                              producto: dashboard
+                                                  .productoMenosVendido,
+                                              descripcion:
+                                                  'Producto menos vendido en cajas el ultimo año',
+                                            ),
+                                            FxBox.h24,
+                                            TopProductSale(
+                                              titulo: 'Producto más rentable',
+                                              cantidad: dashboard
+                                                  .productoMasRentableMontoFormateado
+                                                  .toString(),
+                                              producto:
+                                                  dashboard.productoMasRentable,
+                                              descripcion:
+                                                  'Monto vendido en bolivianos el ultimo año',
+                                            ),
+                                            FxBox.h24,
+                                            TopProductSale(
+                                              titulo: 'Producto menos rentable',
+                                              cantidad: dashboard
+                                                  .productoMenosRentableMontoFormateado
+                                                  .toString(),
+                                              producto: dashboard
+                                                  .productoMenosRentable,
+                                              descripcion:
+                                                  'Monto vendido en bolivianos el ultimo año',
+                                            ),
                                           ],
                                         ),
-                                  FxBox.h24,
-                                  const Clienresponse(),
-                                  FxBox.h24,
-                                  const Activity(),
                                 ],
                               ),
                         FxBox.h24,
-                        const Transaction(),
+                        Transaction(
+                          dashboard: dashboard,
+                        ),
                       ],
                     ),
                   ],

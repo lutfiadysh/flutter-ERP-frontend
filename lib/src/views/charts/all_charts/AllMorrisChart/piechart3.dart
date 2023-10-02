@@ -2,15 +2,15 @@ import 'package:admin_dashboard/proy/models/dashboard.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class PieChartSample2 extends StatefulWidget {
+class PieChartSample3 extends StatefulWidget {
   final Dashboard dashboard;
-  const PieChartSample2({Key? key, required this.dashboard}) : super(key: key);
+  const PieChartSample3({Key? key, required this.dashboard}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => PieChart2State();
 }
 
-class PieChart2State extends State<PieChartSample2> {
+class PieChart2State extends State<PieChartSample3> {
   int touchedIndex = -1;
 
   @override
@@ -41,7 +41,6 @@ class PieChart2State extends State<PieChartSample2> {
                 sections: showingSections()),
           ),
         ),
-        
       ],
     );
   }
@@ -57,8 +56,8 @@ class PieChart2State extends State<PieChartSample2> {
         case 0:
           return PieChartSectionData(
             color: const Color.fromARGB(255, 18, 187, 32),
-            value: dashboard.porcentajeVerificados,
-            title: '${dashboard.porcentajeVerificadosFormateado}%',
+            value: dashboard.porcentajeEntradas,
+            title: '${dashboard.porcentajeEntradasFormateado}%',
             radius: radius,
             titleStyle: TextStyle(
                 fontSize: fontSize,
@@ -68,8 +67,8 @@ class PieChart2State extends State<PieChartSample2> {
         case 1:
           return PieChartSectionData(
             color: const Color(0xfff8b250),
-            value: dashboard.porcentajePendientes,
-            title: '${dashboard.porcentajePendientesFormateado}%',
+            value: dashboard.porcentajeSalidas,
+            title: '${dashboard.porcentajeSalidasFormateado}%',
             radius: radius,
             titleStyle: TextStyle(
                 fontSize: fontSize,
@@ -79,8 +78,8 @@ class PieChart2State extends State<PieChartSample2> {
         case 2:
           return PieChartSectionData(
             color: const Color.fromARGB(255, 205, 57, 20),
-            value: dashboard.porcentajeErrores,
-            title: '${dashboard.porcentajeErroresFormateado}%',
+            value: dashboard.porcentajeMermas,
+            title: '${dashboard.porcentajeMermasFormateado}%',
             radius: radius,
             titleStyle: TextStyle(
                 fontSize: fontSize,

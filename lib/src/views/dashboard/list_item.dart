@@ -21,7 +21,7 @@ class _ListitemState extends State<Listitem> {
       {
         'id': 0,
         'producTitle': 'Monto por ventas anual',
-        'value': widget.dashboard.montoVentasAnual.toString(),
+        'value': widget.dashboard.montoVentasAnualFormateado.toString(),
         'boxIcon': Icons.note_add,
         // 'boxColor': '05A660',
         'boxColor': ['FEBE99', 'F66F94'],
@@ -43,6 +43,15 @@ class _ListitemState extends State<Listitem> {
         'boxIcon': Icons.pending_actions_outlined,
         // 'boxColor': '18818D',
         'boxColor': ['8DDAD3', '3CC2AE'],
+        'percentage': -5,
+      },
+      {
+        'id': 3,
+        'producTitle': 'Monto por ventas hoy',
+        'value': widget.dashboard.montoVentasDiario.toString(),
+        'boxIcon': Icons.pending_actions_outlined,
+        // 'boxColor': '18818D',
+        'boxColor': ['d1249f', '7716e2'],
         'percentage': -5,
       },
     ];

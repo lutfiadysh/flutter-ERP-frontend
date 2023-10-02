@@ -1,24 +1,25 @@
 import 'package:admin_dashboard/proy/models/dashboard.dart';
 import 'package:admin_dashboard/src/constant/color.dart';
 import 'package:admin_dashboard/src/constant/text.dart';
-import 'package:admin_dashboard/src/views/charts/all_charts/AllMorrisChart/piechart.dart';
+import 'package:admin_dashboard/src/views/charts/all_charts/AllMorrisChart/piechart3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/flutterx.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-class SalesReport extends StatefulWidget {
+class MovementsReport extends StatefulWidget {
   final Dashboard dashboard;
   final String titulo;
 
-  const SalesReport({Key? key, required this.dashboard, required this.titulo})
+  const MovementsReport(
+      {Key? key, required this.dashboard, required this.titulo})
       : super(key: key);
 
   @override
-  State<SalesReport> createState() => _SalesReportState();
+  State<MovementsReport> createState() => _SalesReportState();
 }
 
-class _SalesReportState extends State<SalesReport> {
+class _SalesReportState extends State<MovementsReport> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -44,7 +45,7 @@ class _SalesReportState extends State<SalesReport> {
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: 240,
-              child: PieChartSample2(
+              child: PieChartSample3(
                 dashboard: widget.dashboard,
               ),
             ),
@@ -61,7 +62,7 @@ class _SalesReportState extends State<SalesReport> {
                       color: const Color.fromARGB(255, 18, 187, 32),
                     ),
                     const SizedBox(width: 8),
-                    const Text('Verificados'),
+                    const Text('Entradas'),
                   ],
                 ),
                 FxBox.w16,
@@ -73,7 +74,7 @@ class _SalesReportState extends State<SalesReport> {
                       color: const Color(0xfff8b250),
                     ),
                     const SizedBox(width: 8),
-                    const Text('Pendientes'),
+                    const Text('Salidas'),
                   ],
                 ),
                 FxBox.w16,
@@ -85,7 +86,7 @@ class _SalesReportState extends State<SalesReport> {
                       color: const Color.fromARGB(255, 205, 57, 20),
                     ),
                     const SizedBox(width: 8),
-                    const Text('Errores'),
+                    const Text('Mermas'),
                   ],
                 ),
               ],

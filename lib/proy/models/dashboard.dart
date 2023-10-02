@@ -1,25 +1,53 @@
 import 'dart:convert';
 
+import 'package:admin_dashboard/proy/models/movement.dart';
+
 class Dashboard {
   final MetasDeVentas metasDeVentas;
   final double montoVentasAnual;
   final double montoVentasMensual;
   final double montoVentasDiario;
-  final int porcentajeMermasPorcentaje;
-  final double ordenesProcesadasPorcentaje;
+  final double porcentajeMermas;
+  final double porcentajeVerificados;
+  final double porcentajePendientes;
+  final double porcentajeEntradas;
+  final double porcentajeSalidas;
+  final double porcentajeErrores;
   final double oportunidadesNegocioPorcentaje;
   final String id;
   final Sucursal sucursal;
   final int v;
   final List<MontoVentasPorMesAnual> montoVentasPorMesAnual;
+  final String productoMasVendido;
+  final String productoMenosVendido;
+  final String productoMasRentable;
+  final String productoMenosRentable;
+  final double productoMasVendidoCantidad;
+  final double productoMenosVendidoCantidad;
+  final double productoMasRentableMonto;
+  final double productoMenosRentableMonto;
+  final List<Movimiento> movimientosRecientes;
 
   Dashboard({
+    required this.movimientosRecientes,
+    required this.productoMasVendido,
+    required this.productoMenosVendido,
+    required this.productoMasRentable,
+    required this.productoMenosRentable,
+    required this.productoMasVendidoCantidad,
+    required this.productoMenosVendidoCantidad,
+    required this.productoMasRentableMonto,
+    required this.productoMenosRentableMonto,
     required this.metasDeVentas,
     required this.montoVentasAnual,
     required this.montoVentasMensual,
     required this.montoVentasDiario,
-    required this.porcentajeMermasPorcentaje,
-    required this.ordenesProcesadasPorcentaje,
+    required this.porcentajeMermas,
+    required this.porcentajePendientes,
+    required this.porcentajeEntradas,
+    required this.porcentajeSalidas,
+    required this.porcentajeErrores,
+    required this.porcentajeVerificados,
     required this.oportunidadesNegocioPorcentaje,
     required this.id,
     required this.sucursal,
@@ -55,19 +83,52 @@ class Dashboard {
   String get montoVentasAnualFormateado => formatNumber(montoVentasAnual);
   String get montoVentasMensualFormateado => formatNumber(montoVentasMensual);
   String get montoVentasDiarioFormateado => formatNumber(montoVentasDiario);
+  String get productoMasRentableMontoFormateado =>
+      formatNumber(productoMasRentableMonto);
+  String get productoMenosRentableMontoFormateado =>
+      formatNumber(productoMenosRentableMonto);
+
+  String get porcentajeMermasFormateado {
+    return porcentajeMermas.toStringAsFixed(1);
+  }
+
+  String get porcentajePendientesFormateado {
+    return porcentajePendientes.toStringAsFixed(1);
+  }
+
+  String get porcentajeEntradasFormateado {
+    return porcentajeEntradas.toStringAsFixed(1);
+  }
+
+  String get porcentajeSalidasFormateado {
+    return porcentajeSalidas.toStringAsFixed(1);
+  }
+
+  String get porcentajeErroresFormateado {
+    return porcentajeErrores.toStringAsFixed(1);
+  }
+
+  String get porcentajeVerificadosFormateado {
+    return porcentajeVerificados.toStringAsFixed(1);
+  }
 
   factory Dashboard.fromJson(String str) => Dashboard.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
   factory Dashboard.fromMap(Map<String, dynamic> json) => Dashboard(
+        movimientosRecientes: List<Movimiento>.from(
+            json["movimientosRecientes"].map((x) => Movimiento.fromMap(x))),
         metasDeVentas: MetasDeVentas.fromMap(json["metasDeVentas"]),
         montoVentasAnual: json["montoVentasAnual"]?.toDouble(),
         montoVentasMensual: json["montoVentasMensual"]?.toDouble(),
         montoVentasDiario: json["montoVentasDiario"],
-        porcentajeMermasPorcentaje: json["porcentajeMermasPorcentaje"],
-        ordenesProcesadasPorcentaje:
-            json["ordenesProcesadasPorcentaje"]?.toDouble(),
+        porcentajeMermas: json["porcentajeMermas"].toDouble(),
+        porcentajePendientes: json["porcentajePendientes"].toDouble(),
+        porcentajeEntradas: json["porcentajeEntradas"].toDouble(),
+        porcentajeSalidas: json["porcentajeSalidas"].toDouble(),
+        porcentajeErrores: json["porcentajeErrores"].toDouble(),
+        porcentajeVerificados: json["porcentajeVerificados"]?.toDouble(),
         oportunidadesNegocioPorcentaje:
             json["oportunidadesNegocioPorcentaje"]?.toDouble(),
         id: json["_id"],
@@ -76,6 +137,14 @@ class Dashboard {
         montoVentasPorMesAnual: List<MontoVentasPorMesAnual>.from(
             json["montoVentasPorMesAnual"]
                 .map((x) => MontoVentasPorMesAnual.fromMap(x))),
+        productoMasVendido: json["productoMasVendido"] ?? "N/A",
+        productoMenosVendido: json["productoMenosVendido"] ?? "N/A",
+        productoMasRentable: json["productoMasRentable"] ?? "N/A",
+        productoMenosRentable: json["productoMenosRentable"] ?? "N/A",
+        productoMasVendidoCantidad: json["productoMasVendidoCantidad"],
+        productoMenosVendidoCantidad: json["productoMenosVendidoCantidad"],
+        productoMasRentableMonto: json["productoMasRentableMonto"],
+        productoMenosRentableMonto: json["productoMenosRentableMonto"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -83,14 +152,22 @@ class Dashboard {
         "montoVentasAnual": montoVentasAnual,
         "montoVentasMensual": montoVentasMensual,
         "montoVentasDiario": montoVentasDiario,
-        "porcentajeMermasPorcentaje": porcentajeMermasPorcentaje,
-        "ordenesProcesadasPorcentaje": ordenesProcesadasPorcentaje,
+        "porcentajeMermas": porcentajeMermas,
+        "porcentajeVerificados": porcentajeVerificados,
         "oportunidadesNegocioPorcentaje": oportunidadesNegocioPorcentaje,
         "_id": id,
         "sucursal": sucursal.toMap(),
         "__v": v,
         "montoVentasPorMesAnual":
             List<dynamic>.from(montoVentasPorMesAnual.map((x) => x.toMap())),
+        "productoMasVendido": productoMasVendido,
+        "productoMenosVendido": productoMenosVendido,
+        "productoMasRentable": productoMasRentable,
+        "productoMenosRentable": productoMenosRentable,
+        "productoMasVendidoCantidad": productoMasVendidoCantidad,
+        "productoMenosVendidoCantidad": productoMenosVendidoCantidad,
+        "productoMasRentableMonto": productoMasRentableMonto,
+        "productoMenosRentableMonto": productoMenosRentableMonto,
       };
 }
 
