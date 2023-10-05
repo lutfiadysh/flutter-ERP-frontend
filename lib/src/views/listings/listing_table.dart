@@ -10,21 +10,25 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class ListingTable extends StatefulWidget {
-  ListingTable({
-    Key? key,
-    required this.productos,
-    required this.clientName,
-    required this.clientNIT,
-    required this.sellerName,
-    required this.onClientNameChanged,
-    required this.onClientNITChanged,
-    required this.date,
-    required this.onEditClient,
-    required this.clientCI,
-    required this.onClientCIChanged,
-    required this.total,
-    required this.clienteID,
-  }) : super(key: key);
+  ListingTable(
+      {Key? key,
+      required this.productos,
+      required this.clientName,
+      required this.clientNIT,
+      required this.sellerName,
+      required this.onClientNameChanged,
+      required this.onClientNITChanged,
+      required this.date,
+      required this.onEditClient,
+      required this.clientCI,
+      required this.onClientCIChanged,
+      required this.onEnouchStockChanged,
+      required this.total,
+      required this.clienteID,
+      required this.onCheckStock,
+      required this.onClientPhoneChanged,
+      required this.clientPhone})
+      : super(key: key);
 
   final double total;
   final List<ProductoElement> productos;
@@ -32,12 +36,16 @@ class ListingTable extends StatefulWidget {
   final String clientName;
   final String clientNIT;
   final String clientCI;
+  final String clientPhone;
   final String clienteID; // Nuevo campo
   final ValueChanged<String> onClientNameChanged;
   final ValueChanged<String> onClientNITChanged;
-  final ValueChanged<String> onClientCIChanged; // Nuevo campo
+  final ValueChanged<String> onClientCIChanged;
+  final ValueChanged<String> onClientPhoneChanged; // Nuevo campo
   final ValueChanged<String> onEditClient;
+  final ValueChanged<bool> onEnouchStockChanged;
   final DateTime date;
+  final Function(List<ProductoElement>) onCheckStock;
 
   @override
   State<ListingTable> createState() => _ListingTableState();
@@ -108,6 +116,9 @@ class _ListingTableState extends State<ListingTable> {
                     onClientNITChanged: widget.onClientNITChanged,
                     clientCI: widget.clientCI,
                     onClientCIChanged: widget.onClientCIChanged,
+                    clientPhone: widget.clientPhone, // Nuevo campo
+                    onClientPhoneChanged:
+                        widget.onClientPhoneChanged, // Nuevo campo
                     onEditClient: widget.onEditClient,
                     clientID: widget.clienteID, // Nuevo campo
                   ),
@@ -124,7 +135,9 @@ class _ListingTableState extends State<ListingTable> {
                     isDark: isDark,
                     headerTextStyle: _headerTextStyle,
                     cellPadding: _cellPadding,
-                    onEditProduct: editProduct, // Pasa la función aquí
+                    onEditProduct: editProduct,
+                    onEnoughStockChanged: widget.onEnouchStockChanged,
+                    // Pasa la función aquí
                   ),
                   const Divider(),
                   TotalSection(productos: productos),
@@ -143,11 +156,13 @@ class HeaderSection extends StatelessWidget {
   final String clientName;
   final String clientNIT;
   final String clientCI;
+  final String clientPhone; // Nuevo campo
   final String clientID; // Nuevo campo
   final String fecha;
   final ValueChanged<String> onClientNameChanged; // Cambiado a ValueChanged
   final ValueChanged<String> onClientNITChanged; // Cambiado a ValueChanged
   final ValueChanged<String> onClientCIChanged;
+  final ValueChanged<String> onClientPhoneChanged; // Nuevo campo
   final ValueChanged<String> onEditClient; // Nuevo campo
 
   const HeaderSection({
@@ -160,8 +175,10 @@ class HeaderSection extends StatelessWidget {
     required this.onClientNameChanged,
     required this.onClientNITChanged,
     required this.onClientCIChanged,
+    required this.onClientPhoneChanged, // Nuevo campo
     required this.onEditClient,
-    required this.clientID, // Nuevo campo
+    required this.clientID,
+    required this.clientPhone, // Nuevo campo
   });
 
   @override
@@ -175,6 +192,7 @@ class HeaderSection extends StatelessWidget {
             newClientName: clientName,
             newClientNIT: clientNIT,
             newClientCI: clientCI,
+            newClientPhone: clientPhone, // Nuevo campo
             newClientID: clientID, // Nuevo campo
           ),
         );
@@ -182,6 +200,7 @@ class HeaderSection extends StatelessWidget {
           onClientNameChanged(clientData['name']!);
           onClientNITChanged(clientData['nit']!);
           onClientCIChanged(clientData['ci']!);
+          onClientPhoneChanged(clientData['phone']!); // Nuevo campo
           onEditClient(clientData['id']!); // Nuevo campo
         }
       },
@@ -196,6 +215,8 @@ class HeaderSection extends StatelessWidget {
           const SizedBox(height: 10),
           Text('CI: $clientCI'), // Nuevo campo
           const SizedBox(height: 10),
+          Text('Teléfono: $clientPhone'), // Nuevo campo
+          const SizedBox(height: 10),
           Text('Fecha: $fecha'),
           // El resto del código sigue igual
         ],
@@ -208,6 +229,7 @@ class ClientDataDialog extends StatefulWidget {
   final String newClientName;
   final String newClientNIT;
   final String newClientCI;
+  final String newClientPhone; // Nuevo campo
   final String newClientID; // Nuevo campo
 
   ClientDataDialog({
@@ -215,6 +237,7 @@ class ClientDataDialog extends StatefulWidget {
     required this.newClientNIT,
     required this.newClientCI,
     required this.newClientID,
+    required this.newClientPhone,
   });
 
   @override
@@ -225,6 +248,8 @@ class _ClientDataDialogState extends State<ClientDataDialog> {
   TextEditingController nameController = TextEditingController();
   TextEditingController nitController = TextEditingController();
   TextEditingController ciController = TextEditingController();
+  TextEditingController phoneController =
+      TextEditingController(); // Nuevo campo
   TextEditingController idController = TextEditingController(); // Nuevo campo
   Cliente? selectedClient;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -235,6 +260,7 @@ class _ClientDataDialogState extends State<ClientDataDialog> {
     nameController.text = widget.newClientName;
     nitController.text = widget.newClientNIT;
     ciController.text = widget.newClientCI;
+    phoneController.text = widget.newClientPhone; // Nuevo campo
     idController.text = widget.newClientID; // Nuevo campo
   }
 
@@ -342,6 +368,15 @@ class _ClientDataDialogState extends State<ClientDataDialog> {
                         border: OutlineInputBorder(),
                       ),
                     ),
+                    const SizedBox(height: 10),
+                    TextField(
+                      controller: phoneController, // Nuevo campo
+                      decoration: const InputDecoration(
+                        labelText: 'Teléfono del cliente', // Nuevo campo
+                        hintText: 'Ingrese el nuevo teléfono del cliente',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -356,6 +391,7 @@ class _ClientDataDialogState extends State<ClientDataDialog> {
                   'name': nameController.text,
                   'nit': nitController.text,
                   'ci': ciController.text,
+                  'phone': phoneController.text, // Nuevo campo
                   'id': idController.text, // Nuevo campo
                 }),
                 child: const Text('Aceptar'),
@@ -374,17 +410,19 @@ class ProductTable extends StatefulWidget {
   final bool isDark;
   final TextStyle headerTextStyle;
   final EdgeInsets cellPadding;
+  final ValueChanged<bool> onEnoughStockChanged; // Agrega esta línea
   final Function(int, ProductoElement) onEditProduct;
 
-  const ProductTable({
-    super.key,
-    required this.productos,
-    required this.isLargeScreen,
-    required this.isDark,
-    required this.headerTextStyle,
-    required this.cellPadding,
-    required this.onEditProduct, // Agrega esta línea
-  });
+  const ProductTable(
+      {super.key,
+      required this.productos,
+      required this.isLargeScreen,
+      required this.isDark,
+      required this.headerTextStyle,
+      required this.cellPadding,
+      required this.onEditProduct,
+      required this.onEnoughStockChanged // Agrega esta línea
+      });
 
   @override
   State<ProductTable> createState() => _ProductTableState();
@@ -392,6 +430,7 @@ class ProductTable extends StatefulWidget {
 
 class _ProductTableState extends State<ProductTable> {
   List<Stock> stocks = [];
+  bool enoughStock = true;
 
   int getTotalCajas(String productoId) {
     return stocks.where((stock) => stock.producto.id == productoId).fold(
@@ -412,14 +451,20 @@ class _ProductTableState extends State<ProductTable> {
       context: context,
       builder: (context) => EditProductDialog(
         producto: producto,
-        totalCajas: totalCajas, // Pasa la cantidad total de cajas
-        totalPiezas: totalPiezas, // Pasa la cantidad total de piezas
+        totalCajas: totalCajas,
+        totalPiezas: totalPiezas,
       ),
     );
 
     if (updatedProducto != null) {
-      widget.onEditProduct(index,
-          updatedProducto); // Llama a la función de devolución de llamada aquí
+      widget.onEditProduct(index, updatedProducto);
+    }
+
+    if (totalCajas >= updatedProducto!.cantidadCajas &&
+        totalPiezas >= updatedProducto.cantidadPiezas) {
+      widget.onEnoughStockChanged(true);
+    } else {
+      widget.onEnoughStockChanged(false);
     }
   }
 
@@ -549,7 +594,18 @@ class _ProductTableState extends State<ProductTable> {
                       editProduct(index), // Llamar a editProduct cuando se toca
                   child: Padding(
                     padding: widget.cellPadding,
-                    child: Text(producto.producto?.nombre ?? 'N/A'),
+                    child: Text(
+                      producto.producto?.nombre ?? 'N/A',
+                      style: TextStyle(
+                        color: suficientesProductosEnStock(
+                                producto.producto!.id,
+                                producto.cantidadCajas,
+                                producto
+                                    .cantidadPiezas) // Función que debes implementar
+                            ? Colors.green
+                            : Colors.red,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -601,6 +657,20 @@ class _ProductTableState extends State<ProductTable> {
       ],
     );
   }
+
+  bool suficientesProductosEnStock(
+      String productoId, int cantidadCajas, int cantidadPiezas) {
+    // Aquí debes definir la lógica que determina si hay suficientes productos en el stock.
+    int totalCajas = getTotalCajas(productoId);
+    int totalPiezas = getTotalPiezas(productoId);
+
+    // Este es un ejemplo, debes ajustar los números según tus necesidades.
+    if (totalCajas >= cantidadCajas && totalPiezas >= cantidadPiezas) {
+      return true;
+    }
+
+    return false;
+  }
 }
 
 class TotalSection extends StatefulWidget {
@@ -643,13 +713,15 @@ class _TotalSectionState extends State<TotalSection> {
 class EditProductDialog extends StatefulWidget {
   final ProductoElement producto;
   final int totalCajas; // Añade la cantidad total de cajas aquí
-  final int totalPiezas; // Añade la cantidad total de piezas aquí
+  final int totalPiezas;
+  // Añade la cantidad total de piezas aquí
 
-  const EditProductDialog(
-      {super.key,
-      required this.producto,
-      required this.totalCajas,
-      required this.totalPiezas});
+  const EditProductDialog({
+    super.key,
+    required this.producto,
+    required this.totalCajas,
+    required this.totalPiezas,
+  });
 
   @override
   _EditProductDialogState createState() => _EditProductDialogState();

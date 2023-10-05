@@ -35,7 +35,7 @@ class ListingsProvider extends ChangeNotifier {
   }
 
   Future<void> newListing(List<ProductoElement> productos, String nombreCliente,
-      String? nit, String? ci, String? cliente) async {
+      String? nit, String? ci, String? cliente, String? telefono) async {
     final Map<String, dynamic> data = {
       'clienteNombre': nombreCliente,
       'clienteId': cliente,
@@ -61,13 +61,13 @@ class ListingsProvider extends ChangeNotifier {
       data['ci'] = ci;
     }
 
-    print(data);
+    if (telefono != null && telefono.isNotEmpty) {
+      data['telefono'] = telefono;
+    }
 
     try {
       final resp = await BackendApi.postAux('/cotizaciones', data);
-      print(resp.toString());
       final Cotizacion newListing = Cotizacion.fromMap(resp);
-      print(newListing);
       cotizaciones.add(newListing);
       notifyListeners();
     } catch (e) {
@@ -93,7 +93,6 @@ class ListingsProvider extends ChangeNotifier {
         };
       }).toList(),
     };
-    print(data);
     try {
       await BackendApi.putAux('/cotizaciones/$id', data);
 
@@ -106,8 +105,53 @@ class ListingsProvider extends ChangeNotifier {
 
       notifyListeners();
     } catch (e) {
-      print(e);
       throw Exception('Error en actualizar cotizacion');
+    }
+  }
+
+  Future<void> createReserve(
+      List<ProductoElement> productos,
+      String nombreCliente,
+      String? nit,
+      String? ci,
+      String? cliente,
+      String? telefono) async {
+    final Map<String, dynamic> data = {
+      'clienteNombre': nombreCliente,
+      'clienteId': cliente,
+      'productos': productos.map((producto) {
+        return {
+          'producto': producto.producto!.id,
+          'cantidadCajas': producto.cantidadCajas,
+          'cantidadPiezas': producto.cantidadPiezas,
+          'precioUnitarioPiezas': producto.precioUnitarioPiezas,
+          'precioUnitarioCajas': producto.precioUnitarioCajas,
+          'precioTotalPiezas': producto.precioTotalPiezas,
+          'precioTotalCajas': producto.precioTotalCajas,
+          'precioTotal': producto.precioTotal,
+        };
+      }).toList(),
+    };
+
+    if (nit != null && nit.isNotEmpty) {
+      data['nit'] = nit;
+    }
+
+    if (ci != null && ci.isNotEmpty) {
+      data['ci'] = ci;
+    }
+
+    if (telefono != null && telefono.isNotEmpty) {
+      data['telefono'] = telefono;
+    }
+
+    try {
+      final resp = await BackendApi.postAux('/cotizaciones/reservar', data);
+      final Cotizacion newListing = Cotizacion.fromMap(resp);
+      cotizaciones.add(newListing);
+      notifyListeners();
+    } catch (e) {
+      throw Exception('Error en crear cotizacion $e');
     }
   }
 
@@ -141,11 +185,9 @@ class ListingsProvider extends ChangeNotifier {
 
     // Check if the file already exists
     if (await file.exists()) {
-      print('File already exists at: $filePath');
       // Open the existing PDF document
       OpenFile.open(filePath);
     } else {
-      print('Creating new file at: $filePath');
       final pdf = pdfWidgets.Document(
         theme: myTheme,
       );

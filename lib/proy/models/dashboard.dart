@@ -22,8 +22,8 @@ class Dashboard {
   final String productoMenosVendido;
   final String productoMasRentable;
   final String productoMenosRentable;
-  final double productoMasVendidoCantidad;
-  final double productoMenosVendidoCantidad;
+  final int productoMasVendidoCantidad;
+  final int productoMenosVendidoCantidad;
   final double productoMasRentableMonto;
   final double productoMenosRentableMonto;
   final List<Movimiento> movimientosRecientes;
@@ -122,7 +122,7 @@ class Dashboard {
         metasDeVentas: MetasDeVentas.fromMap(json["metasDeVentas"]),
         montoVentasAnual: json["montoVentasAnual"]?.toDouble(),
         montoVentasMensual: json["montoVentasMensual"]?.toDouble(),
-        montoVentasDiario: json["montoVentasDiario"],
+        montoVentasDiario: json["montoVentasDiario"].toDouble(),
         porcentajeMermas: json["porcentajeMermas"].toDouble(),
         porcentajePendientes: json["porcentajePendientes"].toDouble(),
         porcentajeEntradas: json["porcentajeEntradas"].toDouble(),
@@ -143,8 +143,9 @@ class Dashboard {
         productoMenosRentable: json["productoMenosRentable"] ?? "N/A",
         productoMasVendidoCantidad: json["productoMasVendidoCantidad"],
         productoMenosVendidoCantidad: json["productoMenosVendidoCantidad"],
-        productoMasRentableMonto: json["productoMasRentableMonto"],
-        productoMenosRentableMonto: json["productoMenosRentableMonto"],
+        productoMasRentableMonto: json["productoMasRentableMonto"].toDouble(),
+        productoMenosRentableMonto:
+            json["productoMenosRentableMonto"].toDouble(),
       );
 
   Map<String, dynamic> toMap() => {
@@ -216,9 +217,9 @@ class MetasDeVentas {
   String toJson() => json.encode(toMap());
 
   factory MetasDeVentas.fromMap(Map<String, dynamic> json) => MetasDeVentas(
-        diario: json["diario"],
+        diario: json["diario"].toDouble(),
         mensual: json["mensual"]?.toDouble(),
-        anual: json["anual"],
+        anual: json["anual"].toDouble(),
       );
 
   Map<String, dynamic> toMap() => {

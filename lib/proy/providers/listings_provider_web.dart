@@ -32,7 +32,7 @@ class ListingsProvider extends ChangeNotifier {
   }
 
   Future<void> newListing(List<ProductoElement> productos, String nombreCliente,
-      String? nit, String? ci, String? cliente) async {
+      String? nit, String? ci, String? cliente, String? telefono) async {
     final Map<String, dynamic> data = {
       'clienteNombre': nombreCliente,
       'clienteId': cliente,
@@ -56,6 +56,10 @@ class ListingsProvider extends ChangeNotifier {
 
     if (ci != null && ci.isNotEmpty) {
       data['ci'] = ci;
+    }
+
+    if (telefono != null && telefono.isNotEmpty) {
+      data['telefono'] = telefono;
     }
 
     print(data);
@@ -105,6 +109,52 @@ class ListingsProvider extends ChangeNotifier {
     } catch (e) {
       print(e);
       throw Exception('Error en actualizar cotizacion');
+    }
+  }
+
+  Future<void> createReserve(
+      List<ProductoElement> productos,
+      String nombreCliente,
+      String? nit,
+      String? ci,
+      String? cliente,
+      String? telefono) async {
+    final Map<String, dynamic> data = {
+      'clienteNombre': nombreCliente,
+      'clienteId': cliente,
+      'productos': productos.map((producto) {
+        return {
+          'producto': producto.producto!.id,
+          'cantidadCajas': producto.cantidadCajas,
+          'cantidadPiezas': producto.cantidadPiezas,
+          'precioUnitarioPiezas': producto.precioUnitarioPiezas,
+          'precioUnitarioCajas': producto.precioUnitarioCajas,
+          'precioTotalPiezas': producto.precioTotalPiezas,
+          'precioTotalCajas': producto.precioTotalCajas,
+          'precioTotal': producto.precioTotal,
+        };
+      }).toList(),
+    };
+
+    if (nit != null && nit.isNotEmpty) {
+      data['nit'] = nit;
+    }
+
+    if (ci != null && ci.isNotEmpty) {
+      data['ci'] = ci;
+    }
+
+    if (telefono != null && telefono.isNotEmpty) {
+      data['telefono'] = telefono;
+    }
+
+    try {
+      final resp = await BackendApi.postAux('/cotizaciones/reservar', data);
+      final Cotizacion newListing = Cotizacion.fromMap(resp);
+      cotizaciones.add(newListing);
+      notifyListeners();
+    } catch (e) {
+      throw Exception('Error en crear cotizacion $e');
     }
   }
 

@@ -1,6 +1,8 @@
+import 'package:admin_dashboard/proy/models/stock.dart';
 import 'package:admin_dashboard/proy/providers/auth_provider.dart';
 import 'package:admin_dashboard/proy/providers/listings_provider.dart';
 import 'package:admin_dashboard/proy/providers/sales_provider.dart';
+import 'package:admin_dashboard/proy/providers/stocks_provider.dart';
 import 'package:admin_dashboard/proy/services/notification_service.dart';
 import 'package:admin_dashboard/src/views/listings/addproduct_dialog.dart';
 import 'package:admin_dashboard/src/views/listings/listing_table.dart';
@@ -26,10 +28,23 @@ class _ListingViewTestState extends State<ListingViewTest> {
   String clientNIT = '';
   String sellerName = 'Nombre del vendedor';
   String clientCI = '';
+  String clientPhone = '';
   String id = 'Cotizacion ID';
   DateTime date = DateTime.now();
   Cotizacion? selectedCotizacion;
   bool isEditing = false;
+  bool enoughStock = true;
+  List<Stock> stocks = [];
+
+  int getTotalCajas(String productoId) {
+    return stocks.where((stock) => stock.producto.id == productoId).fold(
+        0, (int total, Stock stock) => total + (stock.cantidadCajas ?? 0));
+  }
+
+  int getTotalPiezas(String productoId) {
+    return stocks.where((stock) => stock.producto.id == productoId).fold(
+        0, (int total, Stock stock) => total + (stock.cantidadPiezas ?? 0));
+  }
 
   @override
   void initState() {
@@ -44,6 +59,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
       clientName = selectedCotizacion!.cliente.nombre;
       clientNIT = selectedCotizacion!.cliente.nit ?? "Sin NIT";
       clientCI = selectedCotizacion!.cliente.ci ?? "Sin CI";
+      clientPhone = selectedCotizacion!.cliente.telefono ?? "Sin telefono";
       clientID = selectedCotizacion!.cliente.id;
       date = selectedCotizacion!.fecha;
       sellerName = selectedCotizacion!.usuario.nombre;
@@ -53,6 +69,16 @@ class _ListingViewTestState extends State<ListingViewTest> {
       sellerName = userFormProvider.user!.nombre;
     }
     Provider.of<ProductsProvider>(context, listen: false).getProducts();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final stocksProvider =
+          Provider.of<StocksProvider>(context, listen: false);
+      stocksProvider.getStocks().then((value) {
+        setState(() {
+          stocks = stocksProvider.stocks;
+          enoughStock = checkStockAvailability(productos);
+        });
+      });
+    });
   }
 
   @override
@@ -78,7 +104,32 @@ class _ListingViewTestState extends State<ListingViewTest> {
           actions: [
             PopupMenuButton<String>(
               onSelected: (value) async {
-                if (value == 'Guardar') {
+                if (value == 'Reservar') {
+                  // Aquí va tu lógica para manejar la reserva
+
+                  if (productos.isEmpty) {
+                    NotificationsService.showSnackbarError(
+                        'No se pudo reservar los productos, agregue al menos un producto.');
+                  } else if (clientName.isEmpty) {
+                    NotificationsService.showSnackbarError(
+                        'No se pudo reservar la cotización, agregue el nombre del cliente.');
+                  } else if (clientPhone.isEmpty) {
+                    NotificationsService.showSnackbarError(
+                        'No se pudo reservar la cotización, agregue el numero de telefono del cliente.');
+                  } else {
+                    try {
+                      await listingProvider.createReserve(productos, clientName,
+                          clientNIT, clientCI, clientID, clientPhone);
+                      tabsRouter.setActiveIndex(43);
+                      NotificationsService.showSnackbar(
+                          'Productos reservados con éxito.');
+                    } catch (e) {
+                      print(e);
+                      NotificationsService.showSnackbarError(
+                          'No se pudo reservar los productos.');
+                    }
+                  }
+                } else if (value == 'Guardar') {
                   if (productos.isEmpty) {
                     NotificationsService.showSnackbarError(
                         'No se pudo crear la cotización, agregue al menos un producto.');
@@ -90,8 +141,13 @@ class _ListingViewTestState extends State<ListingViewTest> {
                       isEditing
                           ? await listingProvider.updateListing(
                               selectedCotizacion!.id, productos)
-                          : await listingProvider.newListing(productos,
-                              clientName, clientNIT, clientCI, clientID);
+                          : await listingProvider.newListing(
+                              productos,
+                              clientName,
+                              clientNIT,
+                              clientCI,
+                              clientID,
+                              clientPhone);
                       tabsRouter.setActiveIndex(43);
                       NotificationsService.showSnackbar(
                         isEditing
@@ -99,7 +155,6 @@ class _ListingViewTestState extends State<ListingViewTest> {
                             : 'Cotización creada con éxito.',
                       );
                     } catch (e) {
-                      print(e);
                       NotificationsService.showSnackbarError(
                         isEditing
                             ? 'No se pudo actualizar la cotizacion.'
@@ -130,13 +185,19 @@ class _ListingViewTestState extends State<ListingViewTest> {
                 }
               },
               itemBuilder: (BuildContext context) {
-                List<String> options = ['Guardar'];
+                List<String> options;
 
-                if (selectedCotizacion != null) {
-                  if (selectedCotizacion!.vendido) {
-                    options = ['Generar PDF'];
+                if (!enoughStock) {
+                  options = ['Reservar'];
+                } else {
+                  if (selectedCotizacion != null) {
+                    if (selectedCotizacion!.vendido) {
+                      options = ['Generar PDF'];
+                    } else {
+                      options = ['Generar PDF', 'Vender', 'Guardar'];
+                    }
                   } else {
-                    options = ['Generar PDF', 'Vender', 'Guardar'];
+                    options = ['Guardar'];
                   }
                 }
 
@@ -153,6 +214,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
           ],
         ),
         body: ListingTable(
+          onCheckStock: checkStockAvailability,
           total: total,
           sellerName: sellerName,
           date: date,
@@ -160,6 +222,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
           clientNIT: clientNIT,
           clientName: clientName,
           clientCI: clientCI,
+          clientPhone: clientPhone,
           clienteID: '',
           onClientNameChanged: (newName) {
             setState(() {
@@ -181,6 +244,16 @@ class _ListingViewTestState extends State<ListingViewTest> {
               clientCI = newCi;
             });
           },
+          onClientPhoneChanged: (newPhone) {
+            setState(() {
+              clientPhone = newPhone;
+            });
+          },
+          onEnouchStockChanged: (newEnouchStock) {
+            setState(() {
+              enoughStock = newEnouchStock;
+            });
+          },
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -191,6 +264,9 @@ class _ListingViewTestState extends State<ListingViewTest> {
                   setState(() {
                     productos.add(producto);
                     total += producto.precioTotal;
+
+                    // Verificar el stock disponible
+                    enoughStock = checkStockAvailability(productos);
                   });
                 },
               ),
@@ -200,5 +276,25 @@ class _ListingViewTestState extends State<ListingViewTest> {
         ),
       ),
     );
+  }
+
+//funcion para verificar disponibilidad del stock
+  bool checkStockAvailability(List<ProductoElement> productos) {
+    bool stockIsEnough = true;
+    for (var producto in productos) {
+      int totalCajas = getTotalCajas(producto.producto!.id);
+      int totalPiezas = getTotalPiezas(producto.producto!.id);
+      if (totalCajas < producto.cantidadCajas ||
+          totalPiezas < producto.cantidadPiezas) {
+        stockIsEnough = false;
+        break; // Salir del ciclo tan pronto como se encuentre un producto sin stock suficiente.
+      }
+    }
+
+    setState(() {
+      enoughStock = stockIsEnough; // Actualizar el valor de 'enoughStock'
+    });
+
+    return stockIsEnough;
   }
 }

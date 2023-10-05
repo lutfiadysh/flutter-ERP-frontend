@@ -15,6 +15,7 @@ class Cotizacion {
     required this.total,
     required this.estado,
     required this.vendido,
+    this.reservado,
     this.nit,
   });
 
@@ -29,6 +30,7 @@ class Cotizacion {
   double total;
   bool estado;
   bool vendido;
+  bool? reservado;
 
   factory Cotizacion.fromJson(String str) =>
       Cotizacion.fromMap(json.decode(str));
@@ -46,6 +48,7 @@ class Cotizacion {
         total: json["total"].toDouble(),
         estado: json["estado"],
         vendido: json["vendido"],
+        reservado: json["reservado"],
         numero: json["numero"],
       );
 
@@ -59,6 +62,7 @@ class Cotizacion {
         "total": total,
         "estado": estado,
         "vendido": vendido,
+        "reservado": reservado,
         "numero": numero,
       };
 }
@@ -72,6 +76,7 @@ class ProductoElement {
   double precioTotalPiezas;
   double precioTotalCajas;
   double precioTotal;
+  bool? reservado;
 
   ProductoElement(
       {required this.producto,
@@ -81,7 +86,8 @@ class ProductoElement {
       required this.precioUnitarioCajas,
       required this.precioTotalPiezas,
       required this.precioTotalCajas,
-      required this.precioTotal});
+      required this.precioTotal,
+      this.reservado});
 
   factory ProductoElement.fromJson(String str) =>
       ProductoElement.fromMap(json.decode(str));
@@ -97,6 +103,7 @@ class ProductoElement {
         precioTotalPiezas: json["precioTotalPiezas"].toDouble(),
         precioTotalCajas: json["precioTotalCajas"].toDouble(),
         precioTotal: json["precioTotal"].toDouble(),
+        reservado: json["reservado"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -108,6 +115,7 @@ class ProductoElement {
         "precioTotalPiezas": precioTotalPiezas,
         "precioTotalCajas": precioTotalCajas,
         "precioTotal": precioTotal,
+        "reservado": reservado,
       };
 
   ProductoElement copyWith({
