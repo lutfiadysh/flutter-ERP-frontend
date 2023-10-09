@@ -16,6 +16,10 @@ class _CategoriesViewsTestState extends State<CategoriesViewTest> {
     final size = MediaQuery.of(context).size.height;
 
     return SizedBox(
-        height: size - 75 - 95, child: const Scaffold(body: TableCategories()));
+      height: size - 75 - 95,
+      child: const Scaffold(
+        body: TableCategories(),
+      ),
+    );
   }
 }

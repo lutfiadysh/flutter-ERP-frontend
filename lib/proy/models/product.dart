@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:admin_dashboard/proy/models/provider.dart';
+
 class Producto {
   Producto({
     required this.id,
@@ -12,6 +14,7 @@ class Producto {
     this.precioCaja,
     this.precioPorUnidad,
     required this.codigoProducto,
+    this.proveedor,
   });
 
   String id;
@@ -24,6 +27,7 @@ class Producto {
   double? precioCaja;
   double? precioPorUnidad;
   String codigoProducto;
+  Proveedor? proveedor;
 
   factory Producto.fromJson(String str) => Producto.fromMap(json.decode(str));
 
@@ -40,6 +44,9 @@ class Producto {
         color: json["color"],
         disponible: json["disponible"],
         codigoProducto: json["codigoProducto"],
+        proveedor: json["proveedor"] != null
+            ? Proveedor.fromMap(json["proveedor"])
+            : null,
       );
 
   Map<String, dynamic> toMap() => {
@@ -53,6 +60,7 @@ class Producto {
         "color": color,
         "disponible": disponible,
         "codigoProducto": codigoProducto,
+        "proveedor": proveedor?.toMap(),
       };
 
   @override

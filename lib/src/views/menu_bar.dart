@@ -64,6 +64,7 @@ class _MenuBarState extends State<MenuBar> {
       Strings.users,
       Strings.categories,
       Strings.products,
+      Strings.providers
     ],
     [
       Strings.movements,
@@ -143,7 +144,8 @@ class _MenuBarState extends State<MenuBar> {
     item.TransferViewTest(),
     item.ListingViewTest(),
     item.SalesViewTest(),
-    item.SaleViewTest()
+    item.SaleViewTest(),
+    item.ProvidersViewTest(),
   ];
 
   @override

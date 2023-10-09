@@ -62,6 +62,8 @@ class AppRouter extends $AppRouter {
       AutoRoute(path: 'cotizaciones-crear', page: ListingViewTest.page),
       AutoRoute(path: 'ventas', page: SalesViewTest.page),
       AutoRoute(path: 'ventas-ver', page: SaleViewTest.page),
+      AutoRoute(path: 'proveedores', page: ProvidersViewTest.page),
+
     ]),
     AutoRoute(path: '/login-one', page: LoginOne.page),
     AutoRoute(path: '/login-two', page: LoginTwo.page),

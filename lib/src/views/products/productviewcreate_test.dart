@@ -1,5 +1,6 @@
 import 'package:admin_dashboard/proy/models/category.dart';
 import 'package:admin_dashboard/proy/models/product.dart';
+import 'package:admin_dashboard/proy/models/provider.dart';
 import 'package:admin_dashboard/proy/providers/categories_provider.dart';
 import 'package:admin_dashboard/proy/providers/products_provider.dart';
 import 'package:admin_dashboard/proy/services/notification_service.dart';
@@ -23,6 +24,7 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
   String categoria = '';
   String? id;
   Categoria? first;
+  Proveedor? proveedor;
   double? precioPorCaja;
   double? precioPorUnidad;
   final TextEditingController precioPorCajaController = TextEditingController();
