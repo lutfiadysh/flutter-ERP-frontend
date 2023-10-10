@@ -59,11 +59,12 @@ class ProductsProvider extends ChangeNotifier {
     }
   }
 
-  Future newProduct(String name, String category, double? precioPorCaja,
-      double? precioPorUnidad) async {
+  Future newProduct(String name, String category, String provider,
+      double? precioPorCaja, double? precioPorUnidad) async {
     final data = {
       'nombre': name,
       'categoria': category,
+      'proveedor': provider,
       'precioCaja': precioPorCaja,
       'precioPorUnidad': precioPorUnidad,
     };

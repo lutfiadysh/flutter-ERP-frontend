@@ -118,7 +118,7 @@ class _ListingViewTestState extends State<ListingViewTest> {
                         'No se pudo reservar la cotización, agregue el numero de telefono del cliente.');
                   } else {
                     try {
-                      await listingProvider.createReserve(productos, clientName,
+                      await listingProvider.createListing(productos, clientName,
                           clientNIT, clientCI, clientID, clientPhone);
                       tabsRouter.setActiveIndex(43);
                       NotificationsService.showSnackbar(

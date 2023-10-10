@@ -44,9 +44,7 @@ class Producto {
         color: json["color"],
         disponible: json["disponible"],
         codigoProducto: json["codigoProducto"],
-        proveedor: json["proveedor"] != null
-            ? Proveedor.fromMap(json["proveedor"])
-            : null,
+        proveedor: Proveedor.fromMap(json["proveedor"]),
       );
 
   Map<String, dynamic> toMap() => {

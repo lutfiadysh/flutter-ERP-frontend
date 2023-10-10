@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class MovementsProvider extends ChangeNotifier {
   List<Movimiento> movimientos = [];
   List<Movimiento> movimientosPorVenta = [];
+  List<Movimiento> movimientosPorPedido = [];
   Map<String, List<Movimiento>> productEntries = {};
   Map<String, List<Movimiento>> productExits = {};
   getMovements() async {
@@ -49,16 +50,13 @@ class MovementsProvider extends ChangeNotifier {
       final data = {'_id': id};
       await BackendApi.put('/salidas/$id', data);
 
-      movimientos = movimientos.map((movement) {
-        if (movement.id != id) return movement;
+      int indexToUpdate =
+          movimientos.indexWhere((movement) => movement.id == id);
+      if (indexToUpdate != -1) {
+        movimientos[indexToUpdate].verificacion = 'VERIFICADO';
+        notifyListeners();
+      }
 
-        // Actualiza cualquier otro atributo que desees aquí
-        movement.verificacion = 'VERIFICADO';
-
-        return movement;
-      }).toList();
-
-      notifyListeners();
       return true;
     } catch (e) {
       return false;
@@ -72,16 +70,13 @@ class MovementsProvider extends ChangeNotifier {
       final data = {'_id': id};
       await BackendApi.put('/entradas/$id', data);
 
-      movimientos = movimientos.map((movement) {
-        if (movement.id != id) return movement;
+      int indexToUpdate =
+          movimientos.indexWhere((movement) => movement.id == id);
+      if (indexToUpdate != -1) {
+        movimientos[indexToUpdate].verificacion = 'VERIFICADO';
+        notifyListeners();
+      }
 
-        // Actualiza cualquier otro atributo que desees aquí
-        movement.verificacion = 'VERIFICADO';
-
-        return movement;
-      }).toList();
-
-      notifyListeners();
       return true;
     } catch (e) {
       return false;
@@ -126,6 +121,24 @@ class MovementsProvider extends ChangeNotifier {
 
       // Asigna los nuevos movimientos desde la respuesta a la lista de movimientos por venta.
       movimientosPorVenta = [...movementsResp.movimientos];
+
+      notifyListeners();
+    } catch (e) {
+      // Aquí puedes manejar cualquier error o excepción que quieras.
+    }
+  }
+
+  Future<void> getMovementsByOrder(String orderId) async {
+    try {
+      final respMovements =
+          await BackendApi.httpGet('/movimientos/pedido/$orderId');
+      final movementsResp = MovementsResponse.fromMap(respMovements);
+
+      // Limpia la lista de movimientos por venta.
+      movimientosPorPedido.clear();
+
+      // Asigna los nuevos movimientos desde la respuesta a la lista de movimientos por venta.
+      movimientosPorPedido = [...movementsResp.movimientos];
 
       notifyListeners();
     } catch (e) {

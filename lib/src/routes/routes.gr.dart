@@ -63,417 +63,431 @@ import 'package:admin_dashboard/src/views/movements/movementsview_test.dart'
     as _i38;
 import 'package:admin_dashboard/src/views/movements/verificationsview_test.dart'
     as _i39;
+import 'package:admin_dashboard/src/views/orders/ordersview_test.dart' as _i40;
+import 'package:admin_dashboard/src/views/orders/orderview_test.dart' as _i64;
 import 'package:admin_dashboard/src/views/products/productsview_test.dart'
-    as _i40;
-import 'package:admin_dashboard/src/views/providers/providersview_test.dart'
     as _i41;
-import 'package:admin_dashboard/src/views/sales/salesview_test.dart' as _i42;
-import 'package:admin_dashboard/src/views/sales/saleview_test.dart' as _i43;
-import 'package:admin_dashboard/src/views/stock/stocksview_test.dart' as _i44;
-import 'package:admin_dashboard/src/views/tables/basic_table.dart' as _i45;
-import 'package:admin_dashboard/src/views/tables/data_tables.dart' as _i46;
-import 'package:admin_dashboard/src/views/tables/editable_table.dart' as _i47;
-import 'package:admin_dashboard/src/views/tables/responsive_table.dart' as _i48;
+import 'package:admin_dashboard/src/views/providers/providersview_test.dart'
+    as _i42;
+import 'package:admin_dashboard/src/views/sales/salesview_test.dart' as _i43;
+import 'package:admin_dashboard/src/views/sales/saleview_test.dart' as _i44;
+import 'package:admin_dashboard/src/views/stock/stocksview_test.dart' as _i45;
+import 'package:admin_dashboard/src/views/tables/basic_table.dart' as _i46;
+import 'package:admin_dashboard/src/views/tables/data_tables.dart' as _i47;
+import 'package:admin_dashboard/src/views/tables/editable_table.dart' as _i48;
+import 'package:admin_dashboard/src/views/tables/responsive_table.dart' as _i49;
 import 'package:admin_dashboard/src/views/transfers/transfers_view_test.dart'
-    as _i49;
-import 'package:admin_dashboard/src/views/transfers/transferview_test.dart'
     as _i50;
-import 'package:admin_dashboard/src/views/ui_elements/alert/alert_dialog.dart'
+import 'package:admin_dashboard/src/views/transfers/transferview_test.dart'
     as _i51;
-import 'package:admin_dashboard/src/views/ui_elements/badge/badge.dart' as _i52;
+import 'package:admin_dashboard/src/views/ui_elements/alert/alert_dialog.dart'
+    as _i52;
+import 'package:admin_dashboard/src/views/ui_elements/badge/badge.dart' as _i53;
 import 'package:admin_dashboard/src/views/ui_elements/buttons/button.dart'
-    as _i53;
-import 'package:admin_dashboard/src/views/ui_elements/carousel/carousel.dart'
     as _i54;
-import 'package:admin_dashboard/src/views/ui_elements/loader/loader.dart'
+import 'package:admin_dashboard/src/views/ui_elements/carousel/carousel.dart'
     as _i55;
-import 'package:admin_dashboard/src/views/ui_elements/modal/modal.dart' as _i56;
+import 'package:admin_dashboard/src/views/ui_elements/loader/loader.dart'
+    as _i56;
+import 'package:admin_dashboard/src/views/ui_elements/modal/modal.dart' as _i57;
 import 'package:admin_dashboard/src/views/ui_elements/rating/rating.dart'
-    as _i57;
-import 'package:admin_dashboard/src/views/ui_elements/tabbar/tabs_screen.dart'
     as _i58;
-import 'package:admin_dashboard/src/views/ui_elements/toast/toast.dart' as _i59;
+import 'package:admin_dashboard/src/views/ui_elements/tabbar/tabs_screen.dart'
+    as _i59;
+import 'package:admin_dashboard/src/views/ui_elements/toast/toast.dart' as _i60;
 import 'package:admin_dashboard/src/views/ui_elements/videos/video_screen.dart'
-    as _i60;
-import 'package:admin_dashboard/src/views/user/user_profile.dart' as _i61;
-import 'package:admin_dashboard/src/views/users/usersview_test.dart' as _i62;
-import 'package:auto_route/auto_route.dart' as _i63;
+    as _i61;
+import 'package:admin_dashboard/src/views/user/user_profile.dart' as _i62;
+import 'package:admin_dashboard/src/views/users/usersview_test.dart' as _i63;
+import 'package:auto_route/auto_route.dart' as _i65;
 
-abstract class $AppRouter extends _i63.RootStackRouter {
+abstract class $AppRouter extends _i65.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i63.PageFactory> pagesMap = {
+  final Map<String, _i65.PageFactory> pagesMap = {
     LockScreenOne.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i1.LockScreenOne(),
       );
     },
     LockScreenTwo.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i2.LockScreenTwo(),
       );
     },
     LoginOne.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i3.LoginOne(),
       );
     },
     LoginTwo.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i4.LoginTwo(),
       );
     },
     RecoverPasswordOne.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i5.RecoverPasswordOne(),
       );
     },
     RecoverPasswordTwo.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i6.RecoverPasswordTwo(),
       );
     },
     RegisterOne.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i7.RegisterOne(),
       );
     },
     RegisterTwo.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i8.RegisterTwo(),
       );
     },
     Calendar.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i9.Calendar(),
       );
     },
     CategoriesViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i10.CategoriesViewTest(),
       );
     },
     ChartListChart.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i11.ChartListChart(),
       );
     },
     ChartJsChart.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i12.ChartJsChart(),
       );
     },
     MorrisChart.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i13.MorrisChart(),
       );
     },
     Dashboard.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i14.Dashboard(),
       );
     },
     AlertEmail.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i15.AlertEmail(),
       );
     },
     BasicEmail.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i16.BasicEmail(),
       );
     },
     BillingEmail.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i17.BillingEmail(),
       );
     },
     ComingSoon.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i18.ComingSoon(),
       );
     },
     DirectoryRoute.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i19.DirectoryPage(),
       );
     },
     Error404.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i20.Error404(),
       );
     },
     Error500.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i21.Error500(),
       );
     },
     FAQs.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i22.FAQs(),
       );
     },
     Gallery.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i23.Gallery(),
       );
     },
     Invoice.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i24.Invoice(),
       );
     },
     Maintenance.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i25.Maintenance(),
       );
     },
     Pricing.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i26.Pricing(),
       );
     },
     TimelineScreen.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i27.TimelineScreen(),
       );
     },
     ElementsForm.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i28.ElementsForm(),
       );
     },
     FileUploadForm.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i29.FileUploadForm(),
       );
     },
     MaskForm.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i30.MaskForm(),
       );
     },
     RepeaterForm.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i31.RepeaterForm(),
       );
     },
     ValidationForm.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i32.ValidationForm(),
       );
     },
     WizardForm.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i33.WizardForm(),
       );
     },
     ListingsViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i34.ListingsViewTest(),
       );
     },
     ListingViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i35.ListingViewTest(),
       );
     },
     GoogleMaps.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i36.GoogleMaps(),
       );
     },
     MenuBar.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i37.MenuBar(),
       );
     },
     MovementsViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i38.MovementsViewTest(),
       );
     },
     VerificationsViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i39.VerificationsViewTest(),
       );
     },
-    ProductsViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+    OrdersViewTest.name: (routeData) {
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i40.ProductsViewTest(),
+        child: const _i40.OrdersViewTest(),
+      );
+    },
+    ProductsViewTest.name: (routeData) {
+      return _i65.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i41.ProductsViewTest(),
       );
     },
     ProvidersViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i41.ProvidersViewTest(),
+        child: const _i42.ProvidersViewTest(),
       );
     },
     SalesViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i42.SalesViewTest(),
+        child: const _i43.SalesViewTest(),
       );
     },
     SaleViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i43.SaleViewTest(),
+        child: const _i44.SaleViewTest(),
       );
     },
     StocksViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i44.StocksViewTest(),
+        child: const _i45.StocksViewTest(),
       );
     },
     BasicTable.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i45.BasicTable(),
+        child: const _i46.BasicTable(),
       );
     },
     Datatable.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i46.Datatable(),
+        child: const _i47.Datatable(),
       );
     },
     EditableTable.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i47.EditableTable(),
+        child: const _i48.EditableTable(),
       );
     },
     ResponsiveTable.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i48.ResponsiveTable(),
+        child: const _i49.ResponsiveTable(),
       );
     },
     TransfersViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i49.TransfersViewTest(),
+        child: const _i50.TransfersViewTest(),
       );
     },
     TransferViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i50.TransferViewTest(),
+        child: const _i51.TransferViewTest(),
       );
     },
     AlertDialogBox.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i51.AlertDialogBox(),
+        child: const _i52.AlertDialogBox(),
       );
     },
     Badge.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i52.Badge(),
+        child: const _i53.Badge(),
       );
     },
     Button.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i53.Button(),
+        child: const _i54.Button(),
       );
     },
     Carousel.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i54.Carousel(),
+        child: const _i55.Carousel(),
       );
     },
     Loaders.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i55.Loaders(),
+        child: const _i56.Loaders(),
       );
     },
     Modal.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i56.Modal(),
+        child: const _i57.Modal(),
       );
     },
     Rating.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i57.Rating(),
+        child: const _i58.Rating(),
       );
     },
     TabScreen.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i58.TabScreen(),
+        child: const _i59.TabScreen(),
       );
     },
     Toast.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i59.Toast(),
+        child: const _i60.Toast(),
       );
     },
     VideoScreen.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i60.VideoScreen(),
+        child: const _i61.VideoScreen(),
       );
     },
     UserProfile.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i61.UserProfile(),
+        child: const _i62.UserProfile(),
       );
     },
     UsersViewTest.name: (routeData) {
-      return _i63.AutoRoutePage<dynamic>(
+      return _i65.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i62.UsersViewTest(),
+        child: const _i63.UsersViewTest(),
+      );
+    },
+    OrderViewTest.name: (routeData) {
+      return _i65.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i64.OrderViewTest(),
       );
     },
   };
@@ -481,8 +495,8 @@ abstract class $AppRouter extends _i63.RootStackRouter {
 
 /// generated route for
 /// [_i1.LockScreenOne]
-class LockScreenOne extends _i63.PageRouteInfo<void> {
-  const LockScreenOne({List<_i63.PageRouteInfo>? children})
+class LockScreenOne extends _i65.PageRouteInfo<void> {
+  const LockScreenOne({List<_i65.PageRouteInfo>? children})
       : super(
           LockScreenOne.name,
           initialChildren: children,
@@ -490,13 +504,13 @@ class LockScreenOne extends _i63.PageRouteInfo<void> {
 
   static const String name = 'LockScreenOne';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i2.LockScreenTwo]
-class LockScreenTwo extends _i63.PageRouteInfo<void> {
-  const LockScreenTwo({List<_i63.PageRouteInfo>? children})
+class LockScreenTwo extends _i65.PageRouteInfo<void> {
+  const LockScreenTwo({List<_i65.PageRouteInfo>? children})
       : super(
           LockScreenTwo.name,
           initialChildren: children,
@@ -504,13 +518,13 @@ class LockScreenTwo extends _i63.PageRouteInfo<void> {
 
   static const String name = 'LockScreenTwo';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i3.LoginOne]
-class LoginOne extends _i63.PageRouteInfo<void> {
-  const LoginOne({List<_i63.PageRouteInfo>? children})
+class LoginOne extends _i65.PageRouteInfo<void> {
+  const LoginOne({List<_i65.PageRouteInfo>? children})
       : super(
           LoginOne.name,
           initialChildren: children,
@@ -518,13 +532,13 @@ class LoginOne extends _i63.PageRouteInfo<void> {
 
   static const String name = 'LoginOne';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i4.LoginTwo]
-class LoginTwo extends _i63.PageRouteInfo<void> {
-  const LoginTwo({List<_i63.PageRouteInfo>? children})
+class LoginTwo extends _i65.PageRouteInfo<void> {
+  const LoginTwo({List<_i65.PageRouteInfo>? children})
       : super(
           LoginTwo.name,
           initialChildren: children,
@@ -532,13 +546,13 @@ class LoginTwo extends _i63.PageRouteInfo<void> {
 
   static const String name = 'LoginTwo';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i5.RecoverPasswordOne]
-class RecoverPasswordOne extends _i63.PageRouteInfo<void> {
-  const RecoverPasswordOne({List<_i63.PageRouteInfo>? children})
+class RecoverPasswordOne extends _i65.PageRouteInfo<void> {
+  const RecoverPasswordOne({List<_i65.PageRouteInfo>? children})
       : super(
           RecoverPasswordOne.name,
           initialChildren: children,
@@ -546,13 +560,13 @@ class RecoverPasswordOne extends _i63.PageRouteInfo<void> {
 
   static const String name = 'RecoverPasswordOne';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i6.RecoverPasswordTwo]
-class RecoverPasswordTwo extends _i63.PageRouteInfo<void> {
-  const RecoverPasswordTwo({List<_i63.PageRouteInfo>? children})
+class RecoverPasswordTwo extends _i65.PageRouteInfo<void> {
+  const RecoverPasswordTwo({List<_i65.PageRouteInfo>? children})
       : super(
           RecoverPasswordTwo.name,
           initialChildren: children,
@@ -560,13 +574,13 @@ class RecoverPasswordTwo extends _i63.PageRouteInfo<void> {
 
   static const String name = 'RecoverPasswordTwo';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i7.RegisterOne]
-class RegisterOne extends _i63.PageRouteInfo<void> {
-  const RegisterOne({List<_i63.PageRouteInfo>? children})
+class RegisterOne extends _i65.PageRouteInfo<void> {
+  const RegisterOne({List<_i65.PageRouteInfo>? children})
       : super(
           RegisterOne.name,
           initialChildren: children,
@@ -574,13 +588,13 @@ class RegisterOne extends _i63.PageRouteInfo<void> {
 
   static const String name = 'RegisterOne';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i8.RegisterTwo]
-class RegisterTwo extends _i63.PageRouteInfo<void> {
-  const RegisterTwo({List<_i63.PageRouteInfo>? children})
+class RegisterTwo extends _i65.PageRouteInfo<void> {
+  const RegisterTwo({List<_i65.PageRouteInfo>? children})
       : super(
           RegisterTwo.name,
           initialChildren: children,
@@ -588,13 +602,13 @@ class RegisterTwo extends _i63.PageRouteInfo<void> {
 
   static const String name = 'RegisterTwo';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i9.Calendar]
-class Calendar extends _i63.PageRouteInfo<void> {
-  const Calendar({List<_i63.PageRouteInfo>? children})
+class Calendar extends _i65.PageRouteInfo<void> {
+  const Calendar({List<_i65.PageRouteInfo>? children})
       : super(
           Calendar.name,
           initialChildren: children,
@@ -602,13 +616,13 @@ class Calendar extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Calendar';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i10.CategoriesViewTest]
-class CategoriesViewTest extends _i63.PageRouteInfo<void> {
-  const CategoriesViewTest({List<_i63.PageRouteInfo>? children})
+class CategoriesViewTest extends _i65.PageRouteInfo<void> {
+  const CategoriesViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           CategoriesViewTest.name,
           initialChildren: children,
@@ -616,13 +630,13 @@ class CategoriesViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'CategoriesViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i11.ChartListChart]
-class ChartListChart extends _i63.PageRouteInfo<void> {
-  const ChartListChart({List<_i63.PageRouteInfo>? children})
+class ChartListChart extends _i65.PageRouteInfo<void> {
+  const ChartListChart({List<_i65.PageRouteInfo>? children})
       : super(
           ChartListChart.name,
           initialChildren: children,
@@ -630,13 +644,13 @@ class ChartListChart extends _i63.PageRouteInfo<void> {
 
   static const String name = 'ChartListChart';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i12.ChartJsChart]
-class ChartJsChart extends _i63.PageRouteInfo<void> {
-  const ChartJsChart({List<_i63.PageRouteInfo>? children})
+class ChartJsChart extends _i65.PageRouteInfo<void> {
+  const ChartJsChart({List<_i65.PageRouteInfo>? children})
       : super(
           ChartJsChart.name,
           initialChildren: children,
@@ -644,13 +658,13 @@ class ChartJsChart extends _i63.PageRouteInfo<void> {
 
   static const String name = 'ChartJsChart';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i13.MorrisChart]
-class MorrisChart extends _i63.PageRouteInfo<void> {
-  const MorrisChart({List<_i63.PageRouteInfo>? children})
+class MorrisChart extends _i65.PageRouteInfo<void> {
+  const MorrisChart({List<_i65.PageRouteInfo>? children})
       : super(
           MorrisChart.name,
           initialChildren: children,
@@ -658,13 +672,13 @@ class MorrisChart extends _i63.PageRouteInfo<void> {
 
   static const String name = 'MorrisChart';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i14.Dashboard]
-class Dashboard extends _i63.PageRouteInfo<void> {
-  const Dashboard({List<_i63.PageRouteInfo>? children})
+class Dashboard extends _i65.PageRouteInfo<void> {
+  const Dashboard({List<_i65.PageRouteInfo>? children})
       : super(
           Dashboard.name,
           initialChildren: children,
@@ -672,13 +686,13 @@ class Dashboard extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Dashboard';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i15.AlertEmail]
-class AlertEmail extends _i63.PageRouteInfo<void> {
-  const AlertEmail({List<_i63.PageRouteInfo>? children})
+class AlertEmail extends _i65.PageRouteInfo<void> {
+  const AlertEmail({List<_i65.PageRouteInfo>? children})
       : super(
           AlertEmail.name,
           initialChildren: children,
@@ -686,13 +700,13 @@ class AlertEmail extends _i63.PageRouteInfo<void> {
 
   static const String name = 'AlertEmail';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i16.BasicEmail]
-class BasicEmail extends _i63.PageRouteInfo<void> {
-  const BasicEmail({List<_i63.PageRouteInfo>? children})
+class BasicEmail extends _i65.PageRouteInfo<void> {
+  const BasicEmail({List<_i65.PageRouteInfo>? children})
       : super(
           BasicEmail.name,
           initialChildren: children,
@@ -700,13 +714,13 @@ class BasicEmail extends _i63.PageRouteInfo<void> {
 
   static const String name = 'BasicEmail';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i17.BillingEmail]
-class BillingEmail extends _i63.PageRouteInfo<void> {
-  const BillingEmail({List<_i63.PageRouteInfo>? children})
+class BillingEmail extends _i65.PageRouteInfo<void> {
+  const BillingEmail({List<_i65.PageRouteInfo>? children})
       : super(
           BillingEmail.name,
           initialChildren: children,
@@ -714,13 +728,13 @@ class BillingEmail extends _i63.PageRouteInfo<void> {
 
   static const String name = 'BillingEmail';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i18.ComingSoon]
-class ComingSoon extends _i63.PageRouteInfo<void> {
-  const ComingSoon({List<_i63.PageRouteInfo>? children})
+class ComingSoon extends _i65.PageRouteInfo<void> {
+  const ComingSoon({List<_i65.PageRouteInfo>? children})
       : super(
           ComingSoon.name,
           initialChildren: children,
@@ -728,13 +742,13 @@ class ComingSoon extends _i63.PageRouteInfo<void> {
 
   static const String name = 'ComingSoon';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i19.DirectoryPage]
-class DirectoryRoute extends _i63.PageRouteInfo<void> {
-  const DirectoryRoute({List<_i63.PageRouteInfo>? children})
+class DirectoryRoute extends _i65.PageRouteInfo<void> {
+  const DirectoryRoute({List<_i65.PageRouteInfo>? children})
       : super(
           DirectoryRoute.name,
           initialChildren: children,
@@ -742,13 +756,13 @@ class DirectoryRoute extends _i63.PageRouteInfo<void> {
 
   static const String name = 'DirectoryRoute';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i20.Error404]
-class Error404 extends _i63.PageRouteInfo<void> {
-  const Error404({List<_i63.PageRouteInfo>? children})
+class Error404 extends _i65.PageRouteInfo<void> {
+  const Error404({List<_i65.PageRouteInfo>? children})
       : super(
           Error404.name,
           initialChildren: children,
@@ -756,13 +770,13 @@ class Error404 extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Error404';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i21.Error500]
-class Error500 extends _i63.PageRouteInfo<void> {
-  const Error500({List<_i63.PageRouteInfo>? children})
+class Error500 extends _i65.PageRouteInfo<void> {
+  const Error500({List<_i65.PageRouteInfo>? children})
       : super(
           Error500.name,
           initialChildren: children,
@@ -770,13 +784,13 @@ class Error500 extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Error500';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i22.FAQs]
-class FAQs extends _i63.PageRouteInfo<void> {
-  const FAQs({List<_i63.PageRouteInfo>? children})
+class FAQs extends _i65.PageRouteInfo<void> {
+  const FAQs({List<_i65.PageRouteInfo>? children})
       : super(
           FAQs.name,
           initialChildren: children,
@@ -784,13 +798,13 @@ class FAQs extends _i63.PageRouteInfo<void> {
 
   static const String name = 'FAQs';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i23.Gallery]
-class Gallery extends _i63.PageRouteInfo<void> {
-  const Gallery({List<_i63.PageRouteInfo>? children})
+class Gallery extends _i65.PageRouteInfo<void> {
+  const Gallery({List<_i65.PageRouteInfo>? children})
       : super(
           Gallery.name,
           initialChildren: children,
@@ -798,13 +812,13 @@ class Gallery extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Gallery';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i24.Invoice]
-class Invoice extends _i63.PageRouteInfo<void> {
-  const Invoice({List<_i63.PageRouteInfo>? children})
+class Invoice extends _i65.PageRouteInfo<void> {
+  const Invoice({List<_i65.PageRouteInfo>? children})
       : super(
           Invoice.name,
           initialChildren: children,
@@ -812,13 +826,13 @@ class Invoice extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Invoice';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i25.Maintenance]
-class Maintenance extends _i63.PageRouteInfo<void> {
-  const Maintenance({List<_i63.PageRouteInfo>? children})
+class Maintenance extends _i65.PageRouteInfo<void> {
+  const Maintenance({List<_i65.PageRouteInfo>? children})
       : super(
           Maintenance.name,
           initialChildren: children,
@@ -826,13 +840,13 @@ class Maintenance extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Maintenance';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i26.Pricing]
-class Pricing extends _i63.PageRouteInfo<void> {
-  const Pricing({List<_i63.PageRouteInfo>? children})
+class Pricing extends _i65.PageRouteInfo<void> {
+  const Pricing({List<_i65.PageRouteInfo>? children})
       : super(
           Pricing.name,
           initialChildren: children,
@@ -840,13 +854,13 @@ class Pricing extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Pricing';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i27.TimelineScreen]
-class TimelineScreen extends _i63.PageRouteInfo<void> {
-  const TimelineScreen({List<_i63.PageRouteInfo>? children})
+class TimelineScreen extends _i65.PageRouteInfo<void> {
+  const TimelineScreen({List<_i65.PageRouteInfo>? children})
       : super(
           TimelineScreen.name,
           initialChildren: children,
@@ -854,13 +868,13 @@ class TimelineScreen extends _i63.PageRouteInfo<void> {
 
   static const String name = 'TimelineScreen';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i28.ElementsForm]
-class ElementsForm extends _i63.PageRouteInfo<void> {
-  const ElementsForm({List<_i63.PageRouteInfo>? children})
+class ElementsForm extends _i65.PageRouteInfo<void> {
+  const ElementsForm({List<_i65.PageRouteInfo>? children})
       : super(
           ElementsForm.name,
           initialChildren: children,
@@ -868,13 +882,13 @@ class ElementsForm extends _i63.PageRouteInfo<void> {
 
   static const String name = 'ElementsForm';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i29.FileUploadForm]
-class FileUploadForm extends _i63.PageRouteInfo<void> {
-  const FileUploadForm({List<_i63.PageRouteInfo>? children})
+class FileUploadForm extends _i65.PageRouteInfo<void> {
+  const FileUploadForm({List<_i65.PageRouteInfo>? children})
       : super(
           FileUploadForm.name,
           initialChildren: children,
@@ -882,13 +896,13 @@ class FileUploadForm extends _i63.PageRouteInfo<void> {
 
   static const String name = 'FileUploadForm';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i30.MaskForm]
-class MaskForm extends _i63.PageRouteInfo<void> {
-  const MaskForm({List<_i63.PageRouteInfo>? children})
+class MaskForm extends _i65.PageRouteInfo<void> {
+  const MaskForm({List<_i65.PageRouteInfo>? children})
       : super(
           MaskForm.name,
           initialChildren: children,
@@ -896,13 +910,13 @@ class MaskForm extends _i63.PageRouteInfo<void> {
 
   static const String name = 'MaskForm';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i31.RepeaterForm]
-class RepeaterForm extends _i63.PageRouteInfo<void> {
-  const RepeaterForm({List<_i63.PageRouteInfo>? children})
+class RepeaterForm extends _i65.PageRouteInfo<void> {
+  const RepeaterForm({List<_i65.PageRouteInfo>? children})
       : super(
           RepeaterForm.name,
           initialChildren: children,
@@ -910,13 +924,13 @@ class RepeaterForm extends _i63.PageRouteInfo<void> {
 
   static const String name = 'RepeaterForm';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i32.ValidationForm]
-class ValidationForm extends _i63.PageRouteInfo<void> {
-  const ValidationForm({List<_i63.PageRouteInfo>? children})
+class ValidationForm extends _i65.PageRouteInfo<void> {
+  const ValidationForm({List<_i65.PageRouteInfo>? children})
       : super(
           ValidationForm.name,
           initialChildren: children,
@@ -924,13 +938,13 @@ class ValidationForm extends _i63.PageRouteInfo<void> {
 
   static const String name = 'ValidationForm';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i33.WizardForm]
-class WizardForm extends _i63.PageRouteInfo<void> {
-  const WizardForm({List<_i63.PageRouteInfo>? children})
+class WizardForm extends _i65.PageRouteInfo<void> {
+  const WizardForm({List<_i65.PageRouteInfo>? children})
       : super(
           WizardForm.name,
           initialChildren: children,
@@ -938,13 +952,13 @@ class WizardForm extends _i63.PageRouteInfo<void> {
 
   static const String name = 'WizardForm';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i34.ListingsViewTest]
-class ListingsViewTest extends _i63.PageRouteInfo<void> {
-  const ListingsViewTest({List<_i63.PageRouteInfo>? children})
+class ListingsViewTest extends _i65.PageRouteInfo<void> {
+  const ListingsViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           ListingsViewTest.name,
           initialChildren: children,
@@ -952,13 +966,13 @@ class ListingsViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'ListingsViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i35.ListingViewTest]
-class ListingViewTest extends _i63.PageRouteInfo<void> {
-  const ListingViewTest({List<_i63.PageRouteInfo>? children})
+class ListingViewTest extends _i65.PageRouteInfo<void> {
+  const ListingViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           ListingViewTest.name,
           initialChildren: children,
@@ -966,13 +980,13 @@ class ListingViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'ListingViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i36.GoogleMaps]
-class GoogleMaps extends _i63.PageRouteInfo<void> {
-  const GoogleMaps({List<_i63.PageRouteInfo>? children})
+class GoogleMaps extends _i65.PageRouteInfo<void> {
+  const GoogleMaps({List<_i65.PageRouteInfo>? children})
       : super(
           GoogleMaps.name,
           initialChildren: children,
@@ -980,13 +994,13 @@ class GoogleMaps extends _i63.PageRouteInfo<void> {
 
   static const String name = 'GoogleMaps';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i37.MenuBar]
-class MenuBar extends _i63.PageRouteInfo<void> {
-  const MenuBar({List<_i63.PageRouteInfo>? children})
+class MenuBar extends _i65.PageRouteInfo<void> {
+  const MenuBar({List<_i65.PageRouteInfo>? children})
       : super(
           MenuBar.name,
           initialChildren: children,
@@ -994,13 +1008,13 @@ class MenuBar extends _i63.PageRouteInfo<void> {
 
   static const String name = 'MenuBar';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i38.MovementsViewTest]
-class MovementsViewTest extends _i63.PageRouteInfo<void> {
-  const MovementsViewTest({List<_i63.PageRouteInfo>? children})
+class MovementsViewTest extends _i65.PageRouteInfo<void> {
+  const MovementsViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           MovementsViewTest.name,
           initialChildren: children,
@@ -1008,13 +1022,13 @@ class MovementsViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'MovementsViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i39.VerificationsViewTest]
-class VerificationsViewTest extends _i63.PageRouteInfo<void> {
-  const VerificationsViewTest({List<_i63.PageRouteInfo>? children})
+class VerificationsViewTest extends _i65.PageRouteInfo<void> {
+  const VerificationsViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           VerificationsViewTest.name,
           initialChildren: children,
@@ -1022,13 +1036,27 @@ class VerificationsViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'VerificationsViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i40.ProductsViewTest]
-class ProductsViewTest extends _i63.PageRouteInfo<void> {
-  const ProductsViewTest({List<_i63.PageRouteInfo>? children})
+/// [_i40.OrdersViewTest]
+class OrdersViewTest extends _i65.PageRouteInfo<void> {
+  const OrdersViewTest({List<_i65.PageRouteInfo>? children})
+      : super(
+          OrdersViewTest.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OrdersViewTest';
+
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i41.ProductsViewTest]
+class ProductsViewTest extends _i65.PageRouteInfo<void> {
+  const ProductsViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           ProductsViewTest.name,
           initialChildren: children,
@@ -1036,13 +1064,13 @@ class ProductsViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'ProductsViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i41.ProvidersViewTest]
-class ProvidersViewTest extends _i63.PageRouteInfo<void> {
-  const ProvidersViewTest({List<_i63.PageRouteInfo>? children})
+/// [_i42.ProvidersViewTest]
+class ProvidersViewTest extends _i65.PageRouteInfo<void> {
+  const ProvidersViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           ProvidersViewTest.name,
           initialChildren: children,
@@ -1050,13 +1078,13 @@ class ProvidersViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'ProvidersViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i42.SalesViewTest]
-class SalesViewTest extends _i63.PageRouteInfo<void> {
-  const SalesViewTest({List<_i63.PageRouteInfo>? children})
+/// [_i43.SalesViewTest]
+class SalesViewTest extends _i65.PageRouteInfo<void> {
+  const SalesViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           SalesViewTest.name,
           initialChildren: children,
@@ -1064,13 +1092,13 @@ class SalesViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'SalesViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i43.SaleViewTest]
-class SaleViewTest extends _i63.PageRouteInfo<void> {
-  const SaleViewTest({List<_i63.PageRouteInfo>? children})
+/// [_i44.SaleViewTest]
+class SaleViewTest extends _i65.PageRouteInfo<void> {
+  const SaleViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           SaleViewTest.name,
           initialChildren: children,
@@ -1078,13 +1106,13 @@ class SaleViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'SaleViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i44.StocksViewTest]
-class StocksViewTest extends _i63.PageRouteInfo<void> {
-  const StocksViewTest({List<_i63.PageRouteInfo>? children})
+/// [_i45.StocksViewTest]
+class StocksViewTest extends _i65.PageRouteInfo<void> {
+  const StocksViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           StocksViewTest.name,
           initialChildren: children,
@@ -1092,13 +1120,13 @@ class StocksViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'StocksViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i45.BasicTable]
-class BasicTable extends _i63.PageRouteInfo<void> {
-  const BasicTable({List<_i63.PageRouteInfo>? children})
+/// [_i46.BasicTable]
+class BasicTable extends _i65.PageRouteInfo<void> {
+  const BasicTable({List<_i65.PageRouteInfo>? children})
       : super(
           BasicTable.name,
           initialChildren: children,
@@ -1106,13 +1134,13 @@ class BasicTable extends _i63.PageRouteInfo<void> {
 
   static const String name = 'BasicTable';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i46.Datatable]
-class Datatable extends _i63.PageRouteInfo<void> {
-  const Datatable({List<_i63.PageRouteInfo>? children})
+/// [_i47.Datatable]
+class Datatable extends _i65.PageRouteInfo<void> {
+  const Datatable({List<_i65.PageRouteInfo>? children})
       : super(
           Datatable.name,
           initialChildren: children,
@@ -1120,13 +1148,13 @@ class Datatable extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Datatable';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i47.EditableTable]
-class EditableTable extends _i63.PageRouteInfo<void> {
-  const EditableTable({List<_i63.PageRouteInfo>? children})
+/// [_i48.EditableTable]
+class EditableTable extends _i65.PageRouteInfo<void> {
+  const EditableTable({List<_i65.PageRouteInfo>? children})
       : super(
           EditableTable.name,
           initialChildren: children,
@@ -1134,13 +1162,13 @@ class EditableTable extends _i63.PageRouteInfo<void> {
 
   static const String name = 'EditableTable';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i48.ResponsiveTable]
-class ResponsiveTable extends _i63.PageRouteInfo<void> {
-  const ResponsiveTable({List<_i63.PageRouteInfo>? children})
+/// [_i49.ResponsiveTable]
+class ResponsiveTable extends _i65.PageRouteInfo<void> {
+  const ResponsiveTable({List<_i65.PageRouteInfo>? children})
       : super(
           ResponsiveTable.name,
           initialChildren: children,
@@ -1148,13 +1176,13 @@ class ResponsiveTable extends _i63.PageRouteInfo<void> {
 
   static const String name = 'ResponsiveTable';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i49.TransfersViewTest]
-class TransfersViewTest extends _i63.PageRouteInfo<void> {
-  const TransfersViewTest({List<_i63.PageRouteInfo>? children})
+/// [_i50.TransfersViewTest]
+class TransfersViewTest extends _i65.PageRouteInfo<void> {
+  const TransfersViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           TransfersViewTest.name,
           initialChildren: children,
@@ -1162,13 +1190,13 @@ class TransfersViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'TransfersViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i50.TransferViewTest]
-class TransferViewTest extends _i63.PageRouteInfo<void> {
-  const TransferViewTest({List<_i63.PageRouteInfo>? children})
+/// [_i51.TransferViewTest]
+class TransferViewTest extends _i65.PageRouteInfo<void> {
+  const TransferViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           TransferViewTest.name,
           initialChildren: children,
@@ -1176,13 +1204,13 @@ class TransferViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'TransferViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i51.AlertDialogBox]
-class AlertDialogBox extends _i63.PageRouteInfo<void> {
-  const AlertDialogBox({List<_i63.PageRouteInfo>? children})
+/// [_i52.AlertDialogBox]
+class AlertDialogBox extends _i65.PageRouteInfo<void> {
+  const AlertDialogBox({List<_i65.PageRouteInfo>? children})
       : super(
           AlertDialogBox.name,
           initialChildren: children,
@@ -1190,13 +1218,13 @@ class AlertDialogBox extends _i63.PageRouteInfo<void> {
 
   static const String name = 'AlertDialogBox';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i52.Badge]
-class Badge extends _i63.PageRouteInfo<void> {
-  const Badge({List<_i63.PageRouteInfo>? children})
+/// [_i53.Badge]
+class Badge extends _i65.PageRouteInfo<void> {
+  const Badge({List<_i65.PageRouteInfo>? children})
       : super(
           Badge.name,
           initialChildren: children,
@@ -1204,13 +1232,13 @@ class Badge extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Badge';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i53.Button]
-class Button extends _i63.PageRouteInfo<void> {
-  const Button({List<_i63.PageRouteInfo>? children})
+/// [_i54.Button]
+class Button extends _i65.PageRouteInfo<void> {
+  const Button({List<_i65.PageRouteInfo>? children})
       : super(
           Button.name,
           initialChildren: children,
@@ -1218,13 +1246,13 @@ class Button extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Button';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i54.Carousel]
-class Carousel extends _i63.PageRouteInfo<void> {
-  const Carousel({List<_i63.PageRouteInfo>? children})
+/// [_i55.Carousel]
+class Carousel extends _i65.PageRouteInfo<void> {
+  const Carousel({List<_i65.PageRouteInfo>? children})
       : super(
           Carousel.name,
           initialChildren: children,
@@ -1232,13 +1260,13 @@ class Carousel extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Carousel';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i55.Loaders]
-class Loaders extends _i63.PageRouteInfo<void> {
-  const Loaders({List<_i63.PageRouteInfo>? children})
+/// [_i56.Loaders]
+class Loaders extends _i65.PageRouteInfo<void> {
+  const Loaders({List<_i65.PageRouteInfo>? children})
       : super(
           Loaders.name,
           initialChildren: children,
@@ -1246,13 +1274,13 @@ class Loaders extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Loaders';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i56.Modal]
-class Modal extends _i63.PageRouteInfo<void> {
-  const Modal({List<_i63.PageRouteInfo>? children})
+/// [_i57.Modal]
+class Modal extends _i65.PageRouteInfo<void> {
+  const Modal({List<_i65.PageRouteInfo>? children})
       : super(
           Modal.name,
           initialChildren: children,
@@ -1260,13 +1288,13 @@ class Modal extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Modal';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i57.Rating]
-class Rating extends _i63.PageRouteInfo<void> {
-  const Rating({List<_i63.PageRouteInfo>? children})
+/// [_i58.Rating]
+class Rating extends _i65.PageRouteInfo<void> {
+  const Rating({List<_i65.PageRouteInfo>? children})
       : super(
           Rating.name,
           initialChildren: children,
@@ -1274,13 +1302,13 @@ class Rating extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Rating';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i58.TabScreen]
-class TabScreen extends _i63.PageRouteInfo<void> {
-  const TabScreen({List<_i63.PageRouteInfo>? children})
+/// [_i59.TabScreen]
+class TabScreen extends _i65.PageRouteInfo<void> {
+  const TabScreen({List<_i65.PageRouteInfo>? children})
       : super(
           TabScreen.name,
           initialChildren: children,
@@ -1288,13 +1316,13 @@ class TabScreen extends _i63.PageRouteInfo<void> {
 
   static const String name = 'TabScreen';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i59.Toast]
-class Toast extends _i63.PageRouteInfo<void> {
-  const Toast({List<_i63.PageRouteInfo>? children})
+/// [_i60.Toast]
+class Toast extends _i65.PageRouteInfo<void> {
+  const Toast({List<_i65.PageRouteInfo>? children})
       : super(
           Toast.name,
           initialChildren: children,
@@ -1302,13 +1330,13 @@ class Toast extends _i63.PageRouteInfo<void> {
 
   static const String name = 'Toast';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i60.VideoScreen]
-class VideoScreen extends _i63.PageRouteInfo<void> {
-  const VideoScreen({List<_i63.PageRouteInfo>? children})
+/// [_i61.VideoScreen]
+class VideoScreen extends _i65.PageRouteInfo<void> {
+  const VideoScreen({List<_i65.PageRouteInfo>? children})
       : super(
           VideoScreen.name,
           initialChildren: children,
@@ -1316,13 +1344,13 @@ class VideoScreen extends _i63.PageRouteInfo<void> {
 
   static const String name = 'VideoScreen';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i61.UserProfile]
-class UserProfile extends _i63.PageRouteInfo<void> {
-  const UserProfile({List<_i63.PageRouteInfo>? children})
+/// [_i62.UserProfile]
+class UserProfile extends _i65.PageRouteInfo<void> {
+  const UserProfile({List<_i65.PageRouteInfo>? children})
       : super(
           UserProfile.name,
           initialChildren: children,
@@ -1330,13 +1358,13 @@ class UserProfile extends _i63.PageRouteInfo<void> {
 
   static const String name = 'UserProfile';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i62.UsersViewTest]
-class UsersViewTest extends _i63.PageRouteInfo<void> {
-  const UsersViewTest({List<_i63.PageRouteInfo>? children})
+/// [_i63.UsersViewTest]
+class UsersViewTest extends _i65.PageRouteInfo<void> {
+  const UsersViewTest({List<_i65.PageRouteInfo>? children})
       : super(
           UsersViewTest.name,
           initialChildren: children,
@@ -1344,5 +1372,19 @@ class UsersViewTest extends _i63.PageRouteInfo<void> {
 
   static const String name = 'UsersViewTest';
 
-  static const _i63.PageInfo<void> page = _i63.PageInfo<void>(name);
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i64.OrderViewTest]
+class OrderViewTest extends _i65.PageRouteInfo<void> {
+  const OrderViewTest({List<_i65.PageRouteInfo>? children})
+      : super(
+          OrderViewTest.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OrderViewTest';
+
+  static const _i65.PageInfo<void> page = _i65.PageInfo<void>(name);
 }

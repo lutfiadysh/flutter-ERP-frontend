@@ -332,6 +332,8 @@ class _ClientDataDialogState extends State<ClientDataDialog> {
                             nitController.text =
                                 selectedClient!.nit ?? 'Sin NIT';
                             ciController.text = selectedClient!.ci ?? 'Sin CI';
+                            phoneController.text =
+                                selectedClient!.telefono ?? 'Sin teléfono';
                             idController.text = selectedClient!.id;
                           }
                         });

@@ -1,6 +1,8 @@
+import 'package:admin_dashboard/proy/providers/orders_provider.dart';
 import 'package:admin_dashboard/proy/providers/sales_provider.dart';
 import 'package:admin_dashboard/src/constant/color.dart';
 import 'package:admin_dashboard/src/constant/theme.dart';
+import 'package:admin_dashboard/src/views/movements/card_ordersmovements.dart';
 import 'package:admin_dashboard/src/views/movements/card_salemovements.dart';
 import 'package:flutter/material.dart';
 import 'package:admin_dashboard/proy/models/movement.dart';
@@ -26,6 +28,7 @@ class _CardSaleMovementsState extends State<CardSaleMovements> {
     super.initState();
     fetchMovements();
     Provider.of<SalesProvider>(context, listen: false).getSales();
+    Provider.of<OrdersProvider>(context, listen: false).getOrders();
   }
 
   Future<void> fetchMovements() async {
@@ -61,6 +64,8 @@ class _CardSaleMovementsState extends State<CardSaleMovements> {
   Widget build(BuildContext context) {
     final ventas = Provider.of<SalesProvider>(context).ventas;
 
+    final pedidtos = Provider.of<OrdersProvider>(context).pedidos;
+
     if (widget.movimientos.isEmpty) {
       if (showMessage) {
         return const Center(
@@ -76,7 +81,7 @@ class _CardSaleMovementsState extends State<CardSaleMovements> {
     }
 
     return DefaultTabController(
-      length: 5,
+      length: 6,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,6 +99,7 @@ class _CardSaleMovementsState extends State<CardSaleMovements> {
               Tab(text: 'Salidas'),
               Tab(text: 'Verificados'),
               Tab(text: 'Ventas'),
+              Tab(text: 'Pedidos')
               //Tab(text: 'Traspasos'),
             ],
           ),
@@ -110,6 +116,9 @@ class _CardSaleMovementsState extends State<CardSaleMovements> {
                 buildList(filterMovementsByVerificationStatus('VERIFICADO')),
                 CardSalesMovements(
                   ventas: ventas,
+                ),
+                CardOrdersMovements(
+                  pedidos: pedidtos,
                 ),
               ],
             ),
@@ -188,7 +197,7 @@ class VerificationImage extends StatelessWidget {
             ),
     );
 
-    return Container(
+    return SizedBox(
       width: 100,
       height: 100,
       child: image,

@@ -131,6 +131,13 @@ class _CardProductsState extends State<CardProducts> {
                               ),
                               const SizedBox(height: 8),
                               Text(
+                                producto.proveedor?.nombre ?? 'Sin proveedor',
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
                                 producto.categoria.nombre,
                                 style: const TextStyle(
                                   fontSize: 14,

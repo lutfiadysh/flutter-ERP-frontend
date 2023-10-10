@@ -25,6 +25,8 @@ import 'package:admin_dashboard/src/views/listings/listingview_test.dart';
 import 'package:admin_dashboard/src/views/map/map.dart';
 import 'package:admin_dashboard/src/views/movements/movementsview_test.dart';
 import 'package:admin_dashboard/src/views/movements/verificationsview_test.dart';
+import 'package:admin_dashboard/src/views/orders/ordersview_test.dart';
+import 'package:admin_dashboard/src/views/orders/orderview_test.dart';
 import 'package:admin_dashboard/src/views/products/productsview_test.dart';
 import 'package:admin_dashboard/src/views/providers/providersview_test.dart';
 import 'package:admin_dashboard/src/views/sales/salesview_test.dart';
@@ -147,6 +149,10 @@ int getRouteIndex(String route) {
     return 47;
   } else if (route == Strings.providers) {
     return 48;
+  } else if (route == Strings.orders) {
+    return 49;
+  } else if (route == Strings.orderCreate) {
+    return 50;
   } else {
     return 0;
   }
@@ -249,6 +255,10 @@ Widget getRouteWidget(int index) {
     return const SaleViewTest();
   } else if (index == 48) {
     return const ProvidersViewTest();
+  } else if (index == 49) {
+    return const OrdersViewTest();
+  } else if (index == 50) {
+    return const OrderViewTest();
   } else {
     return const Dashboard();
   }

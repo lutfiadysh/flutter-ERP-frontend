@@ -3,6 +3,7 @@ import 'package:admin_dashboard/proy/models/product.dart';
 import 'package:admin_dashboard/proy/models/provider.dart';
 import 'package:admin_dashboard/proy/providers/categories_provider.dart';
 import 'package:admin_dashboard/proy/providers/products_provider.dart';
+import 'package:admin_dashboard/proy/providers/providers_provider.dart';
 import 'package:admin_dashboard/proy/services/notification_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,8 +11,10 @@ import 'package:provider/provider.dart';
 class ProductViewCreateTest extends StatefulWidget {
   final Producto? producto;
   final Categoria? categoria;
+  final Proveedor? proveedor;
 
-  const ProductViewCreateTest({Key? key, this.producto, this.categoria})
+  const ProductViewCreateTest(
+      {Key? key, this.producto, this.categoria, this.proveedor})
       : super(key: key);
 
   @override
@@ -22,9 +25,10 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String nombre = '';
   String categoria = '';
+  String proveedor = '';
   String? id;
-  Categoria? first;
-  Proveedor? proveedor;
+  Categoria? categoryObject;
+  Proveedor? providerObject;
   double? precioPorCaja;
   double? precioPorUnidad;
   final TextEditingController precioPorCajaController = TextEditingController();
@@ -37,13 +41,16 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
     id = widget.producto?.id;
     nombre = widget.producto?.nombre ?? '';
     categoria = widget.producto?.categoria.nombre ?? '';
+    proveedor = widget.producto?.proveedor?.nombre ?? '';
 
     Provider.of<CategoriesProvider>(context, listen: false).getCategories();
+    Provider.of<ProvidersProvider>(context, listen: false).getProviders();
   }
 
   @override
   Widget build(BuildContext context) {
     final categorias = Provider.of<CategoriesProvider>(context).categorias;
+    final proveedores = Provider.of<ProvidersProvider>(context).proveedores;
     final theme = Theme.of(context);
     final productProvider =
         Provider.of<ProductsProvider>(context, listen: false);
@@ -72,12 +79,12 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
           ),
           const SizedBox(height: 20),
           DropdownButtonFormField<Categoria>(
-            value: first,
+            value: categoryObject,
             iconSize: 24,
             elevation: 16,
             onChanged: (value) {
               setState(() {
-                first = value;
+                categoryObject = value;
               });
             },
             items:
@@ -101,15 +108,45 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
             ),
           ),
           const SizedBox(height: 20),
+          DropdownButtonFormField<Proveedor>(
+            value: providerObject,
+            iconSize: 24,
+            elevation: 16,
+            onChanged: (value) {
+              setState(() {
+                providerObject = value;
+              });
+            },
+            items:
+                proveedores.map<DropdownMenuItem<Proveedor>>((Proveedor value) {
+              return DropdownMenuItem<Proveedor>(
+                value: value,
+                child: Text(value.nombre),
+              );
+            }).toList(),
+            decoration: InputDecoration(
+              labelText: 'Proveedor',
+              hintText: 'Selecciona un proveedor',
+              hintStyle: theme.textTheme.bodyLarge,
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: theme.primaryColor, width: 1.0),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(color: theme.primaryColorDark, width: 2.0),
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
           TextFormField(
             controller: precioPorCajaController,
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
-            enabled: first != null,
+            enabled: categoryObject != null,
             onChanged: (value) {
-              if (first != null && value.isNotEmpty) {
+              if (categoryObject != null && value.isNotEmpty) {
                 precioPorCaja = double.parse(value);
                 precioPorUnidad = calcularPrecioPorUnidad(
-                    precioPorCaja!, first!.unidadesPorCaja);
+                    precioPorCaja!, categoryObject!.unidadesPorCaja);
                 precioPorUnidadController.text =
                     precioPorUnidad!.toStringAsFixed(2);
               } else {
@@ -133,7 +170,7 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
           TextFormField(
             controller: precioPorUnidadController,
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
-            enabled: first != null,
+            enabled: categoryObject != null,
             decoration: InputDecoration(
               labelText: 'Precio por Unidad',
               hintText: 'El precio por unidad se calculará automáticamente',
@@ -156,7 +193,11 @@ class _ProductViewCreateTestState extends State<ProductViewCreateTest> {
                   try {
                     if (id == null) {
                       await productProvider.newProduct(
-                          nombre, first!.id, precioPorCaja, precioPorUnidad);
+                          nombre,
+                          categoryObject!.id,
+                          providerObject!.id,
+                          precioPorCaja,
+                          precioPorUnidad);
                       NotificationsService.showSnackbar(
                           'Producto $nombre creado!');
                     }

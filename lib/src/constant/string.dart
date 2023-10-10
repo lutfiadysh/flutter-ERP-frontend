@@ -42,6 +42,8 @@ class Strings {
   static const String salesView = 'Ventas';
   static const String saleView = 'Ver venta';
   static const String providers = 'Proveedores';
+  static const String orders = 'Pedidos';
+  static const String orderCreate = 'Crear pedido';
   static const String uiElements = 'Widgets';
   static const String inventory = 'Inventario';
   static const String sales = 'Ventas';
