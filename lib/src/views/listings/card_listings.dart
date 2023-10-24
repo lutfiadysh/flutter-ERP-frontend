@@ -49,11 +49,14 @@ class _CardListingsViewTestState extends State<CardsListingsViewTest> {
       }
     }
 
+    final filteredCotizaciones =
+        cotizaciones.where((cot) => !(cot.reservado ?? true)).toList();
+
     return ListView.separated(
       padding: const EdgeInsets.all(8.0),
-      itemCount: cotizaciones.length,
+      itemCount: filteredCotizaciones.length,
       itemBuilder: (context, index) {
-        final cotizacion = cotizaciones[index];
+        final cotizacion = filteredCotizaciones[index];
         final formattedDate = _formatDate(cotizacion.fecha);
 
         return Card(

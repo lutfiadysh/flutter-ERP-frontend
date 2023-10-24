@@ -56,11 +56,13 @@ class _CardSalesMovementsState extends State<CardSalesMovements> {
           child: Card(
             elevation: 2.0,
             child: ListTile(
-              title: Text('Cliente:${venta.cotizacion.cliente}'),
+              title: Text('Cliente:${venta.cotizacion.cliente.nombre}'),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('NIT o CI:${venta.cotizacion.cliente.nit}'),
+                  Text(
+                    '${venta.cotizacion.cliente.nit != null ? "NIT" : "CI"}: ${venta.cotizacion.cliente.nit ?? venta.cotizacion.cliente.ci}',
+                  ),
                   Text('Venta por ${venta.usuario.nombre}'),
                   Text(
                       'Fecha: ${venta.fechaVenta.toLocal().toString().split(' ')[0]}'),

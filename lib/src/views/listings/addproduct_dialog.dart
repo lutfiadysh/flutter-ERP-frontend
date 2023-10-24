@@ -6,6 +6,7 @@ import 'package:admin_dashboard/proy/providers/products_provider.dart';
 import 'package:admin_dashboard/proy/providers/stocks_provider.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
+import 'package:marquee/marquee.dart';
 import 'package:provider/provider.dart';
 
 class AddProductDialog extends StatefulWidget {
@@ -96,6 +97,45 @@ class _AddProductDialogState extends State<AddProductDialog> {
     return totalStock;
   }
 
+  String getAllBranchStocks(bool isPiece) {
+    Map<String, int> branchStocks = {};
+    String unitType = isPiece ? "piezas" : "cajas";
+
+    for (var stock in stocks) {
+      if (stock.producto.id == productoDialog!.id) {
+        var branchMunicipio =
+            stock.sucursal.municipio; // Acceso al campo municipio
+        var codigoSucursal =
+            stock.sucursal.codigoSucursal; // Acceso al campo codigoSucursal
+        var currentStock = 0;
+
+        if (isPiece) {
+          currentStock +=
+              ((stock.cantidadPiezas ?? 0) - (stock.reservadoPiezas ?? 0)) +
+                  (stock.entrantePiezas ?? 0);
+        } else {
+          currentStock +=
+              ((stock.cantidadCajas ?? 0) - (stock.reservadoCajas ?? 0)) +
+                  (stock.entranteCajas ?? 0);
+        }
+
+        String uniqueKey =
+            "$branchMunicipio $codigoSucursal"; // Creando una clave única
+        if (branchStocks.containsKey(uniqueKey)) {
+          branchStocks[uniqueKey] = branchStocks[uniqueKey]! + currentStock;
+        } else {
+          branchStocks[uniqueKey] = currentStock;
+        }
+      }
+    }
+
+    var stocksText = branchStocks.entries
+        .map((e) => " / Sucursal en ${e.key}: ${e.value} $unitType / ")
+        .join(", ");
+
+    return stocksText;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -179,6 +219,18 @@ class _AddProductDialogState extends State<AddProductDialog> {
                   compareFn: (Producto a, Producto b) => a.nombre == b.nombre,
                 ),
               ),
+              isProductSelected
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        width: 300,
+                        height: 18,
+                        child: Marquee(
+                          text: getAllBranchStocks(false),
+                        ),
+                      ),
+                    )
+                  : const Text("Seleccione un producto"),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: TextFormField(
@@ -207,6 +259,18 @@ class _AddProductDialogState extends State<AddProductDialog> {
                   ),
                 ),
               ),
+              isProductSelected
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        width: 300,
+                        height: 18,
+                        child: Marquee(
+                          text: getAllBranchStocks(true),
+                        ),
+                      ),
+                    )
+                  : const Text("Seleccione un producto"),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: TextFormField(

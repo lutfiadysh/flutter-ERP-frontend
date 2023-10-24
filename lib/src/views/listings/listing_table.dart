@@ -340,7 +340,7 @@ class _ClientDataDialogState extends State<ClientDataDialog> {
                       },
                       selectedItem: selectedClient,
                       itemAsString: (Cliente u) =>
-                          'Nombre: ${u.nombre}- NIT: ${u.nit} - CI: ${u.ci}',
+                          'Nombre: ${u.nombre} - ${u.nit != null ? 'NIT: ${u.nit}' : 'CI: ${u.ci}'}',
                       compareFn: (Cliente a, Cliente b) => a.nombre == b.nombre,
                     ),
                     const SizedBox(height: 10),

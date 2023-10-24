@@ -63,7 +63,11 @@ class _CardSalesState extends State<CardSales> {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('NIT o CI: ${venta.cotizacion.cliente.nit}'),
+                  Text(venta.cotizacion.cliente.nit != null
+                      ? 'NIT: ${venta.cotizacion.cliente.nit}'
+                      : venta.cotizacion.cliente.ci != null
+                          ? 'CI: ${venta.cotizacion.cliente.ci}'
+                          : 'Sin identificación'),
                   Text('Venta por: ${venta.usuario.nombre}'),
                   Text(
                       'Fecha: ${venta.fechaVenta.toLocal().toString().split(' ')[0]}'),

@@ -183,7 +183,7 @@ DropdownMenuItem<Stock> buildStockDropdownMenuItem(
   return DropdownMenuItem<Stock>(
     value: value,
     child: isSelected
-        ? Text(value.sucursal.municipio)
+        ? Text('${value.sucursal.municipio} - ${value.sucursal.categoria}')
         : Card(
             margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
             child: Padding(
@@ -191,11 +191,31 @@ DropdownMenuItem<Stock> buildStockDropdownMenuItem(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Sucursal:',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Sucursal:',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(value.sucursal.municipio),
+                        ],
+                      ),
+                      const SizedBox(width: 53),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Categoria:',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(value.sucursal.categoria),
+                        ],
+                      ),
+                    ],
                   ),
-                  Text(value.sucursal.municipio),
                   const SizedBox(height: 4),
                   Row(children: [
                     Column(

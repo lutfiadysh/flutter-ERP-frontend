@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:admin_dashboard/proy/models/branch.dart';
+
 import 'product.dart';
 
 class Stock {
@@ -10,6 +12,8 @@ class Stock {
       this.reservadoPiezas,
       this.entranteCajas,
       this.entrantePiezas,
+      this.eoq,
+      this.puntoReorden,
       required this.id,
       this.cantidad,
       required this.producto,
@@ -23,10 +27,12 @@ class Stock {
   int? reservadoPiezas;
   int? entranteCajas;
   int? entrantePiezas;
+  int? eoq;
+  int? puntoReorden;
   String id;
   int? cantidad;
   Producto producto;
-  _Sucursal sucursal;
+  Branch sucursal;
   DateTime fecha;
   List<EstadisticasMensuale>? estadisticasMensuales;
 
@@ -41,10 +47,12 @@ class Stock {
         reservadoPiezas: json["reservadoPiezas"],
         entranteCajas: json["entranteCajas"],
         entrantePiezas: json["entrantePiezas"],
+        eoq: json["eoq"],
+        puntoReorden: json["puntoReorden"],
         id: json["_id"],
         cantidad: json["cantidad"],
         producto: Producto.fromMap(json["producto"]),
-        sucursal: _Sucursal.fromMap(json["sucursal"]),
+        sucursal: Branch.fromMap(json["sucursal"]),
         fecha: DateTime.parse(json["fecha"]),
         estadisticasMensuales: json["estadisticasMensuales"] == null
             ? null
@@ -59,6 +67,8 @@ class Stock {
         "reservadoPiezas": reservadoPiezas,
         "entranteCajas": entranteCajas,
         "entrantePiezas": entrantePiezas,
+        "eoq": eoq,
+        "puntoReorden": puntoReorden,
         "_id": id,
         "cantidad": cantidad,
         "producto": producto.toMap(),
@@ -67,30 +77,6 @@ class Stock {
         "estadisticasMensuales": estadisticasMensuales == null
             ? null
             : List<dynamic>.from(estadisticasMensuales!.map((x) => x.toMap())),
-      };
-}
-
-class _Sucursal {
-  _Sucursal({
-    required this.id,
-    required this.municipio,
-  });
-
-  String id;
-  String municipio;
-
-  factory _Sucursal.fromJson(String str) => _Sucursal.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
-
-  factory _Sucursal.fromMap(Map<String, dynamic> json) => _Sucursal(
-        id: json["_id"],
-        municipio: json["municipio"],
-      );
-
-  Map<String, dynamic> toMap() => {
-        "_id": id,
-        "municipio": municipio,
       };
 }
 

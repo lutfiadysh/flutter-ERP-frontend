@@ -118,7 +118,7 @@ class _MovementsCardsView extends State<MovementsCardsView> {
                 children: [
                   Row(
                     children: [
-                      ProductImage(imageUrl: imageUrl!),
+                      ProductImage(imageUrl: imageUrl ?? ''),
                       const SizedBox(width: 16),
                       Expanded(
                         child: ProductInfo(

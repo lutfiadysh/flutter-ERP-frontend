@@ -21,7 +21,7 @@ class _ListitemState extends State<Listitem> {
       {
         'id': 0,
         'producTitle': 'Monto por ventas anual',
-        'value': widget.dashboard.montoVentasAnualFormateado.toString(),
+        'value': "${widget.dashboard.montoVentasAnualFormateado} Bs",
         'boxIcon': Icons.note_add,
         // 'boxColor': '05A660',
         'boxColor': ['FEBE99', 'F66F94'],
@@ -30,7 +30,7 @@ class _ListitemState extends State<Listitem> {
       {
         'id': 1,
         'producTitle': 'Monto por ventas mensual',
-        'value': widget.dashboard.montoVentasMensual.toString(),
+        'value': '${widget.dashboard.montoVentasMensualFormateado} Bs',
         'boxIcon': Icons.note_alt_rounded,
         // 'boxColor': '9B5B1E',
         'boxColor': ['43D5E7', '7DB1F0'],
@@ -47,7 +47,7 @@ class _ListitemState extends State<Listitem> {
       },
       {
         'id': 3,
-        'producTitle': 'Monto por ventas hoy',
+        'producTitle': 'Monto perdido por faltantes',
         'value': widget.dashboard.montoVentasDiario.toString(),
         'boxIcon': Icons.pending_actions_outlined,
         // 'boxColor': '18818D',

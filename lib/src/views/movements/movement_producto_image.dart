@@ -15,11 +15,24 @@ class ProductImage extends StatelessWidget {
       height: 120,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        image: DecorationImage(
-          image: NetworkImage(imageUrl),
-          fit: BoxFit.cover,
-        ),
       ),
+      clipBehavior: Clip.antiAlias,
+      child: imageUrl.isNotEmpty
+          ? Image.network(
+              imageUrl,
+              fit: BoxFit.cover,
+              loadingBuilder: (context, child, progress) {
+                return progress == null
+                    ? child
+                    : const Center(
+                        child: CircularProgressIndicator(),
+                      );
+              },
+              errorBuilder: (context, error, stackTrace) {
+                return Image.asset('assets/no-image.jpg', fit: BoxFit.cover);
+              },
+            )
+          : Image.asset('assets/no-image.jpg', fit: BoxFit.cover),
     );
   }
 }

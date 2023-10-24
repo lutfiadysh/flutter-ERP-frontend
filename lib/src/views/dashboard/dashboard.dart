@@ -4,7 +4,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/src/utils/responsive.dart';
 import 'package:admin_dashboard/src/views/dashboard/list_item.dart';
 import 'package:admin_dashboard/src/views/dashboard/montly_earning.dart';
-import 'package:admin_dashboard/src/views/dashboard/sales_analytics.dart';
 import 'package:admin_dashboard/src/views/dashboard/sales_report.dart';
 import 'package:admin_dashboard/src/views/dashboard/top_producr_sales_box.dart';
 import 'package:admin_dashboard/src/views/dashboard/transaction.dart';

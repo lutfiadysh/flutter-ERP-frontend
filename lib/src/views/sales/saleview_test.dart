@@ -154,8 +154,9 @@ class _SaleViewTestState extends State<SaleViewTest> {
                             Text('Usuario: ${selectedVenta.usuario.nombre}'),
                             Text(
                                 'Cliente: ${selectedVenta.cotizacion.cliente.nombre}'),
-                            Text(
-                                'NIT: ${selectedVenta.cotizacion.cliente.nit}'),
+                            Text(selectedVenta.cotizacion.cliente.nit != null
+                                ? 'NIT: ${selectedVenta.cotizacion.cliente.nit}'
+                                : 'CI: ${selectedVenta.cotizacion.cliente.ci ?? 'Sin identificación'}'),
                             Text('Estado: ${selectedVenta.estado}'),
                             Text(
                                 'Fecha: ${selectedVenta.fechaVenta.toLocal().toString().split(' ')[0]}'),

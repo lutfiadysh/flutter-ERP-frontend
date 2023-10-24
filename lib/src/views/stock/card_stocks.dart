@@ -125,6 +125,20 @@ class _CardStocksState extends State<CardStocks> {
                                   fontSize: 14,
                                 ),
                               ),
+                              const SizedBox(height: 8),
+                              Text(
+                                "Punto de reorden: ${stock.puntoReorden}",
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                "Pedido EOQ: ${stock.eoq}",
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
                             ],
                           ),
                         ),

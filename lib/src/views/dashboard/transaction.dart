@@ -75,11 +75,11 @@ class _TransactionState extends State<Transaction> {
                   ),
                   DataColumn2(
                     label: _tableHeader('Producto'),
-                    size: ColumnSize.M,
+                    size: ColumnSize.L,
                   ),
                   DataColumn2(
                     label: _tableHeader('Tipo de movimiento'),
-                    size: ColumnSize.M,
+                    size: ColumnSize.L,
                   ),
                   DataColumn2(
                     label: _tableHeader('Fecha de Movimiento'),
@@ -87,15 +87,11 @@ class _TransactionState extends State<Transaction> {
                   ),
                   DataColumn2(
                     label: _tableHeader('Cantidad de cajas'),
-                    size: ColumnSize.M,
-                  ),
-                  DataColumn2(
-                    label: _tableHeader('Cantidad de piezas'),
-                    size: ColumnSize.M,
+                    size: ColumnSize.L,
                   ),
                   DataColumn2(
                     label: _tableHeader('Estado de verificacion'),
-                    size: ColumnSize.L,
+                    size: ColumnSize.values[2],
                   ),
                 ],
                 rows: movimientosRecientes.map((movimiento) {
@@ -112,8 +108,7 @@ class _TransactionState extends State<Transaction> {
                           movimiento.fecha))), // Fecha del movimiento
                       DataCell(
                           _tableHeader(movimiento.cantidadCajas.toString())),
-                      DataCell(_tableHeader(movimiento.cantidadPiezas
-                          .toString())), // Cantidad del movimiento
+                      // Cantidad del movimiento
                       DataCell(_statusBox(movimiento.verificacion)),
                     ],
                   );

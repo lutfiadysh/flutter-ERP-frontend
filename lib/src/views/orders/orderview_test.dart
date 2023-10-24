@@ -131,7 +131,7 @@ class _OrderViewTestState extends State<OrderViewTest> {
                     }
                   }
                 } else if (value == 'Generar PDF' && isEditing) {
-                  //await orderProvider.createPdf(selectedPedido!);
+                  await orderProvider.createPdfOrder(selectedPedido!);
                 }
               },
               itemBuilder: (BuildContext context) {

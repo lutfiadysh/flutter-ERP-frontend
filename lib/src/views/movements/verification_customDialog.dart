@@ -130,7 +130,7 @@ class MovementDetailsDialog extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TextButton(
-                onPressed: movimiento.verificadoPor == null
+                onPressed: movimiento.verificacion == "EN ESPERA"
                     ? () async {
                         // Aquí puedes agregar la lógica para verificar el movimiento
                         try {
