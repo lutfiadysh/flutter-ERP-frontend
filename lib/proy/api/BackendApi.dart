@@ -8,9 +8,9 @@ class BackendApi {
   static final Dio _dio = Dio();
 
   static Future<void> configureDio() async {
-    String baseUrl = 'http://192.168.30.76:8081/api';
-    // String baseUrl =
-    //     'https://backendappdashboard-production.up.railway.app/api';
+    // String baseUrl = 'http://192.168.30.76:8081/api';
+    String baseUrl =
+        'https://backendappdashboard-production.up.railway.app/api';
     _dio.options.baseUrl = baseUrl;
 
     // Configure Headers
