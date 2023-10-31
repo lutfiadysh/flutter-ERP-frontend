@@ -117,9 +117,9 @@ class _$FormRepeaterEventCopyWithImpl<$Res, $Val extends FormRepeaterEvent>
 }
 
 /// @nodoc
-abstract class _$$_AddCopyWith<$Res> {
-  factory _$$_AddCopyWith(_$_Add value, $Res Function(_$_Add) then) =
-      __$$_AddCopyWithImpl<$Res>;
+abstract class _$$AddImplCopyWith<$Res> {
+  factory _$$AddImplCopyWith(_$AddImpl value, $Res Function(_$AddImpl) then) =
+      __$$AddImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String fileName,
@@ -130,10 +130,10 @@ abstract class _$$_AddCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AddCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_Add>
-    implements _$$_AddCopyWith<$Res> {
-  __$$_AddCopyWithImpl(_$_Add _value, $Res Function(_$_Add) _then)
+class __$$AddImplCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$AddImpl>
+    implements _$$AddImplCopyWith<$Res> {
+  __$$AddImplCopyWithImpl(_$AddImpl _value, $Res Function(_$AddImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -145,7 +145,7 @@ class __$$_AddCopyWithImpl<$Res>
     Object? subjectController = null,
     Object? messageController = null,
   }) {
-    return _then(_$_Add(
+    return _then(_$AddImpl(
       null == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
@@ -172,8 +172,8 @@ class __$$_AddCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Add implements _Add {
-  const _$_Add(this.fileName, this.nameController, this.emailController,
+class _$AddImpl implements _Add {
+  const _$AddImpl(this.fileName, this.nameController, this.emailController,
       this.subjectController, this.messageController);
 
   @override
@@ -196,7 +196,7 @@ class _$_Add implements _Add {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Add &&
+            other is _$AddImpl &&
             (identical(other.fileName, fileName) ||
                 other.fileName == fileName) &&
             (identical(other.nameController, nameController) ||
@@ -216,8 +216,8 @@ class _$_Add implements _Add {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddCopyWith<_$_Add> get copyWith =>
-      __$$_AddCopyWithImpl<_$_Add>(this, _$identity);
+  _$$AddImplCopyWith<_$AddImpl> get copyWith =>
+      __$$AddImplCopyWithImpl<_$AddImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -333,7 +333,7 @@ abstract class _Add implements FormRepeaterEvent {
       final TextEditingController nameController,
       final TextEditingController emailController,
       final TextEditingController subjectController,
-      final TextEditingController messageController) = _$_Add;
+      final TextEditingController messageController) = _$AddImpl;
 
   String get fileName;
   TextEditingController get nameController;
@@ -341,22 +341,25 @@ abstract class _Add implements FormRepeaterEvent {
   TextEditingController get subjectController;
   TextEditingController get messageController;
   @JsonKey(ignore: true)
-  _$$_AddCopyWith<_$_Add> get copyWith => throw _privateConstructorUsedError;
+  _$$AddImplCopyWith<_$AddImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeleteCopyWith<$Res> {
-  factory _$$_DeleteCopyWith(_$_Delete value, $Res Function(_$_Delete) then) =
-      __$$_DeleteCopyWithImpl<$Res>;
+abstract class _$$DeleteImplCopyWith<$Res> {
+  factory _$$DeleteImplCopyWith(
+          _$DeleteImpl value, $Res Function(_$DeleteImpl) then) =
+      __$$DeleteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_DeleteCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_Delete>
-    implements _$$_DeleteCopyWith<$Res> {
-  __$$_DeleteCopyWithImpl(_$_Delete _value, $Res Function(_$_Delete) _then)
+class __$$DeleteImplCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$DeleteImpl>
+    implements _$$DeleteImplCopyWith<$Res> {
+  __$$DeleteImplCopyWithImpl(
+      _$DeleteImpl _value, $Res Function(_$DeleteImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -364,7 +367,7 @@ class __$$_DeleteCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_Delete(
+    return _then(_$DeleteImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -375,8 +378,8 @@ class __$$_DeleteCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Delete implements _Delete {
-  const _$_Delete(this.index);
+class _$DeleteImpl implements _Delete {
+  const _$DeleteImpl(this.index);
 
   @override
   final int index;
@@ -390,7 +393,7 @@ class _$_Delete implements _Delete {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Delete &&
+            other is _$DeleteImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -400,8 +403,8 @@ class _$_Delete implements _Delete {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteCopyWith<_$_Delete> get copyWith =>
-      __$$_DeleteCopyWithImpl<_$_Delete>(this, _$identity);
+  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
+      __$$DeleteImplCopyWithImpl<_$DeleteImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -509,28 +512,29 @@ class _$_Delete implements _Delete {
 }
 
 abstract class _Delete implements FormRepeaterEvent {
-  const factory _Delete(final int index) = _$_Delete;
+  const factory _Delete(final int index) = _$DeleteImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_DeleteCopyWith<_$_Delete> get copyWith =>
+  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AddFileCopyWith<$Res> {
-  factory _$$_AddFileCopyWith(
-          _$_AddFile value, $Res Function(_$_AddFile) then) =
-      __$$_AddFileCopyWithImpl<$Res>;
+abstract class _$$AddFileImplCopyWith<$Res> {
+  factory _$$AddFileImplCopyWith(
+          _$AddFileImpl value, $Res Function(_$AddFileImpl) then) =
+      __$$AddFileImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String fileName, int index});
 }
 
 /// @nodoc
-class __$$_AddFileCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_AddFile>
-    implements _$$_AddFileCopyWith<$Res> {
-  __$$_AddFileCopyWithImpl(_$_AddFile _value, $Res Function(_$_AddFile) _then)
+class __$$AddFileImplCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$AddFileImpl>
+    implements _$$AddFileImplCopyWith<$Res> {
+  __$$AddFileImplCopyWithImpl(
+      _$AddFileImpl _value, $Res Function(_$AddFileImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -539,7 +543,7 @@ class __$$_AddFileCopyWithImpl<$Res>
     Object? fileName = null,
     Object? index = null,
   }) {
-    return _then(_$_AddFile(
+    return _then(_$AddFileImpl(
       null == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
@@ -554,8 +558,8 @@ class __$$_AddFileCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddFile implements _AddFile {
-  const _$_AddFile(this.fileName, this.index);
+class _$AddFileImpl implements _AddFile {
+  const _$AddFileImpl(this.fileName, this.index);
 
   @override
   final String fileName;
@@ -571,7 +575,7 @@ class _$_AddFile implements _AddFile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddFile &&
+            other is _$AddFileImpl &&
             (identical(other.fileName, fileName) ||
                 other.fileName == fileName) &&
             (identical(other.index, index) || other.index == index));
@@ -583,8 +587,8 @@ class _$_AddFile implements _AddFile {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddFileCopyWith<_$_AddFile> get copyWith =>
-      __$$_AddFileCopyWithImpl<_$_AddFile>(this, _$identity);
+  _$$AddFileImplCopyWith<_$AddFileImpl> get copyWith =>
+      __$$AddFileImplCopyWithImpl<_$AddFileImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -692,30 +696,31 @@ class _$_AddFile implements _AddFile {
 }
 
 abstract class _AddFile implements FormRepeaterEvent {
-  const factory _AddFile(final String fileName, final int index) = _$_AddFile;
+  const factory _AddFile(final String fileName, final int index) =
+      _$AddFileImpl;
 
   String get fileName;
   int get index;
   @JsonKey(ignore: true)
-  _$$_AddFileCopyWith<_$_AddFile> get copyWith =>
+  _$$AddFileImplCopyWith<_$AddFileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AddPhoneCopyWith<$Res> {
-  factory _$$_AddPhoneCopyWith(
-          _$_AddPhone value, $Res Function(_$_AddPhone) then) =
-      __$$_AddPhoneCopyWithImpl<$Res>;
+abstract class _$$AddPhoneImplCopyWith<$Res> {
+  factory _$$AddPhoneImplCopyWith(
+          _$AddPhoneImpl value, $Res Function(_$AddPhoneImpl) then) =
+      __$$AddPhoneImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TextEditingController phoneController});
 }
 
 /// @nodoc
-class __$$_AddPhoneCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_AddPhone>
-    implements _$$_AddPhoneCopyWith<$Res> {
-  __$$_AddPhoneCopyWithImpl(
-      _$_AddPhone _value, $Res Function(_$_AddPhone) _then)
+class __$$AddPhoneImplCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$AddPhoneImpl>
+    implements _$$AddPhoneImplCopyWith<$Res> {
+  __$$AddPhoneImplCopyWithImpl(
+      _$AddPhoneImpl _value, $Res Function(_$AddPhoneImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -723,7 +728,7 @@ class __$$_AddPhoneCopyWithImpl<$Res>
   $Res call({
     Object? phoneController = null,
   }) {
-    return _then(_$_AddPhone(
+    return _then(_$AddPhoneImpl(
       null == phoneController
           ? _value.phoneController
           : phoneController // ignore: cast_nullable_to_non_nullable
@@ -734,8 +739,8 @@ class __$$_AddPhoneCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddPhone implements _AddPhone {
-  const _$_AddPhone(this.phoneController);
+class _$AddPhoneImpl implements _AddPhone {
+  const _$AddPhoneImpl(this.phoneController);
 
   @override
   final TextEditingController phoneController;
@@ -749,7 +754,7 @@ class _$_AddPhone implements _AddPhone {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddPhone &&
+            other is _$AddPhoneImpl &&
             (identical(other.phoneController, phoneController) ||
                 other.phoneController == phoneController));
   }
@@ -760,8 +765,8 @@ class _$_AddPhone implements _AddPhone {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddPhoneCopyWith<_$_AddPhone> get copyWith =>
-      __$$_AddPhoneCopyWithImpl<_$_AddPhone>(this, _$identity);
+  _$$AddPhoneImplCopyWith<_$AddPhoneImpl> get copyWith =>
+      __$$AddPhoneImplCopyWithImpl<_$AddPhoneImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -870,29 +875,29 @@ class _$_AddPhone implements _AddPhone {
 
 abstract class _AddPhone implements FormRepeaterEvent {
   const factory _AddPhone(final TextEditingController phoneController) =
-      _$_AddPhone;
+      _$AddPhoneImpl;
 
   TextEditingController get phoneController;
   @JsonKey(ignore: true)
-  _$$_AddPhoneCopyWith<_$_AddPhone> get copyWith =>
+  _$$AddPhoneImplCopyWith<_$AddPhoneImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeletePhoneCopyWith<$Res> {
-  factory _$$_DeletePhoneCopyWith(
-          _$_DeletePhone value, $Res Function(_$_DeletePhone) then) =
-      __$$_DeletePhoneCopyWithImpl<$Res>;
+abstract class _$$DeletePhoneImplCopyWith<$Res> {
+  factory _$$DeletePhoneImplCopyWith(
+          _$DeletePhoneImpl value, $Res Function(_$DeletePhoneImpl) then) =
+      __$$DeletePhoneImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_DeletePhoneCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_DeletePhone>
-    implements _$$_DeletePhoneCopyWith<$Res> {
-  __$$_DeletePhoneCopyWithImpl(
-      _$_DeletePhone _value, $Res Function(_$_DeletePhone) _then)
+class __$$DeletePhoneImplCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$DeletePhoneImpl>
+    implements _$$DeletePhoneImplCopyWith<$Res> {
+  __$$DeletePhoneImplCopyWithImpl(
+      _$DeletePhoneImpl _value, $Res Function(_$DeletePhoneImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -900,7 +905,7 @@ class __$$_DeletePhoneCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_DeletePhone(
+    return _then(_$DeletePhoneImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -911,8 +916,8 @@ class __$$_DeletePhoneCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeletePhone implements _DeletePhone {
-  const _$_DeletePhone(this.index);
+class _$DeletePhoneImpl implements _DeletePhone {
+  const _$DeletePhoneImpl(this.index);
 
   @override
   final int index;
@@ -926,7 +931,7 @@ class _$_DeletePhone implements _DeletePhone {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeletePhone &&
+            other is _$DeletePhoneImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -936,8 +941,8 @@ class _$_DeletePhone implements _DeletePhone {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeletePhoneCopyWith<_$_DeletePhone> get copyWith =>
-      __$$_DeletePhoneCopyWithImpl<_$_DeletePhone>(this, _$identity);
+  _$$DeletePhoneImplCopyWith<_$DeletePhoneImpl> get copyWith =>
+      __$$DeletePhoneImplCopyWithImpl<_$DeletePhoneImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1045,29 +1050,29 @@ class _$_DeletePhone implements _DeletePhone {
 }
 
 abstract class _DeletePhone implements FormRepeaterEvent {
-  const factory _DeletePhone(final int index) = _$_DeletePhone;
+  const factory _DeletePhone(final int index) = _$DeletePhoneImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_DeletePhoneCopyWith<_$_DeletePhone> get copyWith =>
+  _$$DeletePhoneImplCopyWith<_$DeletePhoneImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_RadioSelectCopyWith<$Res> {
-  factory _$$_RadioSelectCopyWith(
-          _$_RadioSelect value, $Res Function(_$_RadioSelect) then) =
-      __$$_RadioSelectCopyWithImpl<$Res>;
+abstract class _$$RadioSelectImplCopyWith<$Res> {
+  factory _$$RadioSelectImplCopyWith(
+          _$RadioSelectImpl value, $Res Function(_$RadioSelectImpl) then) =
+      __$$RadioSelectImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_RadioSelectCopyWithImpl<$Res>
-    extends _$FormRepeaterEventCopyWithImpl<$Res, _$_RadioSelect>
-    implements _$$_RadioSelectCopyWith<$Res> {
-  __$$_RadioSelectCopyWithImpl(
-      _$_RadioSelect _value, $Res Function(_$_RadioSelect) _then)
+class __$$RadioSelectImplCopyWithImpl<$Res>
+    extends _$FormRepeaterEventCopyWithImpl<$Res, _$RadioSelectImpl>
+    implements _$$RadioSelectImplCopyWith<$Res> {
+  __$$RadioSelectImplCopyWithImpl(
+      _$RadioSelectImpl _value, $Res Function(_$RadioSelectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1075,7 +1080,7 @@ class __$$_RadioSelectCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_RadioSelect(
+    return _then(_$RadioSelectImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -1086,8 +1091,8 @@ class __$$_RadioSelectCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RadioSelect implements _RadioSelect {
-  const _$_RadioSelect(this.value);
+class _$RadioSelectImpl implements _RadioSelect {
+  const _$RadioSelectImpl(this.value);
 
   @override
   final String value;
@@ -1101,7 +1106,7 @@ class _$_RadioSelect implements _RadioSelect {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RadioSelect &&
+            other is _$RadioSelectImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -1111,8 +1116,8 @@ class _$_RadioSelect implements _RadioSelect {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RadioSelectCopyWith<_$_RadioSelect> get copyWith =>
-      __$$_RadioSelectCopyWithImpl<_$_RadioSelect>(this, _$identity);
+  _$$RadioSelectImplCopyWith<_$RadioSelectImpl> get copyWith =>
+      __$$RadioSelectImplCopyWithImpl<_$RadioSelectImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1220,11 +1225,11 @@ class _$_RadioSelect implements _RadioSelect {
 }
 
 abstract class _RadioSelect implements FormRepeaterEvent {
-  const factory _RadioSelect(final String value) = _$_RadioSelect;
+  const factory _RadioSelect(final String value) = _$RadioSelectImpl;
 
   String get value;
   @JsonKey(ignore: true)
-  _$$_RadioSelectCopyWith<_$_RadioSelect> get copyWith =>
+  _$$RadioSelectImplCopyWith<_$RadioSelectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1338,24 +1343,25 @@ class _$FormRepeaterStateCopyWithImpl<$Res, $Val extends FormRepeaterState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -1365,7 +1371,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -1484,14 +1490,14 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements FormRepeaterState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_AddSuccessCopyWith<$Res> {
-  factory _$$_AddSuccessCopyWith(
-          _$_AddSuccess value, $Res Function(_$_AddSuccess) then) =
-      __$$_AddSuccessCopyWithImpl<$Res>;
+abstract class _$$AddSuccessImplCopyWith<$Res> {
+  factory _$$AddSuccessImplCopyWith(
+          _$AddSuccessImpl value, $Res Function(_$AddSuccessImpl) then) =
+      __$$AddSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String fileName,
@@ -1502,11 +1508,11 @@ abstract class _$$_AddSuccessCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AddSuccessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_AddSuccess>
-    implements _$$_AddSuccessCopyWith<$Res> {
-  __$$_AddSuccessCopyWithImpl(
-      _$_AddSuccess _value, $Res Function(_$_AddSuccess) _then)
+class __$$AddSuccessImplCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$AddSuccessImpl>
+    implements _$$AddSuccessImplCopyWith<$Res> {
+  __$$AddSuccessImplCopyWithImpl(
+      _$AddSuccessImpl _value, $Res Function(_$AddSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1518,7 +1524,7 @@ class __$$_AddSuccessCopyWithImpl<$Res>
     Object? subjectController = null,
     Object? messageController = null,
   }) {
-    return _then(_$_AddSuccess(
+    return _then(_$AddSuccessImpl(
       null == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
@@ -1545,9 +1551,9 @@ class __$$_AddSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddSuccess implements _AddSuccess {
-  const _$_AddSuccess(this.fileName, this.nameController, this.emailController,
-      this.subjectController, this.messageController);
+class _$AddSuccessImpl implements _AddSuccess {
+  const _$AddSuccessImpl(this.fileName, this.nameController,
+      this.emailController, this.subjectController, this.messageController);
 
   @override
   final String fileName;
@@ -1569,7 +1575,7 @@ class _$_AddSuccess implements _AddSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddSuccess &&
+            other is _$AddSuccessImpl &&
             (identical(other.fileName, fileName) ||
                 other.fileName == fileName) &&
             (identical(other.nameController, nameController) ||
@@ -1589,8 +1595,8 @@ class _$_AddSuccess implements _AddSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddSuccessCopyWith<_$_AddSuccess> get copyWith =>
-      __$$_AddSuccessCopyWithImpl<_$_AddSuccess>(this, _$identity);
+  _$$AddSuccessImplCopyWith<_$AddSuccessImpl> get copyWith =>
+      __$$AddSuccessImplCopyWithImpl<_$AddSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1713,7 +1719,7 @@ abstract class _AddSuccess implements FormRepeaterState {
       final TextEditingController nameController,
       final TextEditingController emailController,
       final TextEditingController subjectController,
-      final TextEditingController messageController) = _$_AddSuccess;
+      final TextEditingController messageController) = _$AddSuccessImpl;
 
   String get fileName;
   TextEditingController get nameController;
@@ -1721,25 +1727,25 @@ abstract class _AddSuccess implements FormRepeaterState {
   TextEditingController get subjectController;
   TextEditingController get messageController;
   @JsonKey(ignore: true)
-  _$$_AddSuccessCopyWith<_$_AddSuccess> get copyWith =>
+  _$$AddSuccessImplCopyWith<_$AddSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeleteSuccessCopyWith<$Res> {
-  factory _$$_DeleteSuccessCopyWith(
-          _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
-      __$$_DeleteSuccessCopyWithImpl<$Res>;
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_DeleteSuccess>
-    implements _$$_DeleteSuccessCopyWith<$Res> {
-  __$$_DeleteSuccessCopyWithImpl(
-      _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1747,7 +1753,7 @@ class __$$_DeleteSuccessCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_DeleteSuccess(
+    return _then(_$DeleteSuccessImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1758,8 +1764,8 @@ class __$$_DeleteSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteSuccess implements _DeleteSuccess {
-  const _$_DeleteSuccess(this.index);
+class _$DeleteSuccessImpl implements _DeleteSuccess {
+  const _$DeleteSuccessImpl(this.index);
 
   @override
   final int index;
@@ -1773,7 +1779,7 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteSuccess &&
+            other is _$DeleteSuccessImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -1783,8 +1789,8 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
-      __$$_DeleteSuccessCopyWithImpl<_$_DeleteSuccess>(this, _$identity);
+  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
+      __$$DeleteSuccessImplCopyWithImpl<_$DeleteSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1899,29 +1905,29 @@ class _$_DeleteSuccess implements _DeleteSuccess {
 }
 
 abstract class _DeleteSuccess implements FormRepeaterState {
-  const factory _DeleteSuccess(final int index) = _$_DeleteSuccess;
+  const factory _DeleteSuccess(final int index) = _$DeleteSuccessImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
+  _$$DeleteSuccessImplCopyWith<_$DeleteSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AddFileSuccessCopyWith<$Res> {
-  factory _$$_AddFileSuccessCopyWith(
-          _$_AddFileSuccess value, $Res Function(_$_AddFileSuccess) then) =
-      __$$_AddFileSuccessCopyWithImpl<$Res>;
+abstract class _$$AddFileSuccessImplCopyWith<$Res> {
+  factory _$$AddFileSuccessImplCopyWith(_$AddFileSuccessImpl value,
+          $Res Function(_$AddFileSuccessImpl) then) =
+      __$$AddFileSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String fileName, int index});
 }
 
 /// @nodoc
-class __$$_AddFileSuccessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_AddFileSuccess>
-    implements _$$_AddFileSuccessCopyWith<$Res> {
-  __$$_AddFileSuccessCopyWithImpl(
-      _$_AddFileSuccess _value, $Res Function(_$_AddFileSuccess) _then)
+class __$$AddFileSuccessImplCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$AddFileSuccessImpl>
+    implements _$$AddFileSuccessImplCopyWith<$Res> {
+  __$$AddFileSuccessImplCopyWithImpl(
+      _$AddFileSuccessImpl _value, $Res Function(_$AddFileSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1930,7 +1936,7 @@ class __$$_AddFileSuccessCopyWithImpl<$Res>
     Object? fileName = null,
     Object? index = null,
   }) {
-    return _then(_$_AddFileSuccess(
+    return _then(_$AddFileSuccessImpl(
       null == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
@@ -1945,8 +1951,8 @@ class __$$_AddFileSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddFileSuccess implements _AddFileSuccess {
-  const _$_AddFileSuccess(this.fileName, this.index);
+class _$AddFileSuccessImpl implements _AddFileSuccess {
+  const _$AddFileSuccessImpl(this.fileName, this.index);
 
   @override
   final String fileName;
@@ -1962,7 +1968,7 @@ class _$_AddFileSuccess implements _AddFileSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddFileSuccess &&
+            other is _$AddFileSuccessImpl &&
             (identical(other.fileName, fileName) ||
                 other.fileName == fileName) &&
             (identical(other.index, index) || other.index == index));
@@ -1974,8 +1980,9 @@ class _$_AddFileSuccess implements _AddFileSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddFileSuccessCopyWith<_$_AddFileSuccess> get copyWith =>
-      __$$_AddFileSuccessCopyWithImpl<_$_AddFileSuccess>(this, _$identity);
+  _$$AddFileSuccessImplCopyWith<_$AddFileSuccessImpl> get copyWith =>
+      __$$AddFileSuccessImplCopyWithImpl<_$AddFileSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2091,30 +2098,30 @@ class _$_AddFileSuccess implements _AddFileSuccess {
 
 abstract class _AddFileSuccess implements FormRepeaterState {
   const factory _AddFileSuccess(final String fileName, final int index) =
-      _$_AddFileSuccess;
+      _$AddFileSuccessImpl;
 
   String get fileName;
   int get index;
   @JsonKey(ignore: true)
-  _$$_AddFileSuccessCopyWith<_$_AddFileSuccess> get copyWith =>
+  _$$AddFileSuccessImplCopyWith<_$AddFileSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AddPhoneSuccessCopyWith<$Res> {
-  factory _$$_AddPhoneSuccessCopyWith(
-          _$_AddPhoneSuccess value, $Res Function(_$_AddPhoneSuccess) then) =
-      __$$_AddPhoneSuccessCopyWithImpl<$Res>;
+abstract class _$$AddPhoneSuccessImplCopyWith<$Res> {
+  factory _$$AddPhoneSuccessImplCopyWith(_$AddPhoneSuccessImpl value,
+          $Res Function(_$AddPhoneSuccessImpl) then) =
+      __$$AddPhoneSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TextEditingController phoneController});
 }
 
 /// @nodoc
-class __$$_AddPhoneSuccessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_AddPhoneSuccess>
-    implements _$$_AddPhoneSuccessCopyWith<$Res> {
-  __$$_AddPhoneSuccessCopyWithImpl(
-      _$_AddPhoneSuccess _value, $Res Function(_$_AddPhoneSuccess) _then)
+class __$$AddPhoneSuccessImplCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$AddPhoneSuccessImpl>
+    implements _$$AddPhoneSuccessImplCopyWith<$Res> {
+  __$$AddPhoneSuccessImplCopyWithImpl(
+      _$AddPhoneSuccessImpl _value, $Res Function(_$AddPhoneSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2122,7 +2129,7 @@ class __$$_AddPhoneSuccessCopyWithImpl<$Res>
   $Res call({
     Object? phoneController = null,
   }) {
-    return _then(_$_AddPhoneSuccess(
+    return _then(_$AddPhoneSuccessImpl(
       null == phoneController
           ? _value.phoneController
           : phoneController // ignore: cast_nullable_to_non_nullable
@@ -2133,8 +2140,8 @@ class __$$_AddPhoneSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddPhoneSuccess implements _AddPhoneSuccess {
-  const _$_AddPhoneSuccess(this.phoneController);
+class _$AddPhoneSuccessImpl implements _AddPhoneSuccess {
+  const _$AddPhoneSuccessImpl(this.phoneController);
 
   @override
   final TextEditingController phoneController;
@@ -2148,7 +2155,7 @@ class _$_AddPhoneSuccess implements _AddPhoneSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddPhoneSuccess &&
+            other is _$AddPhoneSuccessImpl &&
             (identical(other.phoneController, phoneController) ||
                 other.phoneController == phoneController));
   }
@@ -2159,8 +2166,9 @@ class _$_AddPhoneSuccess implements _AddPhoneSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddPhoneSuccessCopyWith<_$_AddPhoneSuccess> get copyWith =>
-      __$$_AddPhoneSuccessCopyWithImpl<_$_AddPhoneSuccess>(this, _$identity);
+  _$$AddPhoneSuccessImplCopyWith<_$AddPhoneSuccessImpl> get copyWith =>
+      __$$AddPhoneSuccessImplCopyWithImpl<_$AddPhoneSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2276,29 +2284,29 @@ class _$_AddPhoneSuccess implements _AddPhoneSuccess {
 
 abstract class _AddPhoneSuccess implements FormRepeaterState {
   const factory _AddPhoneSuccess(final TextEditingController phoneController) =
-      _$_AddPhoneSuccess;
+      _$AddPhoneSuccessImpl;
 
   TextEditingController get phoneController;
   @JsonKey(ignore: true)
-  _$$_AddPhoneSuccessCopyWith<_$_AddPhoneSuccess> get copyWith =>
+  _$$AddPhoneSuccessImplCopyWith<_$AddPhoneSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeletePhoneSuccessCopyWith<$Res> {
-  factory _$$_DeletePhoneSuccessCopyWith(_$_DeletePhoneSuccess value,
-          $Res Function(_$_DeletePhoneSuccess) then) =
-      __$$_DeletePhoneSuccessCopyWithImpl<$Res>;
+abstract class _$$DeletePhoneSuccessImplCopyWith<$Res> {
+  factory _$$DeletePhoneSuccessImplCopyWith(_$DeletePhoneSuccessImpl value,
+          $Res Function(_$DeletePhoneSuccessImpl) then) =
+      __$$DeletePhoneSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_DeletePhoneSuccessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_DeletePhoneSuccess>
-    implements _$$_DeletePhoneSuccessCopyWith<$Res> {
-  __$$_DeletePhoneSuccessCopyWithImpl(
-      _$_DeletePhoneSuccess _value, $Res Function(_$_DeletePhoneSuccess) _then)
+class __$$DeletePhoneSuccessImplCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$DeletePhoneSuccessImpl>
+    implements _$$DeletePhoneSuccessImplCopyWith<$Res> {
+  __$$DeletePhoneSuccessImplCopyWithImpl(_$DeletePhoneSuccessImpl _value,
+      $Res Function(_$DeletePhoneSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2306,7 +2314,7 @@ class __$$_DeletePhoneSuccessCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_DeletePhoneSuccess(
+    return _then(_$DeletePhoneSuccessImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -2317,8 +2325,8 @@ class __$$_DeletePhoneSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeletePhoneSuccess implements _DeletePhoneSuccess {
-  const _$_DeletePhoneSuccess(this.index);
+class _$DeletePhoneSuccessImpl implements _DeletePhoneSuccess {
+  const _$DeletePhoneSuccessImpl(this.index);
 
   @override
   final int index;
@@ -2332,7 +2340,7 @@ class _$_DeletePhoneSuccess implements _DeletePhoneSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeletePhoneSuccess &&
+            other is _$DeletePhoneSuccessImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -2342,8 +2350,8 @@ class _$_DeletePhoneSuccess implements _DeletePhoneSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeletePhoneSuccessCopyWith<_$_DeletePhoneSuccess> get copyWith =>
-      __$$_DeletePhoneSuccessCopyWithImpl<_$_DeletePhoneSuccess>(
+  _$$DeletePhoneSuccessImplCopyWith<_$DeletePhoneSuccessImpl> get copyWith =>
+      __$$DeletePhoneSuccessImplCopyWithImpl<_$DeletePhoneSuccessImpl>(
           this, _$identity);
 
   @override
@@ -2459,29 +2467,29 @@ class _$_DeletePhoneSuccess implements _DeletePhoneSuccess {
 }
 
 abstract class _DeletePhoneSuccess implements FormRepeaterState {
-  const factory _DeletePhoneSuccess(final int index) = _$_DeletePhoneSuccess;
+  const factory _DeletePhoneSuccess(final int index) = _$DeletePhoneSuccessImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_DeletePhoneSuccessCopyWith<_$_DeletePhoneSuccess> get copyWith =>
+  _$$DeletePhoneSuccessImplCopyWith<_$DeletePhoneSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_RadioSelectSuceessCopyWith<$Res> {
-  factory _$$_RadioSelectSuceessCopyWith(_$_RadioSelectSuceess value,
-          $Res Function(_$_RadioSelectSuceess) then) =
-      __$$_RadioSelectSuceessCopyWithImpl<$Res>;
+abstract class _$$RadioSelectSuceessImplCopyWith<$Res> {
+  factory _$$RadioSelectSuceessImplCopyWith(_$RadioSelectSuceessImpl value,
+          $Res Function(_$RadioSelectSuceessImpl) then) =
+      __$$RadioSelectSuceessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_RadioSelectSuceessCopyWithImpl<$Res>
-    extends _$FormRepeaterStateCopyWithImpl<$Res, _$_RadioSelectSuceess>
-    implements _$$_RadioSelectSuceessCopyWith<$Res> {
-  __$$_RadioSelectSuceessCopyWithImpl(
-      _$_RadioSelectSuceess _value, $Res Function(_$_RadioSelectSuceess) _then)
+class __$$RadioSelectSuceessImplCopyWithImpl<$Res>
+    extends _$FormRepeaterStateCopyWithImpl<$Res, _$RadioSelectSuceessImpl>
+    implements _$$RadioSelectSuceessImplCopyWith<$Res> {
+  __$$RadioSelectSuceessImplCopyWithImpl(_$RadioSelectSuceessImpl _value,
+      $Res Function(_$RadioSelectSuceessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2489,7 +2497,7 @@ class __$$_RadioSelectSuceessCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_RadioSelectSuceess(
+    return _then(_$RadioSelectSuceessImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -2500,8 +2508,8 @@ class __$$_RadioSelectSuceessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RadioSelectSuceess implements _RadioSelectSuceess {
-  const _$_RadioSelectSuceess(this.value);
+class _$RadioSelectSuceessImpl implements _RadioSelectSuceess {
+  const _$RadioSelectSuceessImpl(this.value);
 
   @override
   final String value;
@@ -2515,7 +2523,7 @@ class _$_RadioSelectSuceess implements _RadioSelectSuceess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RadioSelectSuceess &&
+            other is _$RadioSelectSuceessImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -2525,8 +2533,8 @@ class _$_RadioSelectSuceess implements _RadioSelectSuceess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RadioSelectSuceessCopyWith<_$_RadioSelectSuceess> get copyWith =>
-      __$$_RadioSelectSuceessCopyWithImpl<_$_RadioSelectSuceess>(
+  _$$RadioSelectSuceessImplCopyWith<_$RadioSelectSuceessImpl> get copyWith =>
+      __$$RadioSelectSuceessImplCopyWithImpl<_$RadioSelectSuceessImpl>(
           this, _$identity);
 
   @override
@@ -2642,10 +2650,11 @@ class _$_RadioSelectSuceess implements _RadioSelectSuceess {
 }
 
 abstract class _RadioSelectSuceess implements FormRepeaterState {
-  const factory _RadioSelectSuceess(final String value) = _$_RadioSelectSuceess;
+  const factory _RadioSelectSuceess(final String value) =
+      _$RadioSelectSuceessImpl;
 
   String get value;
   @JsonKey(ignore: true)
-  _$$_RadioSelectSuceessCopyWith<_$_RadioSelectSuceess> get copyWith =>
+  _$$RadioSelectSuceessImplCopyWith<_$RadioSelectSuceessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

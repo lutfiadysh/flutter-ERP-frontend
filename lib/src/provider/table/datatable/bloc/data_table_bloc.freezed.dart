@@ -69,24 +69,25 @@ class _$DataTableEventCopyWithImpl<$Res, $Val extends DataTableEvent>
 }
 
 /// @nodoc
-abstract class _$$_RebuildCopyWith<$Res> {
-  factory _$$_RebuildCopyWith(
-          _$_Rebuild value, $Res Function(_$_Rebuild) then) =
-      __$$_RebuildCopyWithImpl<$Res>;
+abstract class _$$RebuildImplCopyWith<$Res> {
+  factory _$$RebuildImplCopyWith(
+          _$RebuildImpl value, $Res Function(_$RebuildImpl) then) =
+      __$$RebuildImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_RebuildCopyWithImpl<$Res>
-    extends _$DataTableEventCopyWithImpl<$Res, _$_Rebuild>
-    implements _$$_RebuildCopyWith<$Res> {
-  __$$_RebuildCopyWithImpl(_$_Rebuild _value, $Res Function(_$_Rebuild) _then)
+class __$$RebuildImplCopyWithImpl<$Res>
+    extends _$DataTableEventCopyWithImpl<$Res, _$RebuildImpl>
+    implements _$$RebuildImplCopyWith<$Res> {
+  __$$RebuildImplCopyWithImpl(
+      _$RebuildImpl _value, $Res Function(_$RebuildImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Rebuild implements _Rebuild {
-  const _$_Rebuild();
+class _$RebuildImpl implements _Rebuild {
+  const _$RebuildImpl();
 
   @override
   String toString() {
@@ -96,7 +97,7 @@ class _$_Rebuild implements _Rebuild {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Rebuild);
+        (other.runtimeType == runtimeType && other is _$RebuildImpl);
   }
 
   @override
@@ -160,7 +161,7 @@ class _$_Rebuild implements _Rebuild {
 }
 
 abstract class _Rebuild implements DataTableEvent {
-  const factory _Rebuild() = _$_Rebuild;
+  const factory _Rebuild() = _$RebuildImpl;
 }
 
 /// @nodoc
@@ -224,24 +225,25 @@ class _$DataTableStateCopyWithImpl<$Res, $Val extends DataTableState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$DataTableStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$DataTableStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -251,7 +253,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -321,28 +323,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements DataTableState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$DataTableStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$DataTableStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success();
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl();
 
   @override
   String toString() {
@@ -352,7 +355,7 @@ class _$_Success implements _Success {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Success);
+        (other.runtimeType == runtimeType && other is _$SuccessImpl);
   }
 
   @override
@@ -422,5 +425,5 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements DataTableState {
-  const factory _Success() = _$_Success;
+  const factory _Success() = _$SuccessImpl;
 }

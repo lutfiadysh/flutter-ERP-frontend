@@ -50,12 +50,12 @@ class PieChart2State extends State<PieChartSample3> {
 
     return List.generate(3, (i) {
       final isTouched = i == touchedIndex;
-      final fontSize = isTouched ? 26.0 : 17.0;
-      final radius = isTouched ? 61.0 : 51.0;
+      final fontSize = isTouched ? 15.0 : 17.0;
+      final radius = isTouched ? 51.0 : 81.0;
       switch (i) {
         case 0:
           return PieChartSectionData(
-            color: const Color.fromARGB(255, 18, 187, 32),
+            color: Colors.green,
             value: dashboard.porcentajeEntradas,
             title: '${dashboard.porcentajeEntradasFormateado}%',
             radius: radius,
@@ -66,7 +66,7 @@ class PieChart2State extends State<PieChartSample3> {
           );
         case 1:
           return PieChartSectionData(
-            color: const Color(0xfff8b250),
+            color: Colors.yellow[800],
             value: dashboard.porcentajeSalidas,
             title: '${dashboard.porcentajeSalidasFormateado}%',
             radius: radius,

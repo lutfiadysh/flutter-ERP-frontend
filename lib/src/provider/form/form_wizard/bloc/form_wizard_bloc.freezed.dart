@@ -99,20 +99,20 @@ class _$FormWizardEventCopyWithImpl<$Res, $Val extends FormWizardEvent>
 }
 
 /// @nodoc
-abstract class _$$_NextClickCopyWith<$Res> {
-  factory _$$_NextClickCopyWith(
-          _$_NextClick value, $Res Function(_$_NextClick) then) =
-      __$$_NextClickCopyWithImpl<$Res>;
+abstract class _$$NextClickImplCopyWith<$Res> {
+  factory _$$NextClickImplCopyWith(
+          _$NextClickImpl value, $Res Function(_$NextClickImpl) then) =
+      __$$NextClickImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index, int clickCount});
 }
 
 /// @nodoc
-class __$$_NextClickCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res, _$_NextClick>
-    implements _$$_NextClickCopyWith<$Res> {
-  __$$_NextClickCopyWithImpl(
-      _$_NextClick _value, $Res Function(_$_NextClick) _then)
+class __$$NextClickImplCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$NextClickImpl>
+    implements _$$NextClickImplCopyWith<$Res> {
+  __$$NextClickImplCopyWithImpl(
+      _$NextClickImpl _value, $Res Function(_$NextClickImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +121,7 @@ class __$$_NextClickCopyWithImpl<$Res>
     Object? index = null,
     Object? clickCount = null,
   }) {
-    return _then(_$_NextClick(
+    return _then(_$NextClickImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -136,8 +136,8 @@ class __$$_NextClickCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NextClick implements _NextClick {
-  const _$_NextClick(this.index, this.clickCount);
+class _$NextClickImpl implements _NextClick {
+  const _$NextClickImpl(this.index, this.clickCount);
 
   @override
   final int index;
@@ -153,7 +153,7 @@ class _$_NextClick implements _NextClick {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NextClick &&
+            other is _$NextClickImpl &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.clickCount, clickCount) ||
                 other.clickCount == clickCount));
@@ -165,8 +165,8 @@ class _$_NextClick implements _NextClick {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NextClickCopyWith<_$_NextClick> get copyWith =>
-      __$$_NextClickCopyWithImpl<_$_NextClick>(this, _$identity);
+  _$$NextClickImplCopyWith<_$NextClickImpl> get copyWith =>
+      __$$NextClickImplCopyWithImpl<_$NextClickImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -257,30 +257,30 @@ class _$_NextClick implements _NextClick {
 
 abstract class _NextClick implements FormWizardEvent {
   const factory _NextClick(final int index, final int clickCount) =
-      _$_NextClick;
+      _$NextClickImpl;
 
   int get index;
   int get clickCount;
   @JsonKey(ignore: true)
-  _$$_NextClickCopyWith<_$_NextClick> get copyWith =>
+  _$$NextClickImplCopyWith<_$NextClickImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PreviousClickCopyWith<$Res> {
-  factory _$$_PreviousClickCopyWith(
-          _$_PreviousClick value, $Res Function(_$_PreviousClick) then) =
-      __$$_PreviousClickCopyWithImpl<$Res>;
+abstract class _$$PreviousClickImplCopyWith<$Res> {
+  factory _$$PreviousClickImplCopyWith(
+          _$PreviousClickImpl value, $Res Function(_$PreviousClickImpl) then) =
+      __$$PreviousClickImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_PreviousClickCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res, _$_PreviousClick>
-    implements _$$_PreviousClickCopyWith<$Res> {
-  __$$_PreviousClickCopyWithImpl(
-      _$_PreviousClick _value, $Res Function(_$_PreviousClick) _then)
+class __$$PreviousClickImplCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$PreviousClickImpl>
+    implements _$$PreviousClickImplCopyWith<$Res> {
+  __$$PreviousClickImplCopyWithImpl(
+      _$PreviousClickImpl _value, $Res Function(_$PreviousClickImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -288,7 +288,7 @@ class __$$_PreviousClickCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_PreviousClick(
+    return _then(_$PreviousClickImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -299,8 +299,8 @@ class __$$_PreviousClickCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PreviousClick implements _PreviousClick {
-  const _$_PreviousClick(this.index);
+class _$PreviousClickImpl implements _PreviousClick {
+  const _$PreviousClickImpl(this.index);
 
   @override
   final int index;
@@ -314,7 +314,7 @@ class _$_PreviousClick implements _PreviousClick {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PreviousClick &&
+            other is _$PreviousClickImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -324,8 +324,8 @@ class _$_PreviousClick implements _PreviousClick {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PreviousClickCopyWith<_$_PreviousClick> get copyWith =>
-      __$$_PreviousClickCopyWithImpl<_$_PreviousClick>(this, _$identity);
+  _$$PreviousClickImplCopyWith<_$PreviousClickImpl> get copyWith =>
+      __$$PreviousClickImplCopyWithImpl<_$PreviousClickImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -415,29 +415,29 @@ class _$_PreviousClick implements _PreviousClick {
 }
 
 abstract class _PreviousClick implements FormWizardEvent {
-  const factory _PreviousClick(final int index) = _$_PreviousClick;
+  const factory _PreviousClick(final int index) = _$PreviousClickImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_PreviousClickCopyWith<_$_PreviousClick> get copyWith =>
+  _$$PreviousClickImplCopyWith<_$PreviousClickImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FinishClickCopyWith<$Res> {
-  factory _$$_FinishClickCopyWith(
-          _$_FinishClick value, $Res Function(_$_FinishClick) then) =
-      __$$_FinishClickCopyWithImpl<$Res>;
+abstract class _$$FinishClickImplCopyWith<$Res> {
+  factory _$$FinishClickImplCopyWith(
+          _$FinishClickImpl value, $Res Function(_$FinishClickImpl) then) =
+      __$$FinishClickImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isFinish});
 }
 
 /// @nodoc
-class __$$_FinishClickCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res, _$_FinishClick>
-    implements _$$_FinishClickCopyWith<$Res> {
-  __$$_FinishClickCopyWithImpl(
-      _$_FinishClick _value, $Res Function(_$_FinishClick) _then)
+class __$$FinishClickImplCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$FinishClickImpl>
+    implements _$$FinishClickImplCopyWith<$Res> {
+  __$$FinishClickImplCopyWithImpl(
+      _$FinishClickImpl _value, $Res Function(_$FinishClickImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -445,7 +445,7 @@ class __$$_FinishClickCopyWithImpl<$Res>
   $Res call({
     Object? isFinish = null,
   }) {
-    return _then(_$_FinishClick(
+    return _then(_$FinishClickImpl(
       null == isFinish
           ? _value.isFinish
           : isFinish // ignore: cast_nullable_to_non_nullable
@@ -456,8 +456,8 @@ class __$$_FinishClickCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FinishClick implements _FinishClick {
-  const _$_FinishClick(this.isFinish);
+class _$FinishClickImpl implements _FinishClick {
+  const _$FinishClickImpl(this.isFinish);
 
   @override
   final bool isFinish;
@@ -471,7 +471,7 @@ class _$_FinishClick implements _FinishClick {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FinishClick &&
+            other is _$FinishClickImpl &&
             (identical(other.isFinish, isFinish) ||
                 other.isFinish == isFinish));
   }
@@ -482,8 +482,8 @@ class _$_FinishClick implements _FinishClick {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FinishClickCopyWith<_$_FinishClick> get copyWith =>
-      __$$_FinishClickCopyWithImpl<_$_FinishClick>(this, _$identity);
+  _$$FinishClickImplCopyWith<_$FinishClickImpl> get copyWith =>
+      __$$FinishClickImplCopyWithImpl<_$FinishClickImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -573,29 +573,29 @@ class _$_FinishClick implements _FinishClick {
 }
 
 abstract class _FinishClick implements FormWizardEvent {
-  const factory _FinishClick(final bool isFinish) = _$_FinishClick;
+  const factory _FinishClick(final bool isFinish) = _$FinishClickImpl;
 
   bool get isFinish;
   @JsonKey(ignore: true)
-  _$$_FinishClickCopyWith<_$_FinishClick> get copyWith =>
+  _$$FinishClickImplCopyWith<_$FinishClickImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_StepperClickCopyWith<$Res> {
-  factory _$$_StepperClickCopyWith(
-          _$_StepperClick value, $Res Function(_$_StepperClick) then) =
-      __$$_StepperClickCopyWithImpl<$Res>;
+abstract class _$$StepperClickImplCopyWith<$Res> {
+  factory _$$StepperClickImplCopyWith(
+          _$StepperClickImpl value, $Res Function(_$StepperClickImpl) then) =
+      __$$StepperClickImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_StepperClickCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res, _$_StepperClick>
-    implements _$$_StepperClickCopyWith<$Res> {
-  __$$_StepperClickCopyWithImpl(
-      _$_StepperClick _value, $Res Function(_$_StepperClick) _then)
+class __$$StepperClickImplCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$StepperClickImpl>
+    implements _$$StepperClickImplCopyWith<$Res> {
+  __$$StepperClickImplCopyWithImpl(
+      _$StepperClickImpl _value, $Res Function(_$StepperClickImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -603,7 +603,7 @@ class __$$_StepperClickCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_StepperClick(
+    return _then(_$StepperClickImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -614,8 +614,8 @@ class __$$_StepperClickCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StepperClick implements _StepperClick {
-  const _$_StepperClick(this.index);
+class _$StepperClickImpl implements _StepperClick {
+  const _$StepperClickImpl(this.index);
 
   @override
   final int index;
@@ -629,7 +629,7 @@ class _$_StepperClick implements _StepperClick {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StepperClick &&
+            other is _$StepperClickImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -639,8 +639,8 @@ class _$_StepperClick implements _StepperClick {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StepperClickCopyWith<_$_StepperClick> get copyWith =>
-      __$$_StepperClickCopyWithImpl<_$_StepperClick>(this, _$identity);
+  _$$StepperClickImplCopyWith<_$StepperClickImpl> get copyWith =>
+      __$$StepperClickImplCopyWithImpl<_$StepperClickImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -730,29 +730,29 @@ class _$_StepperClick implements _StepperClick {
 }
 
 abstract class _StepperClick implements FormWizardEvent {
-  const factory _StepperClick(final int index) = _$_StepperClick;
+  const factory _StepperClick(final int index) = _$StepperClickImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_StepperClickCopyWith<_$_StepperClick> get copyWith =>
+  _$$StepperClickImplCopyWith<_$StepperClickImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DropDownCopyWith<$Res> {
-  factory _$$_DropDownCopyWith(
-          _$_DropDown value, $Res Function(_$_DropDown) then) =
-      __$$_DropDownCopyWithImpl<$Res>;
+abstract class _$$DropDownImplCopyWith<$Res> {
+  factory _$$DropDownImplCopyWith(
+          _$DropDownImpl value, $Res Function(_$DropDownImpl) then) =
+      __$$DropDownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_DropDownCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res, _$_DropDown>
-    implements _$$_DropDownCopyWith<$Res> {
-  __$$_DropDownCopyWithImpl(
-      _$_DropDown _value, $Res Function(_$_DropDown) _then)
+class __$$DropDownImplCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$DropDownImpl>
+    implements _$$DropDownImplCopyWith<$Res> {
+  __$$DropDownImplCopyWithImpl(
+      _$DropDownImpl _value, $Res Function(_$DropDownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -760,7 +760,7 @@ class __$$_DropDownCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_DropDown(
+    return _then(_$DropDownImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -771,8 +771,8 @@ class __$$_DropDownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DropDown implements _DropDown {
-  const _$_DropDown(this.value);
+class _$DropDownImpl implements _DropDown {
+  const _$DropDownImpl(this.value);
 
   @override
   final String value;
@@ -786,7 +786,7 @@ class _$_DropDown implements _DropDown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DropDown &&
+            other is _$DropDownImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -796,8 +796,8 @@ class _$_DropDown implements _DropDown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DropDownCopyWith<_$_DropDown> get copyWith =>
-      __$$_DropDownCopyWithImpl<_$_DropDown>(this, _$identity);
+  _$$DropDownImplCopyWith<_$DropDownImpl> get copyWith =>
+      __$$DropDownImplCopyWithImpl<_$DropDownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -887,27 +887,29 @@ class _$_DropDown implements _DropDown {
 }
 
 abstract class _DropDown implements FormWizardEvent {
-  const factory _DropDown(final String value) = _$_DropDown;
+  const factory _DropDown(final String value) = _$DropDownImpl;
 
   String get value;
   @JsonKey(ignore: true)
-  _$$_DropDownCopyWith<_$_DropDown> get copyWith =>
+  _$$DropDownImplCopyWith<_$DropDownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_CheckCopyWith<$Res> {
-  factory _$$_CheckCopyWith(_$_Check value, $Res Function(_$_Check) then) =
-      __$$_CheckCopyWithImpl<$Res>;
+abstract class _$$CheckImplCopyWith<$Res> {
+  factory _$$CheckImplCopyWith(
+          _$CheckImpl value, $Res Function(_$CheckImpl) then) =
+      __$$CheckImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$_CheckCopyWithImpl<$Res>
-    extends _$FormWizardEventCopyWithImpl<$Res, _$_Check>
-    implements _$$_CheckCopyWith<$Res> {
-  __$$_CheckCopyWithImpl(_$_Check _value, $Res Function(_$_Check) _then)
+class __$$CheckImplCopyWithImpl<$Res>
+    extends _$FormWizardEventCopyWithImpl<$Res, _$CheckImpl>
+    implements _$$CheckImplCopyWith<$Res> {
+  __$$CheckImplCopyWithImpl(
+      _$CheckImpl _value, $Res Function(_$CheckImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -915,7 +917,7 @@ class __$$_CheckCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_Check(
+    return _then(_$CheckImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -926,8 +928,8 @@ class __$$_CheckCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Check implements _Check {
-  const _$_Check(this.value);
+class _$CheckImpl implements _Check {
+  const _$CheckImpl(this.value);
 
   @override
   final bool value;
@@ -941,7 +943,7 @@ class _$_Check implements _Check {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Check &&
+            other is _$CheckImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -951,8 +953,8 @@ class _$_Check implements _Check {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CheckCopyWith<_$_Check> get copyWith =>
-      __$$_CheckCopyWithImpl<_$_Check>(this, _$identity);
+  _$$CheckImplCopyWith<_$CheckImpl> get copyWith =>
+      __$$CheckImplCopyWithImpl<_$CheckImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1042,11 +1044,11 @@ class _$_Check implements _Check {
 }
 
 abstract class _Check implements FormWizardEvent {
-  const factory _Check(final bool value) = _$_Check;
+  const factory _Check(final bool value) = _$CheckImpl;
 
   bool get value;
   @JsonKey(ignore: true)
-  _$$_CheckCopyWith<_$_Check> get copyWith =>
+  _$$CheckImplCopyWith<_$CheckImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1141,24 +1143,25 @@ class _$FormWizardStateCopyWithImpl<$Res, $Val extends FormWizardState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -1168,7 +1171,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -1268,24 +1271,24 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements FormWizardState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_NextSuccessCopyWith<$Res> {
-  factory _$$_NextSuccessCopyWith(
-          _$_NextSuccess value, $Res Function(_$_NextSuccess) then) =
-      __$$_NextSuccessCopyWithImpl<$Res>;
+abstract class _$$NextSuccessImplCopyWith<$Res> {
+  factory _$$NextSuccessImplCopyWith(
+          _$NextSuccessImpl value, $Res Function(_$NextSuccessImpl) then) =
+      __$$NextSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index, int clickCount});
 }
 
 /// @nodoc
-class __$$_NextSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res, _$_NextSuccess>
-    implements _$$_NextSuccessCopyWith<$Res> {
-  __$$_NextSuccessCopyWithImpl(
-      _$_NextSuccess _value, $Res Function(_$_NextSuccess) _then)
+class __$$NextSuccessImplCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$NextSuccessImpl>
+    implements _$$NextSuccessImplCopyWith<$Res> {
+  __$$NextSuccessImplCopyWithImpl(
+      _$NextSuccessImpl _value, $Res Function(_$NextSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1294,7 +1297,7 @@ class __$$_NextSuccessCopyWithImpl<$Res>
     Object? index = null,
     Object? clickCount = null,
   }) {
-    return _then(_$_NextSuccess(
+    return _then(_$NextSuccessImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1309,8 +1312,8 @@ class __$$_NextSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NextSuccess implements _NextSuccess {
-  const _$_NextSuccess(this.index, this.clickCount);
+class _$NextSuccessImpl implements _NextSuccess {
+  const _$NextSuccessImpl(this.index, this.clickCount);
 
   @override
   final int index;
@@ -1326,7 +1329,7 @@ class _$_NextSuccess implements _NextSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NextSuccess &&
+            other is _$NextSuccessImpl &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.clickCount, clickCount) ||
                 other.clickCount == clickCount));
@@ -1338,8 +1341,8 @@ class _$_NextSuccess implements _NextSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NextSuccessCopyWith<_$_NextSuccess> get copyWith =>
-      __$$_NextSuccessCopyWithImpl<_$_NextSuccess>(this, _$identity);
+  _$$NextSuccessImplCopyWith<_$NextSuccessImpl> get copyWith =>
+      __$$NextSuccessImplCopyWithImpl<_$NextSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1436,30 +1439,30 @@ class _$_NextSuccess implements _NextSuccess {
 
 abstract class _NextSuccess implements FormWizardState {
   const factory _NextSuccess(final int index, final int clickCount) =
-      _$_NextSuccess;
+      _$NextSuccessImpl;
 
   int get index;
   int get clickCount;
   @JsonKey(ignore: true)
-  _$$_NextSuccessCopyWith<_$_NextSuccess> get copyWith =>
+  _$$NextSuccessImplCopyWith<_$NextSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PreviousSuccessCopyWith<$Res> {
-  factory _$$_PreviousSuccessCopyWith(
-          _$_PreviousSuccess value, $Res Function(_$_PreviousSuccess) then) =
-      __$$_PreviousSuccessCopyWithImpl<$Res>;
+abstract class _$$PreviousSuccessImplCopyWith<$Res> {
+  factory _$$PreviousSuccessImplCopyWith(_$PreviousSuccessImpl value,
+          $Res Function(_$PreviousSuccessImpl) then) =
+      __$$PreviousSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_PreviousSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res, _$_PreviousSuccess>
-    implements _$$_PreviousSuccessCopyWith<$Res> {
-  __$$_PreviousSuccessCopyWithImpl(
-      _$_PreviousSuccess _value, $Res Function(_$_PreviousSuccess) _then)
+class __$$PreviousSuccessImplCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$PreviousSuccessImpl>
+    implements _$$PreviousSuccessImplCopyWith<$Res> {
+  __$$PreviousSuccessImplCopyWithImpl(
+      _$PreviousSuccessImpl _value, $Res Function(_$PreviousSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1467,7 +1470,7 @@ class __$$_PreviousSuccessCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_PreviousSuccess(
+    return _then(_$PreviousSuccessImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1478,8 +1481,8 @@ class __$$_PreviousSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PreviousSuccess implements _PreviousSuccess {
-  const _$_PreviousSuccess(this.index);
+class _$PreviousSuccessImpl implements _PreviousSuccess {
+  const _$PreviousSuccessImpl(this.index);
 
   @override
   final int index;
@@ -1493,7 +1496,7 @@ class _$_PreviousSuccess implements _PreviousSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PreviousSuccess &&
+            other is _$PreviousSuccessImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -1503,8 +1506,9 @@ class _$_PreviousSuccess implements _PreviousSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PreviousSuccessCopyWith<_$_PreviousSuccess> get copyWith =>
-      __$$_PreviousSuccessCopyWithImpl<_$_PreviousSuccess>(this, _$identity);
+  _$$PreviousSuccessImplCopyWith<_$PreviousSuccessImpl> get copyWith =>
+      __$$PreviousSuccessImplCopyWithImpl<_$PreviousSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1600,29 +1604,29 @@ class _$_PreviousSuccess implements _PreviousSuccess {
 }
 
 abstract class _PreviousSuccess implements FormWizardState {
-  const factory _PreviousSuccess(final int index) = _$_PreviousSuccess;
+  const factory _PreviousSuccess(final int index) = _$PreviousSuccessImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_PreviousSuccessCopyWith<_$_PreviousSuccess> get copyWith =>
+  _$$PreviousSuccessImplCopyWith<_$PreviousSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FinishSuccessCopyWith<$Res> {
-  factory _$$_FinishSuccessCopyWith(
-          _$_FinishSuccess value, $Res Function(_$_FinishSuccess) then) =
-      __$$_FinishSuccessCopyWithImpl<$Res>;
+abstract class _$$FinishSuccessImplCopyWith<$Res> {
+  factory _$$FinishSuccessImplCopyWith(
+          _$FinishSuccessImpl value, $Res Function(_$FinishSuccessImpl) then) =
+      __$$FinishSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isFinish});
 }
 
 /// @nodoc
-class __$$_FinishSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res, _$_FinishSuccess>
-    implements _$$_FinishSuccessCopyWith<$Res> {
-  __$$_FinishSuccessCopyWithImpl(
-      _$_FinishSuccess _value, $Res Function(_$_FinishSuccess) _then)
+class __$$FinishSuccessImplCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$FinishSuccessImpl>
+    implements _$$FinishSuccessImplCopyWith<$Res> {
+  __$$FinishSuccessImplCopyWithImpl(
+      _$FinishSuccessImpl _value, $Res Function(_$FinishSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1630,7 +1634,7 @@ class __$$_FinishSuccessCopyWithImpl<$Res>
   $Res call({
     Object? isFinish = null,
   }) {
-    return _then(_$_FinishSuccess(
+    return _then(_$FinishSuccessImpl(
       null == isFinish
           ? _value.isFinish
           : isFinish // ignore: cast_nullable_to_non_nullable
@@ -1641,8 +1645,8 @@ class __$$_FinishSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FinishSuccess implements _FinishSuccess {
-  const _$_FinishSuccess(this.isFinish);
+class _$FinishSuccessImpl implements _FinishSuccess {
+  const _$FinishSuccessImpl(this.isFinish);
 
   @override
   final bool isFinish;
@@ -1656,7 +1660,7 @@ class _$_FinishSuccess implements _FinishSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FinishSuccess &&
+            other is _$FinishSuccessImpl &&
             (identical(other.isFinish, isFinish) ||
                 other.isFinish == isFinish));
   }
@@ -1667,8 +1671,8 @@ class _$_FinishSuccess implements _FinishSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FinishSuccessCopyWith<_$_FinishSuccess> get copyWith =>
-      __$$_FinishSuccessCopyWithImpl<_$_FinishSuccess>(this, _$identity);
+  _$$FinishSuccessImplCopyWith<_$FinishSuccessImpl> get copyWith =>
+      __$$FinishSuccessImplCopyWithImpl<_$FinishSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1764,29 +1768,29 @@ class _$_FinishSuccess implements _FinishSuccess {
 }
 
 abstract class _FinishSuccess implements FormWizardState {
-  const factory _FinishSuccess(final bool isFinish) = _$_FinishSuccess;
+  const factory _FinishSuccess(final bool isFinish) = _$FinishSuccessImpl;
 
   bool get isFinish;
   @JsonKey(ignore: true)
-  _$$_FinishSuccessCopyWith<_$_FinishSuccess> get copyWith =>
+  _$$FinishSuccessImplCopyWith<_$FinishSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_StepperSuccessCopyWith<$Res> {
-  factory _$$_StepperSuccessCopyWith(
-          _$_StepperSuccess value, $Res Function(_$_StepperSuccess) then) =
-      __$$_StepperSuccessCopyWithImpl<$Res>;
+abstract class _$$StepperSuccessImplCopyWith<$Res> {
+  factory _$$StepperSuccessImplCopyWith(_$StepperSuccessImpl value,
+          $Res Function(_$StepperSuccessImpl) then) =
+      __$$StepperSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_StepperSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res, _$_StepperSuccess>
-    implements _$$_StepperSuccessCopyWith<$Res> {
-  __$$_StepperSuccessCopyWithImpl(
-      _$_StepperSuccess _value, $Res Function(_$_StepperSuccess) _then)
+class __$$StepperSuccessImplCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$StepperSuccessImpl>
+    implements _$$StepperSuccessImplCopyWith<$Res> {
+  __$$StepperSuccessImplCopyWithImpl(
+      _$StepperSuccessImpl _value, $Res Function(_$StepperSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1794,7 +1798,7 @@ class __$$_StepperSuccessCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_StepperSuccess(
+    return _then(_$StepperSuccessImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1805,8 +1809,8 @@ class __$$_StepperSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StepperSuccess implements _StepperSuccess {
-  const _$_StepperSuccess(this.index);
+class _$StepperSuccessImpl implements _StepperSuccess {
+  const _$StepperSuccessImpl(this.index);
 
   @override
   final int index;
@@ -1820,7 +1824,7 @@ class _$_StepperSuccess implements _StepperSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StepperSuccess &&
+            other is _$StepperSuccessImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -1830,8 +1834,9 @@ class _$_StepperSuccess implements _StepperSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StepperSuccessCopyWith<_$_StepperSuccess> get copyWith =>
-      __$$_StepperSuccessCopyWithImpl<_$_StepperSuccess>(this, _$identity);
+  _$$StepperSuccessImplCopyWith<_$StepperSuccessImpl> get copyWith =>
+      __$$StepperSuccessImplCopyWithImpl<_$StepperSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1927,29 +1932,29 @@ class _$_StepperSuccess implements _StepperSuccess {
 }
 
 abstract class _StepperSuccess implements FormWizardState {
-  const factory _StepperSuccess(final int index) = _$_StepperSuccess;
+  const factory _StepperSuccess(final int index) = _$StepperSuccessImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_StepperSuccessCopyWith<_$_StepperSuccess> get copyWith =>
+  _$$StepperSuccessImplCopyWith<_$StepperSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DropDownSuccessCopyWith<$Res> {
-  factory _$$_DropDownSuccessCopyWith(
-          _$_DropDownSuccess value, $Res Function(_$_DropDownSuccess) then) =
-      __$$_DropDownSuccessCopyWithImpl<$Res>;
+abstract class _$$DropDownSuccessImplCopyWith<$Res> {
+  factory _$$DropDownSuccessImplCopyWith(_$DropDownSuccessImpl value,
+          $Res Function(_$DropDownSuccessImpl) then) =
+      __$$DropDownSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_DropDownSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res, _$_DropDownSuccess>
-    implements _$$_DropDownSuccessCopyWith<$Res> {
-  __$$_DropDownSuccessCopyWithImpl(
-      _$_DropDownSuccess _value, $Res Function(_$_DropDownSuccess) _then)
+class __$$DropDownSuccessImplCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$DropDownSuccessImpl>
+    implements _$$DropDownSuccessImplCopyWith<$Res> {
+  __$$DropDownSuccessImplCopyWithImpl(
+      _$DropDownSuccessImpl _value, $Res Function(_$DropDownSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1957,7 +1962,7 @@ class __$$_DropDownSuccessCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_DropDownSuccess(
+    return _then(_$DropDownSuccessImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -1968,8 +1973,8 @@ class __$$_DropDownSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DropDownSuccess implements _DropDownSuccess {
-  const _$_DropDownSuccess(this.value);
+class _$DropDownSuccessImpl implements _DropDownSuccess {
+  const _$DropDownSuccessImpl(this.value);
 
   @override
   final String value;
@@ -1983,7 +1988,7 @@ class _$_DropDownSuccess implements _DropDownSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DropDownSuccess &&
+            other is _$DropDownSuccessImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -1993,8 +1998,9 @@ class _$_DropDownSuccess implements _DropDownSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DropDownSuccessCopyWith<_$_DropDownSuccess> get copyWith =>
-      __$$_DropDownSuccessCopyWithImpl<_$_DropDownSuccess>(this, _$identity);
+  _$$DropDownSuccessImplCopyWith<_$DropDownSuccessImpl> get copyWith =>
+      __$$DropDownSuccessImplCopyWithImpl<_$DropDownSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2090,29 +2096,29 @@ class _$_DropDownSuccess implements _DropDownSuccess {
 }
 
 abstract class _DropDownSuccess implements FormWizardState {
-  const factory _DropDownSuccess(final String value) = _$_DropDownSuccess;
+  const factory _DropDownSuccess(final String value) = _$DropDownSuccessImpl;
 
   String get value;
   @JsonKey(ignore: true)
-  _$$_DropDownSuccessCopyWith<_$_DropDownSuccess> get copyWith =>
+  _$$DropDownSuccessImplCopyWith<_$DropDownSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_CheckSuccessCopyWith<$Res> {
-  factory _$$_CheckSuccessCopyWith(
-          _$_CheckSuccess value, $Res Function(_$_CheckSuccess) then) =
-      __$$_CheckSuccessCopyWithImpl<$Res>;
+abstract class _$$CheckSuccessImplCopyWith<$Res> {
+  factory _$$CheckSuccessImplCopyWith(
+          _$CheckSuccessImpl value, $Res Function(_$CheckSuccessImpl) then) =
+      __$$CheckSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$_CheckSuccessCopyWithImpl<$Res>
-    extends _$FormWizardStateCopyWithImpl<$Res, _$_CheckSuccess>
-    implements _$$_CheckSuccessCopyWith<$Res> {
-  __$$_CheckSuccessCopyWithImpl(
-      _$_CheckSuccess _value, $Res Function(_$_CheckSuccess) _then)
+class __$$CheckSuccessImplCopyWithImpl<$Res>
+    extends _$FormWizardStateCopyWithImpl<$Res, _$CheckSuccessImpl>
+    implements _$$CheckSuccessImplCopyWith<$Res> {
+  __$$CheckSuccessImplCopyWithImpl(
+      _$CheckSuccessImpl _value, $Res Function(_$CheckSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2120,7 +2126,7 @@ class __$$_CheckSuccessCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_CheckSuccess(
+    return _then(_$CheckSuccessImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -2131,8 +2137,8 @@ class __$$_CheckSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CheckSuccess implements _CheckSuccess {
-  const _$_CheckSuccess(this.value);
+class _$CheckSuccessImpl implements _CheckSuccess {
+  const _$CheckSuccessImpl(this.value);
 
   @override
   final bool value;
@@ -2146,7 +2152,7 @@ class _$_CheckSuccess implements _CheckSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CheckSuccess &&
+            other is _$CheckSuccessImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -2156,8 +2162,8 @@ class _$_CheckSuccess implements _CheckSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CheckSuccessCopyWith<_$_CheckSuccess> get copyWith =>
-      __$$_CheckSuccessCopyWithImpl<_$_CheckSuccess>(this, _$identity);
+  _$$CheckSuccessImplCopyWith<_$CheckSuccessImpl> get copyWith =>
+      __$$CheckSuccessImplCopyWithImpl<_$CheckSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2253,10 +2259,10 @@ class _$_CheckSuccess implements _CheckSuccess {
 }
 
 abstract class _CheckSuccess implements FormWizardState {
-  const factory _CheckSuccess(final bool value) = _$_CheckSuccess;
+  const factory _CheckSuccess(final bool value) = _$CheckSuccessImpl;
 
   bool get value;
   @JsonKey(ignore: true)
-  _$$_CheckSuccessCopyWith<_$_CheckSuccess> get copyWith =>
+  _$$CheckSuccessImplCopyWith<_$CheckSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -5,6 +5,7 @@ import 'package:admin_dashboard/src/utils/responsive.dart';
 import 'package:admin_dashboard/src/constant/image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/flutterx.dart';
+import 'package:lottie/lottie.dart';
 
 @RoutePage()
 class LockScreenOne extends StatefulWidget {
@@ -32,47 +33,12 @@ class _LockScreenOneState extends State<LockScreenOne> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SelectionArea(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Image.asset(
-                    Images.authBG,
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    fit: BoxFit.cover,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      FxBox.h20,
-                      Center(
-                        child: Wrap(
-                          children: [
-                            _cardWidget(
-                              size: size,
-                              label: '',
-                              widget: const FxLoader.basicLoader(
-                                duration: Duration(milliseconds: 900),
-                                color: ColorConst.primary,
-                                size: 40,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      FxBox.h20,
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+      body: Center(
+        child: Lottie.asset("assets/lottie/connecting-lottie.json",
+            width: MediaQuery.of(context).size.width / 1.5),
+      ),
+      bottomNavigationBar: LinearProgressIndicator(
+        color: ColorConst.primary,
       ),
     );
   }

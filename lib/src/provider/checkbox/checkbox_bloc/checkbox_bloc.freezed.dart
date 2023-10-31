@@ -89,21 +89,22 @@ class _$CheckboxEventCopyWithImpl<$Res, $Val extends CheckboxEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res>
+abstract class _$$StartedImplCopyWith<$Res>
     implements $CheckboxEventCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isChecked});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$CheckboxEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$CheckboxEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +112,7 @@ class __$$_StartedCopyWithImpl<$Res>
   $Res call({
     Object? isChecked = null,
   }) {
-    return _then(_$_Started(
+    return _then(_$StartedImpl(
       isChecked: null == isChecked
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
@@ -122,8 +123,8 @@ class __$$_StartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started({required this.isChecked});
+class _$StartedImpl implements _Started {
+  const _$StartedImpl({required this.isChecked});
 
   @override
   final bool isChecked;
@@ -137,7 +138,7 @@ class _$_Started implements _Started {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Started &&
+            other is _$StartedImpl &&
             (identical(other.isChecked, isChecked) ||
                 other.isChecked == isChecked));
   }
@@ -148,8 +149,8 @@ class _$_Started implements _Started {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
-      __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      __$$StartedImplCopyWithImpl<_$StartedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,13 +210,13 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements CheckboxEvent {
-  const factory _Started({required final bool isChecked}) = _$_Started;
+  const factory _Started({required final bool isChecked}) = _$StartedImpl;
 
   @override
   bool get isChecked;
   @override
   @JsonKey(ignore: true)
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -294,21 +295,22 @@ class _$CheckboxStateCopyWithImpl<$Res, $Val extends CheckboxState>
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res>
+abstract class _$$SuccessImplCopyWith<$Res>
     implements $CheckboxStateCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isChecked});
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$CheckboxStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$CheckboxStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -316,7 +318,7 @@ class __$$_SuccessCopyWithImpl<$Res>
   $Res call({
     Object? isChecked = null,
   }) {
-    return _then(_$_Success(
+    return _then(_$SuccessImpl(
       null == isChecked
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
@@ -327,8 +329,8 @@ class __$$_SuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success(this.isChecked);
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl(this.isChecked);
 
   @override
   final bool isChecked;
@@ -342,7 +344,7 @@ class _$_Success implements _Success {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Success &&
+            other is _$SuccessImpl &&
             (identical(other.isChecked, isChecked) ||
                 other.isChecked == isChecked));
   }
@@ -353,8 +355,8 @@ class _$_Success implements _Success {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
-      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -414,12 +416,12 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements CheckboxState {
-  const factory _Success(final bool isChecked) = _$_Success;
+  const factory _Success(final bool isChecked) = _$SuccessImpl;
 
   @override
   bool get isChecked;
   @override
   @JsonKey(ignore: true)
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

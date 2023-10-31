@@ -53,6 +53,7 @@ dependencies:
 
   auto_route: ^6.0.5
   flutter_bloc: ^8.1.1
+  equatable: ^2.0.3
   json_annotation: ^4.6.0
   freezed_annotation: ^2.1.0
   
@@ -68,6 +69,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   # fluro: ^2.0.4
   google_fonts: ^3.0.1
+  enefty_icons: ^1.0.7
   provider: ^6.0.5
   email_validator: ^2.1.17
   shared_preferences: ^2.0.16
@@ -80,6 +82,8 @@ dependencies:
   open_file: ^3.3.1
   flutter_dotenv: ^5.1.0
   marquee: ^2.2.3
+  shimmer: ^3.0.0
+  lottie: ^1.4.3
 
 dev_dependencies:
   flutter_test:
@@ -114,6 +118,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/icons/
+    - assets/lottie/
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

@@ -22,77 +22,70 @@ class MovementsReport extends StatefulWidget {
 class _SalesReportState extends State<MovementsReport> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shadowColor: ColorConst.primary.withOpacity(0.5),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-      ),
-      elevation: 7,
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 465),
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            ConstText.lightText(
-              text: widget.titulo,
-              fontWeight: FontWeight.bold,
+    return Container(
+      constraints: const BoxConstraints(minHeight: 465),
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          ConstText.lightText(
+            text: widget.titulo,
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+          ),
+          DateAndPrice(),
+          FxBox.h40,
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: 240,
+            child: PieChartSample3(
+              dashboard: widget.dashboard,
             ),
-            FxBox.h24,
-            DateAndPrice(),
-            FxBox.h40,
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: 240,
-              child: PieChartSample3(
-                dashboard: widget.dashboard,
+          ),
+          FxBox.h48,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 20,
+                    height: 20,
+                    color: Colors.green,
+                  ),
+                  const SizedBox(width: 8),
+                  const Text('Entradas'),
+                ],
               ),
-            ),
-            FxBox.h48,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 20,
-                      height: 20,
-                      color: const Color.fromARGB(255, 18, 187, 32),
-                    ),
-                    const SizedBox(width: 8),
-                    const Text('Entradas'),
-                  ],
-                ),
-                FxBox.w16,
-                Row(
-                  children: [
-                    Container(
-                      width: 20,
-                      height: 20,
-                      color: const Color(0xfff8b250),
-                    ),
-                    const SizedBox(width: 8),
-                    const Text('Salidas'),
-                  ],
-                ),
-                FxBox.w16,
-                Row(
-                  children: [
-                    Container(
-                      width: 20,
-                      height: 20,
-                      color: const Color.fromARGB(255, 205, 57, 20),
-                    ),
-                    const SizedBox(width: 8),
-                    const Text('Mermas'),
-                  ],
-                ),
-              ],
-            )
-          ],
-        ),
+              FxBox.w16,
+              Row(
+                children: [
+                  Container(
+                    width: 20,
+                    height: 20,
+                    color: Colors.yellow[800],
+                  ),
+                  const SizedBox(width: 8),
+                  const Text('Salidas'),
+                ],
+              ),
+              FxBox.w16,
+              Row(
+                children: [
+                  Container(
+                    width: 20,
+                    height: 20,
+                    color: const Color.fromARGB(255, 205, 57, 20),
+                  ),
+                  const SizedBox(width: 8),
+                  const Text('Mermas'),
+                ],
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
@@ -131,6 +124,7 @@ class _DateAndPriceState extends State<DateAndPrice> {
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
+            color: Colors.grey,
           ),
         ),
       ],

@@ -95,19 +95,21 @@ class _$GalleryEventCopyWithImpl<$Res, $Val extends GalleryEvent>
 }
 
 /// @nodoc
-abstract class _$$_NextCopyWith<$Res> implements $GalleryEventCopyWith<$Res> {
-  factory _$$_NextCopyWith(_$_Next value, $Res Function(_$_Next) then) =
-      __$$_NextCopyWithImpl<$Res>;
+abstract class _$$NextImplCopyWith<$Res>
+    implements $GalleryEventCopyWith<$Res> {
+  factory _$$NextImplCopyWith(
+          _$NextImpl value, $Res Function(_$NextImpl) then) =
+      __$$NextImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_NextCopyWithImpl<$Res>
-    extends _$GalleryEventCopyWithImpl<$Res, _$_Next>
-    implements _$$_NextCopyWith<$Res> {
-  __$$_NextCopyWithImpl(_$_Next _value, $Res Function(_$_Next) _then)
+class __$$NextImplCopyWithImpl<$Res>
+    extends _$GalleryEventCopyWithImpl<$Res, _$NextImpl>
+    implements _$$NextImplCopyWith<$Res> {
+  __$$NextImplCopyWithImpl(_$NextImpl _value, $Res Function(_$NextImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +117,7 @@ class __$$_NextCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_Next(
+    return _then(_$NextImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -126,8 +128,8 @@ class __$$_NextCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Next implements _Next {
-  const _$_Next(this.index);
+class _$NextImpl implements _Next {
+  const _$NextImpl(this.index);
 
   @override
   final int index;
@@ -141,7 +143,7 @@ class _$_Next implements _Next {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Next &&
+            other is _$NextImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -151,8 +153,8 @@ class _$_Next implements _Next {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NextCopyWith<_$_Next> get copyWith =>
-      __$$_NextCopyWithImpl<_$_Next>(this, _$identity);
+  _$$NextImplCopyWith<_$NextImpl> get copyWith =>
+      __$$NextImplCopyWithImpl<_$NextImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -218,32 +220,33 @@ class _$_Next implements _Next {
 }
 
 abstract class _Next implements GalleryEvent {
-  const factory _Next(final int index) = _$_Next;
+  const factory _Next(final int index) = _$NextImpl;
 
   @override
   int get index;
   @override
   @JsonKey(ignore: true)
-  _$$_NextCopyWith<_$_Next> get copyWith => throw _privateConstructorUsedError;
+  _$$NextImplCopyWith<_$NextImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PreviousCopyWith<$Res>
+abstract class _$$PreviousImplCopyWith<$Res>
     implements $GalleryEventCopyWith<$Res> {
-  factory _$$_PreviousCopyWith(
-          _$_Previous value, $Res Function(_$_Previous) then) =
-      __$$_PreviousCopyWithImpl<$Res>;
+  factory _$$PreviousImplCopyWith(
+          _$PreviousImpl value, $Res Function(_$PreviousImpl) then) =
+      __$$PreviousImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_PreviousCopyWithImpl<$Res>
-    extends _$GalleryEventCopyWithImpl<$Res, _$_Previous>
-    implements _$$_PreviousCopyWith<$Res> {
-  __$$_PreviousCopyWithImpl(
-      _$_Previous _value, $Res Function(_$_Previous) _then)
+class __$$PreviousImplCopyWithImpl<$Res>
+    extends _$GalleryEventCopyWithImpl<$Res, _$PreviousImpl>
+    implements _$$PreviousImplCopyWith<$Res> {
+  __$$PreviousImplCopyWithImpl(
+      _$PreviousImpl _value, $Res Function(_$PreviousImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -251,7 +254,7 @@ class __$$_PreviousCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_Previous(
+    return _then(_$PreviousImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -262,8 +265,8 @@ class __$$_PreviousCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Previous implements _Previous {
-  const _$_Previous(this.index);
+class _$PreviousImpl implements _Previous {
+  const _$PreviousImpl(this.index);
 
   @override
   final int index;
@@ -277,7 +280,7 @@ class _$_Previous implements _Previous {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Previous &&
+            other is _$PreviousImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -287,8 +290,8 @@ class _$_Previous implements _Previous {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PreviousCopyWith<_$_Previous> get copyWith =>
-      __$$_PreviousCopyWithImpl<_$_Previous>(this, _$identity);
+  _$$PreviousImplCopyWith<_$PreviousImpl> get copyWith =>
+      __$$PreviousImplCopyWithImpl<_$PreviousImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -354,13 +357,13 @@ class _$_Previous implements _Previous {
 }
 
 abstract class _Previous implements GalleryEvent {
-  const factory _Previous(final int index) = _$_Previous;
+  const factory _Previous(final int index) = _$PreviousImpl;
 
   @override
   int get index;
   @override
   @JsonKey(ignore: true)
-  _$$_PreviousCopyWith<_$_Previous> get copyWith =>
+  _$$PreviousImplCopyWith<_$PreviousImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -431,24 +434,25 @@ class _$GalleryStateCopyWithImpl<$Res, $Val extends GalleryState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$GalleryStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$GalleryStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -458,7 +462,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -534,24 +538,24 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements GalleryState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_NextSuccessCopyWith<$Res> {
-  factory _$$_NextSuccessCopyWith(
-          _$_NextSuccess value, $Res Function(_$_NextSuccess) then) =
-      __$$_NextSuccessCopyWithImpl<$Res>;
+abstract class _$$NextSuccessImplCopyWith<$Res> {
+  factory _$$NextSuccessImplCopyWith(
+          _$NextSuccessImpl value, $Res Function(_$NextSuccessImpl) then) =
+      __$$NextSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_NextSuccessCopyWithImpl<$Res>
-    extends _$GalleryStateCopyWithImpl<$Res, _$_NextSuccess>
-    implements _$$_NextSuccessCopyWith<$Res> {
-  __$$_NextSuccessCopyWithImpl(
-      _$_NextSuccess _value, $Res Function(_$_NextSuccess) _then)
+class __$$NextSuccessImplCopyWithImpl<$Res>
+    extends _$GalleryStateCopyWithImpl<$Res, _$NextSuccessImpl>
+    implements _$$NextSuccessImplCopyWith<$Res> {
+  __$$NextSuccessImplCopyWithImpl(
+      _$NextSuccessImpl _value, $Res Function(_$NextSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -559,7 +563,7 @@ class __$$_NextSuccessCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_NextSuccess(
+    return _then(_$NextSuccessImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -570,8 +574,8 @@ class __$$_NextSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NextSuccess implements _NextSuccess {
-  const _$_NextSuccess(this.index);
+class _$NextSuccessImpl implements _NextSuccess {
+  const _$NextSuccessImpl(this.index);
 
   @override
   final int index;
@@ -585,7 +589,7 @@ class _$_NextSuccess implements _NextSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NextSuccess &&
+            other is _$NextSuccessImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -595,8 +599,8 @@ class _$_NextSuccess implements _NextSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NextSuccessCopyWith<_$_NextSuccess> get copyWith =>
-      __$$_NextSuccessCopyWithImpl<_$_NextSuccess>(this, _$identity);
+  _$$NextSuccessImplCopyWith<_$NextSuccessImpl> get copyWith =>
+      __$$NextSuccessImplCopyWithImpl<_$NextSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -668,29 +672,29 @@ class _$_NextSuccess implements _NextSuccess {
 }
 
 abstract class _NextSuccess implements GalleryState {
-  const factory _NextSuccess(final int index) = _$_NextSuccess;
+  const factory _NextSuccess(final int index) = _$NextSuccessImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_NextSuccessCopyWith<_$_NextSuccess> get copyWith =>
+  _$$NextSuccessImplCopyWith<_$NextSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PreviousSuccessCopyWith<$Res> {
-  factory _$$_PreviousSuccessCopyWith(
-          _$_PreviousSuccess value, $Res Function(_$_PreviousSuccess) then) =
-      __$$_PreviousSuccessCopyWithImpl<$Res>;
+abstract class _$$PreviousSuccessImplCopyWith<$Res> {
+  factory _$$PreviousSuccessImplCopyWith(_$PreviousSuccessImpl value,
+          $Res Function(_$PreviousSuccessImpl) then) =
+      __$$PreviousSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_PreviousSuccessCopyWithImpl<$Res>
-    extends _$GalleryStateCopyWithImpl<$Res, _$_PreviousSuccess>
-    implements _$$_PreviousSuccessCopyWith<$Res> {
-  __$$_PreviousSuccessCopyWithImpl(
-      _$_PreviousSuccess _value, $Res Function(_$_PreviousSuccess) _then)
+class __$$PreviousSuccessImplCopyWithImpl<$Res>
+    extends _$GalleryStateCopyWithImpl<$Res, _$PreviousSuccessImpl>
+    implements _$$PreviousSuccessImplCopyWith<$Res> {
+  __$$PreviousSuccessImplCopyWithImpl(
+      _$PreviousSuccessImpl _value, $Res Function(_$PreviousSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -698,7 +702,7 @@ class __$$_PreviousSuccessCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_PreviousSuccess(
+    return _then(_$PreviousSuccessImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -709,8 +713,8 @@ class __$$_PreviousSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PreviousSuccess implements _PreviousSuccess {
-  const _$_PreviousSuccess(this.index);
+class _$PreviousSuccessImpl implements _PreviousSuccess {
+  const _$PreviousSuccessImpl(this.index);
 
   @override
   final int index;
@@ -724,7 +728,7 @@ class _$_PreviousSuccess implements _PreviousSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PreviousSuccess &&
+            other is _$PreviousSuccessImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -734,8 +738,9 @@ class _$_PreviousSuccess implements _PreviousSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PreviousSuccessCopyWith<_$_PreviousSuccess> get copyWith =>
-      __$$_PreviousSuccessCopyWithImpl<_$_PreviousSuccess>(this, _$identity);
+  _$$PreviousSuccessImplCopyWith<_$PreviousSuccessImpl> get copyWith =>
+      __$$PreviousSuccessImplCopyWithImpl<_$PreviousSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -807,10 +812,10 @@ class _$_PreviousSuccess implements _PreviousSuccess {
 }
 
 abstract class _PreviousSuccess implements GalleryState {
-  const factory _PreviousSuccess(final int index) = _$_PreviousSuccess;
+  const factory _PreviousSuccess(final int index) = _$PreviousSuccessImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_PreviousSuccessCopyWith<_$_PreviousSuccess> get copyWith =>
+  _$$PreviousSuccessImplCopyWith<_$PreviousSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

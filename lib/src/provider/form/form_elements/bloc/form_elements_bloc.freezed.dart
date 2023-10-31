@@ -93,20 +93,20 @@ class _$FormElementsEventCopyWithImpl<$Res, $Val extends FormElementsEvent>
 }
 
 /// @nodoc
-abstract class _$$_IncrementCopyWith<$Res> {
-  factory _$$_IncrementCopyWith(
-          _$_Increment value, $Res Function(_$_Increment) then) =
-      __$$_IncrementCopyWithImpl<$Res>;
+abstract class _$$IncrementImplCopyWith<$Res> {
+  factory _$$IncrementImplCopyWith(
+          _$IncrementImpl value, $Res Function(_$IncrementImpl) then) =
+      __$$IncrementImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$_IncrementCopyWithImpl<$Res>
-    extends _$FormElementsEventCopyWithImpl<$Res, _$_Increment>
-    implements _$$_IncrementCopyWith<$Res> {
-  __$$_IncrementCopyWithImpl(
-      _$_Increment _value, $Res Function(_$_Increment) _then)
+class __$$IncrementImplCopyWithImpl<$Res>
+    extends _$FormElementsEventCopyWithImpl<$Res, _$IncrementImpl>
+    implements _$$IncrementImplCopyWith<$Res> {
+  __$$IncrementImplCopyWithImpl(
+      _$IncrementImpl _value, $Res Function(_$IncrementImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,7 +114,7 @@ class __$$_IncrementCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_Increment(
+    return _then(_$IncrementImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -125,8 +125,8 @@ class __$$_IncrementCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Increment implements _Increment {
-  const _$_Increment(this.value);
+class _$IncrementImpl implements _Increment {
+  const _$IncrementImpl(this.value);
 
   @override
   final int value;
@@ -140,7 +140,7 @@ class _$_Increment implements _Increment {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Increment &&
+            other is _$IncrementImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -150,8 +150,8 @@ class _$_Increment implements _Increment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IncrementCopyWith<_$_Increment> get copyWith =>
-      __$$_IncrementCopyWithImpl<_$_Increment>(this, _$identity);
+  _$$IncrementImplCopyWith<_$IncrementImpl> get copyWith =>
+      __$$IncrementImplCopyWithImpl<_$IncrementImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -235,29 +235,29 @@ class _$_Increment implements _Increment {
 }
 
 abstract class _Increment implements FormElementsEvent {
-  const factory _Increment(final int value) = _$_Increment;
+  const factory _Increment(final int value) = _$IncrementImpl;
 
   int get value;
   @JsonKey(ignore: true)
-  _$$_IncrementCopyWith<_$_Increment> get copyWith =>
+  _$$IncrementImplCopyWith<_$IncrementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DecrementCopyWith<$Res> {
-  factory _$$_DecrementCopyWith(
-          _$_Decrement value, $Res Function(_$_Decrement) then) =
-      __$$_DecrementCopyWithImpl<$Res>;
+abstract class _$$DecrementImplCopyWith<$Res> {
+  factory _$$DecrementImplCopyWith(
+          _$DecrementImpl value, $Res Function(_$DecrementImpl) then) =
+      __$$DecrementImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$_DecrementCopyWithImpl<$Res>
-    extends _$FormElementsEventCopyWithImpl<$Res, _$_Decrement>
-    implements _$$_DecrementCopyWith<$Res> {
-  __$$_DecrementCopyWithImpl(
-      _$_Decrement _value, $Res Function(_$_Decrement) _then)
+class __$$DecrementImplCopyWithImpl<$Res>
+    extends _$FormElementsEventCopyWithImpl<$Res, _$DecrementImpl>
+    implements _$$DecrementImplCopyWith<$Res> {
+  __$$DecrementImplCopyWithImpl(
+      _$DecrementImpl _value, $Res Function(_$DecrementImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -265,7 +265,7 @@ class __$$_DecrementCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_Decrement(
+    return _then(_$DecrementImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -276,8 +276,8 @@ class __$$_DecrementCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Decrement implements _Decrement {
-  const _$_Decrement(this.value);
+class _$DecrementImpl implements _Decrement {
+  const _$DecrementImpl(this.value);
 
   @override
   final int value;
@@ -291,7 +291,7 @@ class _$_Decrement implements _Decrement {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Decrement &&
+            other is _$DecrementImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -301,8 +301,8 @@ class _$_Decrement implements _Decrement {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DecrementCopyWith<_$_Decrement> get copyWith =>
-      __$$_DecrementCopyWithImpl<_$_Decrement>(this, _$identity);
+  _$$DecrementImplCopyWith<_$DecrementImpl> get copyWith =>
+      __$$DecrementImplCopyWithImpl<_$DecrementImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -386,29 +386,29 @@ class _$_Decrement implements _Decrement {
 }
 
 abstract class _Decrement implements FormElementsEvent {
-  const factory _Decrement(final int value) = _$_Decrement;
+  const factory _Decrement(final int value) = _$DecrementImpl;
 
   int get value;
   @JsonKey(ignore: true)
-  _$$_DecrementCopyWith<_$_Decrement> get copyWith =>
+  _$$DecrementImplCopyWith<_$DecrementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DatePickerCopyWith<$Res> {
-  factory _$$_DatePickerCopyWith(
-          _$_DatePicker value, $Res Function(_$_DatePicker) then) =
-      __$$_DatePickerCopyWithImpl<$Res>;
+abstract class _$$DatePickerImplCopyWith<$Res> {
+  factory _$$DatePickerImplCopyWith(
+          _$DatePickerImpl value, $Res Function(_$DatePickerImpl) then) =
+      __$$DatePickerImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String dateAndtime});
 }
 
 /// @nodoc
-class __$$_DatePickerCopyWithImpl<$Res>
-    extends _$FormElementsEventCopyWithImpl<$Res, _$_DatePicker>
-    implements _$$_DatePickerCopyWith<$Res> {
-  __$$_DatePickerCopyWithImpl(
-      _$_DatePicker _value, $Res Function(_$_DatePicker) _then)
+class __$$DatePickerImplCopyWithImpl<$Res>
+    extends _$FormElementsEventCopyWithImpl<$Res, _$DatePickerImpl>
+    implements _$$DatePickerImplCopyWith<$Res> {
+  __$$DatePickerImplCopyWithImpl(
+      _$DatePickerImpl _value, $Res Function(_$DatePickerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -416,7 +416,7 @@ class __$$_DatePickerCopyWithImpl<$Res>
   $Res call({
     Object? dateAndtime = null,
   }) {
-    return _then(_$_DatePicker(
+    return _then(_$DatePickerImpl(
       null == dateAndtime
           ? _value.dateAndtime
           : dateAndtime // ignore: cast_nullable_to_non_nullable
@@ -427,8 +427,8 @@ class __$$_DatePickerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DatePicker implements _DatePicker {
-  const _$_DatePicker(this.dateAndtime);
+class _$DatePickerImpl implements _DatePicker {
+  const _$DatePickerImpl(this.dateAndtime);
 
   @override
   final String dateAndtime;
@@ -442,7 +442,7 @@ class _$_DatePicker implements _DatePicker {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DatePicker &&
+            other is _$DatePickerImpl &&
             (identical(other.dateAndtime, dateAndtime) ||
                 other.dateAndtime == dateAndtime));
   }
@@ -453,8 +453,8 @@ class _$_DatePicker implements _DatePicker {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DatePickerCopyWith<_$_DatePicker> get copyWith =>
-      __$$_DatePickerCopyWithImpl<_$_DatePicker>(this, _$identity);
+  _$$DatePickerImplCopyWith<_$DatePickerImpl> get copyWith =>
+      __$$DatePickerImplCopyWithImpl<_$DatePickerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -538,29 +538,29 @@ class _$_DatePicker implements _DatePicker {
 }
 
 abstract class _DatePicker implements FormElementsEvent {
-  const factory _DatePicker(final String dateAndtime) = _$_DatePicker;
+  const factory _DatePicker(final String dateAndtime) = _$DatePickerImpl;
 
   String get dateAndtime;
   @JsonKey(ignore: true)
-  _$$_DatePickerCopyWith<_$_DatePicker> get copyWith =>
+  _$$DatePickerImplCopyWith<_$DatePickerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ColorPickerCopyWith<$Res> {
-  factory _$$_ColorPickerCopyWith(
-          _$_ColorPicker value, $Res Function(_$_ColorPicker) then) =
-      __$$_ColorPickerCopyWithImpl<$Res>;
+abstract class _$$ColorPickerImplCopyWith<$Res> {
+  factory _$$ColorPickerImplCopyWith(
+          _$ColorPickerImpl value, $Res Function(_$ColorPickerImpl) then) =
+      __$$ColorPickerImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Color color});
 }
 
 /// @nodoc
-class __$$_ColorPickerCopyWithImpl<$Res>
-    extends _$FormElementsEventCopyWithImpl<$Res, _$_ColorPicker>
-    implements _$$_ColorPickerCopyWith<$Res> {
-  __$$_ColorPickerCopyWithImpl(
-      _$_ColorPicker _value, $Res Function(_$_ColorPicker) _then)
+class __$$ColorPickerImplCopyWithImpl<$Res>
+    extends _$FormElementsEventCopyWithImpl<$Res, _$ColorPickerImpl>
+    implements _$$ColorPickerImplCopyWith<$Res> {
+  __$$ColorPickerImplCopyWithImpl(
+      _$ColorPickerImpl _value, $Res Function(_$ColorPickerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -568,7 +568,7 @@ class __$$_ColorPickerCopyWithImpl<$Res>
   $Res call({
     Object? color = null,
   }) {
-    return _then(_$_ColorPicker(
+    return _then(_$ColorPickerImpl(
       null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -579,8 +579,8 @@ class __$$_ColorPickerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ColorPicker implements _ColorPicker {
-  const _$_ColorPicker(this.color);
+class _$ColorPickerImpl implements _ColorPicker {
+  const _$ColorPickerImpl(this.color);
 
   @override
   final Color color;
@@ -594,7 +594,7 @@ class _$_ColorPicker implements _ColorPicker {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ColorPicker &&
+            other is _$ColorPickerImpl &&
             (identical(other.color, color) || other.color == color));
   }
 
@@ -604,8 +604,8 @@ class _$_ColorPicker implements _ColorPicker {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ColorPickerCopyWith<_$_ColorPicker> get copyWith =>
-      __$$_ColorPickerCopyWithImpl<_$_ColorPicker>(this, _$identity);
+  _$$ColorPickerImplCopyWith<_$ColorPickerImpl> get copyWith =>
+      __$$ColorPickerImplCopyWithImpl<_$ColorPickerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -689,29 +689,29 @@ class _$_ColorPicker implements _ColorPicker {
 }
 
 abstract class _ColorPicker implements FormElementsEvent {
-  const factory _ColorPicker(final Color color) = _$_ColorPicker;
+  const factory _ColorPicker(final Color color) = _$ColorPickerImpl;
 
   Color get color;
   @JsonKey(ignore: true)
-  _$$_ColorPickerCopyWith<_$_ColorPicker> get copyWith =>
+  _$$ColorPickerImplCopyWith<_$ColorPickerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DropDownCopyWith<$Res> {
-  factory _$$_DropDownCopyWith(
-          _$_DropDown value, $Res Function(_$_DropDown) then) =
-      __$$_DropDownCopyWithImpl<$Res>;
+abstract class _$$DropDownImplCopyWith<$Res> {
+  factory _$$DropDownImplCopyWith(
+          _$DropDownImpl value, $Res Function(_$DropDownImpl) then) =
+      __$$DropDownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_DropDownCopyWithImpl<$Res>
-    extends _$FormElementsEventCopyWithImpl<$Res, _$_DropDown>
-    implements _$$_DropDownCopyWith<$Res> {
-  __$$_DropDownCopyWithImpl(
-      _$_DropDown _value, $Res Function(_$_DropDown) _then)
+class __$$DropDownImplCopyWithImpl<$Res>
+    extends _$FormElementsEventCopyWithImpl<$Res, _$DropDownImpl>
+    implements _$$DropDownImplCopyWith<$Res> {
+  __$$DropDownImplCopyWithImpl(
+      _$DropDownImpl _value, $Res Function(_$DropDownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -719,7 +719,7 @@ class __$$_DropDownCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_DropDown(
+    return _then(_$DropDownImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -730,8 +730,8 @@ class __$$_DropDownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DropDown implements _DropDown {
-  const _$_DropDown(this.value);
+class _$DropDownImpl implements _DropDown {
+  const _$DropDownImpl(this.value);
 
   @override
   final String value;
@@ -745,7 +745,7 @@ class _$_DropDown implements _DropDown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DropDown &&
+            other is _$DropDownImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -755,8 +755,8 @@ class _$_DropDown implements _DropDown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DropDownCopyWith<_$_DropDown> get copyWith =>
-      __$$_DropDownCopyWithImpl<_$_DropDown>(this, _$identity);
+  _$$DropDownImplCopyWith<_$DropDownImpl> get copyWith =>
+      __$$DropDownImplCopyWithImpl<_$DropDownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -840,11 +840,11 @@ class _$_DropDown implements _DropDown {
 }
 
 abstract class _DropDown implements FormElementsEvent {
-  const factory _DropDown(final String value) = _$_DropDown;
+  const factory _DropDown(final String value) = _$DropDownImpl;
 
   String get value;
   @JsonKey(ignore: true)
-  _$$_DropDownCopyWith<_$_DropDown> get copyWith =>
+  _$$DropDownImplCopyWith<_$DropDownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -933,24 +933,25 @@ class _$FormElementsStateCopyWithImpl<$Res, $Val extends FormElementsState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -960,7 +961,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -1054,24 +1055,24 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements FormElementsState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_IncrementSuccessCopyWith<$Res> {
-  factory _$$_IncrementSuccessCopyWith(
-          _$_IncrementSuccess value, $Res Function(_$_IncrementSuccess) then) =
-      __$$_IncrementSuccessCopyWithImpl<$Res>;
+abstract class _$$IncrementSuccessImplCopyWith<$Res> {
+  factory _$$IncrementSuccessImplCopyWith(_$IncrementSuccessImpl value,
+          $Res Function(_$IncrementSuccessImpl) then) =
+      __$$IncrementSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$_IncrementSuccessCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res, _$_IncrementSuccess>
-    implements _$$_IncrementSuccessCopyWith<$Res> {
-  __$$_IncrementSuccessCopyWithImpl(
-      _$_IncrementSuccess _value, $Res Function(_$_IncrementSuccess) _then)
+class __$$IncrementSuccessImplCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$IncrementSuccessImpl>
+    implements _$$IncrementSuccessImplCopyWith<$Res> {
+  __$$IncrementSuccessImplCopyWithImpl(_$IncrementSuccessImpl _value,
+      $Res Function(_$IncrementSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1079,7 +1080,7 @@ class __$$_IncrementSuccessCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_IncrementSuccess(
+    return _then(_$IncrementSuccessImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -1090,8 +1091,8 @@ class __$$_IncrementSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IncrementSuccess implements _IncrementSuccess {
-  const _$_IncrementSuccess(this.value);
+class _$IncrementSuccessImpl implements _IncrementSuccess {
+  const _$IncrementSuccessImpl(this.value);
 
   @override
   final int value;
@@ -1105,7 +1106,7 @@ class _$_IncrementSuccess implements _IncrementSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IncrementSuccess &&
+            other is _$IncrementSuccessImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -1115,8 +1116,9 @@ class _$_IncrementSuccess implements _IncrementSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IncrementSuccessCopyWith<_$_IncrementSuccess> get copyWith =>
-      __$$_IncrementSuccessCopyWithImpl<_$_IncrementSuccess>(this, _$identity);
+  _$$IncrementSuccessImplCopyWith<_$IncrementSuccessImpl> get copyWith =>
+      __$$IncrementSuccessImplCopyWithImpl<_$IncrementSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1206,29 +1208,29 @@ class _$_IncrementSuccess implements _IncrementSuccess {
 }
 
 abstract class _IncrementSuccess implements FormElementsState {
-  const factory _IncrementSuccess(final int value) = _$_IncrementSuccess;
+  const factory _IncrementSuccess(final int value) = _$IncrementSuccessImpl;
 
   int get value;
   @JsonKey(ignore: true)
-  _$$_IncrementSuccessCopyWith<_$_IncrementSuccess> get copyWith =>
+  _$$IncrementSuccessImplCopyWith<_$IncrementSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DecrementSuccessCopyWith<$Res> {
-  factory _$$_DecrementSuccessCopyWith(
-          _$_DecrementSuccess value, $Res Function(_$_DecrementSuccess) then) =
-      __$$_DecrementSuccessCopyWithImpl<$Res>;
+abstract class _$$DecrementSuccessImplCopyWith<$Res> {
+  factory _$$DecrementSuccessImplCopyWith(_$DecrementSuccessImpl value,
+          $Res Function(_$DecrementSuccessImpl) then) =
+      __$$DecrementSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$_DecrementSuccessCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res, _$_DecrementSuccess>
-    implements _$$_DecrementSuccessCopyWith<$Res> {
-  __$$_DecrementSuccessCopyWithImpl(
-      _$_DecrementSuccess _value, $Res Function(_$_DecrementSuccess) _then)
+class __$$DecrementSuccessImplCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$DecrementSuccessImpl>
+    implements _$$DecrementSuccessImplCopyWith<$Res> {
+  __$$DecrementSuccessImplCopyWithImpl(_$DecrementSuccessImpl _value,
+      $Res Function(_$DecrementSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1236,7 +1238,7 @@ class __$$_DecrementSuccessCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_DecrementSuccess(
+    return _then(_$DecrementSuccessImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -1247,8 +1249,8 @@ class __$$_DecrementSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DecrementSuccess implements _DecrementSuccess {
-  const _$_DecrementSuccess(this.value);
+class _$DecrementSuccessImpl implements _DecrementSuccess {
+  const _$DecrementSuccessImpl(this.value);
 
   @override
   final int value;
@@ -1262,7 +1264,7 @@ class _$_DecrementSuccess implements _DecrementSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DecrementSuccess &&
+            other is _$DecrementSuccessImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -1272,8 +1274,9 @@ class _$_DecrementSuccess implements _DecrementSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DecrementSuccessCopyWith<_$_DecrementSuccess> get copyWith =>
-      __$$_DecrementSuccessCopyWithImpl<_$_DecrementSuccess>(this, _$identity);
+  _$$DecrementSuccessImplCopyWith<_$DecrementSuccessImpl> get copyWith =>
+      __$$DecrementSuccessImplCopyWithImpl<_$DecrementSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1363,29 +1366,29 @@ class _$_DecrementSuccess implements _DecrementSuccess {
 }
 
 abstract class _DecrementSuccess implements FormElementsState {
-  const factory _DecrementSuccess(final int value) = _$_DecrementSuccess;
+  const factory _DecrementSuccess(final int value) = _$DecrementSuccessImpl;
 
   int get value;
   @JsonKey(ignore: true)
-  _$$_DecrementSuccessCopyWith<_$_DecrementSuccess> get copyWith =>
+  _$$DecrementSuccessImplCopyWith<_$DecrementSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DatepickerSuccessCopyWith<$Res> {
-  factory _$$_DatepickerSuccessCopyWith(_$_DatepickerSuccess value,
-          $Res Function(_$_DatepickerSuccess) then) =
-      __$$_DatepickerSuccessCopyWithImpl<$Res>;
+abstract class _$$DatepickerSuccessImplCopyWith<$Res> {
+  factory _$$DatepickerSuccessImplCopyWith(_$DatepickerSuccessImpl value,
+          $Res Function(_$DatepickerSuccessImpl) then) =
+      __$$DatepickerSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String dateAndtime});
 }
 
 /// @nodoc
-class __$$_DatepickerSuccessCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res, _$_DatepickerSuccess>
-    implements _$$_DatepickerSuccessCopyWith<$Res> {
-  __$$_DatepickerSuccessCopyWithImpl(
-      _$_DatepickerSuccess _value, $Res Function(_$_DatepickerSuccess) _then)
+class __$$DatepickerSuccessImplCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$DatepickerSuccessImpl>
+    implements _$$DatepickerSuccessImplCopyWith<$Res> {
+  __$$DatepickerSuccessImplCopyWithImpl(_$DatepickerSuccessImpl _value,
+      $Res Function(_$DatepickerSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1393,7 +1396,7 @@ class __$$_DatepickerSuccessCopyWithImpl<$Res>
   $Res call({
     Object? dateAndtime = null,
   }) {
-    return _then(_$_DatepickerSuccess(
+    return _then(_$DatepickerSuccessImpl(
       null == dateAndtime
           ? _value.dateAndtime
           : dateAndtime // ignore: cast_nullable_to_non_nullable
@@ -1404,8 +1407,8 @@ class __$$_DatepickerSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DatepickerSuccess implements _DatepickerSuccess {
-  const _$_DatepickerSuccess(this.dateAndtime);
+class _$DatepickerSuccessImpl implements _DatepickerSuccess {
+  const _$DatepickerSuccessImpl(this.dateAndtime);
 
   @override
   final String dateAndtime;
@@ -1419,7 +1422,7 @@ class _$_DatepickerSuccess implements _DatepickerSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DatepickerSuccess &&
+            other is _$DatepickerSuccessImpl &&
             (identical(other.dateAndtime, dateAndtime) ||
                 other.dateAndtime == dateAndtime));
   }
@@ -1430,8 +1433,8 @@ class _$_DatepickerSuccess implements _DatepickerSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DatepickerSuccessCopyWith<_$_DatepickerSuccess> get copyWith =>
-      __$$_DatepickerSuccessCopyWithImpl<_$_DatepickerSuccess>(
+  _$$DatepickerSuccessImplCopyWith<_$DatepickerSuccessImpl> get copyWith =>
+      __$$DatepickerSuccessImplCopyWithImpl<_$DatepickerSuccessImpl>(
           this, _$identity);
 
   @override
@@ -1523,29 +1526,29 @@ class _$_DatepickerSuccess implements _DatepickerSuccess {
 
 abstract class _DatepickerSuccess implements FormElementsState {
   const factory _DatepickerSuccess(final String dateAndtime) =
-      _$_DatepickerSuccess;
+      _$DatepickerSuccessImpl;
 
   String get dateAndtime;
   @JsonKey(ignore: true)
-  _$$_DatepickerSuccessCopyWith<_$_DatepickerSuccess> get copyWith =>
+  _$$DatepickerSuccessImplCopyWith<_$DatepickerSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ColorpickerSuccessCopyWith<$Res> {
-  factory _$$_ColorpickerSuccessCopyWith(_$_ColorpickerSuccess value,
-          $Res Function(_$_ColorpickerSuccess) then) =
-      __$$_ColorpickerSuccessCopyWithImpl<$Res>;
+abstract class _$$ColorpickerSuccessImplCopyWith<$Res> {
+  factory _$$ColorpickerSuccessImplCopyWith(_$ColorpickerSuccessImpl value,
+          $Res Function(_$ColorpickerSuccessImpl) then) =
+      __$$ColorpickerSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Color color});
 }
 
 /// @nodoc
-class __$$_ColorpickerSuccessCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res, _$_ColorpickerSuccess>
-    implements _$$_ColorpickerSuccessCopyWith<$Res> {
-  __$$_ColorpickerSuccessCopyWithImpl(
-      _$_ColorpickerSuccess _value, $Res Function(_$_ColorpickerSuccess) _then)
+class __$$ColorpickerSuccessImplCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$ColorpickerSuccessImpl>
+    implements _$$ColorpickerSuccessImplCopyWith<$Res> {
+  __$$ColorpickerSuccessImplCopyWithImpl(_$ColorpickerSuccessImpl _value,
+      $Res Function(_$ColorpickerSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1553,7 +1556,7 @@ class __$$_ColorpickerSuccessCopyWithImpl<$Res>
   $Res call({
     Object? color = null,
   }) {
-    return _then(_$_ColorpickerSuccess(
+    return _then(_$ColorpickerSuccessImpl(
       null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -1564,8 +1567,8 @@ class __$$_ColorpickerSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ColorpickerSuccess implements _ColorpickerSuccess {
-  const _$_ColorpickerSuccess(this.color);
+class _$ColorpickerSuccessImpl implements _ColorpickerSuccess {
+  const _$ColorpickerSuccessImpl(this.color);
 
   @override
   final Color color;
@@ -1579,7 +1582,7 @@ class _$_ColorpickerSuccess implements _ColorpickerSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ColorpickerSuccess &&
+            other is _$ColorpickerSuccessImpl &&
             (identical(other.color, color) || other.color == color));
   }
 
@@ -1589,8 +1592,8 @@ class _$_ColorpickerSuccess implements _ColorpickerSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ColorpickerSuccessCopyWith<_$_ColorpickerSuccess> get copyWith =>
-      __$$_ColorpickerSuccessCopyWithImpl<_$_ColorpickerSuccess>(
+  _$$ColorpickerSuccessImplCopyWith<_$ColorpickerSuccessImpl> get copyWith =>
+      __$$ColorpickerSuccessImplCopyWithImpl<_$ColorpickerSuccessImpl>(
           this, _$identity);
 
   @override
@@ -1681,29 +1684,30 @@ class _$_ColorpickerSuccess implements _ColorpickerSuccess {
 }
 
 abstract class _ColorpickerSuccess implements FormElementsState {
-  const factory _ColorpickerSuccess(final Color color) = _$_ColorpickerSuccess;
+  const factory _ColorpickerSuccess(final Color color) =
+      _$ColorpickerSuccessImpl;
 
   Color get color;
   @JsonKey(ignore: true)
-  _$$_ColorpickerSuccessCopyWith<_$_ColorpickerSuccess> get copyWith =>
+  _$$ColorpickerSuccessImplCopyWith<_$ColorpickerSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DropDownSuccessCopyWith<$Res> {
-  factory _$$_DropDownSuccessCopyWith(
-          _$_DropDownSuccess value, $Res Function(_$_DropDownSuccess) then) =
-      __$$_DropDownSuccessCopyWithImpl<$Res>;
+abstract class _$$DropDownSuccessImplCopyWith<$Res> {
+  factory _$$DropDownSuccessImplCopyWith(_$DropDownSuccessImpl value,
+          $Res Function(_$DropDownSuccessImpl) then) =
+      __$$DropDownSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_DropDownSuccessCopyWithImpl<$Res>
-    extends _$FormElementsStateCopyWithImpl<$Res, _$_DropDownSuccess>
-    implements _$$_DropDownSuccessCopyWith<$Res> {
-  __$$_DropDownSuccessCopyWithImpl(
-      _$_DropDownSuccess _value, $Res Function(_$_DropDownSuccess) _then)
+class __$$DropDownSuccessImplCopyWithImpl<$Res>
+    extends _$FormElementsStateCopyWithImpl<$Res, _$DropDownSuccessImpl>
+    implements _$$DropDownSuccessImplCopyWith<$Res> {
+  __$$DropDownSuccessImplCopyWithImpl(
+      _$DropDownSuccessImpl _value, $Res Function(_$DropDownSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1711,7 +1715,7 @@ class __$$_DropDownSuccessCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_DropDownSuccess(
+    return _then(_$DropDownSuccessImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -1722,8 +1726,8 @@ class __$$_DropDownSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DropDownSuccess implements _DropDownSuccess {
-  const _$_DropDownSuccess(this.value);
+class _$DropDownSuccessImpl implements _DropDownSuccess {
+  const _$DropDownSuccessImpl(this.value);
 
   @override
   final String value;
@@ -1737,7 +1741,7 @@ class _$_DropDownSuccess implements _DropDownSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DropDownSuccess &&
+            other is _$DropDownSuccessImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -1747,8 +1751,9 @@ class _$_DropDownSuccess implements _DropDownSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DropDownSuccessCopyWith<_$_DropDownSuccess> get copyWith =>
-      __$$_DropDownSuccessCopyWithImpl<_$_DropDownSuccess>(this, _$identity);
+  _$$DropDownSuccessImplCopyWith<_$DropDownSuccessImpl> get copyWith =>
+      __$$DropDownSuccessImplCopyWithImpl<_$DropDownSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1838,10 +1843,10 @@ class _$_DropDownSuccess implements _DropDownSuccess {
 }
 
 abstract class _DropDownSuccess implements FormElementsState {
-  const factory _DropDownSuccess(final String value) = _$_DropDownSuccess;
+  const factory _DropDownSuccess(final String value) = _$DropDownSuccessImpl;
 
   String get value;
   @JsonKey(ignore: true)
-  _$$_DropDownSuccessCopyWith<_$_DropDownSuccess> get copyWith =>
+  _$$DropDownSuccessImplCopyWith<_$DropDownSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -155,13 +155,14 @@ class VerificationBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: badgeColor,
+        color: badgeColor.withOpacity(.4),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Text(
         verificationStatus,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 12,
+          color: badgeColor,
           fontWeight: FontWeight.bold,
         ),
       ),

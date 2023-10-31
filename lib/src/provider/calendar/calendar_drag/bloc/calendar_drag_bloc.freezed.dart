@@ -89,21 +89,22 @@ class _$CalendarDragEventCopyWithImpl<$Res, $Val extends CalendarDragEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res>
+abstract class _$$StartedImplCopyWith<$Res>
     implements $CalendarDragEventCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool dragStarted});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$CalendarDragEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$CalendarDragEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +112,7 @@ class __$$_StartedCopyWithImpl<$Res>
   $Res call({
     Object? dragStarted = null,
   }) {
-    return _then(_$_Started(
+    return _then(_$StartedImpl(
       dragStarted: null == dragStarted
           ? _value.dragStarted
           : dragStarted // ignore: cast_nullable_to_non_nullable
@@ -122,8 +123,8 @@ class __$$_StartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started({required this.dragStarted});
+class _$StartedImpl implements _Started {
+  const _$StartedImpl({required this.dragStarted});
 
   @override
   final bool dragStarted;
@@ -137,7 +138,7 @@ class _$_Started implements _Started {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Started &&
+            other is _$StartedImpl &&
             (identical(other.dragStarted, dragStarted) ||
                 other.dragStarted == dragStarted));
   }
@@ -148,8 +149,8 @@ class _$_Started implements _Started {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
-      __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      __$$StartedImplCopyWithImpl<_$StartedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,13 +210,13 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements CalendarDragEvent {
-  const factory _Started({required final bool dragStarted}) = _$_Started;
+  const factory _Started({required final bool dragStarted}) = _$StartedImpl;
 
   @override
   bool get dragStarted;
   @override
   @JsonKey(ignore: true)
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -280,24 +281,25 @@ class _$CalendarDragStateCopyWithImpl<$Res, $Val extends CalendarDragState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$CalendarDragStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$CalendarDragStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -307,7 +309,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -377,24 +379,24 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements CalendarDragState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_DragStartCopyWith<$Res> {
-  factory _$$_DragStartCopyWith(
-          _$_DragStart value, $Res Function(_$_DragStart) then) =
-      __$$_DragStartCopyWithImpl<$Res>;
+abstract class _$$DragStartImplCopyWith<$Res> {
+  factory _$$DragStartImplCopyWith(
+          _$DragStartImpl value, $Res Function(_$DragStartImpl) then) =
+      __$$DragStartImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool dragStarted});
 }
 
 /// @nodoc
-class __$$_DragStartCopyWithImpl<$Res>
-    extends _$CalendarDragStateCopyWithImpl<$Res, _$_DragStart>
-    implements _$$_DragStartCopyWith<$Res> {
-  __$$_DragStartCopyWithImpl(
-      _$_DragStart _value, $Res Function(_$_DragStart) _then)
+class __$$DragStartImplCopyWithImpl<$Res>
+    extends _$CalendarDragStateCopyWithImpl<$Res, _$DragStartImpl>
+    implements _$$DragStartImplCopyWith<$Res> {
+  __$$DragStartImplCopyWithImpl(
+      _$DragStartImpl _value, $Res Function(_$DragStartImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -402,7 +404,7 @@ class __$$_DragStartCopyWithImpl<$Res>
   $Res call({
     Object? dragStarted = null,
   }) {
-    return _then(_$_DragStart(
+    return _then(_$DragStartImpl(
       dragStarted: null == dragStarted
           ? _value.dragStarted
           : dragStarted // ignore: cast_nullable_to_non_nullable
@@ -413,8 +415,8 @@ class __$$_DragStartCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DragStart implements _DragStart {
-  const _$_DragStart({required this.dragStarted});
+class _$DragStartImpl implements _DragStart {
+  const _$DragStartImpl({required this.dragStarted});
 
   @override
   final bool dragStarted;
@@ -428,7 +430,7 @@ class _$_DragStart implements _DragStart {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DragStart &&
+            other is _$DragStartImpl &&
             (identical(other.dragStarted, dragStarted) ||
                 other.dragStarted == dragStarted));
   }
@@ -439,8 +441,8 @@ class _$_DragStart implements _DragStart {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DragStartCopyWith<_$_DragStart> get copyWith =>
-      __$$_DragStartCopyWithImpl<_$_DragStart>(this, _$identity);
+  _$$DragStartImplCopyWith<_$DragStartImpl> get copyWith =>
+      __$$DragStartImplCopyWithImpl<_$DragStartImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -506,10 +508,10 @@ class _$_DragStart implements _DragStart {
 }
 
 abstract class _DragStart implements CalendarDragState {
-  const factory _DragStart({required final bool dragStarted}) = _$_DragStart;
+  const factory _DragStart({required final bool dragStarted}) = _$DragStartImpl;
 
   bool get dragStarted;
   @JsonKey(ignore: true)
-  _$$_DragStartCopyWith<_$_DragStart> get copyWith =>
+  _$$DragStartImplCopyWith<_$DragStartImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

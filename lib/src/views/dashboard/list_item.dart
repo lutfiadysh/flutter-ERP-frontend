@@ -2,6 +2,7 @@ import 'package:admin_dashboard/proy/models/dashboard.dart';
 import 'package:admin_dashboard/src/constant/color.dart';
 import 'package:admin_dashboard/src/constant/text.dart';
 import 'package:admin_dashboard/src/utils/responsive.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/flutterx.dart';
 
@@ -55,6 +56,40 @@ class _ListitemState extends State<Listitem> {
         'percentage': -5,
       },
     ];
+    return Container(
+      margin: const EdgeInsets.only(top: 20),
+      width: MediaQuery.of(context).size.width,
+      height: Responsive.isMobile(context)
+          ? MediaQuery.of(context).size.height / 4
+          : MediaQuery.of(context).size.height / 2.5,
+      child: CarouselSlider.builder(
+          itemCount: _listItem.length,
+          itemBuilder: ((context, index, realIndex) {
+            return _listContainer(
+              boxIcon: _listItem[index]['boxIcon'],
+              productTitle: _listItem[index]['producTitle'],
+              value: _listItem[index]['value'],
+              percentage: _listItem[index]['percentage'],
+              color: index == 3
+                  ? [
+                      Color(int.parse('0xff${_listItem[index]['boxColor'][0]}'))
+                          .withOpacity(0.75),
+                      Color(int.parse('0xff${_listItem[index]['boxColor'][1]}'))
+                          .withOpacity(0.75)
+                    ]
+                  : [
+                      Color(
+                          int.parse('0xff${_listItem[index]['boxColor'][0]}')),
+                      Color(int.parse('0xff${_listItem[index]['boxColor'][1]}'))
+                    ],
+            );
+          }),
+          options: CarouselOptions(
+            viewportFraction: 0.8,
+            enlargeCenterPage: true,
+            enableInfiniteScroll: false,
+          )),
+    );
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: GridView.builder(
@@ -131,6 +166,7 @@ class _ListitemState extends State<Listitem> {
                   children: [
                     ConstText.lightText(
                       text: productTitle,
+                      fontSize: 15,
                       color: ColorConst.white,
                       fontWeight: FontWeight.bold,
                     ),

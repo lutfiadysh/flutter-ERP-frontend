@@ -54,7 +54,7 @@ class _MonthlyEarningsState extends State<Monthlyearning> {
             BarChartRodData(
               toY: estadistica.total.toDouble(),
               width: 16,
-              borderRadius: BorderRadius.zero,
+              borderRadius: BorderRadius.circular(10),
               color: widget.barColor,
             ),
           ],
@@ -75,102 +75,95 @@ class _MonthlyEarningsState extends State<Monthlyearning> {
       roundedMaxY = calculatedMaxY;
     }
 
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-      ),
-      child: ConstrainedBox(
-        constraints: BoxConstraints(
-            maxHeight: Responsive.isMobile(context) ? 1265 : 455),
-        child: Container(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: ConstText.lightText(
-                  text: "Ventas mensuales",
-                  fontWeight: FontWeight.bold,
-                ),
+    return ConstrainedBox(
+      constraints:
+          BoxConstraints(maxHeight: Responsive.isMobile(context) ? 1265 : 455),
+      child: Container(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: ConstText.lightText(
+                text: "Ventas mensuales",
+                fontWeight: FontWeight.bold,
               ),
-              FxBox.h24,
-              Responsive.isMobile(context)
-                  ? Expanded(
-                      child: Column(
-                      children: [
-                        Expanded(
-                          child: VentasMensuales(
-                              roundedMaxY: roundedMaxY, barGroups: barGroups),
+            ),
+            FxBox.h24,
+            Responsive.isMobile(context)
+                ? Expanded(
+                    child: Column(
+                    children: [
+                      Expanded(
+                        child: VentasMensuales(
+                            roundedMaxY: roundedMaxY, barGroups: barGroups),
+                      ),
+                      FxBox.h16,
+                      FxBox.h16,
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      Expanded(
+                        child: _monthEarning(
+                          durationText: 'Meta de ventas mensual',
+                          salesAmount:
+                              'Bs. ${widget.dashboard.metasDeVentas.montoMetaVentasMensualFormateado}',
+                          salesGoal: widget.dashboard.metasDeVentas.mensual,
+                          salesTotal: widget.dashboard.montoVentasMensual,
+                          descriptionText: 'Ventas alcanzadas el mes anterior',
                         ),
-                        FxBox.h16,
-                        FxBox.h16,
-                        const Divider(
-                          thickness: 1,
+                      ),
+                      FxBox.h16,
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      FxBox.h16,
+                      Expanded(
+                        child: _monthEarning(
+                          durationText: 'Meta de ventas diario',
+                          salesAmount:
+                              'Bs. ${widget.dashboard.metasDeVentas.montoMetaVentasDiarioFormateado}',
+                          salesGoal: widget.dashboard.metasDeVentas.diario,
+                          salesTotal: widget.dashboard.montoVentasDiario,
+                          descriptionText: 'Ventas alcanzadas ayer',
                         ),
-                        Expanded(
-                          child: _monthEarning(
-                            durationText: 'Meta de ventas mensual',
-                            salesAmount:
-                                'Bs. ${widget.dashboard.metasDeVentas.montoMetaVentasMensualFormateado}',
-                            salesGoal: widget.dashboard.metasDeVentas.mensual,
-                            salesTotal: widget.dashboard.montoVentasMensual,
-                            descriptionText:
-                                'Ventas alcanzadas el mes anterior',
-                          ),
+                      ),
+                    ],
+                  ))
+                : Expanded(
+                    child: Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: VentasMensuales(
+                            roundedMaxY: roundedMaxY, barGroups: barGroups),
+                      ),
+                      FxBox.w16,
+                      Expanded(
+                        child: _monthEarning(
+                          durationText: 'Meta de ventas mensual',
+                          salesAmount:
+                              'Bs. ${widget.dashboard.metasDeVentas.montoMetaVentasMensualFormateado}',
+                          salesGoal: widget.dashboard.metasDeVentas.mensual,
+                          salesTotal: widget.dashboard.montoVentasMensual,
+                          descriptionText: 'Ventas alcanzadas el mes anterior',
                         ),
-                        FxBox.h16,
-                        const Divider(
-                          thickness: 1,
+                      ),
+                      FxBox.w16,
+                      Expanded(
+                        child: _monthEarning(
+                          durationText: 'Meta de ventas diario',
+                          salesAmount:
+                              'Bs. ${widget.dashboard.metasDeVentas.montoMetaVentasDiarioFormateado}',
+                          salesGoal: widget.dashboard.metasDeVentas.diario,
+                          salesTotal: widget.dashboard.montoVentasDiario,
+                          descriptionText: 'Ventas alcanzadas ayer',
                         ),
-                        FxBox.h16,
-                        Expanded(
-                          child: _monthEarning(
-                            durationText: 'Meta de ventas diario',
-                            salesAmount:
-                                'Bs. ${widget.dashboard.metasDeVentas.montoMetaVentasDiarioFormateado}',
-                            salesGoal: widget.dashboard.metasDeVentas.diario,
-                            salesTotal: widget.dashboard.montoVentasDiario,
-                            descriptionText: 'Ventas alcanzadas ayer',
-                          ),
-                        ),
-                      ],
-                    ))
-                  : Expanded(
-                      child: Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: VentasMensuales(
-                              roundedMaxY: roundedMaxY, barGroups: barGroups),
-                        ),
-                        FxBox.w16,
-                        Expanded(
-                          child: _monthEarning(
-                            durationText: 'Meta de ventas mensual',
-                            salesAmount:
-                                'Bs. ${widget.dashboard.metasDeVentas.montoMetaVentasMensualFormateado}',
-                            salesGoal: widget.dashboard.metasDeVentas.mensual,
-                            salesTotal: widget.dashboard.montoVentasMensual,
-                            descriptionText:
-                                'Ventas alcanzadas el mes anterior',
-                          ),
-                        ),
-                        FxBox.w16,
-                        Expanded(
-                          child: _monthEarning(
-                            durationText: 'Meta de ventas diario',
-                            salesAmount:
-                                'Bs. ${widget.dashboard.metasDeVentas.montoMetaVentasDiarioFormateado}',
-                            salesGoal: widget.dashboard.metasDeVentas.diario,
-                            salesTotal: widget.dashboard.montoVentasDiario,
-                            descriptionText: 'Ventas alcanzadas ayer',
-                          ),
-                        ),
-                      ],
-                    ))
-            ],
-          ),
+                      ),
+                    ],
+                  ))
+          ],
         ),
       ),
     );
@@ -295,11 +288,11 @@ class VentasMensuales extends StatelessWidget {
         ),
         gridData: FlGridData(show: false),
         borderData: FlBorderData(
-          show: true,
-          border: Border.all(
-            color: const Color(0xff37434d),
-            width: 1,
-          ),
+          show: false,
+          // border: Border.all(
+          //   color: const Color(0xff37434d),
+          //   width: 1,
+          // ),
         ),
         barGroups: barGroups,
       ),

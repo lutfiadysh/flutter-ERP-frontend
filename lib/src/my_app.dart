@@ -27,6 +27,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import '../proy/providers/auth_provider.dart';
 
@@ -47,6 +48,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> init() async {
     await HiveUtils.init();
+    initializeDateFormatting('es_ES');
     themeModeBloc.add(const ThemeModeEvent.changeTheme(null));
   }
 
@@ -150,7 +152,7 @@ class MyProyApp extends StatelessWidget {
                       const routes.LockScreenOne()
                     else if (authProvider.authStatus ==
                         AuthStatus.authenticated)
-                      const routes.MenuBar()
+                      const routes.DashboardContent()
                     else if (authProvider.authStatus ==
                         AuthStatus.notauthenticated)
                       const routes.LoginOne()

@@ -9,12 +9,13 @@ class AppRouter extends $AppRouter {
   RouteType get defaultRouteType => RouteType.material();
   @override
   final List<AutoRoute> routes = [
-    AutoRoute(path: '/', page: MenuBar.page, children: [
-      RedirectRoute(path: '', redirectTo: 'dashboard'),
+    AutoRoute(path: '/', page: DashboardContent.page, children: [
+      RedirectRoute(path: '', redirectTo: 'dashboard-content'),
       AutoRoute(
         path: 'dashboard',
         page: Dashboard.page,
       ),
+      AutoRoute(path: 'dashboard-content', page: DashboardContent.page),
       AutoRoute(path: 'calendar', page: Calendar.page),
       AutoRoute(path: 'map', page: GoogleMaps.page),
       AutoRoute(path: 'toast', page: Toast.page),
@@ -65,7 +66,6 @@ class AppRouter extends $AppRouter {
       AutoRoute(path: 'proveedores', page: ProvidersViewTest.page),
       AutoRoute(path: 'pedidos', page: OrdersViewTest.page),
       AutoRoute(path: 'pedidos-crear', page: OrderViewTest.page),
-
     ]),
     AutoRoute(path: '/login-one', page: LoginOne.page),
     AutoRoute(path: '/login-two', page: LoginTwo.page),

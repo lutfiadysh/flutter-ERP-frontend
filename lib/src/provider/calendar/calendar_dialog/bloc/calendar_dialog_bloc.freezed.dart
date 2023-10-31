@@ -108,11 +108,11 @@ class _$CalendarDialogEventCopyWithImpl<$Res, $Val extends CalendarDialogEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res>
+abstract class _$$StartedImplCopyWith<$Res>
     implements $CalendarDialogEventCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -120,10 +120,11 @@ abstract class _$$_StartedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$CalendarDialogEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$CalendarDialogEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -133,7 +134,7 @@ class __$$_StartedCopyWithImpl<$Res>
     Object? category = null,
     Object? isValidate = null,
   }) {
-    return _then(_$_Started(
+    return _then(_$StartedImpl(
       autovalidateMode: null == autovalidateMode
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
@@ -152,8 +153,8 @@ class __$$_StartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started(
+class _$StartedImpl implements _Started {
+  const _$StartedImpl(
       {required this.autovalidateMode,
       required this.category,
       required this.isValidate});
@@ -174,7 +175,7 @@ class _$_Started implements _Started {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Started &&
+            other is _$StartedImpl &&
             (identical(other.autovalidateMode, autovalidateMode) ||
                 other.autovalidateMode == autovalidateMode) &&
             (identical(other.category, category) ||
@@ -190,8 +191,8 @@ class _$_Started implements _Started {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
-      __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      __$$StartedImplCopyWithImpl<_$StartedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -260,7 +261,7 @@ abstract class _Started implements CalendarDialogEvent {
   const factory _Started(
       {required final AutovalidateMode autovalidateMode,
       required final String category,
-      required final bool isValidate}) = _$_Started;
+      required final bool isValidate}) = _$StartedImpl;
 
   @override
   AutovalidateMode get autovalidateMode;
@@ -270,7 +271,7 @@ abstract class _Started implements CalendarDialogEvent {
   bool get isValidate;
   @override
   @JsonKey(ignore: true)
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -341,24 +342,25 @@ class _$CalendarDialogStateCopyWithImpl<$Res, $Val extends CalendarDialogState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$CalendarDialogStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$CalendarDialogStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -368,7 +370,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -444,23 +446,25 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements CalendarDialogState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadedCopyWith<$Res> {
-  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
-      __$$_LoadedCopyWithImpl<$Res>;
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {AutovalidateMode autovalidateMode, String category, bool isValidate});
 }
 
 /// @nodoc
-class __$$_LoadedCopyWithImpl<$Res>
-    extends _$CalendarDialogStateCopyWithImpl<$Res, _$_Loaded>
-    implements _$$_LoadedCopyWith<$Res> {
-  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$CalendarDialogStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -470,7 +474,7 @@ class __$$_LoadedCopyWithImpl<$Res>
     Object? category = null,
     Object? isValidate = null,
   }) {
-    return _then(_$_Loaded(
+    return _then(_$LoadedImpl(
       autovalidateMode: null == autovalidateMode
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
@@ -489,8 +493,8 @@ class __$$_LoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loaded implements _Loaded {
-  _$_Loaded(
+class _$LoadedImpl implements _Loaded {
+  _$LoadedImpl(
       {required this.autovalidateMode,
       required this.category,
       required this.isValidate});
@@ -511,7 +515,7 @@ class _$_Loaded implements _Loaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Loaded &&
+            other is _$LoadedImpl &&
             (identical(other.autovalidateMode, autovalidateMode) ||
                 other.autovalidateMode == autovalidateMode) &&
             (identical(other.category, category) ||
@@ -527,8 +531,8 @@ class _$_Loaded implements _Loaded {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
-      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -603,12 +607,12 @@ abstract class _Loaded implements CalendarDialogState {
   factory _Loaded(
       {required final AutovalidateMode autovalidateMode,
       required final String category,
-      required final bool isValidate}) = _$_Loaded;
+      required final bool isValidate}) = _$LoadedImpl;
 
   AutovalidateMode get autovalidateMode;
   String get category;
   bool get isValidate;
   @JsonKey(ignore: true)
-  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

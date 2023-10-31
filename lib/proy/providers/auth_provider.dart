@@ -25,8 +25,6 @@ class AuthProvider extends ChangeNotifier {
       'password': password,
     };
 
-    print(data);
-
     BackendApi.post('/auth/login', data).then((json) {
       final authResponse = AuthResponse.fromMap(json);
       user = authResponse.usuario;

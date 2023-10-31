@@ -89,22 +89,22 @@ class _$StepperEventCopyWithImpl<$Res, $Val extends StepperEvent>
 }
 
 /// @nodoc
-abstract class _$$_ChangeIndexCopyWith<$Res>
+abstract class _$$ChangeIndexImplCopyWith<$Res>
     implements $StepperEventCopyWith<$Res> {
-  factory _$$_ChangeIndexCopyWith(
-          _$_ChangeIndex value, $Res Function(_$_ChangeIndex) then) =
-      __$$_ChangeIndexCopyWithImpl<$Res>;
+  factory _$$ChangeIndexImplCopyWith(
+          _$ChangeIndexImpl value, $Res Function(_$ChangeIndexImpl) then) =
+      __$$ChangeIndexImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_ChangeIndexCopyWithImpl<$Res>
-    extends _$StepperEventCopyWithImpl<$Res, _$_ChangeIndex>
-    implements _$$_ChangeIndexCopyWith<$Res> {
-  __$$_ChangeIndexCopyWithImpl(
-      _$_ChangeIndex _value, $Res Function(_$_ChangeIndex) _then)
+class __$$ChangeIndexImplCopyWithImpl<$Res>
+    extends _$StepperEventCopyWithImpl<$Res, _$ChangeIndexImpl>
+    implements _$$ChangeIndexImplCopyWith<$Res> {
+  __$$ChangeIndexImplCopyWithImpl(
+      _$ChangeIndexImpl _value, $Res Function(_$ChangeIndexImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_ChangeIndexCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_ChangeIndex(
+    return _then(_$ChangeIndexImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -123,8 +123,8 @@ class __$$_ChangeIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeIndex implements _ChangeIndex {
-  const _$_ChangeIndex(this.index);
+class _$ChangeIndexImpl implements _ChangeIndex {
+  const _$ChangeIndexImpl(this.index);
 
   @override
   final int index;
@@ -138,7 +138,7 @@ class _$_ChangeIndex implements _ChangeIndex {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeIndex &&
+            other is _$ChangeIndexImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -148,8 +148,8 @@ class _$_ChangeIndex implements _ChangeIndex {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeIndexCopyWith<_$_ChangeIndex> get copyWith =>
-      __$$_ChangeIndexCopyWithImpl<_$_ChangeIndex>(this, _$identity);
+  _$$ChangeIndexImplCopyWith<_$ChangeIndexImpl> get copyWith =>
+      __$$ChangeIndexImplCopyWithImpl<_$ChangeIndexImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,13 +209,13 @@ class _$_ChangeIndex implements _ChangeIndex {
 }
 
 abstract class _ChangeIndex implements StepperEvent {
-  const factory _ChangeIndex(final int index) = _$_ChangeIndex;
+  const factory _ChangeIndex(final int index) = _$ChangeIndexImpl;
 
   @override
   int get index;
   @override
   @JsonKey(ignore: true)
-  _$$_ChangeIndexCopyWith<_$_ChangeIndex> get copyWith =>
+  _$$ChangeIndexImplCopyWith<_$ChangeIndexImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -280,24 +280,25 @@ class _$StepperStateCopyWithImpl<$Res, $Val extends StepperState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$StepperStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$StepperStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -307,7 +308,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -377,23 +378,24 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements StepperState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$StepperStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$StepperStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -401,7 +403,7 @@ class __$$_SuccessCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$_Success(
+    return _then(_$SuccessImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -412,8 +414,8 @@ class __$$_SuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success(this.index);
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl(this.index);
 
   @override
   final int index;
@@ -427,7 +429,7 @@ class _$_Success implements _Success {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Success &&
+            other is _$SuccessImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -437,8 +439,8 @@ class _$_Success implements _Success {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
-      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -504,10 +506,10 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements StepperState {
-  const factory _Success(final int index) = _$_Success;
+  const factory _Success(final int index) = _$SuccessImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

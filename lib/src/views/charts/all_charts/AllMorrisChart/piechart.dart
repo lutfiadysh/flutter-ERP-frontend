@@ -41,7 +41,6 @@ class PieChart2State extends State<PieChartSample2> {
                 sections: showingSections()),
           ),
         ),
-        
       ],
     );
   }
@@ -52,11 +51,11 @@ class PieChart2State extends State<PieChartSample2> {
     return List.generate(3, (i) {
       final isTouched = i == touchedIndex;
       final fontSize = isTouched ? 26.0 : 17.0;
-      final radius = isTouched ? 61.0 : 51.0;
+      final radius = isTouched ? 61.0 : 80.0;
       switch (i) {
         case 0:
           return PieChartSectionData(
-            color: const Color.fromARGB(255, 18, 187, 32),
+            color: Colors.green,
             value: dashboard.porcentajeVerificados,
             title: '${dashboard.porcentajeVerificadosFormateado}%',
             radius: radius,
@@ -67,7 +66,7 @@ class PieChart2State extends State<PieChartSample2> {
           );
         case 1:
           return PieChartSectionData(
-            color: const Color(0xfff8b250),
+            color: Colors.yellow[800],
             value: dashboard.porcentajePendientes,
             title: '${dashboard.porcentajePendientesFormateado}%',
             radius: radius,

@@ -75,19 +75,20 @@ class _$FormUploadFileEventCopyWithImpl<$Res, $Val extends FormUploadFileEvent>
 }
 
 /// @nodoc
-abstract class _$$_AddFileCopyWith<$Res> {
-  factory _$$_AddFileCopyWith(
-          _$_AddFile value, $Res Function(_$_AddFile) then) =
-      __$$_AddFileCopyWithImpl<$Res>;
+abstract class _$$AddFileImplCopyWith<$Res> {
+  factory _$$AddFileImplCopyWith(
+          _$AddFileImpl value, $Res Function(_$AddFileImpl) then) =
+      __$$AddFileImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<dynamic> filesList});
 }
 
 /// @nodoc
-class __$$_AddFileCopyWithImpl<$Res>
-    extends _$FormUploadFileEventCopyWithImpl<$Res, _$_AddFile>
-    implements _$$_AddFileCopyWith<$Res> {
-  __$$_AddFileCopyWithImpl(_$_AddFile _value, $Res Function(_$_AddFile) _then)
+class __$$AddFileImplCopyWithImpl<$Res>
+    extends _$FormUploadFileEventCopyWithImpl<$Res, _$AddFileImpl>
+    implements _$$AddFileImplCopyWith<$Res> {
+  __$$AddFileImplCopyWithImpl(
+      _$AddFileImpl _value, $Res Function(_$AddFileImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +96,7 @@ class __$$_AddFileCopyWithImpl<$Res>
   $Res call({
     Object? filesList = null,
   }) {
-    return _then(_$_AddFile(
+    return _then(_$AddFileImpl(
       null == filesList
           ? _value._filesList
           : filesList // ignore: cast_nullable_to_non_nullable
@@ -106,8 +107,8 @@ class __$$_AddFileCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddFile implements _AddFile {
-  const _$_AddFile(final List<dynamic> filesList) : _filesList = filesList;
+class _$AddFileImpl implements _AddFile {
+  const _$AddFileImpl(final List<dynamic> filesList) : _filesList = filesList;
 
   final List<dynamic> _filesList;
   @override
@@ -126,7 +127,7 @@ class _$_AddFile implements _AddFile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddFile &&
+            other is _$AddFileImpl &&
             const DeepCollectionEquality()
                 .equals(other._filesList, _filesList));
   }
@@ -138,8 +139,8 @@ class _$_AddFile implements _AddFile {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddFileCopyWith<_$_AddFile> get copyWith =>
-      __$$_AddFileCopyWithImpl<_$_AddFile>(this, _$identity);
+  _$$AddFileImplCopyWith<_$AddFileImpl> get copyWith =>
+      __$$AddFileImplCopyWithImpl<_$AddFileImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -205,32 +206,34 @@ class _$_AddFile implements _AddFile {
 }
 
 abstract class _AddFile implements FormUploadFileEvent {
-  const factory _AddFile(final List<dynamic> filesList) = _$_AddFile;
+  const factory _AddFile(final List<dynamic> filesList) = _$AddFileImpl;
 
   List<dynamic> get filesList;
   @JsonKey(ignore: true)
-  _$$_AddFileCopyWith<_$_AddFile> get copyWith =>
+  _$$AddFileImplCopyWith<_$AddFileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ClearCopyWith<$Res> {
-  factory _$$_ClearCopyWith(_$_Clear value, $Res Function(_$_Clear) then) =
-      __$$_ClearCopyWithImpl<$Res>;
+abstract class _$$ClearImplCopyWith<$Res> {
+  factory _$$ClearImplCopyWith(
+          _$ClearImpl value, $Res Function(_$ClearImpl) then) =
+      __$$ClearImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ClearCopyWithImpl<$Res>
-    extends _$FormUploadFileEventCopyWithImpl<$Res, _$_Clear>
-    implements _$$_ClearCopyWith<$Res> {
-  __$$_ClearCopyWithImpl(_$_Clear _value, $Res Function(_$_Clear) _then)
+class __$$ClearImplCopyWithImpl<$Res>
+    extends _$FormUploadFileEventCopyWithImpl<$Res, _$ClearImpl>
+    implements _$$ClearImplCopyWith<$Res> {
+  __$$ClearImplCopyWithImpl(
+      _$ClearImpl _value, $Res Function(_$ClearImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Clear implements _Clear {
-  const _$_Clear();
+class _$ClearImpl implements _Clear {
+  const _$ClearImpl();
 
   @override
   String toString() {
@@ -240,7 +243,7 @@ class _$_Clear implements _Clear {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Clear);
+        (other.runtimeType == runtimeType && other is _$ClearImpl);
   }
 
   @override
@@ -310,7 +313,7 @@ class _$_Clear implements _Clear {
 }
 
 abstract class _Clear implements FormUploadFileEvent {
-  const factory _Clear() = _$_Clear;
+  const factory _Clear() = _$ClearImpl;
 }
 
 /// @nodoc
@@ -374,24 +377,25 @@ class _$FormUploadFileStateCopyWithImpl<$Res, $Val extends FormUploadFileState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$FormUploadFileStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$FormUploadFileStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -401,7 +405,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -471,24 +475,24 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements FormUploadFileState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_FileSuccessCopyWith<$Res> {
-  factory _$$_FileSuccessCopyWith(
-          _$_FileSuccess value, $Res Function(_$_FileSuccess) then) =
-      __$$_FileSuccessCopyWithImpl<$Res>;
+abstract class _$$FileSuccessImplCopyWith<$Res> {
+  factory _$$FileSuccessImplCopyWith(
+          _$FileSuccessImpl value, $Res Function(_$FileSuccessImpl) then) =
+      __$$FileSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<dynamic> filesList});
 }
 
 /// @nodoc
-class __$$_FileSuccessCopyWithImpl<$Res>
-    extends _$FormUploadFileStateCopyWithImpl<$Res, _$_FileSuccess>
-    implements _$$_FileSuccessCopyWith<$Res> {
-  __$$_FileSuccessCopyWithImpl(
-      _$_FileSuccess _value, $Res Function(_$_FileSuccess) _then)
+class __$$FileSuccessImplCopyWithImpl<$Res>
+    extends _$FormUploadFileStateCopyWithImpl<$Res, _$FileSuccessImpl>
+    implements _$$FileSuccessImplCopyWith<$Res> {
+  __$$FileSuccessImplCopyWithImpl(
+      _$FileSuccessImpl _value, $Res Function(_$FileSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -496,7 +500,7 @@ class __$$_FileSuccessCopyWithImpl<$Res>
   $Res call({
     Object? filesList = null,
   }) {
-    return _then(_$_FileSuccess(
+    return _then(_$FileSuccessImpl(
       null == filesList
           ? _value._filesList
           : filesList // ignore: cast_nullable_to_non_nullable
@@ -507,8 +511,9 @@ class __$$_FileSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FileSuccess implements _FileSuccess {
-  const _$_FileSuccess(final List<dynamic> filesList) : _filesList = filesList;
+class _$FileSuccessImpl implements _FileSuccess {
+  const _$FileSuccessImpl(final List<dynamic> filesList)
+      : _filesList = filesList;
 
   final List<dynamic> _filesList;
   @override
@@ -527,7 +532,7 @@ class _$_FileSuccess implements _FileSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FileSuccess &&
+            other is _$FileSuccessImpl &&
             const DeepCollectionEquality()
                 .equals(other._filesList, _filesList));
   }
@@ -539,8 +544,8 @@ class _$_FileSuccess implements _FileSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FileSuccessCopyWith<_$_FileSuccess> get copyWith =>
-      __$$_FileSuccessCopyWithImpl<_$_FileSuccess>(this, _$identity);
+  _$$FileSuccessImplCopyWith<_$FileSuccessImpl> get copyWith =>
+      __$$FileSuccessImplCopyWithImpl<_$FileSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -606,10 +611,10 @@ class _$_FileSuccess implements _FileSuccess {
 }
 
 abstract class _FileSuccess implements FormUploadFileState {
-  const factory _FileSuccess(final List<dynamic> filesList) = _$_FileSuccess;
+  const factory _FileSuccess(final List<dynamic> filesList) = _$FileSuccessImpl;
 
   List<dynamic> get filesList;
   @JsonKey(ignore: true)
-  _$$_FileSuccessCopyWith<_$_FileSuccess> get copyWith =>
+  _$$FileSuccessImplCopyWith<_$FileSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

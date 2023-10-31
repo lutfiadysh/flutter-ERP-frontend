@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:admin_dashboard/proy/services/local_storage.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -6,7 +8,9 @@ class BackendApi {
   static final Dio _dio = Dio();
 
   static Future<void> configureDio() async {
-    String baseUrl = 'http://192.168.0.5:8080/api';
+    String baseUrl = 'http://192.168.30.76:8081/api';
+    // String baseUrl =
+    //     'https://backendappdashboard-production.up.railway.app/api';
     _dio.options.baseUrl = baseUrl;
 
     // Configure Headers
@@ -29,6 +33,7 @@ class BackendApi {
 
     try {
       final resp = await _dio.post(path, data: formData);
+      print(resp.data);
       return resp.data;
     } catch (e) {
       throw ('Error en el POST $e');

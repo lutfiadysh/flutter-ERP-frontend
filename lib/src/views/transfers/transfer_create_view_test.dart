@@ -1,8 +1,10 @@
+import 'package:admin_dashboard/blocs/transfer_create/transfer_create_bloc.dart';
 import 'package:admin_dashboard/proy/models/note.dart';
 import 'package:admin_dashboard/proy/models/product.dart';
 import 'package:admin_dashboard/proy/models/stock.dart';
 import 'package:admin_dashboard/proy/providers/products_provider.dart';
 import 'package:admin_dashboard/proy/providers/stocks_provider.dart';
+import 'package:admin_dashboard/src/constant/color.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,9 +12,12 @@ import 'package:flutterx/flutterx.dart';
 import 'package:provider/provider.dart';
 
 class TransferCreateViewTest extends StatefulWidget {
-  final Function(Stock, Stock, Producto, double, double) didSubmitText;
+  final Function(Stock, Stock, Producto, double, double)? didSubmitText;
 
-  const TransferCreateViewTest({super.key, required this.didSubmitText});
+  const TransferCreateViewTest({
+    super.key,
+    this.didSubmitText,
+  });
 
   @override
   State<TransferCreateViewTest> createState() => _TransferViewCreateTestState();
@@ -104,7 +109,213 @@ class _TransferViewCreateTestState extends State<TransferCreateViewTest> {
               ),
             ),
           );
+    return WillPopScope(
+      onWillPop: () async {
+        Navigator.pop(context);
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(
+              Icons.arrow_back_ios,
+              size: 16,
+              color: Colors.black,
+            ),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Container(
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Form(
+                key: _formKey,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child: Column(children: [
+                  if (productoDialog != null)
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        child: imageWidget,
+                      ),
+                    ),
+                  const SizedBox(height: 10),
+                  DropdownSearch<Producto>(
+                    popupProps: const PopupProps.menu(
+                      showSelectedItems: true,
+                      showSearchBox: true,
+                      // Ajustar esto según sea necesario
+                    ),
+                    items:
+                        productos, // Asegúrate de que esta lista está definida y llena de objetos Producto
+                    dropdownDecoratorProps: const DropDownDecoratorProps(
+                      dropdownSearchDecoration: InputDecoration(
+                        labelText: "Producto",
+                        hintText: "Seleccione un producto",
+                      ),
+                    ),
+                    onChanged: (Producto? producto) {
+                      setState(() {
+                        productoDialog = producto;
+                      });
+                    },
+                    selectedItem: productoDialog,
+                    itemAsString: (Producto u) => u.nombre,
+                    compareFn: (Producto a, Producto b) =>
+                        a.nombre == b.nombre, // Función de comparación
+                  ),
+                  const SizedBox(height: 10),
+                  DropdownButtonFormField<Stock>(
+                    hint: const Text('Origen'),
+                    decoration:
+                        const InputDecoration(labelText: 'Seleccione origen'),
+                    value: origenDialog,
+                    iconSize: 24,
+                    elevation: 16,
+                    onChanged: productoDialog != null
+                        ? (value) {
+                            setState(() {
+                              origenSeleccionados.add(value!);
+                              origenDialog = value;
+                              destinoSeleccionados = destinoSeleccionados
+                                  .where((d) => d.id != value.id)
+                                  .toList();
+                            });
+                          }
+                        : null,
+                    items: stocks
+                        .where((stock) => productoDialog == null
+                            ? false
+                            : stock.producto.id == productoDialog!.id)
+                        .where((stock) => !destinoSeleccionados.contains(stock))
+                        .map<DropdownMenuItem<Stock>>((Stock value) {
+                      return buildStockDropdownMenuItem(
+                        value,
+                        value == origenDialog,
+                      );
+                    }).toList(),
+                  ),
+                  const SizedBox(height: 10),
+                  DropdownButtonFormField<Stock>(
+                    hint: const Text('Destino'),
+                    decoration:
+                        const InputDecoration(labelText: 'Seleccione destino'),
+                    value: destinoDialog,
+                    iconSize: 24,
+                    elevation: 16,
+                    onChanged: productoDialog != null
+                        ? (value) {
+                            setState(() {
+                              destinoSeleccionados.add(value!);
+                              destinoDialog = value;
+                              origenSeleccionados = origenSeleccionados
+                                  .where((o) => o.id != value.id)
+                                  .toList();
+                            });
+                          }
+                        : null,
+                    items: stocks
+                        .where((stock) => productoDialog == null
+                            ? false
+                            : stock.producto.id == productoDialog!.id)
+                        .where((stock) => !origenSeleccionados.contains(stock))
+                        .map<DropdownMenuItem<Stock>>((Stock value) {
+                      return buildStockDropdownMenuItem(
+                        value,
+                        value == destinoDialog,
+                      );
+                    }).toList(),
+                  ),
+                  const SizedBox(height: 10),
+                  TextFormField(
+                    enabled: productoDialog != null,
+                    validator: validateCajas,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    decoration: InputDecoration(
+                        hintText: origenDialog == null
+                            ? "Ingrese cantidad de cajas"
+                            : "Valor máximo: ${origenDialog!.cantidadCajas}",
+                        labelText: "Ingrese cantidad de cajas"),
+                    controller: cantidadCajasController,
+                    onChanged: (value) {
+                      cantidadCajas = double.tryParse(value) ?? 0;
+                      _formKey.currentState?.validate();
+                    },
+                  ),
+                  const SizedBox(height: 10),
+                  TextFormField(
+                    enabled: productoDialog != null,
+                    keyboardType: TextInputType.number,
+                    validator: validatePiezas,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    decoration: InputDecoration(
+                        hintText: origenDialog == null
+                            ? "Ingrese cantidad de piezas"
+                            : "Valor máximo: ${origenDialog!.cantidadPiezas}",
+                        labelText: "Ingrese cantidad de piezas"),
+                    controller: cantidadPiezasController,
+                    onChanged: (value) {
+                      cantidadPiezas =
+                          value.isNotEmpty ? double.tryParse(value) ?? 0 : 0;
+                      _formKey.currentState?.validate();
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.end,
+                  //   children: [
+                  //     FxButton(
+                  //       onPressed: () => Navigator.pop(context),
+                  //       text: 'Cancelar',
+                  //       buttonType: ButtonType.secondary,
+                  //     ),
+                  //     const SizedBox(width: 20),
 
+                  //   ],
+                  // )
+                ]),
+              ),
+            ),
+          ),
+        ),
+        bottomNavigationBar: Container(
+          color: Colors.white,
+          width: MediaQuery.of(context).size.width,
+          height: 80,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          child: ElevatedButton(
+            onPressed: () {
+              context.read<TransferCreateBloc>().add(TransferAddListNote(
+                  note: Note(
+                      producto: productoDialog!,
+                      origen: origenDialog!,
+                      destino: destinoDialog!,
+                      cantidadCajas: double.parse(cantidadCajasController.text),
+                      cantidadPiezas:
+                          double.parse(cantidadPiezasController.text))));
+            },
+            style: ElevatedButton.styleFrom(
+              minimumSize: Size(MediaQuery.of(context).size.width, 50),
+              backgroundColor: ColorConst.blue,
+            ),
+            child: const Text(
+              'Guardar',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
     return Center(
       child: SizedBox(
         child: Padding(
@@ -254,8 +465,8 @@ class _TransferViewCreateTestState extends State<TransferCreateViewTest> {
                   const SizedBox(width: 20),
                   FxButton(
                     onPressed: () {
-                      widget.didSubmitText(destinoDialog!, origenDialog!,
-                          productoDialog!, cantidadCajas, cantidadPiezas);
+                      // widget.didSubmitText(destinoDialog!, origenDialog!,
+                      // productoDialog!, cantidadCajas, cantidadPiezas);
                       Navigator.of(context).pop();
                     },
                     text: 'Guardar',

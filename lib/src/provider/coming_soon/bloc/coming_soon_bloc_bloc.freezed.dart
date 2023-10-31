@@ -89,21 +89,22 @@ class _$ComingSoonBlocEventCopyWithImpl<$Res, $Val extends ComingSoonBlocEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res>
+abstract class _$$StartedImplCopyWith<$Res>
     implements $ComingSoonBlocEventCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int seconds});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$ComingSoonBlocEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$ComingSoonBlocEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +112,7 @@ class __$$_StartedCopyWithImpl<$Res>
   $Res call({
     Object? seconds = null,
   }) {
-    return _then(_$_Started(
+    return _then(_$StartedImpl(
       null == seconds
           ? _value.seconds
           : seconds // ignore: cast_nullable_to_non_nullable
@@ -122,8 +123,8 @@ class __$$_StartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started(this.seconds);
+class _$StartedImpl implements _Started {
+  const _$StartedImpl(this.seconds);
 
   @override
   final int seconds;
@@ -137,7 +138,7 @@ class _$_Started implements _Started {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Started &&
+            other is _$StartedImpl &&
             (identical(other.seconds, seconds) || other.seconds == seconds));
   }
 
@@ -147,8 +148,8 @@ class _$_Started implements _Started {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
-      __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      __$$StartedImplCopyWithImpl<_$StartedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -208,13 +209,13 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements ComingSoonBlocEvent {
-  const factory _Started(final int seconds) = _$_Started;
+  const factory _Started(final int seconds) = _$StartedImpl;
 
   @override
   int get seconds;
   @override
   @JsonKey(ignore: true)
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -279,24 +280,25 @@ class _$ComingSoonBlocStateCopyWithImpl<$Res, $Val extends ComingSoonBlocState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$ComingSoonBlocStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ComingSoonBlocStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -306,7 +308,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -376,24 +378,24 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements ComingSoonBlocState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_StartSuccessCopyWith<$Res> {
-  factory _$$_StartSuccessCopyWith(
-          _$_StartSuccess value, $Res Function(_$_StartSuccess) then) =
-      __$$_StartSuccessCopyWithImpl<$Res>;
+abstract class _$$StartSuccessImplCopyWith<$Res> {
+  factory _$$StartSuccessImplCopyWith(
+          _$StartSuccessImpl value, $Res Function(_$StartSuccessImpl) then) =
+      __$$StartSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int seconds});
 }
 
 /// @nodoc
-class __$$_StartSuccessCopyWithImpl<$Res>
-    extends _$ComingSoonBlocStateCopyWithImpl<$Res, _$_StartSuccess>
-    implements _$$_StartSuccessCopyWith<$Res> {
-  __$$_StartSuccessCopyWithImpl(
-      _$_StartSuccess _value, $Res Function(_$_StartSuccess) _then)
+class __$$StartSuccessImplCopyWithImpl<$Res>
+    extends _$ComingSoonBlocStateCopyWithImpl<$Res, _$StartSuccessImpl>
+    implements _$$StartSuccessImplCopyWith<$Res> {
+  __$$StartSuccessImplCopyWithImpl(
+      _$StartSuccessImpl _value, $Res Function(_$StartSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -401,7 +403,7 @@ class __$$_StartSuccessCopyWithImpl<$Res>
   $Res call({
     Object? seconds = null,
   }) {
-    return _then(_$_StartSuccess(
+    return _then(_$StartSuccessImpl(
       null == seconds
           ? _value.seconds
           : seconds // ignore: cast_nullable_to_non_nullable
@@ -412,8 +414,8 @@ class __$$_StartSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StartSuccess implements _StartSuccess {
-  const _$_StartSuccess(this.seconds);
+class _$StartSuccessImpl implements _StartSuccess {
+  const _$StartSuccessImpl(this.seconds);
 
   @override
   final int seconds;
@@ -427,7 +429,7 @@ class _$_StartSuccess implements _StartSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StartSuccess &&
+            other is _$StartSuccessImpl &&
             (identical(other.seconds, seconds) || other.seconds == seconds));
   }
 
@@ -437,8 +439,8 @@ class _$_StartSuccess implements _StartSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StartSuccessCopyWith<_$_StartSuccess> get copyWith =>
-      __$$_StartSuccessCopyWithImpl<_$_StartSuccess>(this, _$identity);
+  _$$StartSuccessImplCopyWith<_$StartSuccessImpl> get copyWith =>
+      __$$StartSuccessImplCopyWithImpl<_$StartSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -504,10 +506,10 @@ class _$_StartSuccess implements _StartSuccess {
 }
 
 abstract class _StartSuccess implements ComingSoonBlocState {
-  const factory _StartSuccess(final int seconds) = _$_StartSuccess;
+  const factory _StartSuccess(final int seconds) = _$StartSuccessImpl;
 
   int get seconds;
   @JsonKey(ignore: true)
-  _$$_StartSuccessCopyWith<_$_StartSuccess> get copyWith =>
+  _$$StartSuccessImplCopyWith<_$StartSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

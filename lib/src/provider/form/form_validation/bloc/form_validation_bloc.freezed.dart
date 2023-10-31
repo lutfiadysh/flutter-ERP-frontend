@@ -81,20 +81,20 @@ class _$FormValidationEventCopyWithImpl<$Res, $Val extends FormValidationEvent>
 }
 
 /// @nodoc
-abstract class _$$_DropDownCopyWith<$Res> {
-  factory _$$_DropDownCopyWith(
-          _$_DropDown value, $Res Function(_$_DropDown) then) =
-      __$$_DropDownCopyWithImpl<$Res>;
+abstract class _$$DropDownImplCopyWith<$Res> {
+  factory _$$DropDownImplCopyWith(
+          _$DropDownImpl value, $Res Function(_$DropDownImpl) then) =
+      __$$DropDownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_DropDownCopyWithImpl<$Res>
-    extends _$FormValidationEventCopyWithImpl<$Res, _$_DropDown>
-    implements _$$_DropDownCopyWith<$Res> {
-  __$$_DropDownCopyWithImpl(
-      _$_DropDown _value, $Res Function(_$_DropDown) _then)
+class __$$DropDownImplCopyWithImpl<$Res>
+    extends _$FormValidationEventCopyWithImpl<$Res, _$DropDownImpl>
+    implements _$$DropDownImplCopyWith<$Res> {
+  __$$DropDownImplCopyWithImpl(
+      _$DropDownImpl _value, $Res Function(_$DropDownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +102,7 @@ class __$$_DropDownCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_DropDown(
+    return _then(_$DropDownImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ class __$$_DropDownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DropDown implements _DropDown {
-  const _$_DropDown(this.value);
+class _$DropDownImpl implements _DropDown {
+  const _$DropDownImpl(this.value);
 
   @override
   final String value;
@@ -128,7 +128,7 @@ class _$_DropDown implements _DropDown {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DropDown &&
+            other is _$DropDownImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -138,8 +138,8 @@ class _$_DropDown implements _DropDown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DropDownCopyWith<_$_DropDown> get copyWith =>
-      __$$_DropDownCopyWithImpl<_$_DropDown>(this, _$identity);
+  _$$DropDownImplCopyWith<_$DropDownImpl> get copyWith =>
+      __$$DropDownImplCopyWithImpl<_$DropDownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -211,29 +211,29 @@ class _$_DropDown implements _DropDown {
 }
 
 abstract class _DropDown implements FormValidationEvent {
-  const factory _DropDown(final String value) = _$_DropDown;
+  const factory _DropDown(final String value) = _$DropDownImpl;
 
   String get value;
   @JsonKey(ignore: true)
-  _$$_DropDownCopyWith<_$_DropDown> get copyWith =>
+  _$$DropDownImplCopyWith<_$DropDownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_CheckBoxCopyWith<$Res> {
-  factory _$$_CheckBoxCopyWith(
-          _$_CheckBox value, $Res Function(_$_CheckBox) then) =
-      __$$_CheckBoxCopyWithImpl<$Res>;
+abstract class _$$CheckBoxImplCopyWith<$Res> {
+  factory _$$CheckBoxImplCopyWith(
+          _$CheckBoxImpl value, $Res Function(_$CheckBoxImpl) then) =
+      __$$CheckBoxImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$_CheckBoxCopyWithImpl<$Res>
-    extends _$FormValidationEventCopyWithImpl<$Res, _$_CheckBox>
-    implements _$$_CheckBoxCopyWith<$Res> {
-  __$$_CheckBoxCopyWithImpl(
-      _$_CheckBox _value, $Res Function(_$_CheckBox) _then)
+class __$$CheckBoxImplCopyWithImpl<$Res>
+    extends _$FormValidationEventCopyWithImpl<$Res, _$CheckBoxImpl>
+    implements _$$CheckBoxImplCopyWith<$Res> {
+  __$$CheckBoxImplCopyWithImpl(
+      _$CheckBoxImpl _value, $Res Function(_$CheckBoxImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -241,7 +241,7 @@ class __$$_CheckBoxCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_CheckBox(
+    return _then(_$CheckBoxImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -252,8 +252,8 @@ class __$$_CheckBoxCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CheckBox implements _CheckBox {
-  const _$_CheckBox(this.value);
+class _$CheckBoxImpl implements _CheckBox {
+  const _$CheckBoxImpl(this.value);
 
   @override
   final bool value;
@@ -267,7 +267,7 @@ class _$_CheckBox implements _CheckBox {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CheckBox &&
+            other is _$CheckBoxImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -277,8 +277,8 @@ class _$_CheckBox implements _CheckBox {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CheckBoxCopyWith<_$_CheckBox> get copyWith =>
-      __$$_CheckBoxCopyWithImpl<_$_CheckBox>(this, _$identity);
+  _$$CheckBoxImplCopyWith<_$CheckBoxImpl> get copyWith =>
+      __$$CheckBoxImplCopyWithImpl<_$CheckBoxImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -350,32 +350,34 @@ class _$_CheckBox implements _CheckBox {
 }
 
 abstract class _CheckBox implements FormValidationEvent {
-  const factory _CheckBox(final bool value) = _$_CheckBox;
+  const factory _CheckBox(final bool value) = _$CheckBoxImpl;
 
   bool get value;
   @JsonKey(ignore: true)
-  _$$_CheckBoxCopyWith<_$_CheckBox> get copyWith =>
+  _$$CheckBoxImplCopyWith<_$CheckBoxImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SubmitCopyWith<$Res> {
-  factory _$$_SubmitCopyWith(_$_Submit value, $Res Function(_$_Submit) then) =
-      __$$_SubmitCopyWithImpl<$Res>;
+abstract class _$$SubmitImplCopyWith<$Res> {
+  factory _$$SubmitImplCopyWith(
+          _$SubmitImpl value, $Res Function(_$SubmitImpl) then) =
+      __$$SubmitImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SubmitCopyWithImpl<$Res>
-    extends _$FormValidationEventCopyWithImpl<$Res, _$_Submit>
-    implements _$$_SubmitCopyWith<$Res> {
-  __$$_SubmitCopyWithImpl(_$_Submit _value, $Res Function(_$_Submit) _then)
+class __$$SubmitImplCopyWithImpl<$Res>
+    extends _$FormValidationEventCopyWithImpl<$Res, _$SubmitImpl>
+    implements _$$SubmitImplCopyWith<$Res> {
+  __$$SubmitImplCopyWithImpl(
+      _$SubmitImpl _value, $Res Function(_$SubmitImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Submit implements _Submit {
-  const _$_Submit();
+class _$SubmitImpl implements _Submit {
+  const _$SubmitImpl();
 
   @override
   String toString() {
@@ -385,7 +387,7 @@ class _$_Submit implements _Submit {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Submit);
+        (other.runtimeType == runtimeType && other is _$SubmitImpl);
   }
 
   @override
@@ -461,7 +463,7 @@ class _$_Submit implements _Submit {
 }
 
 abstract class _Submit implements FormValidationEvent {
-  const factory _Submit() = _$_Submit;
+  const factory _Submit() = _$SubmitImpl;
 }
 
 /// @nodoc
@@ -537,24 +539,25 @@ class _$FormValidationStateCopyWithImpl<$Res, $Val extends FormValidationState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$FormValidationStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$FormValidationStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -564,7 +567,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -646,24 +649,24 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements FormValidationState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_DropDownSuccessCopyWith<$Res> {
-  factory _$$_DropDownSuccessCopyWith(
-          _$_DropDownSuccess value, $Res Function(_$_DropDownSuccess) then) =
-      __$$_DropDownSuccessCopyWithImpl<$Res>;
+abstract class _$$DropDownSuccessImplCopyWith<$Res> {
+  factory _$$DropDownSuccessImplCopyWith(_$DropDownSuccessImpl value,
+          $Res Function(_$DropDownSuccessImpl) then) =
+      __$$DropDownSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_DropDownSuccessCopyWithImpl<$Res>
-    extends _$FormValidationStateCopyWithImpl<$Res, _$_DropDownSuccess>
-    implements _$$_DropDownSuccessCopyWith<$Res> {
-  __$$_DropDownSuccessCopyWithImpl(
-      _$_DropDownSuccess _value, $Res Function(_$_DropDownSuccess) _then)
+class __$$DropDownSuccessImplCopyWithImpl<$Res>
+    extends _$FormValidationStateCopyWithImpl<$Res, _$DropDownSuccessImpl>
+    implements _$$DropDownSuccessImplCopyWith<$Res> {
+  __$$DropDownSuccessImplCopyWithImpl(
+      _$DropDownSuccessImpl _value, $Res Function(_$DropDownSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -671,7 +674,7 @@ class __$$_DropDownSuccessCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_DropDownSuccess(
+    return _then(_$DropDownSuccessImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -682,8 +685,8 @@ class __$$_DropDownSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DropDownSuccess implements _DropDownSuccess {
-  const _$_DropDownSuccess(this.value);
+class _$DropDownSuccessImpl implements _DropDownSuccess {
+  const _$DropDownSuccessImpl(this.value);
 
   @override
   final String value;
@@ -697,7 +700,7 @@ class _$_DropDownSuccess implements _DropDownSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DropDownSuccess &&
+            other is _$DropDownSuccessImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -707,8 +710,9 @@ class _$_DropDownSuccess implements _DropDownSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DropDownSuccessCopyWith<_$_DropDownSuccess> get copyWith =>
-      __$$_DropDownSuccessCopyWithImpl<_$_DropDownSuccess>(this, _$identity);
+  _$$DropDownSuccessImplCopyWith<_$DropDownSuccessImpl> get copyWith =>
+      __$$DropDownSuccessImplCopyWithImpl<_$DropDownSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -786,29 +790,29 @@ class _$_DropDownSuccess implements _DropDownSuccess {
 }
 
 abstract class _DropDownSuccess implements FormValidationState {
-  const factory _DropDownSuccess(final String value) = _$_DropDownSuccess;
+  const factory _DropDownSuccess(final String value) = _$DropDownSuccessImpl;
 
   String get value;
   @JsonKey(ignore: true)
-  _$$_DropDownSuccessCopyWith<_$_DropDownSuccess> get copyWith =>
+  _$$DropDownSuccessImplCopyWith<_$DropDownSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_CheckBoxSuccessCopyWith<$Res> {
-  factory _$$_CheckBoxSuccessCopyWith(
-          _$_CheckBoxSuccess value, $Res Function(_$_CheckBoxSuccess) then) =
-      __$$_CheckBoxSuccessCopyWithImpl<$Res>;
+abstract class _$$CheckBoxSuccessImplCopyWith<$Res> {
+  factory _$$CheckBoxSuccessImplCopyWith(_$CheckBoxSuccessImpl value,
+          $Res Function(_$CheckBoxSuccessImpl) then) =
+      __$$CheckBoxSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$_CheckBoxSuccessCopyWithImpl<$Res>
-    extends _$FormValidationStateCopyWithImpl<$Res, _$_CheckBoxSuccess>
-    implements _$$_CheckBoxSuccessCopyWith<$Res> {
-  __$$_CheckBoxSuccessCopyWithImpl(
-      _$_CheckBoxSuccess _value, $Res Function(_$_CheckBoxSuccess) _then)
+class __$$CheckBoxSuccessImplCopyWithImpl<$Res>
+    extends _$FormValidationStateCopyWithImpl<$Res, _$CheckBoxSuccessImpl>
+    implements _$$CheckBoxSuccessImplCopyWith<$Res> {
+  __$$CheckBoxSuccessImplCopyWithImpl(
+      _$CheckBoxSuccessImpl _value, $Res Function(_$CheckBoxSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -816,7 +820,7 @@ class __$$_CheckBoxSuccessCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_CheckBoxSuccess(
+    return _then(_$CheckBoxSuccessImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -827,8 +831,8 @@ class __$$_CheckBoxSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CheckBoxSuccess implements _CheckBoxSuccess {
-  const _$_CheckBoxSuccess(this.value);
+class _$CheckBoxSuccessImpl implements _CheckBoxSuccess {
+  const _$CheckBoxSuccessImpl(this.value);
 
   @override
   final bool value;
@@ -842,7 +846,7 @@ class _$_CheckBoxSuccess implements _CheckBoxSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CheckBoxSuccess &&
+            other is _$CheckBoxSuccessImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -852,8 +856,9 @@ class _$_CheckBoxSuccess implements _CheckBoxSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CheckBoxSuccessCopyWith<_$_CheckBoxSuccess> get copyWith =>
-      __$$_CheckBoxSuccessCopyWithImpl<_$_CheckBoxSuccess>(this, _$identity);
+  _$$CheckBoxSuccessImplCopyWith<_$CheckBoxSuccessImpl> get copyWith =>
+      __$$CheckBoxSuccessImplCopyWithImpl<_$CheckBoxSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -931,34 +936,34 @@ class _$_CheckBoxSuccess implements _CheckBoxSuccess {
 }
 
 abstract class _CheckBoxSuccess implements FormValidationState {
-  const factory _CheckBoxSuccess(final bool value) = _$_CheckBoxSuccess;
+  const factory _CheckBoxSuccess(final bool value) = _$CheckBoxSuccessImpl;
 
   bool get value;
   @JsonKey(ignore: true)
-  _$$_CheckBoxSuccessCopyWith<_$_CheckBoxSuccess> get copyWith =>
+  _$$CheckBoxSuccessImplCopyWith<_$CheckBoxSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FormSubmitSuccessCopyWith<$Res> {
-  factory _$$_FormSubmitSuccessCopyWith(_$_FormSubmitSuccess value,
-          $Res Function(_$_FormSubmitSuccess) then) =
-      __$$_FormSubmitSuccessCopyWithImpl<$Res>;
+abstract class _$$FormSubmitSuccessImplCopyWith<$Res> {
+  factory _$$FormSubmitSuccessImplCopyWith(_$FormSubmitSuccessImpl value,
+          $Res Function(_$FormSubmitSuccessImpl) then) =
+      __$$FormSubmitSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FormSubmitSuccessCopyWithImpl<$Res>
-    extends _$FormValidationStateCopyWithImpl<$Res, _$_FormSubmitSuccess>
-    implements _$$_FormSubmitSuccessCopyWith<$Res> {
-  __$$_FormSubmitSuccessCopyWithImpl(
-      _$_FormSubmitSuccess _value, $Res Function(_$_FormSubmitSuccess) _then)
+class __$$FormSubmitSuccessImplCopyWithImpl<$Res>
+    extends _$FormValidationStateCopyWithImpl<$Res, _$FormSubmitSuccessImpl>
+    implements _$$FormSubmitSuccessImplCopyWith<$Res> {
+  __$$FormSubmitSuccessImplCopyWithImpl(_$FormSubmitSuccessImpl _value,
+      $Res Function(_$FormSubmitSuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FormSubmitSuccess implements _FormSubmitSuccess {
-  const _$_FormSubmitSuccess();
+class _$FormSubmitSuccessImpl implements _FormSubmitSuccess {
+  const _$FormSubmitSuccessImpl();
 
   @override
   String toString() {
@@ -968,7 +973,7 @@ class _$_FormSubmitSuccess implements _FormSubmitSuccess {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FormSubmitSuccess);
+        (other.runtimeType == runtimeType && other is _$FormSubmitSuccessImpl);
   }
 
   @override
@@ -1050,5 +1055,5 @@ class _$_FormSubmitSuccess implements _FormSubmitSuccess {
 }
 
 abstract class _FormSubmitSuccess implements FormValidationState {
-  const factory _FormSubmitSuccess() = _$_FormSubmitSuccess;
+  const factory _FormSubmitSuccess() = _$FormSubmitSuccessImpl;
 }

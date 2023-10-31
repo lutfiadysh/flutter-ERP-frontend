@@ -89,22 +89,22 @@ class _$ThemeModeEventCopyWithImpl<$Res, $Val extends ThemeModeEvent>
 }
 
 /// @nodoc
-abstract class _$$_ChangeThemeCopyWith<$Res>
+abstract class _$$ChangeThemeImplCopyWith<$Res>
     implements $ThemeModeEventCopyWith<$Res> {
-  factory _$$_ChangeThemeCopyWith(
-          _$_ChangeTheme value, $Res Function(_$_ChangeTheme) then) =
-      __$$_ChangeThemeCopyWithImpl<$Res>;
+  factory _$$ChangeThemeImplCopyWith(
+          _$ChangeThemeImpl value, $Res Function(_$ChangeThemeImpl) then) =
+      __$$ChangeThemeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? themeMode});
 }
 
 /// @nodoc
-class __$$_ChangeThemeCopyWithImpl<$Res>
-    extends _$ThemeModeEventCopyWithImpl<$Res, _$_ChangeTheme>
-    implements _$$_ChangeThemeCopyWith<$Res> {
-  __$$_ChangeThemeCopyWithImpl(
-      _$_ChangeTheme _value, $Res Function(_$_ChangeTheme) _then)
+class __$$ChangeThemeImplCopyWithImpl<$Res>
+    extends _$ThemeModeEventCopyWithImpl<$Res, _$ChangeThemeImpl>
+    implements _$$ChangeThemeImplCopyWith<$Res> {
+  __$$ChangeThemeImplCopyWithImpl(
+      _$ChangeThemeImpl _value, $Res Function(_$ChangeThemeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_ChangeThemeCopyWithImpl<$Res>
   $Res call({
     Object? themeMode = freezed,
   }) {
-    return _then(_$_ChangeTheme(
+    return _then(_$ChangeThemeImpl(
       freezed == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
@@ -123,8 +123,8 @@ class __$$_ChangeThemeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeTheme implements _ChangeTheme {
-  const _$_ChangeTheme(this.themeMode);
+class _$ChangeThemeImpl implements _ChangeTheme {
+  const _$ChangeThemeImpl(this.themeMode);
 
   @override
   final bool? themeMode;
@@ -138,7 +138,7 @@ class _$_ChangeTheme implements _ChangeTheme {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeTheme &&
+            other is _$ChangeThemeImpl &&
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode));
   }
@@ -149,8 +149,8 @@ class _$_ChangeTheme implements _ChangeTheme {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeThemeCopyWith<_$_ChangeTheme> get copyWith =>
-      __$$_ChangeThemeCopyWithImpl<_$_ChangeTheme>(this, _$identity);
+  _$$ChangeThemeImplCopyWith<_$ChangeThemeImpl> get copyWith =>
+      __$$ChangeThemeImplCopyWithImpl<_$ChangeThemeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -210,13 +210,13 @@ class _$_ChangeTheme implements _ChangeTheme {
 }
 
 abstract class _ChangeTheme implements ThemeModeEvent {
-  const factory _ChangeTheme(final bool? themeMode) = _$_ChangeTheme;
+  const factory _ChangeTheme(final bool? themeMode) = _$ChangeThemeImpl;
 
   @override
   bool? get themeMode;
   @override
   @JsonKey(ignore: true)
-  _$$_ChangeThemeCopyWith<_$_ChangeTheme> get copyWith =>
+  _$$ChangeThemeImplCopyWith<_$ChangeThemeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -281,24 +281,25 @@ class _$ThemeModeStateCopyWithImpl<$Res, $Val extends ThemeModeState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$ThemeModeStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ThemeModeStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -308,7 +309,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -378,23 +379,24 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements ThemeModeState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool themeMode});
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$ThemeModeStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$ThemeModeStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -402,7 +404,7 @@ class __$$_SuccessCopyWithImpl<$Res>
   $Res call({
     Object? themeMode = null,
   }) {
-    return _then(_$_Success(
+    return _then(_$SuccessImpl(
       null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
@@ -413,8 +415,8 @@ class __$$_SuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success(this.themeMode);
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl(this.themeMode);
 
   @override
   final bool themeMode;
@@ -428,7 +430,7 @@ class _$_Success implements _Success {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Success &&
+            other is _$SuccessImpl &&
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode));
   }
@@ -439,8 +441,8 @@ class _$_Success implements _Success {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
-      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -506,10 +508,10 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements ThemeModeState {
-  const factory _Success(final bool themeMode) = _$_Success;
+  const factory _Success(final bool themeMode) = _$SuccessImpl;
 
   bool get themeMode;
   @JsonKey(ignore: true)
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

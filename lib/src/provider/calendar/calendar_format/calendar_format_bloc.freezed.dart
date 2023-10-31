@@ -104,11 +104,11 @@ class _$CalendarFormatEventCopyWithImpl<$Res, $Val extends CalendarFormatEvent>
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res>
+abstract class _$$LoadingImplCopyWith<$Res>
     implements $CalendarFormatEventCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -117,10 +117,11 @@ abstract class _$$_LoadingCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$CalendarFormatEventCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$CalendarFormatEventCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -129,7 +130,7 @@ class __$$_LoadingCopyWithImpl<$Res>
     Object? calendarFormat = null,
     Object? eventsList = null,
   }) {
-    return _then(_$_Loading(
+    return _then(_$LoadingImpl(
       calendarFormat: null == calendarFormat
           ? _value.calendarFormat
           : calendarFormat // ignore: cast_nullable_to_non_nullable
@@ -144,8 +145,8 @@ class __$$_LoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading(
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl(
       {required this.calendarFormat,
       required final Map<DateTime, List<Map<String, dynamic>>> eventsList})
       : _eventsList = eventsList;
@@ -169,7 +170,7 @@ class _$_Loading implements _Loading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Loading &&
+            other is _$LoadingImpl &&
             (identical(other.calendarFormat, calendarFormat) ||
                 other.calendarFormat == calendarFormat) &&
             const DeepCollectionEquality()
@@ -183,8 +184,8 @@ class _$_Loading implements _Loading {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
-      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
+      __$$LoadingImplCopyWithImpl<_$LoadingImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -253,7 +254,7 @@ abstract class _Loading implements CalendarFormatEvent {
   const factory _Loading(
       {required final CalendarFormat calendarFormat,
       required final Map<DateTime, List<Map<String, dynamic>>>
-          eventsList}) = _$_Loading;
+          eventsList}) = _$LoadingImpl;
 
   @override
   CalendarFormat get calendarFormat;
@@ -261,7 +262,7 @@ abstract class _Loading implements CalendarFormatEvent {
   Map<DateTime, List<Map<String, dynamic>>> get eventsList;
   @override
   @JsonKey(ignore: true)
-  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -332,24 +333,25 @@ class _$CalendarFormatStateCopyWithImpl<$Res, $Val extends CalendarFormatState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$CalendarFormatStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$CalendarFormatStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -359,7 +361,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -435,13 +437,14 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements CalendarFormatState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadedCopyWith<$Res> {
-  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
-      __$$_LoadedCopyWithImpl<$Res>;
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {CalendarFormat calendarFormat,
@@ -449,10 +452,11 @@ abstract class _$$_LoadedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadedCopyWithImpl<$Res>
-    extends _$CalendarFormatStateCopyWithImpl<$Res, _$_Loaded>
-    implements _$$_LoadedCopyWith<$Res> {
-  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$CalendarFormatStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -461,7 +465,7 @@ class __$$_LoadedCopyWithImpl<$Res>
     Object? calendarFormat = null,
     Object? eventsList = null,
   }) {
-    return _then(_$_Loaded(
+    return _then(_$LoadedImpl(
       calendarFormat: null == calendarFormat
           ? _value.calendarFormat
           : calendarFormat // ignore: cast_nullable_to_non_nullable
@@ -476,8 +480,8 @@ class __$$_LoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loaded implements _Loaded {
-  const _$_Loaded(
+class _$LoadedImpl implements _Loaded {
+  const _$LoadedImpl(
       {required this.calendarFormat,
       required final Map<DateTime, List<Map<String, dynamic>>> eventsList})
       : _eventsList = eventsList;
@@ -501,7 +505,7 @@ class _$_Loaded implements _Loaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Loaded &&
+            other is _$LoadedImpl &&
             (identical(other.calendarFormat, calendarFormat) ||
                 other.calendarFormat == calendarFormat) &&
             const DeepCollectionEquality()
@@ -515,8 +519,8 @@ class _$_Loaded implements _Loaded {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
-      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -591,11 +595,11 @@ abstract class _Loaded implements CalendarFormatState {
   const factory _Loaded(
       {required final CalendarFormat calendarFormat,
       required final Map<DateTime, List<Map<String, dynamic>>>
-          eventsList}) = _$_Loaded;
+          eventsList}) = _$LoadedImpl;
 
   CalendarFormat get calendarFormat;
   Map<DateTime, List<Map<String, dynamic>>> get eventsList;
   @JsonKey(ignore: true)
-  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

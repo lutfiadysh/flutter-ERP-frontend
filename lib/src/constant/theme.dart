@@ -5,6 +5,7 @@ class ThemeClass {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     isDark = isDarkTheme;
     return ThemeData(
+      splashFactory: NoSplash.splashFactory,
       useMaterial3: true,
       fontFamily: "Nunito",
       applyElevationOverlayColor: false,

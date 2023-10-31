@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:admin_dashboard/proy/providers/auth_provider.dart';
 import 'package:admin_dashboard/proy/providers/login_form_provider.dart';
@@ -54,7 +56,7 @@ class _LoginOneState extends State<LoginOne> {
                     alignment: Alignment.center,
                     children: [
                       Image.asset(
-                        Images.authBG,
+                        Images.c1,
                         height: MediaQuery.of(context).size.height,
                         width: MediaQuery.of(context).size.width,
                         fit: BoxFit.cover,
@@ -67,33 +69,45 @@ class _LoginOneState extends State<LoginOne> {
                           FxBox.h20,
                           Center(
                             child: Container(
-                              constraints: const BoxConstraints(
-                                maxWidth: 460,
-                              ),
-                              padding: Responsive.isMobile(context)
-                                  ? const EdgeInsets.all(32)
-                                  : const EdgeInsets.all(40),
-                              decoration: BoxDecoration(
-                                color: isDark
-                                    ? ColorConst.cardDark
-                                    : ColorConst.white,
-                                border: Border.all(
-                                  color: isDark
-                                      ? ColorConst.cardDark
-                                      : ColorConst.white,
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 16),
+                              child: ClipRRect(
+                                child: BackdropFilter(
+                                  filter: ImageFilter.blur(
+                                      sigmaX: 10.0, sigmaY: 10.0),
+                                  child: Container(
+                                    constraints: const BoxConstraints(
+                                      maxWidth: 460,
+                                    ),
+                                    padding: Responsive.isMobile(context)
+                                        ? const EdgeInsets.all(32)
+                                        : const EdgeInsets.all(40),
+                                    decoration: BoxDecoration(
+                                      color: isDark
+                                          ? ColorConst.cardDark
+                                          : Colors.grey.shade200
+                                              .withOpacity(0.5),
+                                      border: Border.all(
+                                        color: isDark
+                                            ? ColorConst.cardDark
+                                            : ColorConst.white,
+                                      ),
+                                      borderRadius: BorderRadius.circular(24),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        _logoView(),
+                                        FxBox.h16,
+                                        ConstantAuth.headerView(
+                                            "Bienvenido de nuevo!",
+                                            'Inicie sesión en su cuenta para continuar',
+                                            context),
+                                        _bottomView(
+                                            authProvider, loginFormProvider),
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                                borderRadius: BorderRadius.circular(24),
-                              ),
-                              child: Column(
-                                children: [
-                                  _logoView(),
-                                  FxBox.h16,
-                                  ConstantAuth.headerView(
-                                      "Bienvenido de nuevo!",
-                                      'Inicie sesión en su cuenta para continuar',
-                                      context),
-                                  _bottomView(authProvider, loginFormProvider),
-                                ],
                               ),
                             ),
                           ),
@@ -169,6 +183,8 @@ class _LoginOneState extends State<LoginOne> {
 
   Widget _usernameTextBoxWidget(LoginFormProvider loginFormProvider) {
     return CustomTextField(
+      inputDecoration:
+          const InputDecoration(enabledBorder: UnderlineInputBorder()),
       hintText: 'Introduce el correo electrónico',
       validator: (value) {
         value = value!.trim();
@@ -186,6 +202,8 @@ class _LoginOneState extends State<LoginOne> {
 
   Widget _passwordTextBoxWidget(LoginFormProvider loginFormProvider) {
     return CustomTextField(
+      inputDecoration:
+          const InputDecoration(enabledBorder: UnderlineInputBorder()),
       obsecureText: _obscureText,
       hintText: 'Introduce la contraseña',
       onChanged: (value) => loginFormProvider.password = value,
